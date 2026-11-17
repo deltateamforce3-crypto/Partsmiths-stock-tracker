@@ -1,0 +1,32 @@
+{
+  "watchlist": ["NVDA", "AVGO", "AMD", "MSFT", "AAPL", "AMZN", "GOOG", "META", "TSLA", "DIS", "PLTR", "INTC", "JPM", "WMT"],
+  "indices": [
+    {"sym": "SPY", "name": "S&P 500 (SPY)"},
+    {"sym": "DIA", "name": "Dow (DIA)"},
+    {"sym": "QQQ", "name": "Nasdaq-100 (QQQ)"},
+    {"sym": "IWM", "name": "Russell 2000 (IWM)"}
+  ],
+  "macro": [
+    {"sym": "TLT", "k": "Long Treasuries (TLT)"},
+    {"sym": "UUP", "k": "US dollar (UUP)"},
+    {"sym": "USO", "k": "Oil (USO)"},
+    {"sym": "GLD", "k": "Gold (GLD)"},
+    {"sym": "IBIT", "k": "Bitcoin (IBIT)"}
+  ],
+  "tags": {
+    "ai": ["NVDA", "AVGO", "AMD", "PLTR", "INTC", "MSFT", "GOOG", "META"],
+    "mega": ["NVDA", "AVGO", "MSFT", "AAPL", "AMZN", "GOOG", "META", "TSLA", "JPM", "WMT"]
+  },
+  "picks": {
+    "count": 3,
+    "reddit_candidates": 25,
+    "stocktwits_candidates": 15,
+    "min_market_cap_millions": 2000,
+    "min_price": 5,
+    "weights": {"Catalyst": 0.30, "Price action": 0.25, "Crowd": 0.25, "Institutional": 0.20}
+  },
+  "history_days": 30,
+  "research_links": [
+    {"name": "Charles Schwab — Schwab Market Update (daily)", "url": "https://www.schwab.com/learn/story/schwab-market-update"}
+  ]
+}

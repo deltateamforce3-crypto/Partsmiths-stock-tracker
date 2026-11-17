@@ -1,0 +1,664 @@
+{
+  "snapshot": "2026-11-17T17:05:00-05:00",
+  "session": "Tue 17 Nov 2026",
+  "picksFor": "Wed 18 Nov 2026",
+  "nextRefresh": "GitHub Actions · every 15 min in market hours",
+  "headline": "AI jitters drag stocks before Nvidia; the beat lands after the bell",
+  "summary": "The S&P 500 fell 1.03% to its lowest close since late July and the Dow lost about 849 points, with decliners outnumbering advancers nearly 3 to 1. After the close Nvidia reported revenue of $115.8B (+103% y/y) and guided to about $130B for next quarter; shares traded about 4.4% higher after hours.",
+  "summarySrc": [
+    "fool",
+    "cnbc",
+    "ap",
+    "stocktwitsNVDA"
+  ],
+  "indices": [
+    {
+      "sym": "SPX",
+      "name": "S&P 500",
+      "last": 7340.53,
+      "chg": -76.06,
+      "pct": -1.03,
+      "src": "fool"
+    },
+    {
+      "sym": "DJI",
+      "name": "Dow",
+      "last": 50759.42,
+      "chg": -848.75,
+      "pct": -1.64,
+      "src": "cnbc"
+    },
+    {
+      "sym": "IXIC",
+      "name": "Nasdaq",
+      "last": 24328.38,
+      "chg": -181.37,
+      "pct": -0.74,
+      "src": "fool"
+    },
+    {
+      "sym": "RUT",
+      "name": "Russell 2000",
+      "last": 2701.87,
+      "chg": -41.07,
+      "pct": -1.5,
+      "src": "ap"
+    }
+  ],
+  "macro": [
+    {
+      "k": "10Y yield",
+      "v": "5.14%",
+      "d": "+0.02",
+      "dir": 1,
+      "src": "schwab",
+      "asof": "9:11 AM"
+    },
+    {
+      "k": "VIX",
+      "v": "23.11",
+      "d": "+0.87%",
+      "dir": 1,
+      "src": "schwab",
+      "asof": "9:11 AM"
+    },
+    {
+      "k": "DXY",
+      "v": "103.70",
+      "d": "+0.15%",
+      "dir": 1,
+      "src": "schwab",
+      "asof": "9:11 AM"
+    },
+    {
+      "k": "WTI",
+      "v": "$86.93",
+      "d": "+1.40%",
+      "dir": 1,
+      "src": "schwab",
+      "asof": "9:11 AM"
+    },
+    {
+      "k": "Gold",
+      "v": "$3,850",
+      "d": "−0.08%",
+      "dir": -1,
+      "src": "schwab",
+      "asof": "9:11 AM"
+    },
+    {
+      "k": "Bitcoin",
+      "v": "$64,292",
+      "d": "−1.5%",
+      "dir": -1,
+      "src": "fool",
+      "asof": "4:00 PM"
+    }
+  ],
+  "history": {
+    "note": "Daily closes. S&P 500 close for Nov 12 was not captured in the sources, so that point is left as a gap. Nov 13 closes are derived from the Nov 16 close minus Schwab's reported Nov 16 change.",
+    "dates": [
+      "Nov 9",
+      "Nov 10",
+      "Nov 11",
+      "Nov 12",
+      "Nov 13",
+      "Nov 16",
+      "Nov 17"
+    ],
+    "series": [
+      {
+        "sym": "SPX",
+        "name": "S&P 500",
+        "values": [
+          7549.94,
+          7520.93,
+          7619.38,
+          null,
+          7561.67,
+          7416.59,
+          7340.53
+        ]
+      },
+      {
+        "sym": "DJI",
+        "name": "Dow",
+        "values": [
+          52389.75,
+          52231.89,
+          52486.49,
+          52297.09,
+          52347.55,
+          51608.17,
+          50759.42
+        ]
+      },
+      {
+        "sym": "IXIC",
+        "name": "Nasdaq",
+        "values": [
+          25253.14,
+          25065.87,
+          25466.19,
+          25366.09,
+          25136.27,
+          24509.76,
+          24328.38
+        ]
+      }
+    ],
+    "src": [
+      "zacks10",
+      "zacks11",
+      "reuters11",
+      "zacks13",
+      "schwab",
+      "fool",
+      "cnbc"
+    ]
+  },
+  "watchlist": [
+    {
+      "sym": "NVDA",
+      "name": "Nvidia",
+      "px": 155.46,
+      "pct": -0.44,
+      "ah": 162.34,
+      "ahPct": 4.43,
+      "tags": [
+        "ai",
+        "mega",
+        "social"
+      ],
+      "src": "fool",
+      "note": "Fiscal Q3 after the close: revenue $115.8B (+103% y/y), data center $107.6B (+110%), Q4 guide ≈ $130B. First report since Jensen Huang resigned; CFO Colette Kress is interim CEO.",
+      "noteSrc": [
+        "fool",
+        "schwab"
+      ],
+      "facts": [
+        [
+          "52-wk range",
+          "$148.80 – $243.37"
+        ],
+        [
+          "P/E",
+          "19.7"
+        ],
+        [
+          "Mkt cap",
+          "$3.76T"
+        ],
+        [
+          "From Oct 6 peak",
+          "≈ −36%"
+        ]
+      ],
+      "factsSrc": [
+        "stocktwitsNVDA",
+        "schwab"
+      ]
+    },
+    {
+      "sym": "AVGO",
+      "name": "Broadcom",
+      "px": 341.6,
+      "pct": 2.46,
+      "tags": [
+        "ai",
+        "mega"
+      ],
+      "src": "fool",
+      "note": "Closed up 2.46% on a day the S&P 500 fell 1%; Reddit chatter on AVGO, AMD and MU skewed bullish.",
+      "noteSrc": [
+        "fool",
+        "reddit247"
+      ]
+    },
+    {
+      "sym": "DIS",
+      "name": "Walt Disney",
+      "px": 118.97,
+      "pct": null,
+      "stale": "Nov 13 close",
+      "tags": [
+        "value"
+      ],
+      "src": "benzingaDIS",
+      "note": "Beat on earnings and revenue; Entertainment revenue +17% y/y; guidance above expectations. Shares were down ≈2% early Tuesday despite the beat. Tuesday's close was not captured.",
+      "noteSrc": [
+        "schwab",
+        "cnbc"
+      ],
+      "facts": [
+        [
+          "52-wk range",
+          "$92.19 – $120.80"
+        ],
+        [
+          "Beta",
+          "0.95"
+        ],
+        [
+          "Consensus",
+          "Moderate Buy"
+        ],
+        [
+          "Avg. target",
+          "$127.39"
+        ]
+      ],
+      "factsSrc": [
+        "tipranksDIS",
+        "marketbeatDIS"
+      ]
+    },
+    {
+      "sym": "AMD",
+      "name": "Advanced Micro Devices",
+      "px": 503.41,
+      "pct": -0.17,
+      "tags": [
+        "ai",
+        "social"
+      ],
+      "src": "fool",
+      "note": "Among the five most-buzzed names on X and r/WallStreetBets for the week of Nov 9–13.",
+      "noteSrc": [
+        "benzingaBuzz"
+      ]
+    },
+    {
+      "sym": "MSFT",
+      "name": "Microsoft",
+      "px": 506.24,
+      "pct": -2.27,
+      "tags": [
+        "mega"
+      ],
+      "src": "fool",
+      "note": "Fell 2.3% as software selling spread.",
+      "noteSrc": [
+        "cappnotes"
+      ]
+    },
+    {
+      "sym": "AAPL",
+      "name": "Apple",
+      "px": 351.91,
+      "pct": -0.25,
+      "tags": [
+        "mega"
+      ],
+      "src": "fool"
+    },
+    {
+      "sym": "AMZN",
+      "name": "Amazon",
+      "px": 257.89,
+      "pct": 0.05,
+      "tags": [
+        "mega"
+      ],
+      "src": "fool"
+    },
+    {
+      "sym": "GOOG",
+      "name": "Alphabet",
+      "px": 277.6,
+      "pct": -1.3,
+      "tags": [
+        "mega"
+      ],
+      "src": "fool"
+    },
+    {
+      "sym": "META",
+      "name": "Meta Platforms",
+      "px": 618.87,
+      "pct": -1.2,
+      "tags": [
+        "mega"
+      ],
+      "src": "fool"
+    },
+    {
+      "sym": "TSLA",
+      "name": "Tesla",
+      "px": 380.11,
+      "pct": 0.1,
+      "tags": [
+        "mega",
+        "social"
+      ],
+      "src": "fool"
+    },
+    {
+      "sym": "SPCX",
+      "name": "SpaceX",
+      "px": 141.7,
+      "pct": 3.16,
+      "tags": [
+        "social"
+      ],
+      "src": "fool",
+      "note": "Reported $4B bond sale this week; Stocktwits retail sentiment 'bullish' over the past 24 hours.",
+      "noteSrc": [
+        "yahooSPCX"
+      ]
+    },
+    {
+      "sym": "PLTR",
+      "name": "Palantir",
+      "px": null,
+      "pct": -2.39,
+      "tags": [
+        "ai"
+      ],
+      "src": "cappnotes",
+      "note": "Fell with the broader software sell-off."
+    },
+    {
+      "sym": "INTC",
+      "name": "Intel",
+      "px": null,
+      "pct": -0.54,
+      "tags": [
+        "ai"
+      ],
+      "src": "cappnotes",
+      "note": "Nvidia disclosed it cut its Intel stake by 25% (≈ $5.5B of shares)."
+    },
+    {
+      "sym": "BILL",
+      "name": "BILL Holdings",
+      "px": null,
+      "pct": 12.58,
+      "tags": [],
+      "src": "cappnotes",
+      "note": "Surged on reports TPG is nearing a take-private deal."
+    }
+  ],
+  "picks": [
+    {
+      "sym": "NVDA",
+      "role": "Earnings catalyst",
+      "risk": "high",
+      "thesis": [
+        "Revenue $115.8B (+103% y/y) and a ≈$130B next-quarter guide, both above Street expectations.",
+        "Stock went into the print ≈36% below its Oct 6 peak at a 19.7 P/E, so the beat lands on a reset valuation.",
+        "Most-discussed ticker on Stocktwits (≈68.8K mentions) and retail dip-buyers were already returning."
+      ],
+      "risks": "Leadership turmoil after the CEO's resignation, a California AG investigation, and three analyst downgrades last week. After-hours gains can fade at the open.",
+      "scores": {
+        "Catalyst": 9,
+        "Price action": 7,
+        "Crowd": 9,
+        "Institutional": 6
+      },
+      "src": [
+        "fool",
+        "schwab",
+        "stocktwitsNVDA",
+        "altStocktwits",
+        "axios",
+        "benzingaBuzz"
+      ]
+    },
+    {
+      "sym": "AVGO",
+      "role": "Relative strength",
+      "risk": "high",
+      "thesis": [
+        "Closed +2.46% while the S&P 500 fell 1.03% — the kind of strength that holds up on a risk-off day.",
+        "Nvidia's guide supports the AI-capex spending Broadcom also sells into; Schwab tracks capex as the first signpost of the AI cycle.",
+        "Reddit sentiment on AVGO skewed bullish, while the crowd stayed split on NVDA itself."
+      ],
+      "risks": "Semis are swinging hard: the Philadelphia Semiconductor Index fell 5.28% on Monday. Ten-year yields at 5.14% pressure richly valued growth stocks.",
+      "scores": {
+        "Catalyst": 6,
+        "Price action": 8,
+        "Crowd": 7,
+        "Institutional": 6
+      },
+      "src": [
+        "fool",
+        "schwab",
+        "schwabAI",
+        "reddit247",
+        "moomoo"
+      ]
+    },
+    {
+      "sym": "DIS",
+      "role": "Non-AI diversifier",
+      "risk": "mod",
+      "thesis": [
+        "Beat on earnings and revenue, Entertainment revenue +17% y/y, and guidance above expectations.",
+        "Sold off ≈2% early despite the beat, which creates a possible entry for a stock that doesn't trade on AI headlines.",
+        "Analysts lean Moderate Buy with an average target of $127.39; beta of 0.95 is lower than the AI leaders'."
+      ],
+      "risks": "Tuesday's close wasn't captured — check the live price first. Hot inflation (October PPI +6.5% y/y) and Fed officials openly discussing rate hikes weigh on consumer spending.",
+      "scores": {
+        "Catalyst": 7,
+        "Price action": 4,
+        "Crowd": 5,
+        "Institutional": 8
+      },
+      "src": [
+        "schwab",
+        "cnbc",
+        "marketbeatDIS",
+        "tipranksDIS",
+        "benzingaDIS",
+        "newsonair",
+        "reuters12"
+      ]
+    }
+  ],
+  "sentiment": [
+    {
+      "platform": "Reddit",
+      "detail": "Trading subreddits (24/7 Wall St. Reddit Radar, Nov 9)",
+      "tickers": "NVDA · AMD · MU · AVGO · CVS",
+      "lean": "split",
+      "read": "NVDA drew 204 comments with the crowd divided; AMD, Micron and Broadcom skewed bullish; CVS bearish after its breakup plan.",
+      "src": "reddit247"
+    },
+    {
+      "platform": "Reddit + X",
+      "detail": "r/WallStreetBets and X, week of Nov 9–13 (Benzinga)",
+      "tickers": "NVDA · AMD · TSLA · CSCO · CRWV",
+      "lean": "info",
+      "read": "The five most-buzzed names, driven by earnings, AI-infrastructure momentum and the Nvidia leadership shock.",
+      "src": "benzingaBuzz"
+    },
+    {
+      "platform": "Stocktwits",
+      "detail": "Most-discussed tickers (AltIndex)",
+      "tickers": "NVDA · SPY · QQQ · CRWV · NBIS · AMD · SPCX",
+      "lean": "bull",
+      "read": "NVDA leads by a wide margin with ≈68.8K mentions; Bitcoin mentions jumped 43% in a day.",
+      "src": "altStocktwits"
+    },
+    {
+      "platform": "Retail flow",
+      "detail": "Options and order flow (Axios, Reuters/Vanda)",
+      "tickers": "NVDA",
+      "lean": "bull",
+      "read": "Dip-buyers returned to Nvidia; retail bought ≈$111M of NVDA in the first half hour on Nov 12, the stock's biggest opening bid on record.",
+      "src": "axios"
+    },
+    {
+      "platform": "Schwab clients",
+      "detail": "Schwab retail client survey (Nov 9)",
+      "tickers": "Broad market",
+      "lean": "bear",
+      "read": "Only 19% of surveyed Schwab retail clients were bullish on equities for November (17% in October).",
+      "src": "schwabSTAX"
+    },
+    {
+      "platform": "Schwab strategy",
+      "detail": "Liz Ann Sonders & Kevin Gordon (Nov 4)",
+      "tickers": "Sector leadership",
+      "lean": "info",
+      "read": "Leadership is rotating unusually fast; Energy was the best-performing sector over the trailing 12 months and Communication Services the worst.",
+      "src": "schwabSonders"
+    }
+  ],
+  "macroNotes": [
+    {
+      "t": "October retail sales rose 0.2% vs. 0.3% expected; ex-autos rose 0.6% vs. 0.1%.",
+      "src": "schwab"
+    },
+    {
+      "t": "October PPI rose 6.5% year over year, the sharpest annual increase since November 2022.",
+      "src": "newsonair"
+    },
+    {
+      "t": "Several Fed officials signalled openness to a more aggressive path of rate hikes.",
+      "src": "reuters12"
+    }
+  ],
+  "calendar": [
+    {
+      "d": "Wed 18 Nov",
+      "items": [
+        "Housing starts & permits",
+        "FOMC minutes",
+        "TJX, Lowe's, Target, PDD (AM)",
+        "Palo Alto Networks (PM)"
+      ]
+    },
+    {
+      "d": "Thu 19 Nov",
+      "items": [
+        "Leading Economic Indicators",
+        "Walmart, Alibaba, NetEase (AM)",
+        "Intuit, Ross, Gap (PM)",
+        "Anthropic expected to begin trading (WSJ)"
+      ]
+    },
+    {
+      "d": "Fri 20 Nov",
+      "items": [
+        "UMich consumer sentiment (final)",
+        "BJ's Wholesale (AM)"
+      ]
+    },
+    {
+      "d": "Mon 23 Nov",
+      "items": [
+        "HPE, Zoom (PM)"
+      ]
+    },
+    {
+      "d": "Tue 24 Nov",
+      "items": [
+        "Consumer Confidence",
+        "Medtronic, Best Buy, ADI (AM)",
+        "Dell, Workday, Autodesk (PM)"
+      ]
+    }
+  ],
+  "calendarSrc": "schwab",
+  "sources": {
+    "ap": {
+      "name": "AP via WTOP — How major US stock indexes fared 11/17/2026",
+      "url": "https://wtop.com/national/2026/11/how-major-us-stock-indexes-fared-tuesday-11-17-2026"
+    },
+    "fool": {
+      "name": "Motley Fool — Stock Market Today, Nov. 17",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/17/stock-market-today-nov-17-nvidia-slides-ahead-of-earnings-but-soars-in-after-hours-trading/"
+    },
+    "cnbc": {
+      "name": "CNBC — Stock market news for Nov. 17, 2026",
+      "url": "https://www.cnbc.com/2026/11/16/stock-market-today-live-updates.html"
+    },
+    "schwab": {
+      "name": "Charles Schwab — Schwab Market Update (Nov 17, 9:11 AM ET)",
+      "url": "https://www.schwab.com/learn/story/schwab-market-update"
+    },
+    "schwabAI": {
+      "name": "Charles Schwab — AI innovation cycle: scenarios and signposts",
+      "url": "https://www.schwab.com/learn/story/ai-innovation-cycle-scenarios-and-signposts"
+    },
+    "schwabSonders": {
+      "name": "Charles Schwab — Spinning wheel: what goes up (Sonders, Gordon)",
+      "url": "https://www.schwab.com/learn/story/spinning-wheel-what-goes-up"
+    },
+    "schwabSTAX": {
+      "name": "Schwab Pressroom — STAX rises in October despite AI selloff",
+      "url": "https://pressroom.aboutschwab.com/press-releases/press-release/2026/Schwab-Trading-Activity-Index-STAX-Score-Rises-in-October-Despite-AI-Selloff/default.aspx"
+    },
+    "stocktwitsNVDA": {
+      "name": "Stocktwits — NVDA symbol page",
+      "url": "https://stocktwits.com/symbol/NVDA"
+    },
+    "altStocktwits": {
+      "name": "AltIndex — Top Stocktwits stocks",
+      "url": "https://altindex.com/stocktwits-stocks"
+    },
+    "reddit247": {
+      "name": "24/7 Wall St. — Reddit Radar, Nov 9",
+      "url": "https://247wallst.com/cards/nvidia-owns-the-conversation-with-204-comments-and-the-room-nvda-reddit-radar-01m70bthesj809a5f72jyzt256"
+    },
+    "benzingaBuzz": {
+      "name": "Benzinga — 5 stocks investors couldn't stop buzzing about (Nov 9–13)",
+      "url": "https://www.benzinga.com/markets/equities/26/11/63273727/nvda-amd-crwv-and-more-5-stocks-investors-couldnt-stop-buzzing-about-this-week"
+    },
+    "axios": {
+      "name": "Axios — Nvidia dip buyers are trickling back",
+      "url": "https://www.axios.com/2026/11/16/nvidia-stocks-options-retail"
+    },
+    "yahooSPCX": {
+      "name": "Yahoo Finance — SPCX stock in focus",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/spcx-stock-focus-spacex-reportedly-180704362.html"
+    },
+    "cappnotes": {
+      "name": "Capp Notes — Closing Look, Nov 17",
+      "url": "https://cappnotes.substack.com/p/closing-look-tuesday-november-17"
+    },
+    "moomoo": {
+      "name": "Moomoo — Nov 17 watchlist (SOX −5.28% Nov 16)",
+      "url": "https://www.moomoo.com/community/feed/nov-17-2026-tuesday-stock-watchlist-117628681256965"
+    },
+    "benzingaDIS": {
+      "name": "Benzinga — DIS chart (Nov 13 close)",
+      "url": "https://www.benzinga.com/quote/DIS/charts"
+    },
+    "marketbeatDIS": {
+      "name": "MarketBeat — DIS analyst consensus",
+      "url": "https://www.marketbeat.com/stocks/NYSE/DIS/"
+    },
+    "tipranksDIS": {
+      "name": "TipRanks — DIS stats",
+      "url": "https://www.tipranks.com/stocks/dis/price-target"
+    },
+    "newsonair": {
+      "name": "News On AIR — US markets ended mixed (PPI)",
+      "url": "https://newsonair.gov.in/us-markets-ended-on-mixed-note/"
+    },
+    "reuters12": {
+      "name": "Reuters via The Senior — Equities lower as Nvidia drop outweighs energy",
+      "url": "https://www.thesenior.com.au/story/9390934/equities-lower-as-nvidia-drop-outweighs-energy-gains/"
+    },
+    "reuters11": {
+      "name": "Reuters via The Senior — Stocks end higher as S&P 500, Nasdaq rally",
+      "url": "https://www.thesenior.com.au/story/9390211/stocks-end-higher-as-sp-500-nasdaq-rally/"
+    },
+    "zacks10": {
+      "name": "Zacks — Stock Market News for Nov 10, 2026",
+      "url": "https://www.zacks.com/stock/news/3026944/stock-market-news-for-nov-10-2026"
+    },
+    "zacks11": {
+      "name": "Zacks — Stock Market News for Nov 11, 2026",
+      "url": "https://www.zacks.com/stock/news/3027683/stock-market-news-for-nov-11-2026"
+    },
+    "zacks13": {
+      "name": "Zacks — Stock Market News for Nov 13, 2026",
+      "url": "https://www.zacks.com/stock/news/3029203/stock-market-news-for-nov-13-2026"
+    }
+  },
+  "mode": "seed"
+}
