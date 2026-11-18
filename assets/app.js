@@ -52,6 +52,7 @@
   $('#ribbon').innerHTML = `
     <div class="rb-group"><div class="rb-items">${idx}</div><div class="rb-label">Indices · close ${esc(D.session)}</div></div>
     <div class="rb-group"><div class="rb-items">${mac}</div><div class="rb-label">Rates, FX &amp; commodities</div></div>
+    ${D.fearGreed ? (() => { const f = D.fearGreed, chg = f.prevClose == null ? null : f.score - f.prevClose; return `<div class="rb-group"><div class="rb-items"><a class="readout sm" href="${esc(D.sources['cnn-fg'] ? D.sources['cnn-fg'].url : 'https://www.cnn.com/markets/fear-and-greed')}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none" title="CNN Business Fear &amp; Greed Index: 0 = extreme fear, 100 = extreme greed"><span class="k">Fear &amp; Greed</span><span class="v">${f.score} <span style="font-size:.8em;font-weight:500" class="${f.score < 45 ? 'down' : f.score > 55 ? 'up' : 'flat'}">${esc(f.rating)}</span></span><span class="d ${chg == null ? 'flat' : cls(chg)}">${chg == null ? '' : (chg > 0 ? '+' : chg < 0 ? '−' : '±') + Math.abs(chg) + ' vs. prev. close'}</span></a></div><div class="rb-label">CNN mood gauge</div></div>`; })() : ''}
     <div class="rb-group"><div class="rb-items">
       <a class="rb-btn" href="#picks"><svg class="ic"><use href="#i-target"/></svg><span>Picks</span></a>
       <a class="rb-btn" href="#tape"><svg class="ic"><use href="#i-chart"/></svg><span>Tape</span></a>
@@ -162,13 +163,14 @@
     </section>
 
     <section class="card" id="sentiment">
-      <div class="card-head"><div><div class="eyebrow">Crowd &amp; institutions</div><h2>Social &amp; Schwab sentiment</h2></div><div class="sub">${D.mode === 'auto' ? 'Reddit, Stocktwits, analysts and Schwab research' : 'Reddit, X, Stocktwits, retail flow and Schwab research'}</div></div>
+      <div class="card-head"><div><div class="eyebrow">Crowd &amp; institutions</div><h2>Market mood &amp; social sentiment</h2></div><div class="sub">${D.mode === 'auto' ? 'CNN, Reddit communities, Stocktwits, analysts and Schwab research' : 'Reddit, X, Stocktwits, retail flow and Schwab research'}</div></div>
       <div class="scroll"><table>
         <thead><tr><th>Platform</th><th>Tickers</th><th>Lean</th><th>What it says</th><th>Source</th></tr></thead>
         <tbody>${D.sentiment.map(s => `<tr><td><div class="tick">${esc(s.platform)}</div><div class="sub" style="font-size:.82rem">${esc(s.detail)}</div></td><td class="tick" style="white-space:nowrap">${esc(s.tickers)}</td><td><span class="lean ${s.lean}">${lean[s.lean]}</span></td><td>${esc(s.read)}</td><td><span class="srcs">${src(s.src)}</span></td></tr>`).join('')}</tbody>
       </table></div>
       <div class="card-body note" style="border-top:1px solid var(--line)">
-        <p><b style="color:var(--ink)">Macro backdrop.</b></p>
+        <p><b style="color:var(--ink)">${D.mode === 'auto' ? 'Market headlines' : 'Macro backdrop'}.</b>${D.mode === 'auto' ? ' From established outlets in the last 24 hours, one per outlet.' : ''}</p>
+        ${D.macroNotes.length ? '' : '<p>No headlines from established outlets yet. They arrive with the 3 PM update.</p>'}
         ${D.macroNotes.map(m => `<p>• ${esc(m.t)} <span class="srcs" style="display:inline-flex">${src(m.src)}</span></p>`).join('')}
       </div>
     </section>

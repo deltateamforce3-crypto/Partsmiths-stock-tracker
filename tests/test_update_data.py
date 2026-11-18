@@ -25,7 +25,7 @@ class FakeHttp(ud.Http):
         super().__init__("test-key", min_interval=0)
         self.now = datetime(2026, 11, 18, 10, 0, tzinfo=ud.ET).timestamp()
 
-    def get(self, url, params=None, retries=2):
+    def get(self, url, params=None, retries=2, headers=None):
         self.calls += 1
         if url == ud.APEWISDOM:
             return {"results": [
@@ -34,6 +34,15 @@ class FakeHttp(ud.Http):
                 {"rank": 3, "ticker": "HOOD", "name": "Robinhood", "mentions": 300, "mentions_24h_ago": 100, "upvotes": 900},
                 {"rank": 4, "ticker": "TINY", "name": "Tiny Bio", "mentions": 250, "mentions_24h_ago": 20, "upvotes": 100},
             ]}
+        if url == ud.APEWISDOM_SUB.format("wallstreetbets"):
+            return {"results": [
+                {"rank": 1, "ticker": "NVDA", "name": "Nvidia", "mentions": 600, "mentions_24h_ago": 300, "upvotes": 3000},
+                {"rank": 2, "ticker": "GME", "name": "GameStop", "mentions": 200, "mentions_24h_ago": 20, "upvotes": 800},
+            ]}
+        if url == ud.CNN_FG:
+            return {"fear_and_greed": {"score": 25.17, "rating": "fear", "timestamp": "2026-11-18T01:00:00+00:00",
+                                       "previous_close": 25.2, "previous_1_week": 35.9, "previous_1_month": 18.2,
+                                       "previous_1_year": 8.9}}
         if url == ud.STOCKTWITS:
             return {"symbols": [{"symbol": "HOOD"}, {"symbol": "NVDA"}, {"symbol": "SPY"}]}
         return None
@@ -60,6 +69,13 @@ class FakeHttp(ud.Http):
             n = sum(map(ord, s)) % 4
             return [{"id": i + hash(s) % 1000, "headline": f"{s} headline {i}", "url": f"https://example.com/{s}/{i}",
                      "source": "Reuters", "datetime": int(self.now) - 3600 * (i + 1)} for i in range(n)]
+        if path == "/news":
+            t = int(self.now)
+            return [{"id": 1, "headline": "Blog take on stocks", "url": "https://example.com/b", "source": "SomeBlog", "datetime": t - 60},
+                    {"id": 2, "headline": "Stocks slide as yields rise", "url": "https://example.com/r", "source": "Reuters", "datetime": t - 7200},
+                    {"id": 3, "headline": "Fed minutes due", "url": "https://example.com/c", "source": "CNBC", "datetime": t - 3600},
+                    {"id": 4, "headline": "Second Reuters story", "url": "https://example.com/r2", "source": "Reuters", "datetime": t - 600},
+                    {"id": 5, "headline": "Old news", "url": "https://example.com/o", "source": "Reuters", "datetime": t - 3 * 86400}]
         if path == "/calendar/earnings":
             return {"earningsCalendar": [{"symbol": "WMT", "date": "2026-11-19", "hour": "bmo"},
                                          {"symbol": "XYZ", "date": "2026-11-19", "hour": "amc"}]}
@@ -91,14 +107,38 @@ class BuildTests(unittest.TestCase):
             self.assertTrue(1 <= len(p["thesis"]) <= 3)
             for s in p["src"]:
                 self.assertIn(s, d["sources"], f"source {s} must resolve")
-        self.assertTrue(any(r["platform"] == "Reddit" for r in d["sentiment"]))
+        plats = [r["platform"] for r in d["sentiment"]]
+        self.assertIn("Reddit (all)", plats)
+        self.assertIn("r/wallstreetbets", plats)
+        self.assertNotIn("r/stocks", plats, "communities with no data are skipped, not shown empty")
+        self.assertEqual(plats[0], "CNN Business")
         self.assertEqual(d["calendar"][0]["items"], ["WMT AM"])
         json.dumps(d)  # serialisable
+
+    def test_cnn_fear_greed_and_headlines(self):
+        d = self.run_build("full")
+        self.assertEqual(d["fearGreed"]["score"], 25)
+        self.assertEqual(d["fearGreed"]["rating"], "Fear")
+        self.assertIn("Fear & Greed Index reads 25 (Fear)", d["summary"])
+        cnn = d["sentiment"][0]
+        self.assertEqual(cnn["lean"], "bear")
+        self.assertIn("a week ago 36", cnn["read"])
+        # credible outlets only, one per outlet, newest first within an outlet, nothing older than 24h
+        heads = [n["t"] for n in d["macroNotes"]]
+        self.assertEqual(heads, ["Second Reuters story (Reuters)", "Fed minutes due (CNBC)"])
+        for n in d["macroNotes"]:
+            self.assertIn(n["src"], d["sources"])
+
+    def test_cnn_failure_is_soft(self):
+        http = FakeHttp()
+        http.get = lambda *a, **k: None
+        self.assertIsNone(ud.cnn_fear_greed(http))
+        self.assertEqual(ud.reddit_by_community(http), {})
 
     def test_every_src_reference_resolves(self):
         d = self.run_build("full")
         refs = set(d["summarySrc"]) | set(d["history"]["src"]) | {d["calendarSrc"]}
-        for coll in ("indices", "macro", "watchlist", "sentiment"):
+        for coll in ("indices", "macro", "watchlist", "sentiment", "macroNotes"):
             for row in d[coll]:
                 refs.add(row["src"])
                 refs.update(row.get("noteSrc", []))

@@ -80,12 +80,15 @@ GitHub may start scheduled runs a few minutes late. Scheduled workflows are also
 
 | Source | Used for | Key? |
 |---|---|---|
-| [Finnhub](https://finnhub.io) | Quotes, company profiles, analyst recommendations, company news, earnings calendar | Free key (60 calls/min) |
-| [ApeWisdom](https://apewisdom.io) | Reddit mentions and 24-hour change | None |
+| [Finnhub](https://finnhub.io) | Quotes, company profiles, analyst recommendations, company news, market headlines, earnings calendar | Free key (60 calls/min) |
+| [CNN Business Fear & Greed Index](https://www.cnn.com/markets/fear-and-greed) | Market mood, 0 (extreme fear) to 100 (extreme greed), with week/month/year comparisons | None. Read from the JSON behind CNN's chart; unofficial, so it fails soft |
+| [ApeWisdom](https://apewisdom.io) | Reddit mentions and 24-hour change, overall and per community (r/wallstreetbets, r/stocks, r/investing) | None |
 | [Stocktwits](https://stocktwits.com) | Trending symbols | None; may block cloud IPs, so it's optional |
 | [Charles Schwab](https://www.schwab.com/learn/story/schwab-market-update) | Linked as research context | Schwab has no public data API, so the site links to it instead of scraping it |
 
 Indices and macro use ETF proxies (SPY, DIA, QQQ, IWM, TLT, UUP, USO, GLD, IBIT) because Finnhub's free tier quotes listed securities, not index levels.
+
+Headlines are ranked by outlet: established newsrooms (Reuters, AP, Bloomberg, CNBC, CNN, MarketWatch, WSJ, Barron's, FT and similar) come first, and the market headlines list shows only those, one per outlet. Reddit posts are not read directly: Reddit closed its public `.json` and RSS access in 2026, so Reddit data is ApeWisdom's mention counts. Change the communities with `reddit_communities` in `config.json`.
 
 Every source fails soft. If one is down, the rest still update, and a **Data health** row in the sentiment table lists what failed.
 

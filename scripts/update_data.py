@@ -7,6 +7,13 @@ Sources
   * ApeWisdom (https://apewisdom.io) Reddit mention counts across r/wallstreetbets,
                                    r/stocks, r/investing and others. No key needed.
   * Stocktwits trending symbols    No key needed; often rate-limited, so it is optional.
+  * CNN Business Fear & Greed      CNN's 0-100 market-mood gauge (the JSON behind
+    (cnn.com/markets/fear-and-greed) its chart). No key needed; unofficial, so it fails soft.
+  * Finnhub market news            General market headlines; established outlets
+                                   (Reuters, CNBC, MarketWatch, AP …) are ranked first.
+
+Reddit posts themselves are not read: Reddit closed its public .json/RSS access in 2026.
+Reddit data comes from ApeWisdom, which counts ticker mentions per subreddit.
 
 Modes
   quotes  refresh prices, indices, macro proxies and index history (cheap, run often)
@@ -38,11 +45,24 @@ UA = "PartsmithMarkets/1.0 (+https://github.com)"
 FINNHUB = "https://finnhub.io/api/v1"
 APEWISDOM = "https://apewisdom.io/api/v1.0/filter/all-stocks/page/1"
 STOCKTWITS = "https://api.stocktwits.com/api/2/trending/symbols.json"
+APEWISDOM_SUB = "https://apewisdom.io/api/v1.0/filter/{}/page/1"
+CNN_FG = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
+BROWSER_UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/131.0 Safari/537.36")
+REDDIT_SUBS = ["wallstreetbets", "stocks", "investing"]
+
+# Outlets with editorial standards and corrections policies; ranked ahead of blogs and
+# aggregator-only pieces when choosing headlines. Matched case-insensitively on Finnhub's
+# "source" field.
+CREDIBLE = ["reuters", "associated press", "ap news", "bloomberg", "cnbc", "cnn", "marketwatch",
+            "wall street journal", "wsj", "barron", "financial times", "new york times", "axios",
+            "the economist", "fortune", "business insider", "forbes", "investopedia", "yahoo"]
 
 SOURCES = {
     "finnhub": {"name": "Finnhub — quotes, profiles, analyst trends, news", "url": "https://finnhub.io"},
     "apewisdom": {"name": "ApeWisdom — Reddit mention tracker", "url": "https://apewisdom.io"},
     "stocktwits": {"name": "Stocktwits — trending symbols", "url": "https://stocktwits.com/sentiment"},
+    "cnn-fg": {"name": "CNN Business — Fear & Greed Index", "url": "https://www.cnn.com/markets/fear-and-greed"},
 }
 
 
@@ -57,10 +77,10 @@ class Http:
         self.calls = 0
         self.errors: list[str] = []
 
-    def get(self, url: str, params: dict | None = None, retries: int = 2):
+    def get(self, url: str, params: dict | None = None, retries: int = 2, headers: dict | None = None):
         if params:
             url = f"{url}?{urllib.parse.urlencode(params)}"
-        req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+        req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json", **(headers or {})})
         for attempt in range(retries + 1):
             try:
                 with urllib.request.urlopen(req, timeout=20) as r:
@@ -186,8 +206,8 @@ def update_history(old_hist, cfg, quotes, day: date):
 
 
 # --------------------------------------------------------------------------- sentiment
-def reddit_mentions(http: Http):
-    data = http.get(APEWISDOM)
+def reddit_mentions(http: Http, url: str = APEWISDOM):
+    data = http.get(url)
     if not data or "results" not in data:
         return []
     rows = []
@@ -202,6 +222,70 @@ def reddit_mentions(http: Http):
         except (KeyError, TypeError, ValueError):
             continue
     return rows
+
+
+def reddit_by_community(http: Http, subs=REDDIT_SUBS):
+    """Top tickers per subreddit, from ApeWisdom's per-community counts."""
+    out = {}
+    for sub in subs:
+        rows = reddit_mentions(http, APEWISDOM_SUB.format(sub))
+        if rows:
+            out[sub] = rows
+    return out
+
+
+def cnn_fear_greed(http: Http):
+    """CNN Business Fear & Greed Index: 0 = extreme fear, 100 = extreme greed."""
+    data = http.get(CNN_FG, headers={"User-Agent": BROWSER_UA, "Referer": "https://www.cnn.com/",
+                                     "Origin": "https://www.cnn.com"})
+    fg = (data or {}).get("fear_and_greed") or {}
+    try:
+        score = float(fg["score"])
+    except (KeyError, TypeError, ValueError):
+        return None
+
+    def num(k):
+        try:
+            return round(float(fg[k]))
+        except (KeyError, TypeError, ValueError):
+            return None
+    return {"score": round(score), "rating": str(fg.get("rating", "")).strip().title(),
+            "prevClose": num("previous_close"), "week": num("previous_1_week"),
+            "month": num("previous_1_month"), "year": num("previous_1_year"),
+            "asOf": fg.get("timestamp")}
+
+
+def fg_lean(score):
+    return "bear" if score < 45 else "bull" if score > 55 else "split"
+
+
+def credibility(source: str) -> int:
+    """Lower is more credible: index in CREDIBLE, or len(CREDIBLE) if unknown."""
+    s = (source or "").lower()
+    for i, name in enumerate(CREDIBLE):
+        if name in s:
+            return i
+    return len(CREDIBLE)
+
+
+def market_news(http: Http, limit=4):
+    """General market headlines from the last 24h, established outlets first, one per outlet."""
+    news = http.finnhub("/news", category="general")
+    if not isinstance(news, list):
+        return []
+    cutoff = time.time() - 24 * 3600
+    fresh = [n for n in news if n.get("datetime", 0) >= cutoff and n.get("headline") and n.get("url")]
+    fresh.sort(key=lambda n: (credibility(n.get("source")), -n["datetime"]))
+    out, seen = [], set()
+    for n in fresh:
+        src = (n.get("source") or "News").strip()
+        if src.lower() in seen or credibility(src) == len(CREDIBLE):
+            continue
+        seen.add(src.lower())
+        out.append(n)
+        if len(out) == limit:
+            break
+    return out
 
 
 def stocktwits_trending(http: Http):
@@ -230,7 +314,8 @@ def company_news(http: Http, sym, today: date):
         return []
     cutoff = time.time() - 36 * 3600
     fresh = [n for n in news if n.get("datetime", 0) >= cutoff and n.get("headline") and n.get("url")]
-    fresh.sort(key=lambda n: n["datetime"], reverse=True)
+    # established outlets first, then newest
+    fresh.sort(key=lambda n: (credibility(n.get("source")) == len(CREDIBLE), -n["datetime"]))
     return fresh
 
 
@@ -389,6 +474,9 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     data["macro"] = build_macro(cfg, quotes, asof)
     data["history"] = update_history(old.get("history") if old.get("mode") == "auto" else None, cfg, quotes, today)
 
+    fg = cnn_fear_greed(http)
+    if fg:
+        data["fearGreed"] = fg
     profiles = {s: w for s, w in ((w["sym"], w) for w in old.get("watchlist", []))}
     spy_dp = (quotes.get("SPY") or {}).get("dp")
 
@@ -396,7 +484,9 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     reddit, twits = [], []
     if mode == "full":
         reddit = reddit_mentions(http)
+        subs = reddit_by_community(http, cfg.get("reddit_communities", REDDIT_SUBS))
         twits = stocktwits_trending(http)
+        headlines = market_news(http)
         pc = cfg["picks"]
         cand_syms = list(dict.fromkeys(
             wl_syms + [r["sym"] for r in reddit[: pc["reddit_candidates"]]] + twits[: pc["stocktwits_candidates"]]))
@@ -431,15 +521,33 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
 
         # sentiment table
         rows = []
+        if fg:
+            moves = [f"{lbl} {v}" for lbl, v in (("previous close", fg["prevClose"]), ("a week ago", fg["week"]),
+                                                    ("a month ago", fg["month"]), ("a year ago", fg["year"])) if v is not None]
+            rows.append({"platform": "CNN Business", "detail": "Fear & Greed Index (0 = extreme fear, 100 = extreme greed)",
+                         "tickers": "Broad market", "lean": fg_lean(fg["score"]),
+                         "read": f"Reads {fg['score']} ({fg['rating']})." + (f" Compare: {', '.join(moves)}." if moves else ""),
+                         "src": "cnn-fg"})
         if reddit:
             top = reddit[:8]
             risers = sorted([r for r in reddit[:50] if r["prev"] >= 20], key=lambda r: r["mentions"] / r["prev"],
                             reverse=True)[:3]
-            rows.append({"platform": "Reddit", "detail": "Most-mentioned tickers, last 24h (ApeWisdom)",
+            rows.append({"platform": "Reddit (all)", "detail": "Most-mentioned tickers, last 24h (ApeWisdom)",
                          "tickers": " · ".join(r["sym"] for r in top), "lean": "info",
-                         "read": f"{top[0]['sym']} leads with {top[0]['mentions']:,} mentions. Fastest risers: "
+                         "read": f"{top[0]['sym']} leads with {top[0]['mentions']:,} mentions across all tracked subreddits. Fastest risers: "
                                  + ", ".join(f"{r['sym']} ({fmt_pct((r['mentions'] / r['prev'] - 1) * 100)})" for r in risers) + ".",
                          "src": "apewisdom"})
+        for sub, srows in subs.items():
+            sid = f"reddit-{sub}"
+            sources[sid] = {"name": f"ApeWisdom — r/{sub} ticker mentions", "url": f"https://apewisdom.io/{sub}/"}
+            top = srows[:5]
+            jump = sorted([r for r in srows[:20] if r["prev"] >= 10], key=lambda r: r["mentions"] / r["prev"], reverse=True)[:1]
+            read = f"{top[0]['sym']} leads with {top[0]['mentions']:,} mentions and {top[0]['upvotes']:,} upvotes."
+            if jump:
+                j = jump[0]
+                read += f" Biggest jump: {j['sym']} ({fmt_pct((j['mentions'] / j['prev'] - 1) * 100)} vs. a day earlier)."
+            rows.append({"platform": f"r/{sub}", "detail": "Most-mentioned tickers, last 24h", "lean": "info",
+                         "tickers": " · ".join(r["sym"] for r in top), "read": read, "src": sid})
         if twits:
             rows.append({"platform": "Stocktwits", "detail": "Trending symbols right now", "tickers": " · ".join(twits[:8]),
                          "lean": "info", "read": "Symbols with unusually high message volume on Stocktwits.",
@@ -470,7 +578,12 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
         data["calendar"] = [{"d": date.fromisoformat(d).strftime("%a %-d %b"), "items": sorted(v)}
                             for d, v in sorted(by_day.items())][:6]
         data["calendarSrc"] = "finnhub"
-        data["macroNotes"] = []
+        notes = []
+        for n in headlines:
+            sid = f"news-mkt-{n['id'] if n.get('id') else abs(hash(n['url'])) % 10**8}"
+            sources[sid] = {"name": f"{n.get('source', 'News')} — {n['headline'][:90]}", "url": n["url"]}
+            notes.append({"t": f"{n['headline']} ({n.get('source', 'News')})", "src": sid})
+        data["macroNotes"] = notes
 
     # ---- watchlist
     cand = data.pop("_cand", {})
@@ -529,8 +642,11 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
                         f"Worst: {movers[0]['sym']} {fmt_pct(movers[0]['pct'])}.")
         if reddit:
             summary += f" Most-discussed on Reddit: {reddit[0]['sym']} ({reddit[0]['mentions']:,} mentions)."
+        fgd = data.get("fearGreed")
+        if fgd:
+            summary += f" CNN's Fear & Greed Index reads {fgd['score']} ({fgd['rating']})."
         data["summary"] = summary
-        data["summarySrc"] = ["finnhub"] + (["apewisdom"] if reddit else [])
+        data["summarySrc"] = ["finnhub"] + (["apewisdom"] if reddit else []) + (["cnn-fg"] if fgd else [])
 
     # prune sources nothing references any more
     used = set(data.get("summarySrc", [])) | set(data["history"].get("src", [])) | {data.get("calendarSrc")}
