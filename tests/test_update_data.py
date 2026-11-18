@@ -18,12 +18,30 @@ INDUSTRY = {"NVDA": "Semiconductors", "AVGO": "Semiconductors", "AMD": "Semicond
             "GME": "Retail", "HOOD": "Financial Services", "TINY": "Biotechnology"}
 
 
+RSS_FIXTURE = """<?xml version="1.0"?><rss version="2.0"><channel><title>MarketWatch</title>
+<item><title>Is it too late to add energy stocks to your 401(k)?</title><link>https://www.marketwatch.com/a</link>
+<description>&lt;p&gt;Energy shares have rallied this year.&lt;/p&gt;</description><pubDate>Wed, 18 Nov 2026 14:00:00 GMT</pubDate></item>
+<item><title>I tried a viral lunch hack</title><link>https://www.marketwatch.com/b</link>
+<description>Desk salad no more.</description><pubDate>Wed, 18 Nov 2026 13:00:00 GMT</pubDate></item>
+<item><title>Old story about bonds</title><link>https://www.marketwatch.com/c</link>
+<description>From last week.</description><pubDate>Mon, 09 Nov 2026 13:00:00 GMT</pubDate></item>
+<item><title>Roth IRA conversions explained</title><link>https://www.marketwatch.com/d</link>
+<pubDate>Wed, 18 Nov 2026 12:00:00 GMT</pubDate></item>
+</channel></rss>"""
+
+
 class FakeHttp(ud.Http):
     """Deterministic stand-in for the network."""
 
     def __init__(self):
         super().__init__("test-key", min_interval=0)
         self.now = datetime(2026, 11, 18, 10, 0, tzinfo=ud.ET).timestamp()
+
+    def get_text(self, url, retries=1):
+        self.calls += 1
+        if "mw_topstories" in url:
+            return RSS_FIXTURE
+        return None  # every other feed "fails"; stories must still work
 
     def get(self, url, params=None, retries=2, headers=None):
         self.calls += 1
@@ -177,6 +195,59 @@ class BuildTests(unittest.TestCase):
         d = self.run_build("quotes")
         self.assertEqual(d["history"]["dates"], ["Nov 18"])
         self.assertIn("still building", d["history"]["note"])
+
+
+
+
+class StoryTests(unittest.TestCase):
+    NOW = datetime(2026, 11, 18, 10, 0, tzinfo=ud.ET)
+
+    def test_parse_and_filter(self):
+        items = ud.parse_feed(RSS_FIXTURE, "MarketWatch")
+        self.assertEqual(len(items), 4)
+        self.assertEqual(items[0]["summary"], "Energy shares have rallied this year.")
+        picked = ud.pick_stories(items, self.NOW.timestamp())
+        titles = [i["title"] for i in picked]
+        self.assertIn("Is it too late to add energy stocks to your 401(k)?", titles)
+        self.assertNotIn("I tried a viral lunch hack", titles)      # not about investing
+        self.assertNotIn("Old story about bonds", titles)           # older than 48h
+        self.assertLessEqual(len(picked), 2)                        # max 2 per outlet
+
+    def test_bad_xml_is_soft(self):
+        self.assertEqual(ud.parse_feed("<not xml", "X"), [])
+
+    def test_once_per_day_and_kept_on_failure(self):
+        data = {}
+        http = FakeHttp()
+        ud.update_stories(data, http, {}, self.NOW)
+        self.assertEqual(data["lastStories"], "2026-11-18")
+        self.assertTrue(data["stories"])
+        calls = http.calls
+        ud.update_stories(data, http, {}, self.NOW)                 # same day: no refetch
+        self.assertEqual(http.calls, calls)
+
+        class Down(FakeHttp):
+            def get_text(self, url, retries=1):
+                return None
+        tomorrow = datetime(2026, 11, 19, 8, 0, tzinfo=ud.ET)
+        before = list(data["stories"])
+        ud.update_stories(data, Down(), {}, tomorrow)               # all feeds down: keep old set
+        self.assertEqual(data["stories"], before)
+
+    def test_build_includes_stories(self):
+        cfg = json.loads((ROOT / "config.json").read_text())
+        data = ud.build("quotes", FakeHttp(), cfg, {}, self.NOW)
+        self.assertTrue(data.get("stories"))
+
+
+class TipsFileTests(unittest.TestCase):
+    def test_tips_have_credible_sources(self):
+        t = json.loads((ROOT / "data" / "tips.json").read_text())
+        allowed = ("investor.gov", "irs.gov", "finra.org", "consumerfinance.gov", "spglobal.com", "morningstar.com", "sec.gov")
+        for item in t["tips"] + t["strategies"]:
+            for k in ("title", "body", "tryit", "src", "url"):
+                self.assertTrue(item.get(k), (item.get("title"), k))
+            self.assertTrue(any(d in item["url"] for d in allowed), item["url"])
 
 
 if __name__ == "__main__":

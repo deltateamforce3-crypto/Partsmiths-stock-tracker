@@ -5,6 +5,8 @@ A stock-tracking dashboard built in the Partsmith CAD workbench style: app bar a
 - **Live quotes.** Each viewer can paste their own free Finnhub key, and the page then streams prices every minute. Without a key, it shows the latest data committed by the GitHub Action, which refreshes prices every hour from 10 AM to 5 PM ET and does the full daily update at 3 PM ET.
 - **Crowd sentiment.** Reddit mention counts (r/wallstreetbets, r/stocks, r/investing and more, via ApeWisdom) and Stocktwits trending symbols.
 - **3 watchlist ideas every trading day.** Each one is scored on catalyst, price action, crowd attention and analyst support, with risks and links to its sources.
+- **Daily investing stories.** Each morning (from 7 AM ET, weekends included) the updater pulls investing stories from established newsrooms only — MarketWatch, CNBC, Kiplinger, NPR and The New York Times (edit `story_feeds` in `config.json`). Off-topic and older-than-48-hour stories are dropped.
+- **Tips & strategies every 2 hours.** `data/tips.json` holds educational tips and strategies, each linked to the SEC, IRS, FINRA, CFPB, S&P SPIVA or Morningstar. The page shows a new tip and strategy at every even hour, New York time. Add your own entries to that file.
 - **Sources everywhere.** Every number links back to where it came from.
 - **No build step.** It's plain HTML, CSS and JavaScript, with a standard-library Python script that updates the data.
 

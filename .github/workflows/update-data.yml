@@ -3,14 +3,18 @@ name: Update market data
 # Schedule (US Eastern, weekdays):
 #   10 AM - 5 PM  hourly price refresh   (mode: quotes, includes the 4 PM close)
 #   3 PM          full daily update       (mode: full - sentiment, news, analysts, 3 new picks)
+#   every day     daily investing stories (from 7 AM ET; weekdays also refresh them at the
+#                 first quotes/full run of the day, weekends use mode: stories)
+#   Tips & strategies rotate every 2 hours in the browser, so they need no run.
 #
 # GitHub cron runs in UTC, ignores daylight saving, and can delay or drop runs
 # when it's busy (worst near the top of the hour). So the job fires every hour at
-# :23 on weekdays and the "plan" step decides what to do from New York time:
-#   - 15:00-20:59 ET -> full, unless today's full update already ran
+# :23 every day and the "plan" step decides what to do from New York time:
+#   - weekdays 15:00-20:59 ET -> full, unless today's full update already ran
 #     (so a dropped 3 PM run is made up at the next hour that works, up to 8 PM)
-#   - 10:00-17:59 ET -> quotes (every hour)
-#   - otherwise      -> skip
+#   - weekdays 10:00-17:59 ET -> quotes (every hour)
+#   - any day from 7:00 ET    -> stories, if today's stories haven't been fetched yet
+#   - otherwise               -> skip
 # workflow_dispatch also lets an outside scheduler (e.g. cron-job.org) start it.
 #
 # The data lives on its own branch, `data` (just data/market.json), so these hourly
@@ -19,13 +23,13 @@ name: Update market data
 
 on:
   schedule:
-    - cron: "23 * * * 1-5"
+    - cron: "23 * * * *"
   workflow_dispatch:
     inputs:
       mode:
-        description: "auto = pick from the time, quotes = prices only, full = everything incl. picks"
+        description: "auto = pick from the time, quotes = prices only, full = everything incl. picks, stories = daily stories only"
         type: choice
-        options: [auto, quotes, full]
+        options: [auto, quotes, full, stories]
         default: full
 
 permissions:
@@ -58,11 +62,14 @@ jobs:
           mode="${{ inputs.mode }}"
           if [ -z "$mode" ] || [ "$mode" = "auto" ]; then
             h=$(TZ=America/New_York date +%-H)
+            dow=$(TZ=America/New_York date +%u)   # 1 = Monday ... 7 = Sunday
             today=$(TZ=America/New_York date +%F)
             last=$(python3 -c "import json;print(json.load(open('data/market.json')).get('lastFull',''))" 2>/dev/null || true)
-            echo "New York hour: $h, last full update: ${last:-never}"
-            if [ "$h" -ge 15 ] && [ "$h" -le 20 ] && [ "$last" != "$today" ]; then mode=full
-            elif [ "$h" -ge 10 ] && [ "$h" -le 17 ]; then mode=quotes
+            stories=$(python3 -c "import json;print(json.load(open('data/market.json')).get('lastStories',''))" 2>/dev/null || true)
+            echo "New York hour: $h (day $dow), last full update: ${last:-never}, last stories: ${stories:-never}"
+            if [ "$dow" -le 5 ] && [ "$h" -ge 15 ] && [ "$h" -le 20 ] && [ "$last" != "$today" ]; then mode=full
+            elif [ "$dow" -le 5 ] && [ "$h" -ge 10 ] && [ "$h" -le 17 ]; then mode=quotes
+            elif [ "$h" -ge 7 ] && [ "$stories" != "$today" ]; then mode=stories
             else mode=skip; fi
           fi
           echo "mode=$mode" >> "$GITHUB_OUTPUT"

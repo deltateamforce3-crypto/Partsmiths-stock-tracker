@@ -1,0 +1,176 @@
+{
+  "note": "Educational tips and strategies from government and established research sources. Rotates every 2 hours (New York time) in the browser. Not personal investment advice. Edit this file to add your own; keep a credible source on each one.",
+  "checked": "2026-11-18",
+  "tips": [
+    {
+      "title": "Small fees, big difference",
+      "body": "Fund and advisory fees come out every year, so they compound against you. In the SEC's example, $100,000 growing 4% a year for 20 years ends near $208,000 with a 0.25% annual fee, and roughly $10,000 less with a 0.50% fee.",
+      "tryit": "Look up the expense ratio of every fund you own; it's on the fund's fact sheet or prospectus.",
+      "src": "SEC Investor.gov — How Fees and Expenses Affect Your Investment Portfolio",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"
+    },
+    {
+      "title": "Market order vs. limit order",
+      "body": "A market order fills right away but not at a guaranteed price, which can surprise you in fast or thinly traded stocks. A limit order only fills at your price or better, but it may not fill at all.",
+      "tryit": "Next time you place a trade, check the bid-ask spread first and consider a limit order if it's wide.",
+      "src": "SEC Investor.gov — Types of Orders",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+    },
+    {
+      "title": "A stop order isn't a guaranteed price",
+      "body": "A stop-loss order turns into a market order once the stop price is hit. In a sharp drop it can fill well below your stop, so it limits time watching the screen more than it limits loss.",
+      "tryit": "Read your broker's description of stop vs. stop-limit orders before relying on either.",
+      "src": "SEC Investor.gov — Types of Orders",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+    },
+    {
+      "title": "The one-year line for taxes",
+      "body": "Gains on investments held more than one year are long-term and usually taxed at lower rates than short-term gains, which are taxed like ordinary income. The holding period starts the day after you buy.",
+      "tryit": "Before selling a winner in a taxable account, check whether it's close to the one-year mark.",
+      "src": "IRS — Topic no. 409, Capital Gains and Losses",
+      "url": "https://www.irs.gov/taxtopics/tc409"
+    },
+    {
+      "title": "Losses can lower your tax bill",
+      "body": "If your capital losses exceed your gains, you can deduct up to $3,000 of the net loss against other income ($1,500 if married filing separately), and carry the rest forward to future years.",
+      "tryit": "Ask your tax preparer whether you have a loss carryforward from earlier years.",
+      "src": "IRS — Topic no. 409, Capital Gains and Losses",
+      "url": "https://www.irs.gov/taxtopics/tc409"
+    },
+    {
+      "title": "Watch the wash-sale rule",
+      "body": "If you sell at a loss and buy the same or a substantially identical security within 30 days before or after the sale, the IRS disallows that loss for now. It's added to the cost basis of the new shares instead.",
+      "tryit": "If you harvest a loss, wait 31 days or switch to a fund that isn't substantially identical.",
+      "src": "IRS — Publication 550, Investment Income and Expenses",
+      "url": "https://www.irs.gov/publications/p550"
+    },
+    {
+      "title": "2026 401(k) limits",
+      "body": "For 2026 you can defer up to $24,500 into a 401(k). People 50 and older can add an $8,000 catch-up, and those aged 60 to 63 get a higher $11,250 catch-up.",
+      "tryit": "Check your contribution rate, and whether you're getting your employer's full match.",
+      "src": "IRS — 401(k) and profit-sharing plan contribution limits",
+      "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits"
+    },
+    {
+      "title": "2026 IRA limits",
+      "body": "For 2026 the combined limit across all your traditional and Roth IRAs is $7,500, or $8,600 if you're 50 or older. You can't contribute more than your taxable compensation for the year.",
+      "tryit": "Set up an automatic monthly IRA contribution. $625 a month reaches the $7,500 limit.",
+      "src": "IRS — IRA contribution limits",
+      "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits"
+    },
+    {
+      "title": "Check anyone who manages your money",
+      "body": "FINRA's free BrokerCheck shows a broker's or adviser's licenses, employment history and any disciplinary actions or complaints.",
+      "tryit": "Search your broker or adviser by name on BrokerCheck. It takes a minute.",
+      "src": "FINRA — BrokerCheck",
+      "url": "https://brokercheck.finra.org/"
+    },
+    {
+      "title": "Margin can cost more than you put in",
+      "body": "Buying on margin means borrowing from your broker. You can lose more than you invested, and the firm can sell your holdings without telling you if their value falls. Some account applications make margin the default.",
+      "tryit": "Check whether your brokerage account is a cash account or a margin account.",
+      "src": "SEC Investor.gov — Understanding Margin Accounts",
+      "url": "https://www.investor.gov/additional-resources/news-alerts/alerts-bulletins/investor-bulletin-understanding-margin-accounts"
+    },
+    {
+      "title": "Spot a pump-and-dump",
+      "body": "Promoters hype a stock through social media, emails or newsletters, then sell into the rally. When the hype stops, the price usually collapses. Small, thinly covered stocks are the usual targets.",
+      "tryit": "Be wary of urgent \"buy now\" tips about tiny companies you can't find solid information on.",
+      "src": "SEC Investor.gov — Pump and Dump Schemes",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/pump-and-dump-schemes"
+    },
+    {
+      "title": "Emergency fund first",
+      "body": "Cash set aside for surprises keeps you from selling investments at a bad time or running up high-interest debt when something goes wrong.",
+      "tryit": "Open a separate savings account for emergencies and automate a small transfer every payday.",
+      "src": "CFPB — An essential guide to building an emergency fund",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "title": "529 plans for education",
+      "body": "529 plans are tax-advantaged education savings plans sponsored by states and schools. They come as savings plans or prepaid tuition plans, and the tax benefits vary by state and plan.",
+      "tryit": "Look up your own state's 529 plan; some give a state tax deduction for contributions.",
+      "src": "SEC Investor.gov — An Introduction to 529 Plans",
+      "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/introduction-529-plans"
+    }
+  ],
+  "strategies": [
+    {
+      "title": "Dollar-cost averaging",
+      "body": "Invest a fixed amount on a set schedule whatever the market is doing. You automatically buy more shares when prices are low and fewer when they're high, and you never have to guess the right moment.",
+      "tryit": "Pick an amount and a date, like every payday, and automate it.",
+      "src": "SEC Investor.gov — Dollar Cost Averaging",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+    },
+    {
+      "title": "Set your asset allocation",
+      "body": "Decide how much to hold in stocks, bonds and cash based on when you'll need the money and how much risk you can stomach. That mix drives most of your portfolio's ups and downs.",
+      "tryit": "Write down your target mix, e.g. 80% stocks / 20% bonds, and the goal it's for.",
+      "src": "SEC Investor.gov — Beginners' Guide to Asset Allocation, Diversification, and Rebalancing",
+      "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+    },
+    {
+      "title": "Diversify inside each bucket",
+      "body": "Diversification means spreading money within each asset type, across many companies, industries and countries, so one bad bet can't sink the whole portfolio.",
+      "tryit": "List your top 5 holdings and see what share of your total they make up.",
+      "src": "SEC Investor.gov — Beginners' Guide to Asset Allocation, Diversification, and Rebalancing",
+      "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+    },
+    {
+      "title": "Rebalance on a schedule",
+      "body": "Over time, winners grow into a bigger slice than you planned. Rebalancing sells some of what's run up, or steers new money to what's lagged, to bring you back to your target mix.",
+      "tryit": "Put a yearly reminder on your calendar (or rebalance when a slice drifts 5+ points).",
+      "src": "SEC Investor.gov — Beginners' Guide to Asset Allocation, Diversification, and Rebalancing",
+      "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+    },
+    {
+      "title": "Build a low-cost index core",
+      "body": "Index funds try to match a market index instead of beating it. Less trading usually means lower fees and better tax efficiency than actively managed funds.",
+      "tryit": "Compare the expense ratio of a broad index fund with any active fund you own.",
+      "src": "SEC Investor.gov — Index Fund",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/index-fund"
+    },
+    {
+      "title": "Know the odds of beating the index",
+      "body": "S&P Dow Jones Indices' SPIVA scorecards track how often actively managed funds beat their benchmarks. Over 10 and 15 years, most U.S. active funds have fallen short.",
+      "tryit": "Look up the latest SPIVA U.S. scorecard for the fund category you invest in.",
+      "src": "S&P Dow Jones Indices — SPIVA",
+      "url": "https://www.spglobal.com/spdji/en/research-insights/spiva/"
+    },
+    {
+      "title": "Mind the behavior gap",
+      "body": "Morningstar's 2026 Mind the Gap study found investors earned about 1.2 percentage points a year less than their funds over the 10 years through 2025, roughly 12% of total returns, mostly from the timing of buys and sells. All-in-one allocation funds had some of the smallest gaps.",
+      "tryit": "Before your next trade outside your plan, write down why, and wait a day.",
+      "src": "Morningstar — Mind the Gap 2026",
+      "url": "https://www.morningstar.com/lp/mind-the-gap"
+    },
+    {
+      "title": "Let compounding do the work",
+      "body": "Returns earn returns. A rough rule: divide 72 by your annual return to estimate how many years it takes to double, so about 9 years at 8%. Starting a few years earlier can matter more than adding more later.",
+      "tryit": "Plug your own numbers into the SEC's compound interest calculator.",
+      "src": "SEC Investor.gov — Compound Interest Calculator",
+      "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+    },
+    {
+      "title": "Tax-loss harvesting",
+      "body": "In a taxable account, selling an investment at a loss can offset gains, and up to $3,000 of other income a year. Reinvest in something similar but not substantially identical so you stay invested without triggering the wash-sale rule.",
+      "tryit": "Late in the year, scan your taxable account for positions below what you paid.",
+      "src": "IRS — Topic no. 409 and Publication 550",
+      "url": "https://www.irs.gov/taxtopics/tc409"
+    },
+    {
+      "title": "Hold winners past one year",
+      "body": "When you're deciding whether to sell in a taxable account, the gap between short-term and long-term capital gains rates can be large. Holding just past the one-year mark can noticeably cut the tax.",
+      "tryit": "Check the purchase date on any position you're thinking about trimming.",
+      "src": "IRS — Topic no. 409, Capital Gains and Losses",
+      "url": "https://www.irs.gov/taxtopics/tc409"
+    },
+    {
+      "title": "Use limit orders on volatile names",
+      "body": "For stocks that move fast or trade thinly, a limit order lets you name the most you'll pay or the least you'll accept, which avoids a surprise fill.",
+      "tryit": "Set limit orders a few cents past the current ask (to buy) or bid (to sell) instead of using market orders.",
+      "src": "SEC Investor.gov — Types of Orders",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+    }
+  ]
+}

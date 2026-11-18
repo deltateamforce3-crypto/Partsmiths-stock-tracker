@@ -87,6 +87,8 @@
     ${D.fearGreed ? (() => { const f = D.fearGreed, chg = f.prevClose == null ? null : f.score - f.prevClose; return `<div class="rb-group"><div class="rb-items"><a class="readout sm" href="${esc(D.sources['cnn-fg'] ? D.sources['cnn-fg'].url : 'https://www.cnn.com/markets/fear-and-greed')}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none" title="CNN Business Fear &amp; Greed Index: 0 = extreme fear, 100 = extreme greed"><span class="k">Fear &amp; Greed</span><span class="v">${f.score} <span style="font-size:.8em;font-weight:500" class="${f.score < 45 ? 'down' : f.score > 55 ? 'up' : 'flat'}">${esc(f.rating)}</span></span><span class="d ${chg == null ? 'flat' : cls(chg)}">${chg == null ? '' : (chg > 0 ? '+' : chg < 0 ? '−' : '±') + Math.abs(chg) + ' vs. prev. close'}</span></a></div><div class="rb-label">CNN mood gauge</div></div>`; })() : ''}
     <div class="rb-group"><div class="rb-items">
       <a class="rb-btn" href="#picks"><svg class="ic"><use href="#i-target"/></svg><span>Picks</span></a>
+      <a class="rb-btn" href="#learn"><svg class="ic"><use href="#i-bulb"/></svg><span>Tips</span></a>
+      <a class="rb-btn" href="#stories"><svg class="ic"><use href="#i-news"/></svg><span>Stories</span></a>
       <a class="rb-btn" href="#tape"><svg class="ic"><use href="#i-chart"/></svg><span>Tape</span></a>
       <a class="rb-btn" href="#sentiment"><svg class="ic"><use href="#i-chat"/></svg><span>Social</span></a>
       <a class="rb-btn" href="#calendar"><svg class="ic"><use href="#i-cal"/></svg><span>Week</span></a>
@@ -143,6 +145,46 @@
       <div class="live-note">${live.on ? 'Live quote from Finnhub, refreshed every minute. Free-tier quotes can lag the exchange slightly.' : 'Prices come from the last data refresh, not a streaming quote. Turn on Live quotes (top right) or check your broker before trading.'}</div>`;
   }
 
+  // tips & strategies: data/tips.json, rotated every 2 hours on New York time (no server run needed)
+  let TIPS = null;
+  fetch('data/tips.json?t=' + Math.floor(Date.now() / 36e5), { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : null).then(t => { if (t && t.tips && t.strategies) { TIPS = t; renderLearn(); } }).catch(() => {});
+  const etClock = () => {
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+      .formatToParts(new Date()).map(x => [x.type, x.value]));
+    const h = +p.hour % 24, mi = +p.minute;
+    return { slot: Math.round(Date.UTC(+p.year, +p.month - 1, +p.day) / 864e5) * 12 + Math.floor(h / 2), h, mi };
+  };
+  let learnSlot = null;
+  function learnHTML() {
+    if (!TIPS) return '<div class="note" style="padding:1rem">Loading tips…</div>';
+    const c = etClock(), t = TIPS.tips[c.slot % TIPS.tips.length], st = TIPS.strategies[c.slot % TIPS.strategies.length];
+    const left = (2 - c.h % 2) * 60 - c.mi, nextH = (c.h - c.h % 2 + 2) % 24;
+    const nextLabel = `${nextH % 12 || 12} ${nextH < 12 ? 'AM' : 'PM'} ET`;
+    const card = (kind, x) => `<article class="tipcard">
+        <div class="tip-kind">${kind}</div>
+        <h3>${esc(x.title)}</h3>
+        <p>${esc(x.body)}</p>
+        <div class="tip-try"><b>Try this:</b> ${esc(x.tryit)}</div>
+        <div class="srcs"><a href="${esc(x.url)}" target="_blank" rel="noopener" title="${esc(x.src)}">${esc(x.src)}</a></div>
+      </article>`;
+    learnSlot = c.slot;
+    return `<div class="tips">${card('Tip', t)}${card('Strategy', st)}</div>
+      <div class="tip-foot note">New tip &amp; strategy at ${nextLabel} · in ${Math.floor(left / 60)}h ${String(left % 60).padStart(2, '0')}m. Educational only, not personal advice.</div>`;
+  }
+  function renderLearn() { const b = $('#learnBox'); if (b) b.innerHTML = learnHTML(); }
+  setInterval(() => { if (TIPS) renderLearn(); }, 60000);
+
+  function storiesHTML() {
+    const S = D.stories || [];
+    if (!S.length) return '<div class="card-body note">Today\'s stories arrive with the next data update (every morning from 7 AM ET).</div>';
+    return `<ol class="stories">${S.map(x => `<li class="story">
+        <div class="story-meta"><span class="outlet">${esc(x.outlet)}</span><span>${esc(x.time || '')}</span></div>
+        <a class="story-title" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>
+        ${x.summary ? `<p>${esc(x.summary)}</p>` : ''}
+      </li>`).join('')}</ol>`;
+  }
+
   // sheet
   const lean = { bull: 'Bullish', bear: 'Bearish', split: 'Split', info: 'Context' };
   function renderSheet() {
@@ -184,6 +226,22 @@
         </article>`; }).join('')}
       </div>
       <div style="padding:0 1rem 1rem"><div class="disclaimer"><b>Not investment advice.</b> These are research ideas built from public reporting, not recommendations to buy or sell. They aren't tailored to your goals, timeline or risk tolerance. Single stocks can lose a lot of value quickly. Consider position sizing and diversification, and talk to a licensed advisor before investing money you can't afford to lose.</div></div>
+    </section>
+
+    <section class="card" id="learn">
+      <div class="card-head">
+        <div><div class="eyebrow">Learn · changes every 2 hours</div><h2>Tips &amp; strategies</h2></div>
+        <div class="sub">From the SEC, IRS, FINRA, CFPB and established research firms</div>
+      </div>
+      <div id="learnBox">${learnHTML()}</div>
+    </section>
+
+    <section class="card" id="stories">
+      <div class="card-head">
+        <div><div class="eyebrow">Daily stories · ${esc(D.storiesDate || D.session)}</div><h2>Investing stories of the day</h2></div>
+        <div class="sub">Established newsrooms only: ${[...new Set((D.stories || []).map(x => x.outlet))].map(esc).join(', ') || 'MarketWatch, CNBC, Kiplinger, NPR, NYT'}</div>
+      </div>
+      ${storiesHTML()}
     </section>
 
     <section class="card" id="tape">

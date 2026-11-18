@@ -11,6 +11,8 @@ Sources
     (cnn.com/markets/fear-and-greed) its chart). No key needed; unofficial, so it fails soft.
   * Finnhub market news            General market headlines; established outlets
                                    (Reuters, CNBC, MarketWatch, AP …) are ranked first.
+  * Daily investing stories        RSS feeds from established outlets only (the list in
+                                   config.json "story_feeds"), filtered to investing topics.
 
 Reddit posts themselves are not read: Reddit closed its public .json/RSS access in 2026.
 Reddit data comes from ApeWisdom, which counts ticker mentions per subreddit.
@@ -19,6 +21,8 @@ Modes
   quotes  refresh prices, indices, macro proxies and index history (cheap, run often)
   full    everything in `quotes` plus Reddit/Stocktwits sentiment, news, analyst data,
           the earnings calendar and the 3 daily picks (≈3 min on Finnhub's free tier)
+  stories only the daily investing stories (no API key needed; used on weekends and early
+          mornings). `quotes` and `full` also refresh the stories once per day.
 
 Only the Python standard library is used. Every source fails soft: if one is down the
 others still update and the page says what is missing.
@@ -26,7 +30,9 @@ others still update and the page says what is missing.
 from __future__ import annotations
 
 import argparse
+import html
 import json
+import re
 import math
 import os
 import sys
@@ -34,8 +40,10 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
+from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -61,6 +69,8 @@ ETF_WORDS = ("etf", "fund", "trust", "spdr", "ishares", "proshares", "direxion",
 CREDIBLE = ["reuters", "associated press", "ap news", "bloomberg", "cnbc", "cnn", "marketwatch",
             "wall street journal", "wsj", "barron", "financial times", "new york times", "axios",
             "the economist", "fortune", "business insider", "forbes", "investopedia", "yahoo"]
+
+NEXT_REFRESH = "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily"
 
 SOURCES = {
     "finnhub": {"name": "Finnhub — quotes, profiles, analyst trends, news", "url": "https://finnhub.io"},
@@ -101,6 +111,23 @@ class Http:
                     time.sleep(2)
                     continue
                 self.errors.append(f"{urllib.parse.urlsplit(url).netloc} {type(e).__name__}")
+                return None
+
+    def get_text(self, url: str, retries: int = 1):
+        """Fetch a page as text (used for RSS feeds). Returns None on failure."""
+        req = urllib.request.Request(url, headers={"User-Agent": BROWSER_UA,
+                                                   "Accept": "application/rss+xml, application/xml, text/xml, */*"})
+        for attempt in range(retries + 1):
+            try:
+                with urllib.request.urlopen(req, timeout=20) as r:
+                    self.calls += 1
+                    return r.read().decode("utf-8", errors="replace")
+            except (urllib.error.URLError, TimeoutError, ValueError) as e:
+                if attempt < retries:
+                    time.sleep(2)
+                    continue
+                code = getattr(e, "code", None)
+                self.errors.append(f"{urllib.parse.urlsplit(url).netloc} {'HTTP ' + str(code) if code else type(e).__name__}")
                 return None
 
     def finnhub(self, path: str, **params):
@@ -292,6 +319,116 @@ def market_news(http: Http, limit=4):
     return out
 
 
+# --------------------------------------------------------------------------- daily stories
+# Established outlets with editorial standards. Only these feeds are read; edit the list in
+# config.json ("story_feeds") — anything there should be a newsroom, not a blog or forum.
+STORY_FEEDS = [
+    {"outlet": "MarketWatch", "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories"},
+    {"outlet": "CNBC", "url": "https://www.cnbc.com/id/15839069/device/rss/rss.html"},
+    {"outlet": "CNBC", "url": "https://www.cnbc.com/id/21324812/device/rss/rss.html"},
+    {"outlet": "Kiplinger", "url": "https://www.kiplinger.com/feeds/all"},
+    {"outlet": "NPR", "url": "https://feeds.npr.org/1017/rss.xml"},
+    {"outlet": "The New York Times", "url": "https://rss.nytimes.com/services/xml/rss/nyt/YourMoney.xml"},
+]
+# A story must mention one of these to count as an investing story.
+STORY_WORDS = re.compile(
+    r"\b(invest\w*|stocks?|shares?|markets?|portfolio\w*|retire\w*|401\(?k\)?|ira|roth|index funds?|etfs?|"
+    r"mutual funds?|bonds?|treasur\w+|dividends?|earnings|s&p|nasdaq|dow|wall street|fed\b|interest rates?|"
+    r"inflation|savings?|wealth|brokerage|annuit\w+|capital gains?|tax\w*|crypto\w*|bitcoin|gold)\b", re.I)
+STORY_MAX_AGE_H = 48
+
+
+def _clean(text: str, limit: int) -> str:
+    t = html.unescape(re.sub(r"<[^>]+>", " ", text or ""))
+    t = re.sub(r"\s+", " ", t).strip()
+    if len(t) > limit:
+        t = t[: limit - 1].rsplit(" ", 1)[0].rstrip(",;:.-—") + "…"
+    return t
+
+
+def parse_feed(xml_text: str, outlet: str) -> list[dict]:
+    """RSS 2.0 or Atom → [{title, url, summary, outlet, ts}]. Bad XML returns []."""
+    try:
+        root = ElementTree.fromstring(xml_text.encode("utf-8") if isinstance(xml_text, str) else xml_text)
+    except ElementTree.ParseError:
+        return []
+    out = []
+    atom = "{http://www.w3.org/2005/Atom}"
+    for it in root.iter():
+        tag = it.tag.split("}")[-1]
+        if tag not in ("item", "entry"):
+            continue
+        def txt(name):
+            el = it.find(name)
+            if el is None:
+                el = it.find(atom + name)
+            return (el.text or "").strip() if el is not None and el.text else ""
+        title = _clean(txt("title"), 200)
+        link = txt("link")
+        if not link:
+            el = it.find(atom + "link")
+            link = el.get("href", "") if el is not None else ""
+        when = txt("pubDate") or txt("published") or txt("updated")
+        ts = None
+        try:
+            ts = parsedate_to_datetime(when).timestamp()
+        except (TypeError, ValueError, IndexError):
+            try:
+                ts = datetime.fromisoformat(when.replace("Z", "+00:00")).timestamp()
+            except ValueError:
+                ts = None
+        if not title or not link.startswith("http") or ts is None:
+            continue
+        out.append({"title": title, "url": link.strip(), "summary": _clean(txt("description") or txt("summary"), 220),
+                    "outlet": outlet, "ts": ts})
+    return out
+
+
+def pick_stories(items: list[dict], now_ts: float, limit: int = 6, per_outlet: int = 2) -> list[dict]:
+    """Newest investing stories from the last 48h, rotating across outlets, no duplicates."""
+    fresh = [i for i in items if now_ts - STORY_MAX_AGE_H * 3600 <= i["ts"] <= now_ts + 3600
+             and STORY_WORDS.search(i["title"] + " " + i["summary"])]
+    fresh.sort(key=lambda i: -i["ts"])
+    by_outlet: dict[str, list[dict]] = {}
+    seen = set()
+    for i in fresh:
+        key = re.sub(r"\W+", "", i["title"].lower())[:60]
+        if key in seen or i["url"] in seen:
+            continue
+        seen.update((key, i["url"]))
+        by_outlet.setdefault(i["outlet"], []).append(i)
+    out, rnd = [], 0
+    while len(out) < limit and rnd < per_outlet:
+        for lst in sorted(by_outlet.values(), key=lambda l: -l[0]["ts"]):
+            if rnd < len(lst) and len(out) < limit:
+                out.append(lst[rnd])
+        rnd += 1
+    return sorted(out, key=lambda i: -i["ts"])
+
+
+def daily_stories(http: Http, feeds: list[dict], now: datetime) -> list[dict]:
+    items = []
+    for f in feeds:
+        text = http.get_text(f["url"])
+        if text:
+            items += parse_feed(text, f["outlet"])
+    picked = pick_stories(items, now.timestamp())
+    return [{"title": i["title"], "url": i["url"], "summary": i["summary"], "outlet": i["outlet"],
+             "time": datetime.fromtimestamp(i["ts"], ET).strftime("%a %-I:%M %p ET")} for i in picked]
+
+
+def update_stories(data: dict, http: Http, cfg: dict, now: datetime, force: bool = False) -> None:
+    """Refresh data["stories"] once per New York calendar day (or when forced)."""
+    today = now.date().isoformat()
+    if not force and data.get("lastStories") == today and data.get("stories"):
+        return
+    items = daily_stories(http, cfg.get("story_feeds") or STORY_FEEDS, now)
+    if items:  # keep yesterday's set rather than showing nothing if every feed failed
+        data["stories"] = items
+        data["storiesDate"] = now.strftime("%a %-d %b %Y")
+        data["lastStories"] = today
+
+
 def stocktwits_trending(http: Http):
     data = http.get(STOCKTWITS)
     if not data or "symbols" not in data:
@@ -460,7 +597,7 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     data["mode"] = "auto"
     data["snapshot"] = now.isoformat(timespec="seconds")
     data["session"] = session_label(today)
-    data["nextRefresh"] = "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET"
+    data["nextRefresh"] = NEXT_REFRESH
     sources = {k: v for k, v in (old.get("sources") or {}).items()
                if k in SOURCES or k.startswith("news-") or k.startswith("research-")}
     sources.update(SOURCES)
@@ -485,6 +622,7 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     fg = cnn_fear_greed(http)
     if fg:
         data["fearGreed"] = fg
+    update_stories(data, http, cfg, now)
     profiles = {s: w for s, w in ((w["sym"], w) for w in old.get("watchlist", []))}
     spy_dp = (quotes.get("SPY") or {}).get("dp")
 
@@ -705,12 +843,21 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--mode", choices=["quotes", "full"], default="quotes")
+    ap.add_argument("--mode", choices=["quotes", "full", "stories"], default="quotes")
     ap.add_argument("--config", default=str(ROOT / "config.json"))
     ap.add_argument("--out", default=str(ROOT / "data" / "market.json"))
     args = ap.parse_args(argv)
 
     key = os.environ.get("FINNHUB_API_KEY", "").strip()
+    if args.mode == "stories":
+        cfg = json.loads(Path(args.config).read_text())
+        out = Path(args.out)
+        data = json.loads(out.read_text()) if out.exists() else {}
+        http = Http(key or None)
+        update_stories(data, http, cfg, datetime.now(ET), force=True)
+        out.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        print(f"Wrote {out} (stories): {len(data.get('stories', []))} stories, errors: {sorted(set(http.errors)) or 'none'}")
+        return 0
     if not key:
         print("FINNHUB_API_KEY is not set. Get a free key at https://finnhub.io/register", file=sys.stderr)
         return 2
