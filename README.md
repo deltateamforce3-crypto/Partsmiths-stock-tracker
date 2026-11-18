@@ -41,6 +41,29 @@ A stock-tracking dashboard built in the Partsmith CAD workbench style: app bar a
 
 Your site will be at `https://<you>.github.io/Partsmiths-stock-tracker/`.
 
+### Turn on accounts (Log in / Sign up)
+
+Accounts use Google Firebase (free tier). Until this is done, the site works normally and the Log in button says accounts aren't set up.
+
+1. Go to <https://console.firebase.google.com> → **Create a project** (Google Analytics is optional).
+2. **Build → Authentication → Get started.** Turn on **Email/Password** and **Google**.
+3. **Authentication → Settings → Authorized domains → Add domain:** `<you>.github.io`
+4. **Build → Firestore Database → Create database** (production mode). Then open the **Rules** tab, paste the rules below and click **Publish**:
+
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{uid} {
+         allow read, write: if request.auth != null && request.auth.uid == uid;
+       }
+     }
+   }
+   ```
+5. **Project settings (gear) → Your apps → Web (`</>`)**: register an app, then copy `apiKey`, `authDomain`, `projectId` and `appId` into `assets/firebase-config.js`. These values are public identifiers, not secrets.
+
+Each account stores only `hideWelcome` (the "Don't show this welcome screen again" choice) in `users/<uid>`.
+
 ### Run it locally
 
 ```bash

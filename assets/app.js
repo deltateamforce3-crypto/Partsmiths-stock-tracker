@@ -1,30 +1,5 @@
 /* Partsmith Markets — renders data/market.json and, when a Finnhub key is set, streams quotes. */
 (async function () {
-  // ---------------------------------------------------------------- welcome screen (first visit, or the ? button)
-  (function welcome() {
-    const dlg = document.getElementById('welcomeDlg'); if (!dlg || !dlg.showModal) return;
-    const KEY = 'pm-welcome-seen';
-    let seen = false; try { seen = localStorage.getItem(KEY) === '1'; } catch (e) {}
-    const close = go => {
-      try { document.getElementById('welcomeHide').checked ? localStorage.setItem(KEY, '1') : localStorage.removeItem(KEY); } catch (e) {}
-      dlg.close();
-      if (go === 'watchlist') {
-        const side = document.querySelector('.sidebar-left');
-        side.classList.remove('flash'); void side.offsetWidth; side.classList.add('flash');
-        const add = document.querySelector('.wl-add'); if (add) add.focus();
-      } else if (go) {
-        const el = document.getElementById(go); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    };
-    dlg.querySelectorAll('[data-go]').forEach(a => a.onclick = e => { e.preventDefault(); close(a.dataset.go); });
-    document.getElementById('welcomeGo').onclick = () => close('picks');
-    document.getElementById('welcomeSkip').onclick = () => close();
-    dlg.addEventListener('cancel', () => { try { localStorage.setItem(KEY, '1'); } catch (e) {} });
-    dlg.addEventListener('click', e => { if (e.target === dlg) close(); });   // click the dimmed backdrop
-    document.getElementById('helpBtn').onclick = () => { document.getElementById('welcomeHide').checked = true; dlg.showModal(); };
-    if (!seen) dlg.showModal();
-  })();
-
   // The GitHub updater saves fresh data to the repo's `data` branch, so read it from there
   // (works on any host and on a local copy). Fall back to the copy shipped with the site.
   const DATA_BRANCH_URL = 'https://raw.githubusercontent.com/deltateamforce3-crypto/Partsmiths-stock-tracker/data/data/market.json';

@@ -45,6 +45,14 @@ if(t==="system")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"lig
     </div>
     <div class="appbar-right">
       <button class="btn sm cmd-btn" id="cmdBtn" type="button" title="Command center: run commands or ask the AI"><svg class="ic"><use href="#i-spark"/></svg><span>Command</span><kbd id="cmdKbd">Ctrl K</kbd></button>
+      <div class="acct">
+        <button class="btn sm" id="acctBtn" type="button" aria-haspopup="true" aria-expanded="false">Log in</button>
+        <div class="acct-menu" id="acctMenu" hidden>
+          <div class="acct-who"><span class="avatar" id="acctAvatar"></span><div><b id="acctName"></b><div class="note" id="acctEmail"></div></div></div>
+          <label class="wc-check"><input type="checkbox" id="acctShowWelcome"> Show the welcome screen when I visit</label>
+          <button class="btn sm" type="button" id="acctSignOut">Sign out</button>
+        </div>
+      </div>
       <button class="btn sm icon-btn" id="helpBtn" type="button" title="Welcome &amp; quick tour" aria-label="Open the welcome screen">?</button>
       <button class="btn sm" id="liveBtn" aria-pressed="false" title="Stream live quotes with your own free Finnhub key"><span class="live-dot"></span>Live quotes</button>
       <div class="theme-seg" id="themeSeg" role="group" aria-label="Color theme">
@@ -80,43 +88,96 @@ if(t==="system")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"lig
 
 
 <dialog id="welcomeDlg" class="welcome" aria-labelledby="welcomeTitle">
-  <div class="wc-head">
-    <svg class="wc-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21l5-6 4 3 7-9" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="9" r="2" fill="var(--accent)"/></svg>
-    <div>
-      <div class="eyebrow">Welcome</div>
-      <h2 id="welcomeTitle">Partsmith Markets</h2>
-      <p class="wc-lede">The stock market on one drafting sheet: prices, crowd sentiment, daily ideas and plain-English lessons, with every number linked to its source.</p>
+  <div class="wc-top">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21l5-6 4 3 7-9" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="9" r="2" fill="var(--accent)"/></svg>
+      <span class="brand-name">Partsmith Markets</span>
+    </div>
+    <span style="flex:1"></span>
+    <div class="wc-auth" id="wcAuthOut">
+      <button class="btn" type="button" data-auth="login">Log in</button>
+      <button class="btn primary" type="button" data-auth="signup">Sign up</button>
+    </div>
+    <div class="wc-auth" id="wcAuthIn" hidden>
+      <span class="wc-user"><span class="avatar" id="wcAvatar"></span><span id="wcName"></span></span>
+      <button class="btn" type="button" id="wcSignOut">Sign out</button>
     </div>
   </div>
-  <div class="wc-grid">
-    <a class="wc-tile" href="#picks" data-go="picks">
-      <svg class="ic"><use href="#i-target"/></svg>
-      <b>3 ideas every trading day</b>
-      <span>Scored on news, price action, crowd buzz and analysts, with the risks spelled out.</span>
-    </a>
-    <a class="wc-tile" href="#" data-go="watchlist">
-      <span class="wc-plus" aria-hidden="true">+</span>
-      <b>Build your watchlist</b>
-      <span>Hit the + next to any stock. It's saved in this browser, so no account is needed.</span>
-    </a>
-    <a class="wc-tile" href="#learn" data-go="learn">
-      <svg class="ic"><use href="#i-bulb"/></svg>
-      <b>Tips every 2 hours</b>
-      <span>A new tip and strategy from the SEC, IRS, FINRA and other trusted sources.</span>
-    </a>
-    <a class="wc-tile" href="#stories" data-go="stories">
-      <svg class="ic"><use href="#i-news"/></svg>
-      <b>Daily stories</b>
-      <span>Investing stories from established newsrooms, refreshed every morning.</span>
-    </a>
+
+  <div class="wc-main">
+    <div class="wc-hero">
+      <div class="eyebrow" id="wcGreeting">Welcome</div>
+      <h1 id="welcomeTitle">The market, on one drafting sheet.</h1>
+      <p class="wc-lede">Prices, crowd sentiment, three data-driven ideas every trading day and plain-English lessons, with every number linked back to its source.</p>
+      <div class="wc-cta">
+        <button class="btn primary lg" type="button" id="welcomeGo" autofocus>See today's picks</button>
+        <button class="btn lg" type="button" id="welcomeSkip">Explore on my own</button>
+      </div>
+    </div>
+    <div class="wc-grid">
+      <a class="wc-tile" href="#picks" data-go="picks">
+        <svg class="ic"><use href="#i-target"/></svg>
+        <b>3 ideas every trading day</b>
+        <span>Scored on news, price action, crowd buzz and analysts, with the risks spelled out.</span>
+      </a>
+      <a class="wc-tile" href="#" data-go="watchlist">
+        <span class="wc-plus" aria-hidden="true">+</span>
+        <b>Build your watchlist</b>
+        <span>Hit the + next to any stock to keep an eye on it.</span>
+      </a>
+      <a class="wc-tile" href="#learn" data-go="learn">
+        <svg class="ic"><use href="#i-bulb"/></svg>
+        <b>Tips every 2 hours</b>
+        <span>A new tip and strategy from the SEC, IRS, FINRA and other trusted sources.</span>
+      </a>
+      <a class="wc-tile" href="#stories" data-go="stories">
+        <svg class="ic"><use href="#i-news"/></svg>
+        <b>Daily stories</b>
+        <span>Investing stories from established newsrooms, refreshed every morning.</span>
+      </a>
+      <a class="wc-tile" href="#" data-go="command">
+        <svg class="ic"><use href="#i-spark"/></svg>
+        <b>Command center</b>
+        <span>Type things like "add NVDA" or "go to stories", or ask the AI with your own key.</span>
+      </a>
+      <a class="wc-tile" href="#tape" data-go="tape">
+        <svg class="ic"><use href="#i-chart"/></svg>
+        <b>Market tape &amp; mood</b>
+        <span>Index trends, CNN's Fear &amp; Greed gauge, and Reddit and Stocktwits buzz.</span>
+      </a>
+    </div>
   </div>
-  <p class="wc-fine">Prices update hourly on trading days. For live quotes, use the <b>Live quotes</b> button. <b>Not investment advice:</b> this site is for research and learning.</p>
-  <div class="btn-row">
-    <label class="wc-check"><input type="checkbox" id="welcomeHide" checked> Don't show this again</label>
+
+  <div class="wc-bottom">
+    <label class="wc-check" id="wcHideWrap" hidden><input type="checkbox" id="welcomeHide"> Don't show this welcome screen again <span class="note">(saved to your account)</span></label>
+    <span class="note" id="wcHint"><a href="#" data-auth="login">Log in</a> or <a href="#" data-auth="signup">sign up</a> to turn off this welcome screen.</span>
     <span style="flex:1"></span>
-    <button class="btn" type="button" id="welcomeSkip">Explore on my own</button>
-    <button class="btn primary" type="button" id="welcomeGo" autofocus>See today's picks</button>
+    <span class="wc-fine"><b>Not investment advice.</b> For research and learning.</span>
   </div>
+</dialog>
+
+<dialog id="authDlg" class="auth" aria-labelledby="authTitle">
+  <form id="authForm" novalidate>
+    <div class="auth-tabs" role="tablist">
+      <button type="button" role="tab" data-tab="login" aria-selected="true">Log in</button>
+      <button type="button" role="tab" data-tab="signup" aria-selected="false">Sign up</button>
+      <span style="flex:1"></span>
+      <button type="button" class="btn sm icon-btn" id="authClose" aria-label="Close">×</button>
+    </div>
+    <h2 id="authTitle">Log in to Partsmith Markets</h2>
+    <button type="button" class="btn google" id="authGoogle"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.3c0-.8-.1-1.5-.2-2.3H12v4.3h5.9a5 5 0 0 1-2.2 3.3v2.8h3.6c2.1-1.9 3.3-4.8 3.3-8.1Z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.8c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.9A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.8 14.1a6.6 6.6 0 0 1 0-4.2V7H2.1a11 11 0 0 0 0 10l3.7-2.9Z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2A11 11 0 0 0 2.1 7l3.7 2.9C6.7 7.3 9.1 5.4 12 5.4Z"/></svg>Continue with Google</button>
+    <div class="auth-or"><span>or with email</span></div>
+    <label class="field" id="authNameWrap" hidden><span>Name</span><input id="authName" autocomplete="name"></label>
+    <label class="field"><span>Email</span><input id="authEmail" type="email" autocomplete="email" required></label>
+    <label class="field"><span>Password</span><input id="authPass" type="password" autocomplete="current-password" required minlength="6"></label>
+    <p class="auth-err" id="authErr" role="alert"></p>
+    <div class="btn-row">
+      <a href="#" id="authForgot" class="note">Forgot password?</a>
+      <span style="flex:1"></span>
+      <button class="btn primary" type="submit" id="authSubmit">Log in</button>
+    </div>
+    <p class="note auth-fine">Your account only stores your name, email and site settings. Sign-in is handled by Google Firebase.</p>
+  </form>
 </dialog>
 
 <dialog id="cmdDlg" class="cmd" aria-labelledby="cmdTitle">
@@ -157,5 +218,6 @@ if(t==="system")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"lig
 </dialog>
 
 <script src="assets/app.js"></script>
+<script type="module" src="assets/account.js"></script>
 </body>
 </html>
