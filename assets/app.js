@@ -1,5 +1,30 @@
 /* Partsmith Markets — renders data/market.json and, when a Finnhub key is set, streams quotes. */
 (async function () {
+  // ---------------------------------------------------------------- welcome screen (first visit, or the ? button)
+  (function welcome() {
+    const dlg = document.getElementById('welcomeDlg'); if (!dlg || !dlg.showModal) return;
+    const KEY = 'pm-welcome-seen';
+    let seen = false; try { seen = localStorage.getItem(KEY) === '1'; } catch (e) {}
+    const close = go => {
+      try { document.getElementById('welcomeHide').checked ? localStorage.setItem(KEY, '1') : localStorage.removeItem(KEY); } catch (e) {}
+      dlg.close();
+      if (go === 'watchlist') {
+        const side = document.querySelector('.sidebar-left');
+        side.classList.remove('flash'); void side.offsetWidth; side.classList.add('flash');
+        const add = document.querySelector('.wl-add'); if (add) add.focus();
+      } else if (go) {
+        const el = document.getElementById(go); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+    dlg.querySelectorAll('[data-go]').forEach(a => a.onclick = e => { e.preventDefault(); close(a.dataset.go); });
+    document.getElementById('welcomeGo').onclick = () => close('picks');
+    document.getElementById('welcomeSkip').onclick = () => close();
+    dlg.addEventListener('cancel', () => { try { localStorage.setItem(KEY, '1'); } catch (e) {} });
+    dlg.addEventListener('click', e => { if (e.target === dlg) close(); });   // click the dimmed backdrop
+    document.getElementById('helpBtn').onclick = () => { document.getElementById('welcomeHide').checked = true; dlg.showModal(); };
+    if (!seen) dlg.showModal();
+  })();
+
   // The GitHub updater saves fresh data to the repo's `data` branch, so read it from there
   // (works on any host and on a local copy). Fall back to the copy shipped with the site.
   const DATA_BRANCH_URL = 'https://raw.githubusercontent.com/deltateamforce3-crypto/Partsmiths-stock-tracker/data/data/market.json';
@@ -455,6 +480,190 @@ ${D.mode === 'auto' ? `
     dlg.close();
     live.key ? startLive() : stopLive();
   };
+
+  // ---------------------------------------------------------------- command center
+  // Built-in commands work for everyone. "Ask AI" uses the visitor's own Anthropic API key,
+  // kept only in this browser (like the Finnhub key). The AI can only run the site actions below.
+  const AI_MODEL = 'claude-haiku-5-5';
+  const SECTIONS = { picks: 'picks', ideas: 'picks', tips: 'learn', learn: 'learn', strategies: 'learn', stories: 'stories', news: 'stories',
+    tape: 'tape', chart: 'tape', sentiment: 'sentiment', social: 'sentiment', reddit: 'sentiment', calendar: 'calendar', earnings: 'calendar',
+    week: 'calendar', method: 'method', methodology: 'method', sources: 'sources', top: 'sheet' };
+  const FILTERS = { all: 'all', everything: 'all', mine: 'mine', 'my watchlist': 'mine', watchlist: 'mine', picks: 'pick', pick: 'pick',
+    ai: 'ai', chips: 'ai', 'ai & chips': 'ai', mega: 'mega', 'mega-cap': 'mega', megacap: 'mega', trending: 'social', social: 'social', etf: 'etf', etfs: 'etf' };
+  const ai = { key: '', history: [], busy: false };
+  try { ai.key = localStorage.getItem('pm-anthropic-key') || ''; } catch (e) {}
+  const symsIn = text => [...new Set((String(text).toUpperCase().match(/\$?\b[A-Z][A-Z.]{0,5}\b/g) || []).map(t => t.replace('$', '')))].filter(t => bySym[t]);
+
+  // the actions both the parser and the AI use; each returns a short line for the log
+  const act = {
+    add(syms) { const ok = syms.filter(s => bySym[s]), bad = syms.filter(s => !bySym[s]); const added = ok.filter(s => !inMine(s));
+      if (added.length) { mine = [...mine, ...added]; saveMine(); }
+      const had = ok.filter(s => !added.includes(s));
+      return [added.length ? `Added ${added.join(', ')} to your watchlist.` : '', had.length ? `${had.join(', ')} ${had.length > 1 ? 'were' : 'was'} already there.` : '',
+        bad.length ? `Not tracked on this site: ${bad.join(', ')}.` : ''].filter(Boolean).join(' '); },
+    remove(syms) { const gone = syms.filter(inMine); if (gone.length) { mine = mine.filter(s => !gone.includes(s)); saveMine(); }
+      return gone.length ? `Removed ${gone.join(', ')} from your watchlist.` : 'None of those were in your watchlist.'; },
+    clear() { const n = mine.length; mine = []; saveMine(); return n ? `Cleared your watchlist (${n} removed).` : 'Your watchlist was already empty.'; },
+    select(s) { if (!bySym[s]) return `${s} isn't tracked on this site.`; select(s); return `Showing ${s} in the Inspector.`; },
+    filter(f) { if (!filters.some(([k]) => k === f)) return `Unknown filter "${f}".`; filt = f; try { localStorage.setItem('pm-filter', f); } catch (e) {} renderChips(); renderWL();
+      return `Watchlist filter: ${filters.find(([k]) => k === f)[1]}.`; },
+    go(sec) { const el = sec === 'sheet' ? $('#sheet') : document.getElementById(sec); if (!el) return `No "${sec}" section.`;
+      cmdDlg.close(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return `Jumped to ${sec}.`; },
+    theme(t) { if (!['light', 'dark', 'system'].includes(t)) return 'Theme must be light, dark or system.'; pref = t; try { localStorage.setItem('pm-theme', t); } catch (e) {} applyTheme(); return `Theme: ${t}.`; },
+    quote(s) { const w = bySym[s]; if (!w) return `${s} isn't tracked on this site.`;
+      const p = D.picks.find(x => x.sym === s);
+      return `${s} (${w.name}): ${w.px == null ? 'no price' : '$' + fmt(w.px)}${w.pct == null ? '' : ', ' + pct(w.pct) + ' today'}${p ? ` · today's pick (${p.role})` : ''}${inMine(s) ? ' · in your watchlist' : ''}.${w.note ? ' Latest: ' + w.note : ''}`; },
+    movers() { const m = D.watchlist.filter(w => w.pct != null).sort((a, b) => b.pct - a.pct); if (!m.length) return 'No price changes yet.';
+      return `Top: ${m.slice(0, 3).map(w => `${w.sym} ${pct(w.pct)}`).join(', ')}. Bottom: ${m.slice(-3).reverse().map(w => `${w.sym} ${pct(w.pct)}`).join(', ')}.`; },
+    picks() { return D.picks.map((p, i) => `${i + 1}. ${p.sym} (${p.role}), ${p.risk} risk`).join(' · ') + '. Not investment advice.'; },
+    mylist() { return mine.length ? 'Your watchlist: ' + mine.map(s => bySym[s] && bySym[s].pct != null ? `${s} ${pct(bySym[s].pct)}` : s).join(', ') + '.' : 'Your watchlist is empty. Try "add NVDA".'; },
+  };
+  function saveMine() { try { localStorage.setItem('pm-my-watchlist', JSON.stringify(mine)); } catch (e) {} renderChips(); renderWL(); renderInsp(); renderSheet(); }
+
+  // plain-English parser for the built-in commands; returns null when it doesn't understand
+  function runBuiltin(raw) {
+    const t = raw.trim().toLowerCase().replace(/[?!.]+$/, '');
+    let m;
+    if (/^(help|commands|\?)$/.test(t)) return HELP;
+    if (/^(welcome|tour|intro)$/.test(t)) { cmdDlg.close(); $('#helpBtn').click(); return 'Opened the welcome screen.'; }
+    if (/^(clear|empty|reset) (my )?watch ?list$/.test(t)) return act.clear();
+    if ((m = t.match(/^(add|watch|save|follow|track|\+)\s+(.+)$/))) { const s = (m[2].toUpperCase().match(/[A-Z][A-Z.]*/g) || []).filter(x => x.length <= 6).filter(x => !['TO', 'MY', 'AND', 'THE', 'WATCHLIST', 'LIST'].includes(x)); return s.length ? act.add(s) : null; }
+    if ((m = t.match(/^(remove|unwatch|delete|drop|unfollow|-)\s+(.+)$/))) { const s = (m[2].toUpperCase().match(/[A-Z][A-Z.]*/g) || []).filter(x => x.length <= 6).filter(x => !['FROM', 'MY', 'AND', 'THE', 'WATCHLIST', 'LIST'].includes(x)); return s.length ? act.remove(s) : null; }
+    if ((m = t.match(/^(dark|light|system)( mode| theme)?$/)) || (m = t.match(/^(?:theme|mode)\s+(dark|light|system)$/))) return act.theme(m[1]);
+    if (/^(live|live quotes|go live|stream( prices)?)$/.test(t)) { cmdDlg.close(); $('#liveBtn').click(); return 'Opened Live quotes.'; }
+    if (/^(top )?movers$|^(best|worst|biggest movers)/.test(t)) return act.movers();
+    if (/^(show |list )?(my )?watch ?list$|^what'?s in my watch ?list/.test(t)) { act.filter('mine'); return act.mylist(); }
+    if (/^(today'?s )?(picks|ideas)$|^what are (today'?s|the) picks/.test(t)) return act.picks();
+    if ((m = t.match(/^(?:filter|show only|only)\s+(.+)$/)) && FILTERS[m[1]]) return act.filter(FILTERS[m[1]]);
+    if ((m = t.match(/^(?:go to|goto|open|show|jump to|scroll to)\s+(?:the\s+)?(.+?)(?:\s+section)?$/)) && SECTIONS[m[1]]) return act.go(SECTIONS[m[1]]);
+    if (SECTIONS[t] && !bySym[t.toUpperCase()]) return act.go(SECTIONS[t]);
+    if ((m = t.match(/^(?:price( of)?|quote|how is|how's|what about|check)\s+\$?([a-z.]{1,6})(?: doing)?$/)) && bySym[m[2].toUpperCase()]) return act.quote(m[2].toUpperCase());
+    if ((m = t.match(/^(?:inspect|select|open|show|view)\s+\$?([a-z.]{1,6})$/)) && bySym[m[1].toUpperCase()]) { act.select(m[1].toUpperCase()); return act.quote(m[1].toUpperCase()); }
+    if (/^\$?[a-z.]{1,6}$/.test(t) && bySym[t.replace('$', '').toUpperCase()]) { const s = t.replace('$', '').toUpperCase(); act.select(s); return act.quote(s); }
+    return null;
+  }
+  const HELP = 'Try: "add NVDA AMD" · "remove TSLA" · "show my watchlist" · "how is AAPL doing" · "top movers" · "today\'s picks" · "go to stories" · "filter AI" · "dark mode" · "live quotes" · "clear my watchlist". Anything else goes to Ask AI when it\'s connected.';
+
+  // ---- AI (Claude) with tools that map to the actions above
+  const TOOLS = [
+    { name: 'add_to_watchlist', description: "Add stocks to the visitor's personal watchlist.", input_schema: { type: 'object', properties: { symbols: { type: 'array', items: { type: 'string' } } }, required: ['symbols'] } },
+    { name: 'remove_from_watchlist', description: "Remove stocks from the visitor's personal watchlist.", input_schema: { type: 'object', properties: { symbols: { type: 'array', items: { type: 'string' } } }, required: ['symbols'] } },
+    { name: 'select_stock', description: 'Open a stock in the Inspector panel on the right.', input_schema: { type: 'object', properties: { symbol: { type: 'string' } }, required: ['symbol'] } },
+    { name: 'filter_watchlist', description: 'Filter the left sidebar list.', input_schema: { type: 'object', properties: { filter: { type: 'string', enum: ['all', 'mine', 'pick', 'ai', 'mega', 'social', 'etf'] } }, required: ['filter'] } },
+    { name: 'go_to_section', description: 'Scroll the page to a section. This closes the command center.', input_schema: { type: 'object', properties: { section: { type: 'string', enum: ['sheet', 'picks', 'learn', 'stories', 'tape', 'sentiment', 'calendar', 'method', 'sources'] } }, required: ['section'] } },
+    { name: 'set_theme', description: 'Switch the color theme.', input_schema: { type: 'object', properties: { theme: { type: 'string', enum: ['light', 'dark', 'system'] } }, required: ['theme'] } },
+  ];
+  function runTool(name, input) {
+    const up = a => (a || []).map(s => String(s).toUpperCase().replace('$', ''));
+    switch (name) {
+      case 'add_to_watchlist': return act.add(up(input.symbols));
+      case 'remove_from_watchlist': return act.remove(up(input.symbols));
+      case 'select_stock': return act.select(up([input.symbol])[0]);
+      case 'filter_watchlist': return act.filter(input.filter);
+      case 'go_to_section': return act.go(input.section);
+      case 'set_theme': return act.theme(input.theme);
+      default: return 'Unknown action.';
+    }
+  }
+  function siteContext() {
+    const c = TIPS ? etClock() : null;
+    return JSON.stringify({
+      session: D.session, snapshot: snapStr, liveQuotes: live.on,
+      indices: D.indices.map(i => ({ name: i.name, last: i.last, pct: i.pct })),
+      fearGreed: D.fearGreed ? { score: D.fearGreed.score, rating: D.fearGreed.rating } : null,
+      myWatchlist: mine, selected: sel, sidebarFilter: filt,
+      stocks: D.watchlist.map(w => ({ sym: w.sym, name: w.name, px: w.px, pct: w.pct, tags: w.tags, note: w.note || undefined })),
+      picks: D.picks.map(p => ({ sym: p.sym, role: p.role, risk: p.risk, thesis: p.thesis, risks: p.risks, scores: p.scores })),
+      sentiment: D.sentiment.map(s => ({ platform: s.platform, tickers: s.tickers, lean: s.lean, read: s.read })),
+      headlines: D.macroNotes.map(n => n.t), stories: (D.stories || []).map(s => `${s.title} (${s.outlet})`),
+      calendar: D.calendar,
+      tipNow: c ? TIPS.tips[c.slot % TIPS.tips.length].title : null, strategyNow: c ? TIPS.strategies[c.slot % TIPS.strategies.length].title : null,
+    });
+  }
+  const SYSTEM = () => `You are the command center inside Partsmith Markets, a stock-tracking website. Help the visitor by running site actions with your tools and by answering questions using ONLY the site data below.
+Rules:
+- Be brief: 1-4 short sentences, plain text, no markdown headers.
+- You can only do what the tools allow (watchlist, inspector, filters, scrolling, theme). You cannot trade, move money, look up stocks the site doesn't track, or browse the web. Say so if asked.
+- Only use symbols that appear in "stocks". If a stock isn't tracked, say so.
+- Never tell someone to buy or sell. You may explain the data, the picks' reasoning and risks. If asked for advice, note that this is not investment advice and they should consider their own goals or a licensed advisor.
+- Prices are a snapshot from ${snapStr}${live.on ? ' with live quotes on' : ''}; mention that when quoting prices.
+Site data (JSON): ${siteContext()}`;
+
+  async function askAI(text) {
+    ai.history.push({ role: 'user', content: text });
+    if (ai.history.length > 16) ai.history = ai.history.slice(-16);
+    while (ai.history.length && (ai.history[0].role !== 'user' || typeof ai.history[0].content !== 'string')) ai.history.shift();
+    for (let step = 0; step < 6; step++) {
+      const r = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-api-key': ai.key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+        body: JSON.stringify({ model: AI_MODEL, max_tokens: 700, system: SYSTEM(), tools: TOOLS, messages: ai.history }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) {
+        ai.history.pop();
+        const msg = (j.error && j.error.message) || `HTTP ${r.status}`;
+        throw new Error(r.status === 401 ? 'Your API key was rejected. Check it under "AI settings".' : r.status === 429 ? 'Rate limited by Anthropic. Try again in a moment.' : msg);
+      }
+      ai.history.push({ role: 'assistant', content: j.content });
+      const calls = j.content.filter(b => b.type === 'tool_use');
+      j.content.filter(b => b.type === 'text' && b.text.trim()).forEach(b => logLine('ai', b.text));
+      if (!calls.length) return;
+      const results = calls.map(c => { const out = runTool(c.name, c.input || {}); logLine('act', out); return { type: 'tool_result', tool_use_id: c.id, content: out }; });
+      ai.history.push({ role: 'user', content: results });
+    }
+  }
+
+  // ---- UI
+  const cmdDlg = $('#cmdDlg'), cmdLog = $('#cmdLog'), cmdIn = $('#cmdInput');
+  const SUGGEST = ['add NVDA', 'show my watchlist', 'top movers', "today's picks", 'how is AAPL doing', 'go to stories', 'go to tips', 'filter AI', 'dark mode', 'help'];
+  function logLine(kind, text) {
+    const d = document.createElement('div'); d.className = 'cmd-line ' + kind;
+    d.innerHTML = kind === 'act' ? '<span class="cmd-ok">✓</span> ' + esc(text) : esc(text).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\n/g, '<br>');
+    cmdLog.appendChild(d); cmdLog.scrollTop = cmdLog.scrollHeight;
+  }
+  function renderAIState() {
+    $('#aiState').innerHTML = ai.key ? `<span class="ai-on">● Ask AI on</span> · Claude, using your API key` : 'Ask AI is off: built-in commands only.';
+    $('#aiToggle').textContent = ai.key ? 'AI settings' : 'Connect AI';
+  }
+  function renderSuggest(filter = '') {
+    const f = filter.trim().toLowerCase();
+    const list = f ? SUGGEST.filter(s => s.includes(f)).slice(0, 5) : SUGGEST.slice(0, 6);
+    $('#cmdSuggest').innerHTML = list.map(s => `<button type="button" class="chip" data-cmd="${esc(s)}">${esc(s)}</button>`).join('');
+  }
+  async function submit(text) {
+    text = text.trim(); if (!text || ai.busy) return;
+    cmdIn.value = ''; renderSuggest(); logLine('me', text);
+    const out = runBuiltin(text);
+    if (out != null) { logLine(/^(Added|Removed|Cleared|Showing|Watchlist filter|Jumped|Theme|Opened)/.test(out) ? 'act' : out.startsWith('Try:') ? 'sys' : 'ai', out); return; }
+    if (!ai.key) { logLine('sys', `I didn't recognise that command. ${HELP} To ask questions in your own words, click "Connect AI".`); return; }
+    ai.busy = true; cmdDlg.classList.add('busy');
+    try { await askAI(text); } catch (e) { logLine('err', e.message || 'Something went wrong talking to the AI.'); }
+    ai.busy = false; cmdDlg.classList.remove('busy'); cmdIn.focus();
+  }
+  function openCmd(prefill) {
+    if (!cmdDlg.open) cmdDlg.showModal();
+    if (!cmdLog.children.length) logLine('sys', 'Type a command like "add NVDA" or "go to stories". Press Enter to run it.' + (ai.key ? ' You can also ask questions in your own words.' : ''));
+    renderAIState(); renderSuggest(); if (prefill) cmdIn.value = prefill; cmdIn.focus();
+  }
+  $('#cmdForm').onsubmit = e => { e.preventDefault(); submit(cmdIn.value); };
+  cmdIn.oninput = () => renderSuggest(cmdIn.value);
+  $('#cmdSuggest').onclick = e => { const b = e.target.closest('[data-cmd]'); if (b) submit(b.dataset.cmd); };
+  $('#cmdBtn').onclick = () => openCmd();
+  $('#cmdClose').onclick = () => cmdDlg.close();
+  cmdDlg.addEventListener('click', e => { if (e.target === cmdDlg) cmdDlg.close(); });
+  $('#aiToggle').onclick = () => { const p = $('#aiPanel'); p.hidden = !p.hidden; if (!p.hidden) { $('#aiKey').value = ai.key; $('#aiKey').focus(); } };
+  $('#aiSave').onclick = () => {
+    ai.key = $('#aiKey').value.trim(); ai.history = [];
+    try { ai.key ? localStorage.setItem('pm-anthropic-key', ai.key) : localStorage.removeItem('pm-anthropic-key'); } catch (e) {}
+    $('#aiPanel').hidden = true; renderAIState(); logLine('sys', ai.key ? 'Ask AI is connected. Ask anything about today\'s data, or tell it what to do.' : 'Ask AI turned off. Your key was removed from this browser.'); cmdIn.focus();
+  };
+  $('#aiForget').onclick = () => { $('#aiKey').value = ''; $('#aiSave').click(); };
+  addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); cmdDlg.open ? cmdDlg.close() : openCmd(); }
+    else if (e.key === '/' && !cmdDlg.open && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !document.querySelector('dialog[open]')) { e.preventDefault(); openCmd(); }
+  });
+  $('#cmdKbd').textContent = /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘K' : 'Ctrl K';
 
   renderStatus(); setInterval(renderStatus, 30000);
   // Background tabs get their timers slowed, so catch up as soon as the tab is visible again.
