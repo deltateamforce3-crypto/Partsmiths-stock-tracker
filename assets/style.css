@@ -443,3 +443,5 @@ dialog.welcome > .wc-orb-btn { position: absolute; top: 6.5rem; right: clamp(1re
 @media (max-width: 700px) { .quotebar { font-size: .98rem; padding: .5rem .9rem; } }
 [data-app-theme="dark"] .quotebar { background: color-mix(in srgb, var(--accent) 52%, #0b1020); color: #fff; }
 [data-app-theme="dark"] .qb-label { border-color: rgba(255,255,255,.4); }
+#acctSignOutTop[hidden] { display: none; }
+@media (max-width: 520px) { #acctSignOutTop { display: none; } }

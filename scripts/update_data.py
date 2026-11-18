@@ -201,7 +201,9 @@ def build_macro(cfg, quotes, asof):
         q = quotes.get(m["sym"])
         if q:
             dp = q.get("dp") or 0
-            rows.append({"k": m["k"], "v": fmt_money(q["c"]), "d": fmt_pct(dp), "dir": 1 if dp >= 0 else -1,
+            d = q.get("d") or 0
+            dollars = ("+" if d > 0 else "−" if d < 0 else "") + fmt_money(abs(d))
+            rows.append({"k": m["k"], "v": fmt_money(q["c"]), "d": f"{dollars} · {fmt_pct(dp)}", "dir": 1 if dp >= 0 else -1,
                          "src": "finnhub", "asof": asof})
     return rows
 
@@ -775,7 +777,8 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
         if s in fund_syms or industry == "ETF / fund":
             tags.append("etf")
         row = {"sym": s, "name": name, "px": r2(q["c"]) if q else prev.get("px"),
-               "pct": r2(q.get("dp")) if q else None, "tags": tags, "src": "finnhub"}
+               "pct": r2(q.get("dp")) if q else None, "chg": r2(q.get("d")) if q else None,
+               "tags": tags, "src": "finnhub"}
         if not q:
             row["stale"] = "quote unavailable"
         c = cand.get(s)

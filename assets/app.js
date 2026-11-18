@@ -24,6 +24,10 @@
   const fmt = (n, d = 2) => n == null ? '—' : n.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
   const sign = n => n > 0 ? '+' : n < 0 ? '−' : '';
   const pct = n => n == null ? '—' : sign(n) + Math.abs(n).toFixed(2) + '%';
+  // Dollar change: from the data when present, otherwise worked out from price and % change.
+  const chgOf = w => w.chg != null ? w.chg : (w.px != null && w.pct != null ? w.px - w.px / (1 + w.pct / 100) : null);
+  const money = n => n == null ? '' : sign(Math.round(n * 100)) + '$' + fmt(Math.abs(n));
+  const move = (c, p) => p == null ? '—' : c == null ? pct(p) : `${money(c)} (${pct(p)})`;
   const cls = n => n == null ? 'flat' : n > 0 ? 'up' : n < 0 ? 'down' : 'flat';
   const src = id => { const s = D.sources[id]; if (!s) return ''; const [pub, rest] = s.name.split(' — '); const label = id.startsWith('news-') && rest ? `${pub}: ${rest.length > 34 ? rest.slice(0, 32).trim() + '…' : rest}` : pub; return `<a href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.name)}">${esc(label)}</a>`; };
   const srcs = ids => [...new Set(ids)].map(src).join('');
@@ -79,7 +83,7 @@
 
   // ribbon
   function renderRibbon() {
-  const idx = D.indices.map(i => `<div class="readout" title="${esc(D.sources[i.src].name)}"><span class="k">${esc(i.name)}</span><span class="v">${fmt(i.last)}</span><span class="d ${cls(i.pct)}">${sign(i.chg)}${fmt(Math.abs(i.chg))} · ${pct(i.pct)}</span></div>`).join('');
+  const idx = D.indices.map(i => `<div class="readout" title="${esc(D.sources[i.src].name)}"><span class="k">${esc(i.name)}</span><span class="v">${fmt(i.last)}</span><span class="d ${cls(i.pct)}">${money(i.chg)} · ${pct(i.pct)}</span></div>`).join('');
   const mac = D.macro.map(m => `<div class="readout sm" title="${esc(D.sources[m.src].name)} · as of ${esc(m.asof)} ET"><span class="k">${esc(m.k)}</span><span class="v">${esc(m.v)}</span><span class="d ${m.dir > 0 ? 'up' : 'down'}">${esc(m.d)}</span></div>`).join('');
   $('#ribbon').innerHTML = `
     <div class="rb-group"><div class="rb-items">${idx}</div><div class="rb-label">Indices · close ${esc(D.session)}</div></div>
@@ -114,7 +118,7 @@
       <span class="wl-sym">${w.sym}${pickSyms.includes(w.sym) ? '<span class="badge pk">PICK</span>' : ''}${w.tags.includes('etf') ? '<span class="badge" title="Exchange-traded fund">ETF</span>' : ''}${w.stale ? '<span class="badge stale">' + esc(w.stale) + '</span>' : ''}</span>
       <span class="wl-px">${w.px == null ? '—' : '$' + fmt(w.px)}</span>
       <span class="wl-name">${esc(w.name)}</span>
-      <span class="wl-chg ${cls(w.pct)}">${w.pct == null ? 'n/a' : pct(w.pct)}${w.ah ? ` <span class="${cls(w.ahPct)}" title="After hours">· AH ${pct(w.ahPct)}</span>` : ''}</span>
+      <span class="wl-chg ${cls(w.pct)}">${w.pct == null ? 'n/a' : move(chgOf(w), w.pct)}${w.ah ? ` <span class="${cls(w.ahPct)}" title="After hours">· AH ${move(w.px != null ? w.ah - w.px : null, w.ahPct)}</span>` : ''}</span>
     </button>${addBtn(w.sym, 'add-btn wl-add')}</div>`).join('') || (filt === 'mine' && !q
       ? '<div class="note" style="padding:1rem;text-align:center">Your watchlist is empty.<br>Click the <b>+</b> next to any stock to add it here.</div>'
       : '<div class="note" style="padding:1rem;text-align:center">No symbols match.</div>');
@@ -132,8 +136,8 @@
       <div class="insp-head"><div><div class="insp-sym">${w.sym}</div><div class="sub">${esc(w.name)}</div></div>${addBtn(w.sym, 'btn sm add-wide', true)}</div>
       <div>
         <div class="insp-px">${w.px == null ? '—' : '$' + fmt(w.px)}</div>
-        <div class="${cls(w.pct)}" style="font-family:var(--font-tech);font-weight:600">${w.pct == null ? (w.stale ? 'Last verified: ' + esc(w.stale) : 'Close not captured') : pct(w.pct) + ' on the day'}</div>
-        ${w.ah ? `<div class="${cls(w.ahPct)}" style="font-family:var(--font-tech)">After hours $${fmt(w.ah)} · ${pct(w.ahPct)}</div>` : ''}
+        <div class="${cls(w.pct)}" style="font-family:var(--font-tech);font-weight:600">${w.pct == null ? (w.stale ? 'Last verified: ' + esc(w.stale) : 'Close not captured') : move(chgOf(w), w.pct) + ' on the day'}</div>
+        ${w.ah ? `<div class="${cls(w.ahPct)}" style="font-family:var(--font-tech)">After hours $${fmt(w.ah)} · ${move(w.px != null ? w.ah - w.px : null, w.ahPct)}</div>` : ''}
       </div>
       <div class="prop"><div class="prop-h">Quote</div><div class="kv">
         <span class="k">Price source</span><span class="v">${src(w.src)}</span>
@@ -199,7 +203,7 @@
           <div class="srcs" style="margin-top:.5rem">${srcs(D.summarySrc)}</div>
         </div>
         <div class="hero-stats">
-          ${D.indices.map(i => `<div class="stat"><div class="k">${esc(i.name)}</div><div class="v">${fmt(i.last)}</div><div class="${cls(i.pct)}" style="font-family:var(--font-tech);font-size:.88rem">${pct(i.pct)}</div></div>`).join('')}
+          ${D.indices.map(i => `<div class="stat"><div class="k">${esc(i.name)}</div><div class="v">${fmt(i.last)}</div><div class="${cls(i.pct)}" style="font-family:var(--font-tech);font-size:.88rem">${move(i.chg, i.pct)}</div></div>`).join('')}
         </div>
       </div>
     </section>
@@ -217,8 +221,8 @@
             <span class="pick-actions"><span class="role">${esc(p.role)}</span>${addBtn(p.sym, 'add-btn')}</span>
           </div>
           <div class="pick-px"><span class="px">${w.px == null ? '—' : '$' + fmt(w.px)}</span>
-            <span class="meta ${cls(w.pct)}">${w.pct == null ? (w.stale ? esc(w.stale) : '') : pct(w.pct)}</span>
-            ${w.ah ? `<span class="meta ${cls(w.ahPct)}">AH $${fmt(w.ah)} (${pct(w.ahPct)})</span>` : ''}</div>
+            <span class="meta ${cls(w.pct)}">${w.pct == null ? (w.stale ? esc(w.stale) : '') : move(chgOf(w), w.pct)}</span>
+            ${w.ah ? `<span class="meta ${cls(w.ahPct)}">AH $${fmt(w.ah)} · ${move(w.px != null ? w.ah - w.px : null, w.ahPct)}</span>` : ''}</div>
           <ul class="thesis">${p.thesis.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
           <div>${Object.entries(p.scores).map(([k, v]) => `<div class="score"><span class="lbl">${esc(k)}</span><span class="bar"><i style="width:${v * 10}%"></i></span><span class="n">${v}</span></div>`).join('')}</div>
           <div class="risk"><b>Risk</b><span class="riskpill ${p.risk}">${p.risk === 'high' ? 'HIGH' : 'MODERATE'}</span> ${esc(p.risks)}</div>
@@ -400,7 +404,7 @@ ${D.mode === 'auto' ? `
   function applyLive() {
     for (const w of D.watchlist) {
       const q = live.quotes[w.sym]; if (!q) continue;
-      w.px = q.c; w.pct = q.dp; delete w.stale; delete w.ah; delete w.ahPct; w.src = 'finnhub-live';
+      w.px = q.c; w.pct = q.dp; w.chg = q.d; delete w.stale; delete w.ah; delete w.ahPct; w.src = 'finnhub-live';
     }
     for (const i of D.indices) {
       const q = live.quotes[i.sym]; if (!q) continue;
@@ -487,11 +491,11 @@ ${D.mode === 'auto' ? `
     theme(t) { if (!['light', 'dark', 'system'].includes(t)) return 'Theme must be light, dark or system.'; pref = t; try { localStorage.setItem('pm-theme', t); } catch (e) {} applyTheme(); return `Theme: ${t}.`; },
     quote(s) { const w = bySym[s]; if (!w) return `${s} isn't tracked on this site.`;
       const p = D.picks.find(x => x.sym === s);
-      return `${s} (${w.name}): ${w.px == null ? 'no price' : '$' + fmt(w.px)}${w.pct == null ? '' : ', ' + pct(w.pct) + ' today'}${p ? ` · today's pick (${p.role})` : ''}${inMine(s) ? ' · in your watchlist' : ''}.${w.note ? ' Latest: ' + w.note : ''}`; },
+      return `${s} (${w.name}): ${w.px == null ? 'no price' : '$' + fmt(w.px)}${w.pct == null ? '' : ', ' + move(chgOf(w), w.pct) + ' today'}${p ? ` · today's pick (${p.role})` : ''}${inMine(s) ? ' · in your watchlist' : ''}.${w.note ? ' Latest: ' + w.note : ''}`; },
     movers() { const m = D.watchlist.filter(w => w.pct != null).sort((a, b) => b.pct - a.pct); if (!m.length) return 'No price changes yet.';
-      return `Top: ${m.slice(0, 3).map(w => `${w.sym} ${pct(w.pct)}`).join(', ')}. Bottom: ${m.slice(-3).reverse().map(w => `${w.sym} ${pct(w.pct)}`).join(', ')}.`; },
+      return `Top: ${m.slice(0, 3).map(w => `${w.sym} ${move(chgOf(w), w.pct)}`).join(', ')}. Bottom: ${m.slice(-3).reverse().map(w => `${w.sym} ${move(chgOf(w), w.pct)}`).join(', ')}.`; },
     picks() { return D.picks.map((p, i) => `${i + 1}. ${p.sym} (${p.role}), ${p.risk} risk`).join(' · ') + '. Not investment advice.'; },
-    mylist() { return mine.length ? 'Your watchlist: ' + mine.map(s => bySym[s] && bySym[s].pct != null ? `${s} ${pct(bySym[s].pct)}` : s).join(', ') + '.' : 'Your watchlist is empty. Try "add NVDA".'; },
+    mylist() { return mine.length ? 'Your watchlist: ' + mine.map(s => bySym[s] && bySym[s].pct != null ? `${s} ${move(chgOf(bySym[s]), bySym[s].pct)}` : s).join(', ') + '.' : 'Your watchlist is empty. Try "add NVDA".'; },
   };
   function saveMine() { try { localStorage.setItem('pm-my-watchlist', JSON.stringify(mine)); } catch (e) {} renderChips(); renderWL(); renderInsp(); renderSheet(); }
 

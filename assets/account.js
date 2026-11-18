@@ -35,6 +35,7 @@ function renderAccount() {
   $('#wcAuthOut').hidden = !!u; $('#wcAuthIn').hidden = !u;
   $('#wcHideWrap').hidden = !u;
   $('#acctSignup').hidden = !!u;
+  $('#acctSignOutTop').hidden = !u;
   $('#wcGreeting').textContent = u ? `Welcome back, ${firstName(u)}` : 'Welcome';
   const btn = $('#acctBtn');
   if (u) {
@@ -61,7 +62,7 @@ document.addEventListener('click', e => { if (!e.target.closest('.acct')) { $('#
 document.querySelectorAll('[data-auth]').forEach(b => b.onclick = e => { e.preventDefault(); openAuth(b.dataset.auth); });
 $('#welcomeHide').onchange = e => savePref({ hideWelcome: e.target.checked });
 $('#acctShowWelcome').onchange = e => savePref({ hideWelcome: !e.target.checked });
-$('#wcSignOut').onclick = $('#acctSignOut').onclick = () => signOutNow();
+$('#wcSignOut').onclick = $('#acctSignOut').onclick = $('#acctSignOutTop').onclick = () => signOutNow();
 
 // ---------------------------------------------------------------- auth dialog
 function setMode(mode) {
