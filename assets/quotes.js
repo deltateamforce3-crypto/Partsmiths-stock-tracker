@@ -20,7 +20,7 @@ const QUOTES = [
   { q: 'The first rule of compounding: Never interrupt it unnecessarily.', who: 'Charlie Munger', src: '' },
 ];
 
-const bar = document.getElementById('quoteBar');
+const bars = [...document.querySelectorAll('.quotebar')];   // main page + welcome screen
 function dayIndex() {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' })
     .formatToParts(new Date()).map(x => [x.type, x.value]));
@@ -28,12 +28,14 @@ function dayIndex() {
 }
 let shown = null;
 function render() {
-  const d = dayIndex(); if (d === shown || !bar) return; shown = d;
+  const d = dayIndex(); if (d === shown || !bars.length) return; shown = d;
   const x = QUOTES[((d * 7) % QUOTES.length + QUOTES.length) % QUOTES.length];   // step by 7 so authors mix day to day
-  bar.innerHTML = `<span class="qb-label">Quote of the day</span><q class="qb-text"></q><span class="qb-who"></span>`;
-  bar.querySelector('.qb-text').textContent = x.q;
-  bar.querySelector('.qb-who').textContent = '— ' + x.who;
-  bar.title = x.who + (x.src ? ', ' + x.src : '');
+  for (const bar of bars) {
+    bar.innerHTML = `<span class="qb-label">Quote of the day</span><q class="qb-text"></q><span class="qb-who"></span>`;
+    bar.querySelector('.qb-text').textContent = x.q;
+    bar.querySelector('.qb-who').textContent = '— ' + x.who;
+    bar.title = x.who + (x.src ? ', ' + x.src : '');
+  }
 }
 render();
 setInterval(render, 60000);   // switches over at midnight ET without a reload

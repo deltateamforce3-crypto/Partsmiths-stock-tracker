@@ -419,7 +419,7 @@ dialog.welcome .wc-main { background: none; }
 
 /* hide / bring back the welcome orb */
 dialog.welcome.orb-hover { cursor: pointer; }
-dialog.welcome > .wc-orb-btn { position: absolute; top: 4.1rem; right: clamp(1rem, 4vw, 2.5rem); z-index: 2; animation: wc-fade .3s ease-out; }
+dialog.welcome > .wc-orb-btn { position: absolute; top: 6.2rem; right: clamp(1rem, 4vw, 2.5rem); z-index: 2; animation: wc-fade .3s ease-out; }
 .wc-orb-btn[hidden] { display: none; }
 .wc-orb-dot { width: .8rem; height: .8rem; border-radius: 999px; background: #000; box-shadow: 0 0 0 1.5px #ffe2b8, 0 0 8px 2px var(--accent); }
 
