@@ -419,7 +419,7 @@ dialog.welcome .wc-main { background: none; }
 
 /* hide / bring back the welcome orb */
 dialog.welcome.orb-hover { cursor: pointer; }
-dialog.welcome > .wc-orb-btn { position: absolute; top: 6.2rem; right: clamp(1rem, 4vw, 2.5rem); z-index: 2; animation: wc-fade .3s ease-out; }
+dialog.welcome > .wc-orb-btn { position: absolute; top: 6.5rem; right: clamp(1rem, 4vw, 2.5rem); z-index: 2; animation: wc-fade .3s ease-out; }
 .wc-orb-btn[hidden] { display: none; }
 .wc-orb-dot { width: .8rem; height: .8rem; border-radius: 999px; background: #000; box-shadow: 0 0 0 1.5px #ffe2b8, 0 0 8px 2px var(--accent); }
 
@@ -434,3 +434,12 @@ dialog.welcome > .wc-orb-btn { position: absolute; top: 6.2rem; right: clamp(1re
 .brand-home:hover .brand-name { color: var(--accent-text); }
 .home-btn .ic { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
 @media (max-width: 900px) { .home-btn span { display: none; } }
+/* quote strip: larger, upright, easier to read */
+.quotebar { min-height: 2.4rem; padding: .45rem 1.2rem; font-size: 1.06rem; line-height: 1.45; gap: .75rem; align-items: center; }
+.qb-text { font-family: var(--font-ui); font-style: normal; font-weight: 500; letter-spacing: .005em; }
+.qb-text::before, .qb-text::after { opacity: .75; }
+.qb-who { font-family: var(--font-ui); font-weight: 600; font-size: .98rem; opacity: .92; }
+.qb-label { font-size: .78rem; padding: .12rem .45rem; border: 1px solid color-mix(in srgb, var(--accent-ink) 45%, transparent); border-radius: 3px; opacity: .9; }
+@media (max-width: 700px) { .quotebar { font-size: .98rem; padding: .5rem .9rem; } }
+[data-app-theme="dark"] .quotebar { background: color-mix(in srgb, var(--accent) 52%, #0b1020); color: #fff; }
+[data-app-theme="dark"] .qb-label { border-color: rgba(255,255,255,.4); }
