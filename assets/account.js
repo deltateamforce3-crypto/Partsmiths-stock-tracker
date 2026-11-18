@@ -25,7 +25,7 @@ welcome.querySelectorAll('[data-go]').forEach(a => a.onclick = e => { e.preventD
 $('#welcomeGo').onclick = () => closeWelcome('picks');
 $('#welcomeSkip').onclick = () => closeWelcome();
 $('#helpBtn').onclick = openWelcome;
-$('#helpBtn').title = 'Welcome screen';
+$('#homeLogo').onclick = e => { e.preventDefault(); openWelcome(); };
 
 // ---------------------------------------------------------------- account UI
 const initials = u => ((u.displayName || u.email || '?').trim().split(/[\s@.]+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('') || '?').toUpperCase();

@@ -500,7 +500,7 @@ ${D.mode === 'auto' ? `
     const t = raw.trim().toLowerCase().replace(/[?!.]+$/, '');
     let m;
     if (/^(help|commands|\?)$/.test(t)) return HELP;
-    if (/^(welcome|tour|intro)$/.test(t)) { cmdDlg.close(); $('#helpBtn').click(); return 'Opened the welcome screen.'; }
+    if (/^(welcome|tour|intro|home|go home|back to home)$/.test(t)) { cmdDlg.close(); $('#helpBtn').click(); return 'Opened the welcome screen.'; }
     if (/^(clear|empty|reset) (my )?watch ?list$/.test(t)) return act.clear();
     if ((m = t.match(/^(add|watch|save|follow|track|\+)\s+(.+)$/))) { const s = (m[2].toUpperCase().match(/[A-Z][A-Z.]*/g) || []).filter(x => x.length <= 6).filter(x => !['TO', 'MY', 'AND', 'THE', 'WATCHLIST', 'LIST'].includes(x)); return s.length ? act.add(s) : null; }
     if ((m = t.match(/^(remove|unwatch|delete|drop|unfollow|-)\s+(.+)$/))) { const s = (m[2].toUpperCase().match(/[A-Z][A-Z.]*/g) || []).filter(x => x.length <= 6).filter(x => !['FROM', 'MY', 'AND', 'THE', 'WATCHLIST', 'LIST'].includes(x)); return s.length ? act.remove(s) : null; }

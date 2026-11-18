@@ -57,7 +57,7 @@ svg.ic { width: 1.25rem; height: 1.25rem; flex: none; stroke-width: 1.75; fill: 
 .up { color: var(--ok); } .down { color: var(--danger); } .flat { color: var(--ink-3); }
 .scroll { overflow: auto; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
 
-.app { height: 100%; display: grid; grid-template-rows: var(--appbar-h) var(--ribbon-h) 1fr var(--status-h); }
+.app { height: 100%; display: grid; grid-template-rows: auto var(--appbar-h) var(--ribbon-h) 1fr var(--status-h); }
 
 /* app bar */
 .appbar { display: flex; align-items: center; gap: .5rem; padding: 0 .6rem 0 .75rem; background: var(--panel); border-bottom: 1px solid var(--line); min-width: 0; }
@@ -237,7 +237,7 @@ td.n { text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 1180px) { :root { --right-w: 290px; --left-w: 240px; } .picks { grid-template-columns: 1fr; } .hero { grid-template-columns: 1fr; } }
 @media (max-width: 900px) {
   body { overflow: auto; height: auto; }
-  .app { height: auto; grid-template-rows: auto auto auto auto; }
+  .app { height: auto; grid-template-rows: auto auto auto auto auto; }
   .menubar, .save-state { display: none; }
   .workspace { grid-template-columns: 1fr; }
   .sidebar-left { order: 2; max-height: 420px; border-right: 0; border-top: 1px solid var(--line); }
@@ -422,3 +422,15 @@ dialog.welcome.orb-hover { cursor: pointer; }
 dialog.welcome > .wc-orb-btn { position: absolute; top: 4.1rem; right: clamp(1rem, 4vw, 2.5rem); z-index: 2; animation: wc-fade .3s ease-out; }
 .wc-orb-btn[hidden] { display: none; }
 .wc-orb-dot { width: .8rem; height: .8rem; border-radius: 999px; background: #000; box-shadow: 0 0 0 1.5px #ffe2b8, 0 0 8px 2px var(--accent); }
+
+/* quote of the day strip + Home button */
+.quotebar { display: flex; align-items: baseline; justify-content: center; gap: .6rem; min-height: 1.9rem; padding: .3rem 1rem; background: var(--accent); color: var(--accent-ink); font-size: .92rem; line-height: 1.35; text-align: center; overflow: hidden; }
+.quotebar:empty { display: none; }
+.qb-label { font-family: var(--font-tech); font-weight: 600; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; opacity: .8; white-space: nowrap; }
+.qb-text { font-style: italic; }
+.qb-who { font-family: var(--font-tech); font-weight: 600; white-space: nowrap; }
+@media (max-width: 700px) { .quotebar { flex-wrap: wrap; } .qb-label { display: none; } }
+.brand-home { color: inherit; text-decoration: none; border-radius: var(--r); }
+.brand-home:hover .brand-name { color: var(--accent-text); }
+.home-btn .ic { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+@media (max-width: 900px) { .home-btn span { display: none; } }
