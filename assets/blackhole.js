@@ -80,17 +80,6 @@ if (dlg) {
     g.addColorStop(0.35, hexA(colors.accent, colors.dark ? 0.14 : 0.1));
     g.addColorStop(1, hexA(colors.accent, 0));
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * 4.2, 0, Math.PI * 2); ctx.fill();
-    // spinning accretion disk (tilted ellipse of soft arcs)
-    ctx.save(); ctx.translate(x, y); ctx.rotate(-0.35); ctx.scale(1, 0.34);
-    for (let i = 0; i < 3; i++) {
-      const rr = r * (1.55 + i * 0.42), a0 = t * (1.6 - i * 0.35) + i * 2.1;
-      ctx.lineWidth = r * (0.32 - i * 0.07); ctx.lineCap = 'round';
-      ctx.strokeStyle = hexA(i === 0 ? '#ffd9a0' : colors.accent, 0.75 - i * 0.2);
-      ctx.beginPath(); ctx.arc(0, 0, rr, a0, a0 + Math.PI * 1.25); ctx.stroke();
-      ctx.strokeStyle = hexA(i === 0 ? '#ffb46b' : colors.accent, 0.35 - i * 0.08);
-      ctx.beginPath(); ctx.arc(0, 0, rr, a0 + Math.PI * 1.35, a0 + Math.PI * 1.9); ctx.stroke();
-    }
-    ctx.restore();
     // photon ring + event horizon
     g = ctx.createRadialGradient(x, y, r * 0.75, x, y, r * 1.22);
     g.addColorStop(0, 'rgba(0,0,0,1)'); g.addColorStop(0.72, 'rgba(0,0,0,1)');
