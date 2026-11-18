@@ -36,12 +36,21 @@ if (dlg) {
     const dark = document.documentElement.dataset.appTheme === 'dark';
     colors = { accent: v('--accent') || '#2f55d4', bg: v('--bg') || (dark ? '#111' : '#eef0f3'), dark };
   }
+  // the open area between the top bars (quote strip + Log in / Sign up) and the bottom bar
+  const bounds = { top: 0, bottom: 0 };
+  function measure() {
+    const tb = dlg.querySelector('.wc-top'), bb = dlg.querySelector('.wc-bottom');
+    bounds.top = tb ? tb.getBoundingClientRect().bottom : 0;
+    bounds.bottom = bb ? bb.getBoundingClientRect().top : H;
+    if (bounds.bottom - bounds.top < hole.r * 3) { bounds.top = 0; bounds.bottom = H; }
+  }
   function resize() {
     dpr = Math.min(devicePixelRatio || 1, 2);
     W = dlg.clientWidth; H = dlg.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px';
     hole.r = Math.max(18, Math.min(34, Math.min(W, H) * 0.035));
-    if (!hole.x) { hole.x = W * 0.72; hole.y = H * 0.32; }
+    measure();
+    if (!hole.x) { hole.x = W * 0.72; hole.y = Math.max(bounds.top + hole.r * 2, H * 0.32); }
   }
 
   // grid point bent toward the hole (gravitational-lensing look), capped so lines never cross the core
@@ -63,8 +72,9 @@ if (dlg) {
     if (!ptr.seen) return;
     const rate = orbOn ? 4 : 14, k = 1 - Math.exp(-rate * dt);
     hole.x += (ptr.x - hole.x) * k; hole.y += (ptr.y - hole.y) * k;
-    const m = orbOn ? hole.r * 1.3 : 0;   // keep the orb fully on screen
-    hole.x = Math.max(m, Math.min(W - m, hole.x)); hole.y = Math.max(m, Math.min(H - m, hole.y));
+    const m = orbOn ? hole.r * 1.3 : 0;   // keep the orb fully on screen, below the Log in / Sign up bar
+    const top = orbOn ? bounds.top + m : 0, bottom = orbOn ? bounds.bottom - m : H;
+    hole.x = Math.max(m, Math.min(W - m, hole.x)); hole.y = Math.max(top, Math.min(bottom, hole.y));
   }
 
   function draw() {
