@@ -4,19 +4,24 @@ name: Update market data
 #   10 AM - 3 PM  hourly price refresh   (mode: quotes)
 #   4 PM          full daily update       (mode: full - sentiment, news, analysts, 3 new picks)
 #
-# GitHub cron runs in UTC and doesn't know about daylight saving, so the job fires
-# hourly from 14:05 to 21:05 UTC and the "plan" step checks the time in New York
-# to decide what to do. That keeps 4 PM correct all year round.
+# GitHub cron runs in UTC, ignores daylight saving, and can delay or drop runs
+# when it's busy (worst near the top of the hour). So the job fires every hour at
+# :23 on weekdays and the "plan" step decides what to do from New York time:
+#   - 10:00-15:59 ET -> quotes
+#   - 16:00-20:59 ET -> full, unless today's full update already ran
+#     (so a dropped 4 PM run is made up at 5, 6, 7 or 8 PM)
+#   - otherwise      -> skip
+# workflow_dispatch also lets an outside scheduler (e.g. cron-job.org) start it.
 
 on:
   schedule:
-    - cron: "5 14-21 * * 1-5"
+    - cron: "23 * * * 1-5"
   workflow_dispatch:
     inputs:
       mode:
-        description: "quotes = prices only, full = everything incl. picks"
+        description: "auto = pick from the time, quotes = prices only, full = everything incl. picks"
         type: choice
-        options: [quotes, full]
+        options: [auto, quotes, full]
         default: full
 
 permissions:
@@ -31,23 +36,23 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - uses: actions/checkout@v4
+
       - name: Decide mode from New York time
         id: plan
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            mode="${{ inputs.mode }}"
-          else
+          mode="${{ inputs.mode }}"
+          if [ -z "$mode" ] || [ "$mode" = "auto" ]; then
             h=$(TZ=America/New_York date +%-H)
-            if [ "$h" -eq 16 ]; then mode=full
-            elif [ "$h" -ge 10 ] && [ "$h" -le 15 ]; then mode=quotes
+            today=$(TZ=America/New_York date +%F)
+            last=$(python3 -c "import json;print(json.load(open('data/market.json')).get('lastFull',''))" 2>/dev/null || true)
+            echo "New York hour: $h, last full update: ${last:-never}"
+            if [ "$h" -ge 10 ] && [ "$h" -le 15 ]; then mode=quotes
+            elif [ "$h" -ge 16 ] && [ "$h" -le 20 ] && [ "$last" != "$today" ]; then mode=full
             else mode=skip; fi
-            echo "New York hour: $h"
           fi
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           echo "Mode: $mode"
-
-      - uses: actions/checkout@v4
-        if: steps.plan.outputs.mode != 'skip'
 
       - uses: actions/setup-python@v5
         if: steps.plan.outputs.mode != 'skip'

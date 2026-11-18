@@ -543,6 +543,8 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
         used.update(p.get("src", []))
     data["sources"] = {k: v for k, v in sources.items() if k in used or k in SOURCES or k.startswith("research-")}
     data["runInfo"] = {"mode": mode, "apiCalls": http.calls, "errors": sorted(set(http.errors))}
+    if mode == "full":
+        data["lastFull"] = today.isoformat()
     return data
 
 

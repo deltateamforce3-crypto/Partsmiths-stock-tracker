@@ -72,7 +72,7 @@ GitHub Action (hourly + 4 PM ET) ──► scripts/update_data.py ──► data
 | hourly, `10 AM – 3 PM` | `quotes` | Prices, ETF index proxies, macro proxies, index history |
 | `4 PM` | `full` | Closing prices, Reddit and Stocktwits sentiment, news, analyst trends, earnings calendar, **3 new picks for the next trading day** |
 
-GitHub cron only understands UTC, so the workflow fires hourly from 14:05 to 21:05 UTC and checks the time in New York before doing anything. That keeps the 4 PM update correct through daylight-saving changes.
+GitHub cron only understands UTC and can delay or drop runs when it's busy. So the workflow fires every hour at :23 on weekdays and checks the time in New York before doing anything. If the 4 PM run is dropped, the full update runs at the next hour that works, up to 8 PM. For extra reliability, an outside scheduler such as cron-job.org can start the workflow through GitHub's API (`workflow_dispatch` with `mode: auto`).
 
 GitHub may start scheduled runs a few minutes late. Scheduled workflows are also paused after 60 days with no repo activity. Re-enable them from the Actions tab.
 
