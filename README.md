@@ -2,7 +2,7 @@
 
 A stock-tracking dashboard built in the Partsmith CAD workbench style: app bar and ribbon on top, watchlist on the left, a drawing-sheet viewport in the middle, an inspector on the right, and a status bar laid out like a title block.
 
-- **Live quotes.** Each viewer can paste their own free Finnhub key, and the page then streams prices every 30 seconds. Without a key, it shows the latest data committed by the GitHub Action, which refreshes prices every hour from 10 AM to 5 PM ET and does the full daily update at 3 PM ET.
+- **Live quotes.** Each viewer can paste their own free Finnhub key, and the page then streams prices every minute. Without a key, it shows the latest data committed by the GitHub Action, which refreshes prices every hour from 10 AM to 5 PM ET and does the full daily update at 3 PM ET.
 - **Crowd sentiment.** Reddit mention counts (r/wallstreetbets, r/stocks, r/investing and more, via ApeWisdom) and Stocktwits trending symbols.
 - **3 watchlist ideas every trading day.** Each one is scored on catalyst, price action, crowd attention and analyst support, with risks and links to its sources.
 - **Sources everywhere.** Every number links back to where it came from.

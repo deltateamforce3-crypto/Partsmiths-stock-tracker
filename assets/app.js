@@ -89,7 +89,7 @@
       </div></div>
       ${w.note ? `<div class="prop"><div class="prop-h">What's driving it</div><p>${esc(w.note)}</p>${w.noteSrc ? `<p class="srcs" style="padding-top:0">${srcs(w.noteSrc)}</p>` : ''}</div>` : ''}
       ${facts ? `<div class="prop"><div class="prop-h">Key figures</div><div class="kv">${facts}</div>${w.factsSrc ? `<p class="srcs" style="padding-top:0">${srcs(w.factsSrc)}</p>` : ''}</div>` : ''}
-      <div class="live-note">${live.on ? 'Live quote from Finnhub, refreshed every 30 seconds. Free-tier quotes can lag the exchange slightly.' : 'Prices come from the last data refresh, not a streaming quote. Turn on Live quotes (top right) or check your broker before trading.'}</div>`;
+      <div class="live-note">${live.on ? 'Live quote from Finnhub, refreshed every minute. Free-tier quotes can lag the exchange slightly.' : 'Prices come from the last data refresh, not a streaming quote. Turn on Live quotes (top right) or check your broker before trading.'}</div>`;
   }
 
   // sheet
@@ -283,7 +283,7 @@ ${D.mode === 'auto' ? `
   setInterval(refreshData, 120000);
 
   // Optional live mode: the viewer's own Finnhub key, kept only in this browser.
-  const live = { on: false, key: '', timer: null, quotes: {}, err: '', at: '' };
+  const live = { on: false, key: '', timer: null, quotes: {}, err: '', at: '', busy: false, last: 0 };
   try { live.key = localStorage.getItem('pm-finnhub-key') || ''; } catch (e) {}
   function liveSymbols() {
     return [...new Set([...D.indices.map(i => i.sym), ...D.watchlist.map(w => w.sym)])].filter(s => /^[A-Z.]{1,6}$/.test(s));
@@ -300,24 +300,28 @@ ${D.mode === 'auto' ? `
     D.sources['finnhub-live'] = { name: 'Finnhub — live quotes (your API key)', url: 'https://finnhub.io' };
   }
   async function pollLive() {
+    // Skip if a poll is still running or one finished in the last 20 s (tab switching, overlapping timers).
+    if (live.busy || Date.now() - live.last < 20000) return;
+    live.busy = true; live.last = Date.now();
     const syms = liveSymbols();
     let ok = 0;
     for (const s of syms) {
       try {
         const r = await fetch(`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(s)}&token=${encodeURIComponent(live.key)}`);
         if (r.status === 401 || r.status === 403) { live.err = 'key rejected'; break; }
-        if (r.status === 429) { live.err = 'rate limited'; break; }
+        if (r.status === 429) { live.err = 'rate limited, retrying next minute'; break; }
         const q = await r.json();
         if (q && q.c) { live.quotes[s] = q; ok++; }
       } catch (e) { live.err = 'network error'; break; }
     }
     if (ok) { live.err = ok < syms.length && live.err ? live.err : ''; live.at = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' }); applyLive(); renderAll(); }
     else renderStatus();
+    live.busy = false;
   }
   function startLive() {
     if (!live.key) return;
-    live.on = true; live.err = ''; pollLive();
-    clearInterval(live.timer); live.timer = setInterval(pollLive, 30000); // ~40 calls/min, inside the free tier's 60
+    live.on = true; live.err = ''; live.last = 0; pollLive();
+    clearInterval(live.timer); live.timer = setInterval(pollLive, 60000); // ~19 calls/min, leaving room under the free tier's 60/min for the GitHub updater and a second tab
     $('#liveBtn').setAttribute('aria-pressed', 'true');
   }
   function stopLive() { live.on = false; clearInterval(live.timer); $('#liveBtn').setAttribute('aria-pressed', 'false'); refreshData(); setSnap(); renderStatus(); }
