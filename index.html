@@ -47,6 +47,7 @@ if(t==="system")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"lig
       <button class="btn sm cmd-btn" id="cmdBtn" type="button" title="Command center: run commands or ask the AI"><svg class="ic"><use href="#i-spark"/></svg><span>Command</span><kbd id="cmdKbd">Ctrl K</kbd></button>
       <div class="acct">
         <button class="btn sm" id="acctBtn" type="button" aria-haspopup="true" aria-expanded="false">Log in</button>
+        <button class="btn sm primary" id="acctSignup" type="button" data-auth="signup">Sign up</button>
         <div class="acct-menu" id="acctMenu" hidden>
           <div class="acct-who"><span class="avatar" id="acctAvatar"></span><div><b id="acctName"></b><div class="note" id="acctEmail"></div></div></div>
           <label class="wc-check"><input type="checkbox" id="acctShowWelcome"> Show the welcome screen when I visit</label>
@@ -95,6 +96,7 @@ if(t==="system")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"lig
     </div>
     <span style="flex:1"></span>
     <div class="wc-auth" id="wcAuthOut">
+      <span class="note wc-hint" id="wcHint"><a href="#" data-auth="login">Log in</a> or <a href="#" data-auth="signup">sign up</a> to turn off this welcome screen</span>
       <button class="btn" type="button" data-auth="login">Log in</button>
       <button class="btn primary" type="button" data-auth="signup">Sign up</button>
     </div>
@@ -150,7 +152,6 @@ if(t==="system")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"lig
 
   <div class="wc-bottom">
     <label class="wc-check" id="wcHideWrap" hidden><input type="checkbox" id="welcomeHide"> Don't show this welcome screen again <span class="note">(saved to your account)</span></label>
-    <span class="note" id="wcHint"><a href="#" data-auth="login">Log in</a> or <a href="#" data-auth="signup">sign up</a> to turn off this welcome screen.</span>
     <span style="flex:1"></span>
     <span class="wc-fine"><b>Not investment advice.</b> For research and learning.</span>
   </div>

@@ -402,3 +402,10 @@ dialog.auth .field input { font-family: var(--font-ui); color: var(--ink); }
 .auth-err { min-height: 1.2em; margin: .3rem 0 0; color: var(--danger); font-size: .9rem; }
 .auth-err.info { color: var(--ink-2); }
 .auth-fine { margin: .8rem 0 0; font-size: .8rem; }
+
+/* sign-up next to log in; welcome hint beside the buttons */
+.acct { display: flex; align-items: center; gap: .35rem; }
+#acctSignup[hidden] { display: none; }
+.wc-hint { margin-right: .4rem; font-size: .9rem; }
+@media (max-width: 700px) { .wc-hint { display: none; } }
+@media (max-width: 520px) { #acctSignup { display: none; } }

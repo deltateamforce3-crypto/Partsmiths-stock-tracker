@@ -33,7 +33,8 @@ const firstName = u => (u.displayName || '').split(' ')[0] || (u.email || '').sp
 function renderAccount() {
   const u = state.user;
   $('#wcAuthOut').hidden = !!u; $('#wcAuthIn').hidden = !u;
-  $('#wcHideWrap').hidden = !u; $('#wcHint').hidden = !!u;
+  $('#wcHideWrap').hidden = !u;
+  $('#acctSignup').hidden = !!u;
   $('#wcGreeting').textContent = u ? `Welcome back, ${firstName(u)}` : 'Welcome';
   const btn = $('#acctBtn');
   if (u) {
