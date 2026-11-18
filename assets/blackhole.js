@@ -7,6 +7,21 @@ if (dlg) {
   const cv = document.createElement('canvas');
   cv.className = 'wc-bg'; cv.setAttribute('aria-hidden', 'true');
   dlg.prepend(cv);
+  // click the orb to hide it (the grid keeps bending); this button brings it back
+  const orbBtn = document.createElement('button');
+  orbBtn.type = 'button'; orbBtn.className = 'btn sm wc-orb-btn'; orbBtn.hidden = true;
+  orbBtn.innerHTML = '<span class="wc-orb-dot" aria-hidden="true"></span>Bring back the orb';
+  dlg.appendChild(orbBtn);
+  let orbOn = true, show = 1;
+  try { orbOn = localStorage.getItem('pm-orb-hidden') !== '1'; } catch (e) {}
+  show = orbOn ? 1 : 0; orbBtn.hidden = orbOn;
+  function setOrb(on) {
+    orbOn = on; orbBtn.hidden = on;
+    try { on ? localStorage.removeItem('pm-orb-hidden') : localStorage.setItem('pm-orb-hidden', '1'); } catch (e) {}
+    dlg.classList.remove('orb-hover');
+    if (reduce.matches) { show = on ? 1 : 0; draw(); }
+  }
+  orbBtn.onclick = () => setOrb(true);
   const ctx = cv.getContext('2d');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const GRID = 28, STEP = 9;
@@ -73,7 +88,9 @@ if (dlg) {
     ctx.stroke();
     ctx.globalAlpha = 1;
 
-    const { x, y, r } = hole;
+    if (show < 0.01) return;
+    const { x, y } = hole, e = 1 - Math.pow(1 - show, 3), r = hole.r * e;  // eased shrink / grow
+    ctx.globalAlpha = Math.min(1, show * 1.4);
     // outer glow
     let g = ctx.createRadialGradient(x, y, r * 0.9, x, y, r * 4.2);
     g.addColorStop(0, hexA(colors.accent, colors.dark ? 0.45 : 0.32));
@@ -85,6 +102,7 @@ if (dlg) {
     g.addColorStop(0, 'rgba(0,0,0,1)'); g.addColorStop(0.72, 'rgba(0,0,0,1)');
     g.addColorStop(0.86, hexA('#ffe2b8', 0.95)); g.addColorStop(1, hexA(colors.accent, 0));
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * 1.22, 0, Math.PI * 2); ctx.fill();
+    ctx.globalAlpha = 1;
   }
 
   function hexA(c, a) {
@@ -98,6 +116,7 @@ if (dlg) {
 
   function frame(ts) {
     const dt = Math.min(0.05, (ts - (last || ts)) / 1000); last = ts; t += dt;
+    show += ((orbOn ? 1 : 0) - show) * Math.min(1, dt * 7);
     step(dt); draw();
     raf = requestAnimationFrame(frame);
   }
@@ -114,7 +133,11 @@ if (dlg) {
     ptr.active = !e.target.closest('.wc-tile, button, a, input, label, .wc-top, .wc-bottom');
     ptr.x = e.clientX; ptr.y = e.clientY; ptr.at = performance.now();
   });
-  dlg.addEventListener('pointerleave', () => { ptr.active = false; });
+  dlg.addEventListener('pointerleave', () => { ptr.active = false; dlg.classList.remove('orb-hover'); });
+  const onOrb = e => orbOn && !e.target.closest('.wc-tile, button, a, input, label, .wc-top, .wc-bottom')
+    && Math.hypot(e.clientX - hole.x, e.clientY - hole.y) < hole.r * 1.4;
+  dlg.addEventListener('pointermove', e => dlg.classList.toggle('orb-hover', onOrb(e)));
+  dlg.addEventListener('click', e => { if (onOrb(e)) setOrb(false); });
   addEventListener('resize', () => { if (dlg.open) { resize(); if (!raf) draw(); } });
   new MutationObserver(() => {
     readColors();
