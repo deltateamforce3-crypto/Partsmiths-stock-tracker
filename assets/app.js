@@ -30,6 +30,28 @@
   let bySym = Object.fromEntries(D.watchlist.map(w => [w.sym, w]));
   let pickSyms = D.picks.map(p => p.sym);
 
+  // my watchlist: symbols the viewer saved with the + button, kept in this browser
+  let mine = [];
+  try { mine = JSON.parse(localStorage.getItem('pm-my-watchlist') || '[]').filter(x => typeof x === 'string'); } catch (e) { mine = []; }
+  const inMine = s => mine.includes(s);
+  const plusSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  const checkSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+  function toggleMine(s) {
+    mine = inMine(s) ? mine.filter(x => x !== s) : [...mine, s];
+    try { localStorage.setItem('pm-my-watchlist', JSON.stringify(mine)); } catch (e) {}
+    toast(inMine(s) ? `${s} added to your watchlist` : `${s} removed from your watchlist`);
+    renderChips(); renderWL(); renderInsp(); renderSheet();
+  }
+  const addBtn = (s, cls = 'add-btn', label = false) => `<button type="button" class="${cls}" data-add="${s}" aria-pressed="${inMine(s)}" title="${inMine(s) ? 'In your watchlist — click to remove' : 'Add to your watchlist'}" aria-label="${inMine(s) ? 'Remove ' + s + ' from' : 'Add ' + s + ' to'} your watchlist">${inMine(s) ? checkSvg : plusSvg}${label ? `<span>${inMine(s) ? 'In your watchlist' : 'Add to watchlist'}</span>` : ''}</button>`;
+  let toastT;
+  function toast(msg) {
+    let t = document.getElementById('toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; t.className = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 1800);
+  }
+  document.addEventListener('click', e => { const b = e.target.closest('[data-add]'); if (!b) return; e.stopPropagation(); toggleMine(b.dataset.add); }, true);
+
   // theme
   const root = document.documentElement;
   // pref is 'light', 'dark' or 'system'; 'system' follows the OS setting and updates when it changes.
@@ -74,20 +96,26 @@
   renderRibbon();
 
   // watchlist
-  const filters = [['all', 'All'], ['pick', 'Picks'], ['ai', 'AI & chips'], ['mega', 'Mega-cap'], ['social', 'Trending'], ['etf', 'ETFs']];
+  const filters = [['all', 'All'], ['mine', 'My watchlist'], ['pick', 'Picks'], ['ai', 'AI & chips'], ['mega', 'Mega-cap'], ['social', 'Trending'], ['etf', 'ETFs']];
   let filt = 'all', q = '', sel = pickSyms[0];
-  $('#chips').innerHTML = filters.map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${k === filt}">${l}</button>`).join('');
-  $('#chips').onclick = e => { const b = e.target.closest('.chip'); if (!b) return; filt = b.dataset.f; $('#chips').querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b)); renderWL(); };
+  try { if (localStorage.getItem('pm-filter') === 'mine') filt = 'mine'; } catch (e) {}
+  function renderChips() {
+    $('#chips').innerHTML = filters.map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${k === filt}">${l}${k === 'mine' ? ` <span class="chip-n">${mine.length}</span>` : ''}</button>`).join('');
+  }
+  renderChips();
+  $('#chips').onclick = e => { const b = e.target.closest('.chip'); if (!b) return; filt = b.dataset.f; try { localStorage.setItem('pm-filter', filt); } catch (e) {} renderChips(); renderWL(); };
   $('#q').oninput = e => { q = e.target.value.trim().toLowerCase(); renderWL(); };
   function renderWL() {
-    const rows = D.watchlist.filter(w => (filt === 'all' || (filt === 'pick' ? pickSyms.includes(w.sym) : w.tags.includes(filt))) && (!q || w.sym.toLowerCase().includes(q) || w.name.toLowerCase().includes(q)));
+    const rows = D.watchlist.filter(w => (filt === 'all' || (filt === 'mine' ? inMine(w.sym) : filt === 'pick' ? pickSyms.includes(w.sym) : w.tags.includes(filt))) && (!q || w.sym.toLowerCase().includes(q) || w.name.toLowerCase().includes(q)));
     $('#wlCount').textContent = rows.length + ' symbols';
-    $('#wl').innerHTML = rows.map(w => `<button class="wl-row" role="option" data-s="${w.sym}" aria-selected="${w.sym === sel}">
+    $('#wl').innerHTML = rows.map(w => `<div class="wl-item${inMine(w.sym) ? ' saved' : ''}"><button class="wl-row" role="option" data-s="${w.sym}" aria-selected="${w.sym === sel}">
       <span class="wl-sym">${w.sym}${pickSyms.includes(w.sym) ? '<span class="badge pk">PICK</span>' : ''}${w.tags.includes('etf') ? '<span class="badge" title="Exchange-traded fund">ETF</span>' : ''}${w.stale ? '<span class="badge stale">' + esc(w.stale) + '</span>' : ''}</span>
       <span class="wl-px">${w.px == null ? '—' : '$' + fmt(w.px)}</span>
       <span class="wl-name">${esc(w.name)}</span>
       <span class="wl-chg ${cls(w.pct)}">${w.pct == null ? 'n/a' : pct(w.pct)}${w.ah ? ` <span class="${cls(w.ahPct)}" title="After hours">· AH ${pct(w.ahPct)}</span>` : ''}</span>
-    </button>`).join('') || '<div class="note" style="padding:1rem;text-align:center">No symbols match.</div>';
+    </button>${addBtn(w.sym, 'add-btn wl-add')}</div>`).join('') || (filt === 'mine' && !q
+      ? '<div class="note" style="padding:1rem;text-align:center">Your watchlist is empty.<br>Click the <b>+</b> next to any stock to add it here.</div>'
+      : '<div class="note" style="padding:1rem;text-align:center">No symbols match.</div>');
   }
   $('#wl').onclick = e => { const r = e.target.closest('.wl-row'); if (r) select(r.dataset.s); };
   function select(s) { sel = s; renderWL(); renderInsp(); }
@@ -99,7 +127,7 @@
     $('#inspFor').textContent = w.sym;
     const facts = (w.facts || []).map(([k, v]) => `<span class="k">${esc(k)}</span><span class="v">${esc(v)}</span>`).join('');
     $('#insp').innerHTML = `
-      <div><div class="insp-sym">${w.sym}</div><div class="sub">${esc(w.name)}</div></div>
+      <div class="insp-head"><div><div class="insp-sym">${w.sym}</div><div class="sub">${esc(w.name)}</div></div>${addBtn(w.sym, 'btn sm add-wide', true)}</div>
       <div>
         <div class="insp-px">${w.px == null ? '—' : '$' + fmt(w.px)}</div>
         <div class="${cls(w.pct)}" style="font-family:var(--font-tech);font-weight:600">${w.pct == null ? (w.stale ? 'Last verified: ' + esc(w.stale) : 'Close not captured') : pct(w.pct) + ' on the day'}</div>
@@ -144,7 +172,7 @@
         <article class="pick" data-s="${p.sym}" tabindex="0">
           <div class="pick-top">
             <div><div class="pick-no">IDEA ${String(n + 1).padStart(2, '0')}</div><div class="pick-sym">${p.sym}</div><div class="pick-name">${esc(w.name)}</div></div>
-            <span class="role">${esc(p.role)}</span>
+            <span class="pick-actions"><span class="role">${esc(p.role)}</span>${addBtn(p.sym, 'add-btn')}</span>
           </div>
           <div class="pick-px"><span class="px">${w.px == null ? '—' : '$' + fmt(w.px)}</span>
             <span class="meta ${cls(w.pct)}">${w.pct == null ? (w.stale ? esc(w.stale) : '') : pct(w.pct)}</span>
@@ -329,7 +357,7 @@ ${D.mode === 'auto' ? `
     // The list can be longer than one minute's budget, so poll the index ETFs, picks and core
     // watchlist every time and rotate through the trending names in the remaining slots.
     const all = liveSymbols();
-    const core = [...new Set([...D.indices.map(i => i.sym), ...pickSyms, ...D.watchlist.filter(w => !w.tags.includes('social')).map(w => w.sym)])].filter(s => all.includes(s)).slice(0, LIVE_BATCH);
+    const core = [...new Set([...D.indices.map(i => i.sym), ...pickSyms, ...mine, ...D.watchlist.filter(w => !w.tags.includes('social')).map(w => w.sym)])].filter(s => all.includes(s)).slice(0, LIVE_BATCH);
     const rest = all.filter(s => !core.includes(s));
     const room = LIVE_BATCH - core.length, take = [];
     for (let i = 0; i < Math.min(room, rest.length); i++) take.push(rest[(live.cursor + i) % rest.length]);

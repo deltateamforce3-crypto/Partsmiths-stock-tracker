@@ -269,3 +269,21 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
 .theme-seg button:hover { color: var(--ink); background: var(--hover); }
 .theme-seg button[aria-pressed="true"] { background: var(--raised); color: var(--accent-text); box-shadow: var(--shadow-1); }
 .theme-seg svg.ic { width: 1.05rem; height: 1.05rem; }
+
+/* my watchlist: + buttons */
+.wl-item { position: relative; display: flex; align-items: center; gap: .15rem; }
+.wl-item .wl-row { flex: 1; min-width: 0; }
+.add-btn { flex: none; display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; padding: 0; border-radius: 999px; border: 1px solid var(--line-2); background: var(--raised); color: var(--ink-2); cursor: pointer; transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast), opacity var(--t-fast); }
+.add-btn svg, .add-wide svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.add-btn:hover { border-color: var(--accent); color: var(--accent-text); box-shadow: 0 0 0 3px var(--accent-softer); }
+.add-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.wl-add { opacity: .45; }
+.wl-item:hover .wl-add, .wl-add:focus-visible, .wl-add[aria-pressed="true"] { opacity: 1; }
+@media (hover: none) { .wl-add { opacity: 1; } }
+.pick-actions { display: inline-flex; align-items: center; gap: .4rem; }
+.insp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem; flex-wrap: wrap; }
+.add-wide { display: inline-flex; align-items: center; gap: .35rem; }
+.add-wide[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.chip-n { font-family: var(--font-tech); font-size: .78rem; opacity: .8; }
+.toast { position: fixed; left: 50%; bottom: 3.2rem; transform: translate(-50%, 12px); background: var(--ink); color: var(--raised); padding: .45rem .9rem; border-radius: 999px; font-size: .9rem; box-shadow: var(--shadow-1); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 50; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
