@@ -1,0 +1,72 @@
+name: Update market data
+
+# Schedule (US Eastern, weekdays):
+#   10 AM - 3 PM  hourly price refresh   (mode: quotes)
+#   4 PM          full daily update       (mode: full - sentiment, news, analysts, 3 new picks)
+#
+# GitHub cron runs in UTC and doesn't know about daylight saving, so the job fires
+# hourly from 14:05 to 21:05 UTC and the "plan" step checks the time in New York
+# to decide what to do. That keeps 4 PM correct all year round.
+
+on:
+  schedule:
+    - cron: "5 14-21 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "quotes = prices only, full = everything incl. picks"
+        type: choice
+        options: [quotes, full]
+        default: full
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-market-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Decide mode from New York time
+        id: plan
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            mode="${{ inputs.mode }}"
+          else
+            h=$(TZ=America/New_York date +%-H)
+            if [ "$h" -eq 16 ]; then mode=full
+            elif [ "$h" -ge 10 ] && [ "$h" -le 15 ]; then mode=quotes
+            else mode=skip; fi
+            echo "New York hour: $h"
+          fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "Mode: $mode"
+
+      - uses: actions/checkout@v4
+        if: steps.plan.outputs.mode != 'skip'
+
+      - uses: actions/setup-python@v5
+        if: steps.plan.outputs.mode != 'skip'
+        with:
+          python-version: "3.12"
+
+      - name: Run updater
+        if: steps.plan.outputs.mode != 'skip'
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+        run: python3 scripts/update_data.py --mode "${{ steps.plan.outputs.mode }}"
+
+      - name: Commit data
+        if: steps.plan.outputs.mode != 'skip'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/market.json
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Market data (${{ steps.plan.outputs.mode }}) $(TZ=America/New_York date '+%Y-%m-%d %H:%M ET')"
+          git pull --rebase --autostash
+          git push

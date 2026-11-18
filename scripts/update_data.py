@@ -371,7 +371,7 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     data["mode"] = "auto"
     data["snapshot"] = now.isoformat(timespec="seconds")
     data["session"] = session_label(today)
-    data["nextRefresh"] = "GitHub Actions · every 15 min in market hours"
+    data["nextRefresh"] = "GitHub Actions · hourly 10 AM–3 PM ET · full update 4 PM ET"
     sources = {k: v for k, v in (old.get("sources") or {}).items()
                if k in SOURCES or k.startswith("news-") or k.startswith("research-")}
     sources.update(SOURCES)
