@@ -1,664 +1,1006 @@
 {
-  "snapshot": "2026-11-17T17:05:00-05:00",
-  "session": "Tue 17 Nov 2026",
+  "snapshot": "2026-11-18T14:54:56-05:00",
+  "session": "Wed 18 Nov 2026",
   "picksFor": "Wed 18 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET",
-  "headline": "AI jitters drag stocks before Nvidia; the beat lands after the bell",
-  "summary": "The S&P 500 fell 1.03% to its lowest close since late July and the Dow lost about 849 points, with decliners outnumbering advancers nearly 3 to 1. After the close Nvidia reported revenue of $115.8B (+103% y/y) and guided to about $130B for next quarter; shares traded about 4.4% higher after hours.",
+  "headline": "S&P 500 (SPY) −0.34% · Dow −1.18% · Nasdaq-100 +0.19%",
+  "summary": "9 of 15 watchlist stocks are higher. Best: TTWO +5.80%. Worst: NVDA −3.02%. Most-discussed on Reddit: NVDA (2,122 mentions).",
   "summarySrc": [
-    "fool",
-    "cnbc",
-    "ap",
-    "stocktwitsNVDA"
+    "finnhub",
+    "apewisdom"
   ],
   "indices": [
     {
-      "sym": "SPX",
-      "name": "S&P 500",
-      "last": 7340.53,
-      "chg": -76.06,
-      "pct": -1.03,
-      "src": "fool"
+      "sym": "SPY",
+      "name": "S&P 500 (SPY)",
+      "last": 729.92,
+      "chg": -2.52,
+      "pct": -0.34,
+      "src": "finnhub"
     },
     {
-      "sym": "DJI",
-      "name": "Dow",
-      "last": 50759.42,
-      "chg": -848.75,
-      "pct": -1.64,
-      "src": "cnbc"
+      "sym": "DIA",
+      "name": "Dow (DIA)",
+      "last": 501.33,
+      "chg": -5.98,
+      "pct": -1.18,
+      "src": "finnhub"
     },
     {
-      "sym": "IXIC",
-      "name": "Nasdaq",
-      "last": 24328.38,
-      "chg": -181.37,
-      "pct": -0.74,
-      "src": "fool"
+      "sym": "QQQ",
+      "name": "Nasdaq-100 (QQQ)",
+      "last": 658.18,
+      "chg": 1.23,
+      "pct": 0.19,
+      "src": "finnhub"
     },
     {
-      "sym": "RUT",
-      "name": "Russell 2000",
-      "last": 2701.87,
-      "chg": -41.07,
-      "pct": -1.5,
-      "src": "ap"
+      "sym": "IWM",
+      "name": "Russell 2000 (IWM)",
+      "last": 270.14,
+      "chg": 1.09,
+      "pct": 0.41,
+      "src": "finnhub"
     }
   ],
   "macro": [
     {
-      "k": "10Y yield",
-      "v": "5.14%",
-      "d": "+0.02",
+      "k": "Long Treasuries (TLT)",
+      "v": "$80.18",
+      "d": "+0.79%",
       "dir": 1,
-      "src": "schwab",
-      "asof": "9:11 AM"
+      "src": "finnhub",
+      "asof": "2:54 PM"
     },
     {
-      "k": "VIX",
-      "v": "23.11",
-      "d": "+0.87%",
+      "k": "US dollar (UUP)",
+      "v": "$29.63",
+      "d": "+0.30%",
       "dir": 1,
-      "src": "schwab",
-      "asof": "9:11 AM"
+      "src": "finnhub",
+      "asof": "2:54 PM"
     },
     {
-      "k": "DXY",
-      "v": "103.70",
-      "d": "+0.15%",
-      "dir": 1,
-      "src": "schwab",
-      "asof": "9:11 AM"
-    },
-    {
-      "k": "WTI",
-      "v": "$86.93",
-      "d": "+1.40%",
-      "dir": 1,
-      "src": "schwab",
-      "asof": "9:11 AM"
-    },
-    {
-      "k": "Gold",
-      "v": "$3,850",
-      "d": "−0.08%",
+      "k": "Oil (USO)",
+      "v": "$137.12",
+      "d": "−2.22%",
       "dir": -1,
-      "src": "schwab",
-      "asof": "9:11 AM"
+      "src": "finnhub",
+      "asof": "2:54 PM"
     },
     {
-      "k": "Bitcoin",
-      "v": "$64,292",
-      "d": "−1.5%",
+      "k": "Gold (GLD)",
+      "v": "$341.07",
+      "d": "−3.24%",
       "dir": -1,
-      "src": "fool",
-      "asof": "4:00 PM"
+      "src": "finnhub",
+      "asof": "2:54 PM"
+    },
+    {
+      "k": "Bitcoin (IBIT)",
+      "v": "$35.44",
+      "d": "−1.94%",
+      "dir": -1,
+      "src": "finnhub",
+      "asof": "2:54 PM"
     }
   ],
   "history": {
-    "note": "Daily closes. S&P 500 close for Nov 12 was not captured in the sources, so that point is left as a gap. Nov 13 closes are derived from the Nov 16 close minus Schwab's reported Nov 16 change.",
+    "note": "Daily closes of the ETF proxies, recorded by the GitHub Action. Today's point is the latest price until the close. History is still building — the chart appears after the second trading day.",
     "dates": [
-      "Nov 9",
-      "Nov 10",
-      "Nov 11",
-      "Nov 12",
-      "Nov 13",
-      "Nov 16",
-      "Nov 17"
+      "Nov 18"
     ],
     "series": [
       {
-        "sym": "SPX",
-        "name": "S&P 500",
+        "sym": "SPY",
+        "name": "S&P 500 (SPY)",
         "values": [
-          7549.94,
-          7520.93,
-          7619.38,
-          null,
-          7561.67,
-          7416.59,
-          7340.53
+          729.92
         ]
       },
       {
-        "sym": "DJI",
-        "name": "Dow",
+        "sym": "DIA",
+        "name": "Dow (DIA)",
         "values": [
-          52389.75,
-          52231.89,
-          52486.49,
-          52297.09,
-          52347.55,
-          51608.17,
-          50759.42
+          501.33
         ]
       },
       {
-        "sym": "IXIC",
-        "name": "Nasdaq",
+        "sym": "QQQ",
+        "name": "Nasdaq-100 (QQQ)",
         "values": [
-          25253.14,
-          25065.87,
-          25466.19,
-          25366.09,
-          25136.27,
-          24509.76,
-          24328.38
+          658.18
         ]
       }
     ],
     "src": [
-      "zacks10",
-      "zacks11",
-      "reuters11",
-      "zacks13",
-      "schwab",
-      "fool",
-      "cnbc"
+      "finnhub"
     ]
   },
   "watchlist": [
     {
       "sym": "NVDA",
-      "name": "Nvidia",
-      "px": 155.46,
-      "pct": -0.44,
-      "ah": 162.34,
-      "ahPct": 4.43,
+      "name": "NVIDIA Corporation",
+      "px": 150.77,
+      "pct": -3.02,
       "tags": [
         "ai",
         "mega",
         "social"
       ],
-      "src": "fool",
-      "note": "Fiscal Q3 after the close: revenue $115.8B (+103% y/y), data center $107.6B (+110%), Q4 guide ≈ $130B. First report since Jensen Huang resigned; CFO Colette Kress is interim CEO.",
+      "src": "finnhub",
+      "note": "Why Nvidia is still the central bank of AI without Jensen Huang",
       "noteSrc": [
-        "fool",
-        "schwab"
+        "news-NVDA-143918616"
       ],
       "facts": [
         [
-          "52-wk range",
-          "$148.80 – $243.37"
+          "Open",
+          "$159.63"
         ],
         [
-          "P/E",
-          "19.7"
+          "Day range",
+          "$150.52 – $159.70"
+        ],
+        [
+          "Prev. close",
+          "$155.46"
+        ],
+        [
+          "Industry",
+          "Semiconductors"
+        ],
+        [
+          "Mkt cap",
+          "$3.75T"
+        ],
+        [
+          "Reddit 24h",
+          "#1 · 2,122 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ]
+    },
+    {
+      "sym": "AVGO",
+      "name": "Broadcom Inc",
+      "px": 356.01,
+      "pct": 4.22,
+      "tags": [
+        "ai",
+        "mega"
+      ],
+      "src": "finnhub",
+      "note": "Broadcom Already Eclipsed AMD as The 2nd Biggest Chip Maker, But The Market Won’t Recognize That Truth Until 2027",
+      "noteSrc": [
+        "news-AVGO-143918664"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$348.75"
+        ],
+        [
+          "Day range",
+          "$340.74 – $357.34"
+        ],
+        [
+          "Prev. close",
+          "$341.60"
+        ],
+        [
+          "Industry",
+          "Semiconductors"
+        ],
+        [
+          "Mkt cap",
+          "$1.63T"
+        ],
+        [
+          "Reddit 24h",
+          "#29 · 25 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ]
+    },
+    {
+      "sym": "AMD",
+      "name": "Advanced Micro Devices, Inc.",
+      "px": 522.26,
+      "pct": 3.74,
+      "tags": [
+        "ai",
+        "social"
+      ],
+      "src": "finnhub",
+      "note": "Broadcom Already Eclipsed AMD as The 2nd Biggest Chip Maker, But The Market Won’t Recognize That Truth Until 2027",
+      "noteSrc": [
+        "news-AMD-143918664"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$512.60"
+        ],
+        [
+          "Day range",
+          "$495.20 – $523.79"
+        ],
+        [
+          "Prev. close",
+          "$503.41"
+        ],
+        [
+          "Industry",
+          "Semiconductors"
+        ],
+        [
+          "Mkt cap",
+          "$825.6B"
+        ],
+        [
+          "Reddit 24h",
+          "#4 · 181 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ]
+    },
+    {
+      "sym": "MSFT",
+      "name": "Microsoft Corporation",
+      "px": 507.88,
+      "pct": 0.32,
+      "tags": [
+        "ai",
+        "mega"
+      ],
+      "src": "finnhub",
+      "note": "How to find AI winners beyond Nvidia & the Mag-7",
+      "noteSrc": [
+        "news-MSFT-143918598"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$507.00"
+        ],
+        [
+          "Day range",
+          "$501.08 – $510.44"
+        ],
+        [
+          "Prev. close",
+          "$506.24"
+        ],
+        [
+          "Industry",
+          "Technology"
         ],
         [
           "Mkt cap",
           "$3.76T"
         ],
         [
-          "From Oct 6 peak",
-          "≈ −36%"
+          "Reddit 24h",
+          "#26 · 30 mentions"
         ]
       ],
       "factsSrc": [
-        "stocktwitsNVDA",
-        "schwab"
-      ]
-    },
-    {
-      "sym": "AVGO",
-      "name": "Broadcom",
-      "px": 341.6,
-      "pct": 2.46,
-      "tags": [
-        "ai",
-        "mega"
-      ],
-      "src": "fool",
-      "note": "Closed up 2.46% on a day the S&P 500 fell 1%; Reddit chatter on AVGO, AMD and MU skewed bullish.",
-      "noteSrc": [
-        "fool",
-        "reddit247"
-      ]
-    },
-    {
-      "sym": "DIS",
-      "name": "Walt Disney",
-      "px": 118.97,
-      "pct": null,
-      "stale": "Nov 13 close",
-      "tags": [
-        "value"
-      ],
-      "src": "benzingaDIS",
-      "note": "Beat on earnings and revenue; Entertainment revenue +17% y/y; guidance above expectations. Shares were down ≈2% early Tuesday despite the beat. Tuesday's close was not captured.",
-      "noteSrc": [
-        "schwab",
-        "cnbc"
-      ],
-      "facts": [
-        [
-          "52-wk range",
-          "$92.19 – $120.80"
-        ],
-        [
-          "Beta",
-          "0.95"
-        ],
-        [
-          "Consensus",
-          "Moderate Buy"
-        ],
-        [
-          "Avg. target",
-          "$127.39"
-        ]
-      ],
-      "factsSrc": [
-        "tipranksDIS",
-        "marketbeatDIS"
-      ]
-    },
-    {
-      "sym": "AMD",
-      "name": "Advanced Micro Devices",
-      "px": 503.41,
-      "pct": -0.17,
-      "tags": [
-        "ai",
-        "social"
-      ],
-      "src": "fool",
-      "note": "Among the five most-buzzed names on X and r/WallStreetBets for the week of Nov 9–13.",
-      "noteSrc": [
-        "benzingaBuzz"
-      ]
-    },
-    {
-      "sym": "MSFT",
-      "name": "Microsoft",
-      "px": 506.24,
-      "pct": -2.27,
-      "tags": [
-        "mega"
-      ],
-      "src": "fool",
-      "note": "Fell 2.3% as software selling spread.",
-      "noteSrc": [
-        "cappnotes"
+        "finnhub",
+        "apewisdom"
       ]
     },
     {
       "sym": "AAPL",
-      "name": "Apple",
-      "px": 351.91,
-      "pct": -0.25,
-      "tags": [
-        "mega"
-      ],
-      "src": "fool"
-    },
-    {
-      "sym": "AMZN",
-      "name": "Amazon",
-      "px": 257.89,
-      "pct": 0.05,
-      "tags": [
-        "mega"
-      ],
-      "src": "fool"
-    },
-    {
-      "sym": "GOOG",
-      "name": "Alphabet",
-      "px": 277.6,
-      "pct": -1.3,
-      "tags": [
-        "mega"
-      ],
-      "src": "fool"
-    },
-    {
-      "sym": "META",
-      "name": "Meta Platforms",
-      "px": 618.87,
-      "pct": -1.2,
-      "tags": [
-        "mega"
-      ],
-      "src": "fool"
-    },
-    {
-      "sym": "TSLA",
-      "name": "Tesla",
-      "px": 380.11,
-      "pct": 0.1,
+      "name": "Apple Inc.",
+      "px": 352.36,
+      "pct": 0.13,
       "tags": [
         "mega",
         "social"
       ],
-      "src": "fool"
+      "src": "finnhub",
+      "note": "MP to Become Major Domestic Permanent Magnet Supplier Over Next 3 Years, Says Needham",
+      "noteSrc": [
+        "news-AAPL-143918590"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$351.21"
+        ],
+        [
+          "Day range",
+          "$351.21 – $356.42"
+        ],
+        [
+          "Prev. close",
+          "$351.91"
+        ],
+        [
+          "Industry",
+          "Technology"
+        ],
+        [
+          "Mkt cap",
+          "$5.11T"
+        ],
+        [
+          "Reddit 24h",
+          "#24 · 32 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ]
     },
     {
-      "sym": "SPCX",
-      "name": "SpaceX",
-      "px": 141.7,
-      "pct": 3.16,
+      "sym": "AMZN",
+      "name": "Amazon.com Inc",
+      "px": 267.31,
+      "pct": 3.65,
       "tags": [
+        "mega",
         "social"
       ],
-      "src": "fool",
-      "note": "Reported $4B bond sale this week; Stocktwits retail sentiment 'bullish' over the past 24 hours.",
+      "src": "finnhub",
+      "note": "Nvidia Stock At $155: Cheaper Than Its 2018 Low?",
       "noteSrc": [
-        "yahooSPCX"
+        "news-AMZN-143918614"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$259.74"
+        ],
+        [
+          "Day range",
+          "$259.51 – $267.97"
+        ],
+        [
+          "Prev. close",
+          "$257.89"
+        ],
+        [
+          "Industry",
+          "Retail"
+        ],
+        [
+          "Mkt cap",
+          "$2.79T"
+        ],
+        [
+          "Reddit 24h",
+          "#13 · 52 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
       ]
     },
     {
-      "sym": "PLTR",
-      "name": "Palantir",
-      "px": null,
-      "pct": -2.39,
+      "sym": "GOOG",
+      "name": "Alphabet Inc.",
+      "px": 280.58,
+      "pct": 1.07,
       "tags": [
-        "ai"
+        "ai",
+        "mega",
+        "social"
       ],
-      "src": "cappnotes",
-      "note": "Fell with the broader software sell-off."
-    },
-    {
-      "sym": "INTC",
-      "name": "Intel",
-      "px": null,
-      "pct": -0.54,
-      "tags": [
-        "ai"
+      "src": "finnhub",
+      "note": "How to find AI winners beyond Nvidia & the Mag-7",
+      "noteSrc": [
+        "news-GOOG-143918598"
       ],
-      "src": "cappnotes",
-      "note": "Nvidia disclosed it cut its Intel stake by 25% (≈ $5.5B of shares)."
-    },
-    {
-      "sym": "BILL",
-      "name": "BILL Holdings",
-      "px": null,
-      "pct": 12.58,
-      "tags": [],
-      "src": "cappnotes",
-      "note": "Surged on reports TPG is nearing a take-private deal."
-    }
-  ],
-  "picks": [
-    {
-      "sym": "NVDA",
-      "role": "Earnings catalyst",
-      "risk": "high",
-      "thesis": [
-        "Revenue $115.8B (+103% y/y) and a ≈$130B next-quarter guide, both above Street expectations.",
-        "Stock went into the print ≈36% below its Oct 6 peak at a 19.7 P/E, so the beat lands on a reset valuation.",
-        "Most-discussed ticker on Stocktwits (≈68.8K mentions) and retail dip-buyers were already returning."
+      "facts": [
+        [
+          "Open",
+          "$279.94"
+        ],
+        [
+          "Day range",
+          "$276.88 – $282.36"
+        ],
+        [
+          "Prev. close",
+          "$277.60"
+        ],
+        [
+          "Industry",
+          "Media"
+        ],
+        [
+          "Mkt cap",
+          "$3.44T"
+        ],
+        [
+          "Reddit 24h",
+          "#9 · 65 mentions"
+        ]
       ],
-      "risks": "Leadership turmoil after the CEO's resignation, a California AG investigation, and three analyst downgrades last week. After-hours gains can fade at the open.",
-      "scores": {
-        "Catalyst": 9,
-        "Price action": 7,
-        "Crowd": 9,
-        "Institutional": 6
-      },
-      "src": [
-        "fool",
-        "schwab",
-        "stocktwitsNVDA",
-        "altStocktwits",
-        "axios",
-        "benzingaBuzz"
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
       ]
     },
     {
-      "sym": "AVGO",
-      "role": "Relative strength",
-      "risk": "high",
-      "thesis": [
-        "Closed +2.46% while the S&P 500 fell 1.03% — the kind of strength that holds up on a risk-off day.",
-        "Nvidia's guide supports the AI-capex spending Broadcom also sells into; Schwab tracks capex as the first signpost of the AI cycle.",
-        "Reddit sentiment on AVGO skewed bullish, while the crowd stayed split on NVDA itself."
+      "sym": "META",
+      "name": "Meta Platforms, Inc.",
+      "px": 614.95,
+      "pct": -0.63,
+      "tags": [
+        "ai",
+        "mega"
       ],
-      "risks": "Semis are swinging hard: the Philadelphia Semiconductor Index fell 5.28% on Monday. Ten-year yields at 5.14% pressure richly valued growth stocks.",
-      "scores": {
-        "Catalyst": 6,
-        "Price action": 8,
-        "Crowd": 7,
-        "Institutional": 6
-      },
-      "src": [
-        "fool",
-        "schwab",
-        "schwabAI",
-        "reddit247",
-        "moomoo"
+      "src": "finnhub",
+      "note": "Meta’s hope to grow ‘school communities’ was really just a push to get teens hooked, internal docs show",
+      "noteSrc": [
+        "news-META-143918672"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$620.32"
+        ],
+        [
+          "Day range",
+          "$610.30 – $620.81"
+        ],
+        [
+          "Prev. close",
+          "$618.87"
+        ],
+        [
+          "Industry",
+          "Media"
+        ],
+        [
+          "Mkt cap",
+          "$1.58T"
+        ],
+        [
+          "Reddit 24h",
+          "#36 · 20 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ]
+    },
+    {
+      "sym": "TSLA",
+      "name": "Tesla Inc",
+      "px": 382.54,
+      "pct": 0.64,
+      "tags": [
+        "mega"
+      ],
+      "src": "finnhub",
+      "note": "Tesla Stock Is Still a High-Stakes Bet on the Future. Here’s My Price Target",
+      "noteSrc": [
+        "news-TSLA-143918695"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$384.52"
+        ],
+        [
+          "Day range",
+          "$378.36 – $389.27"
+        ],
+        [
+          "Prev. close",
+          "$380.11"
+        ],
+        [
+          "Industry",
+          "Automobiles"
+        ],
+        [
+          "Mkt cap",
+          "$1.50T"
+        ],
+        [
+          "Reddit 24h",
+          "#27 · 29 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
       ]
     },
     {
       "sym": "DIS",
-      "role": "Non-AI diversifier",
-      "risk": "mod",
-      "thesis": [
-        "Beat on earnings and revenue, Entertainment revenue +17% y/y, and guidance above expectations.",
-        "Sold off ≈2% early despite the beat, which creates a possible entry for a stock that doesn't trade on AI headlines.",
-        "Analysts lean Moderate Buy with an average target of $127.39; beta of 0.95 is lower than the AI leaders'."
+      "name": "The Walt Disney Company",
+      "px": 122.55,
+      "pct": 4.8,
+      "tags": [
+        "social"
       ],
-      "risks": "Tuesday's close wasn't captured — check the live price first. Hot inflation (October PPI +6.5% y/y) and Fed officials openly discussing rate hikes weigh on consumer spending.",
+      "src": "finnhub",
+      "note": "Disney Wants $3 Billion in Savings, and More Layoffs Are Coming",
+      "noteSrc": [
+        "news-DIS-143918806"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$117.96"
+        ],
+        [
+          "Day range",
+          "$116.65 – $122.93"
+        ],
+        [
+          "Prev. close",
+          "$116.94"
+        ],
+        [
+          "Industry",
+          "Media"
+        ],
+        [
+          "Mkt cap",
+          "$201.9B"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub"
+      ]
+    },
+    {
+      "sym": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "px": 156.09,
+      "pct": -0.3,
+      "tags": [
+        "ai"
+      ],
+      "src": "finnhub",
+      "note": "How NHS Contract Extension Will Impact Palantir Stock Investors",
+      "noteSrc": [
+        "news-PLTR-143918759"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$158.51"
+        ],
+        [
+          "Day range",
+          "$153.50 – $158.51"
+        ],
+        [
+          "Prev. close",
+          "$156.56"
+        ],
+        [
+          "Industry",
+          "Technology"
+        ],
+        [
+          "Mkt cap",
+          "$377.2B"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub"
+      ]
+    },
+    {
+      "sym": "INTC",
+      "name": "Intel Corp",
+      "px": 54.23,
+      "pct": -1.7,
+      "tags": [
+        "ai"
+      ],
+      "src": "finnhub",
+      "note": "Is Nvidia's Margin Lead Over AMD Shrinking?",
+      "noteSrc": [
+        "news-INTC-143918623"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$55.73"
+        ],
+        [
+          "Day range",
+          "$53.44 – $56.01"
+        ],
+        [
+          "Prev. close",
+          "$55.17"
+        ],
+        [
+          "Industry",
+          "Semiconductors"
+        ],
+        [
+          "Mkt cap",
+          "$293.2B"
+        ],
+        [
+          "Reddit 24h",
+          "#41 · 17 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ]
+    },
+    {
+      "sym": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "px": 325.12,
+      "pct": -1.47,
+      "tags": [
+        "mega"
+      ],
+      "src": "finnhub",
+      "note": "JPMorgan Reveals Cause of Banking Outage That Disrupted U.S. Customers",
+      "noteSrc": [
+        "news-JPM-143918710"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$329.63"
+        ],
+        [
+          "Day range",
+          "$324.44 – $330.09"
+        ],
+        [
+          "Prev. close",
+          "$329.96"
+        ],
+        [
+          "Industry",
+          "Banking"
+        ],
+        [
+          "Mkt cap",
+          "$876.2B"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub"
+      ]
+    },
+    {
+      "sym": "WMT",
+      "name": "Walmart Inc.",
+      "px": 127.15,
+      "pct": -0.29,
+      "tags": [
+        "mega"
+      ],
+      "src": "finnhub",
+      "note": "Walmart Or Amazon: Which Is The Tech Stock Now?",
+      "noteSrc": [
+        "news-WMT-143918635"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$126.48"
+        ],
+        [
+          "Day range",
+          "$125.07 – $127.77"
+        ],
+        [
+          "Prev. close",
+          "$127.52"
+        ],
+        [
+          "Industry",
+          "Retail"
+        ],
+        [
+          "Mkt cap",
+          "$979.9B"
+        ],
+        [
+          "Reddit 24h",
+          "#61 · 12 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ]
+    },
+    {
+      "sym": "TTWO",
+      "name": "Take-Two Interactive Software, Inc.",
+      "px": 215.76,
+      "pct": 5.8,
+      "tags": [
+        "social"
+      ],
+      "src": "finnhub",
+      "note": "Take-Two Stocks Rise 4.85% Premarket as GTA VI Hits 99 Metacritic Before Launch",
+      "noteSrc": [
+        "news-TTWO-143918995"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$211.01"
+        ],
+        [
+          "Day range",
+          "$210.50 – $222.65"
+        ],
+        [
+          "Prev. close",
+          "$203.93"
+        ],
+        [
+          "Industry",
+          "Media"
+        ],
+        [
+          "Mkt cap",
+          "$42.0B"
+        ],
+        [
+          "Reddit 24h",
+          "#15 · 46 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ]
+    }
+  ],
+  "picks": [
+    {
+      "sym": "AMD",
+      "role": "Relative strength",
+      "risk": "high",
+      "thesis": [
+        "Up 3.74% to $522.26 versus −0.34% for SPY — 4.09 pts better than the market.",
+        "#4 on Reddit with 181 mentions in 24h, +101.11% vs. 24h earlier.",
+        "83% of 60 covering analysts rate it Buy or Strong Buy (Finnhub, 2026-11-01)."
+      ],
+      "risks": "Heavy social-media attention can reverse quickly.",
       "scores": {
-        "Catalyst": 7,
-        "Price action": 4,
-        "Crowd": 5,
+        "Catalyst": 8,
+        "Price action": 10,
+        "Crowd": 10,
         "Institutional": 8
       },
       "src": [
-        "schwab",
-        "cnbc",
-        "marketbeatDIS",
-        "tipranksDIS",
-        "benzingaDIS",
-        "newsonair",
-        "reuters12"
+        "finnhub",
+        "apewisdom",
+        "news-AMD-143918664",
+        "news-AMD-143918621"
+      ]
+    },
+    {
+      "sym": "TTWO",
+      "role": "Relative strength",
+      "risk": "high",
+      "thesis": [
+        "Up 5.80% to $215.76 versus −0.34% for SPY — 6.15 pts better than the market.",
+        "#15 on Reddit with 46 mentions in 24h, +58.62% vs. 24h earlier and trending on Stocktwits.",
+        "92% of 39 covering analysts rate it Buy or Strong Buy (Finnhub, 2026-11-01)."
+      ],
+      "risks": "Heavy social-media attention can reverse quickly. Already up 5.8% today — chasing a gap adds risk.",
+      "scores": {
+        "Catalyst": 8,
+        "Price action": 10,
+        "Crowd": 9,
+        "Institutional": 9
+      },
+      "src": [
+        "finnhub",
+        "apewisdom",
+        "stocktwits",
+        "news-TTWO-143918995",
+        "news-TTWO-143918765"
+      ]
+    },
+    {
+      "sym": "AMZN",
+      "role": "Relative strength",
+      "risk": "mod",
+      "thesis": [
+        "Up 3.65% to $267.31 versus −0.34% for SPY — 4.00 pts better than the market.",
+        "96% of 70 covering analysts rate it Buy or Strong Buy (Finnhub, 2026-11-01).",
+        "199 headlines in the last 36h; latest: “Nvidia Stock At $155: Cheaper Than Its 2018 Low?”"
+      ],
+      "risks": "Single-stock risk: size positions accordingly and diversify.",
+      "scores": {
+        "Catalyst": 8,
+        "Price action": 10,
+        "Crowd": 7,
+        "Institutional": 10
+      },
+      "src": [
+        "finnhub",
+        "apewisdom",
+        "news-AMZN-143918614",
+        "news-AMZN-143918632"
       ]
     }
   ],
   "sentiment": [
     {
       "platform": "Reddit",
-      "detail": "Trading subreddits (24/7 Wall St. Reddit Radar, Nov 9)",
-      "tickers": "NVDA · AMD · MU · AVGO · CVS",
-      "lean": "split",
-      "read": "NVDA drew 204 comments with the crowd divided; AMD, Micron and Broadcom skewed bullish; CVS bearish after its breakup plan.",
-      "src": "reddit247"
-    },
-    {
-      "platform": "Reddit + X",
-      "detail": "r/WallStreetBets and X, week of Nov 9–13 (Benzinga)",
-      "tickers": "NVDA · AMD · TSLA · CSCO · CRWV",
+      "detail": "Most-mentioned tickers, last 24h (ApeWisdom)",
+      "tickers": "NVDA · SPY · QQQ · AMD · MU · NBIS · SPCX · GP",
       "lean": "info",
-      "read": "The five most-buzzed names, driven by earnings, AI-infrastructure momentum and the Nvidia leadership shock.",
-      "src": "benzingaBuzz"
+      "read": "NVDA leads with 2,122 mentions. Fastest risers: AMD (+101.11%), CRWV (+100.00%), NBIS (+94.74%).",
+      "src": "apewisdom"
     },
     {
       "platform": "Stocktwits",
-      "detail": "Most-discussed tickers (AltIndex)",
-      "tickers": "NVDA · SPY · QQQ · CRWV · NBIS · AMD · SPCX",
-      "lean": "bull",
-      "read": "NVDA leads by a wide margin with ≈68.8K mentions; Bitcoin mentions jumped 43% in a day.",
-      "src": "altStocktwits"
-    },
-    {
-      "platform": "Retail flow",
-      "detail": "Options and order flow (Axios, Reuters/Vanda)",
-      "tickers": "NVDA",
-      "lean": "bull",
-      "read": "Dip-buyers returned to Nvidia; retail bought ≈$111M of NVDA in the first half hour on Nov 12, the stock's biggest opening bid on record.",
-      "src": "axios"
-    },
-    {
-      "platform": "Schwab clients",
-      "detail": "Schwab retail client survey (Nov 9)",
-      "tickers": "Broad market",
-      "lean": "bear",
-      "read": "Only 19% of surveyed Schwab retail clients were bullish on equities for November (17% in October).",
-      "src": "schwabSTAX"
-    },
-    {
-      "platform": "Schwab strategy",
-      "detail": "Liz Ann Sonders & Kevin Gordon (Nov 4)",
-      "tickers": "Sector leadership",
+      "detail": "Trending symbols right now",
+      "tickers": "UNH · GLD · TTWO · NVDA · PANW · DXYZ · LOW · TGT",
       "lean": "info",
-      "read": "Leadership is rotating unusually fast; Energy was the best-performing sector over the trailing 12 months and Communication Services the worst.",
-      "src": "schwabSonders"
-    }
-  ],
-  "macroNotes": [
-    {
-      "t": "October retail sales rose 0.2% vs. 0.3% expected; ex-autos rose 0.6% vs. 0.1%.",
-      "src": "schwab"
+      "read": "Symbols with unusually high message volume on Stocktwits.",
+      "src": "stocktwits"
     },
     {
-      "t": "October PPI rose 6.5% year over year, the sharpest annual increase since November 2022.",
-      "src": "newsonair"
+      "platform": "Analysts",
+      "detail": "Recommendation trend, 2026-11-01",
+      "tickers": "AMD",
+      "lean": "bull",
+      "read": "83% Buy/Strong Buy across 60 analysts.",
+      "src": "finnhub"
     },
     {
-      "t": "Several Fed officials signalled openness to a more aggressive path of rate hikes.",
-      "src": "reuters12"
+      "platform": "Analysts",
+      "detail": "Recommendation trend, 2026-11-01",
+      "tickers": "TTWO",
+      "lean": "bull",
+      "read": "92% Buy/Strong Buy across 39 analysts.",
+      "src": "finnhub"
+    },
+    {
+      "platform": "Analysts",
+      "detail": "Recommendation trend, 2026-11-01",
+      "tickers": "AMZN",
+      "lean": "bull",
+      "read": "96% Buy/Strong Buy across 70 analysts.",
+      "src": "finnhub"
+    },
+    {
+      "platform": "Charles Schwab",
+      "detail": "Daily market update & strategist research",
+      "tickers": "Broad market",
+      "lean": "info",
+      "read": "Schwab has no public data feed. Read the morning update for context on the day's movers.",
+      "src": "research-0"
     }
   ],
+  "macroNotes": [],
   "calendar": [
-    {
-      "d": "Wed 18 Nov",
-      "items": [
-        "Housing starts & permits",
-        "FOMC minutes",
-        "TJX, Lowe's, Target, PDD (AM)",
-        "Palo Alto Networks (PM)"
-      ]
-    },
     {
       "d": "Thu 19 Nov",
       "items": [
-        "Leading Economic Indicators",
-        "Walmart, Alibaba, NetEase (AM)",
-        "Intuit, Ross, Gap (PM)",
-        "Anthropic expected to begin trading (WSJ)"
-      ]
-    },
-    {
-      "d": "Fri 20 Nov",
-      "items": [
-        "UMich consumer sentiment (final)",
-        "BJ's Wholesale (AM)"
-      ]
-    },
-    {
-      "d": "Mon 23 Nov",
-      "items": [
-        "HPE, Zoom (PM)"
-      ]
-    },
-    {
-      "d": "Tue 24 Nov",
-      "items": [
-        "Consumer Confidence",
-        "Medtronic, Best Buy, ADI (AM)",
-        "Dell, Workday, Autodesk (PM)"
+        "WMT AM"
       ]
     }
   ],
-  "calendarSrc": "schwab",
+  "calendarSrc": "finnhub",
   "sources": {
-    "ap": {
-      "name": "AP via WTOP — How major US stock indexes fared 11/17/2026",
-      "url": "https://wtop.com/national/2026/11/how-major-us-stock-indexes-fared-tuesday-11-17-2026"
+    "finnhub": {
+      "name": "Finnhub — quotes, profiles, analyst trends, news",
+      "url": "https://finnhub.io"
     },
-    "fool": {
-      "name": "Motley Fool — Stock Market Today, Nov. 17",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/17/stock-market-today-nov-17-nvidia-slides-ahead-of-earnings-but-soars-in-after-hours-trading/"
+    "apewisdom": {
+      "name": "ApeWisdom — Reddit mention tracker",
+      "url": "https://apewisdom.io"
     },
-    "cnbc": {
-      "name": "CNBC — Stock market news for Nov. 17, 2026",
-      "url": "https://www.cnbc.com/2026/11/16/stock-market-today-live-updates.html"
+    "stocktwits": {
+      "name": "Stocktwits — trending symbols",
+      "url": "https://stocktwits.com/sentiment"
     },
-    "schwab": {
-      "name": "Charles Schwab — Schwab Market Update (Nov 17, 9:11 AM ET)",
+    "research-0": {
+      "name": "Charles Schwab — Schwab Market Update (daily)",
       "url": "https://www.schwab.com/learn/story/schwab-market-update"
     },
-    "schwabAI": {
-      "name": "Charles Schwab — AI innovation cycle: scenarios and signposts",
-      "url": "https://www.schwab.com/learn/story/ai-innovation-cycle-scenarios-and-signposts"
+    "news-AMD-143918664": {
+      "name": "Yahoo — Broadcom Already Eclipsed AMD as The 2nd Biggest Chip Maker, But The Market Won’t Recogniz",
+      "url": "https://finnhub.io/api/news?id=a7843f3fbfbd73e812fc86b555c494f64a7ba0d59d30b484bede61885573aa27"
     },
-    "schwabSonders": {
-      "name": "Charles Schwab — Spinning wheel: what goes up (Sonders, Gordon)",
-      "url": "https://www.schwab.com/learn/story/spinning-wheel-what-goes-up"
+    "news-AMD-143918621": {
+      "name": "Yahoo — The 14% Chance That Jensen Huang Returns to NVIDIA Keeps Me Buying as Prices Fall Into $15",
+      "url": "https://finnhub.io/api/news?id=79992faa32deaa4e56e17946daba10b2b4343d9981d94e940b6a334dce7c9140"
     },
-    "schwabSTAX": {
-      "name": "Schwab Pressroom — STAX rises in October despite AI selloff",
-      "url": "https://pressroom.aboutschwab.com/press-releases/press-release/2026/Schwab-Trading-Activity-Index-STAX-Score-Rises-in-October-Despite-AI-Selloff/default.aspx"
+    "news-TTWO-143918995": {
+      "name": "Yahoo — Take-Two Stocks Rise 4.85% Premarket as GTA VI Hits 99 Metacritic Before Launch",
+      "url": "https://finnhub.io/api/news?id=e63ed6ccc84bcbfa016a47e435b69a5f44248203284f7b45f7f7ffbe2bbeb035"
     },
-    "stocktwitsNVDA": {
-      "name": "Stocktwits — NVDA symbol page",
-      "url": "https://stocktwits.com/symbol/NVDA"
+    "news-TTWO-143918765": {
+      "name": "Yahoo — Nike Moves on Investor Day; Lowe's Reports Earnings | Stock Movers",
+      "url": "https://finnhub.io/api/news?id=41234b69baf8b01c6af21c2fdbb58c9a5f37a486f8ed7857e73a9347ff06fc5e"
     },
-    "altStocktwits": {
-      "name": "AltIndex — Top Stocktwits stocks",
-      "url": "https://altindex.com/stocktwits-stocks"
+    "news-AMZN-143918614": {
+      "name": "Yahoo — Nvidia Stock At $155: Cheaper Than Its 2018 Low?",
+      "url": "https://finnhub.io/api/news?id=70f658ac82e006822b33d0ec12fb9acc8d6ca3fed149bf975ca79f5c2fcf38b0"
     },
-    "reddit247": {
-      "name": "24/7 Wall St. — Reddit Radar, Nov 9",
-      "url": "https://247wallst.com/cards/nvidia-owns-the-conversation-with-204-comments-and-the-room-nvda-reddit-radar-01m70bthesj809a5f72jyzt256"
+    "news-AMZN-143918632": {
+      "name": "Yahoo — Amazon and Alphabet Will Own Over 28% of Anthropic After Its IPO. Here’s What That Means f",
+      "url": "https://finnhub.io/api/news?id=fa3d6b51c655ffaf7110a327c44b9103d916f0f2ccedc598e1f494a1927ee73e"
     },
-    "benzingaBuzz": {
-      "name": "Benzinga — 5 stocks investors couldn't stop buzzing about (Nov 9–13)",
-      "url": "https://www.benzinga.com/markets/equities/26/11/63273727/nvda-amd-crwv-and-more-5-stocks-investors-couldnt-stop-buzzing-about-this-week"
+    "news-NVDA-143918616": {
+      "name": "Yahoo — Why Nvidia is still the central bank of AI without Jensen Huang",
+      "url": "https://finnhub.io/api/news?id=43549eae681af9756e0814114fa78406dc1bfaa1da7d84d74921df495a6fae7a"
     },
-    "axios": {
-      "name": "Axios — Nvidia dip buyers are trickling back",
-      "url": "https://www.axios.com/2026/11/16/nvidia-stocks-options-retail"
+    "news-AVGO-143918664": {
+      "name": "Yahoo — Broadcom Already Eclipsed AMD as The 2nd Biggest Chip Maker, But The Market Won’t Recogniz",
+      "url": "https://finnhub.io/api/news?id=a7843f3fbfbd73e812fc86b555c494f64a7ba0d59d30b484bede61885573aa27"
     },
-    "yahooSPCX": {
-      "name": "Yahoo Finance — SPCX stock in focus",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/spcx-stock-focus-spacex-reportedly-180704362.html"
+    "news-MSFT-143918598": {
+      "name": "Yahoo — How to find AI winners beyond Nvidia & the Mag-7",
+      "url": "https://finnhub.io/api/news?id=7973629ea3e3bbdab626dd179b246e9fc03174d7024799dd98062d9a278c907a"
     },
-    "cappnotes": {
-      "name": "Capp Notes — Closing Look, Nov 17",
-      "url": "https://cappnotes.substack.com/p/closing-look-tuesday-november-17"
+    "news-AAPL-143918590": {
+      "name": "Yahoo — MP to Become Major Domestic Permanent Magnet Supplier Over Next 3 Years, Says Needham",
+      "url": "https://finnhub.io/api/news?id=d881f9bf5e76d7c139983be04b6fa11a3409638a59eeefd5f0f159892d1d860f"
     },
-    "moomoo": {
-      "name": "Moomoo — Nov 17 watchlist (SOX −5.28% Nov 16)",
-      "url": "https://www.moomoo.com/community/feed/nov-17-2026-tuesday-stock-watchlist-117628681256965"
+    "news-GOOG-143918598": {
+      "name": "Yahoo — How to find AI winners beyond Nvidia & the Mag-7",
+      "url": "https://finnhub.io/api/news?id=7973629ea3e3bbdab626dd179b246e9fc03174d7024799dd98062d9a278c907a"
     },
-    "benzingaDIS": {
-      "name": "Benzinga — DIS chart (Nov 13 close)",
-      "url": "https://www.benzinga.com/quote/DIS/charts"
+    "news-META-143918672": {
+      "name": "Yahoo — Meta’s hope to grow ‘school communities’ was really just a push to get teens hooked, inter",
+      "url": "https://finnhub.io/api/news?id=5b2bd0f35acb7c431340dd3555e65914e45cb398183c50dddb60e1c10f00c7bb"
     },
-    "marketbeatDIS": {
-      "name": "MarketBeat — DIS analyst consensus",
-      "url": "https://www.marketbeat.com/stocks/NYSE/DIS/"
+    "news-TSLA-143918695": {
+      "name": "Yahoo — Tesla Stock Is Still a High-Stakes Bet on the Future. Here’s My Price Target",
+      "url": "https://finnhub.io/api/news?id=1a58d606bbbed16b13e21fe4a33e0df3e611ecaaa1962a5a23db7cbea93671ac"
     },
-    "tipranksDIS": {
-      "name": "TipRanks — DIS stats",
-      "url": "https://www.tipranks.com/stocks/dis/price-target"
+    "news-DIS-143918806": {
+      "name": "Yahoo — Disney Wants $3 Billion in Savings, and More Layoffs Are Coming",
+      "url": "https://finnhub.io/api/news?id=df81b3991aad0413fb3b7499892b2b4fdf4868067146055debb1f6a8f205aa90"
     },
-    "newsonair": {
-      "name": "News On AIR — US markets ended mixed (PPI)",
-      "url": "https://newsonair.gov.in/us-markets-ended-on-mixed-note/"
+    "news-PLTR-143918759": {
+      "name": "Yahoo — How NHS Contract Extension Will Impact Palantir Stock Investors",
+      "url": "https://finnhub.io/api/news?id=85c0e3da39a9e541cbbcad17cfa22ed49c3b96fac51a9299b09eaef900007e19"
     },
-    "reuters12": {
-      "name": "Reuters via The Senior — Equities lower as Nvidia drop outweighs energy",
-      "url": "https://www.thesenior.com.au/story/9390934/equities-lower-as-nvidia-drop-outweighs-energy-gains/"
+    "news-INTC-143918623": {
+      "name": "Yahoo — Is Nvidia's Margin Lead Over AMD Shrinking?",
+      "url": "https://finnhub.io/api/news?id=39159d3bc9979707bf9e7087496ece79e90e919f6f9f960a0af0328190808d36"
     },
-    "reuters11": {
-      "name": "Reuters via The Senior — Stocks end higher as S&P 500, Nasdaq rally",
-      "url": "https://www.thesenior.com.au/story/9390211/stocks-end-higher-as-sp-500-nasdaq-rally/"
+    "news-JPM-143918710": {
+      "name": "Yahoo — JPMorgan Reveals Cause of Banking Outage That Disrupted U.S. Customers",
+      "url": "https://finnhub.io/api/news?id=1bcd07d47545b48f951573f7d3c82dcb4f56edf9ced165d0cff4f159a6358742"
     },
-    "zacks10": {
-      "name": "Zacks — Stock Market News for Nov 10, 2026",
-      "url": "https://www.zacks.com/stock/news/3026944/stock-market-news-for-nov-10-2026"
-    },
-    "zacks11": {
-      "name": "Zacks — Stock Market News for Nov 11, 2026",
-      "url": "https://www.zacks.com/stock/news/3027683/stock-market-news-for-nov-11-2026"
-    },
-    "zacks13": {
-      "name": "Zacks — Stock Market News for Nov 13, 2026",
-      "url": "https://www.zacks.com/stock/news/3029203/stock-market-news-for-nov-13-2026"
+    "news-WMT-143918635": {
+      "name": "Yahoo — Walmart Or Amazon: Which Is The Tech Stock Now?",
+      "url": "https://finnhub.io/api/news?id=4ac0da54538ce8a529110ebf7de917d7e70b2b2d53e6a715c00b2e2a85b7bc44"
     }
   },
-  "mode": "seed"
+  "mode": "auto",
+  "runInfo": {
+    "mode": "full",
+    "apiCalls": 174,
+    "errors": []
+  },
+  "lastFull": "2026-11-18"
 }
