@@ -1,7 +1,7 @@
 /* Partsmith Markets — interactive "black hole" background for the welcome screen.
-   A small black hole bounces around the drafting-grid background and bends the grid lines
-   around it. Moving the pointer over the background pulls it smoothly toward the cursor;
-   leave it alone and it goes back to bouncing. Pauses whenever the welcome screen is closed. */
+   A small black hole sits on the drafting-grid background and bends the grid lines around it.
+   It glides smoothly to the cursor and stays there (no wandering, no wall bounces). Click it to
+   hide the orb; the grid keeps dipping under the cursor. Pauses whenever the welcome screen is closed. */
 const dlg = document.getElementById('welcomeDlg');
 if (dlg) {
   const cv = document.createElement('canvas');
@@ -26,8 +26,8 @@ if (dlg) {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const GRID = 28, STEP = 9;
   let W = 0, H = 0, dpr = 1, raf = 0, last = 0, t = 0;
-  const hole = { x: 0, y: 0, vx: 70, vy: 52, r: 26 };
-  const ptr = { x: 0, y: 0, active: false, at: 0 };
+  const hole = { x: 0, y: 0, r: 26 };
+  const ptr = { x: 0, y: 0, seen: false };
   let colors = {};
 
   function readColors() {
@@ -57,23 +57,14 @@ if (dlg) {
     return [px + (dx / d) * pull, py + (dy / d) * pull];
   }
 
+  // No wandering and no wall bounces: the hole glides to wherever the cursor is and stays there.
+  // With the orb hidden, the bend tracks the cursor more tightly.
   function step(dt) {
-    const now = performance.now();
-    const chasing = ptr.active && now - ptr.at < 2500;
-    if (chasing) {           // spring toward the cursor, with damping, so it glides rather than snaps
-      hole.vx += (ptr.x - hole.x) * 7 * dt; hole.vy += (ptr.y - hole.y) * 7 * dt;
-      const damp = Math.exp(-3.2 * dt); hole.vx *= damp; hole.vy *= damp;
-    } else {                 // drift back to a steady cruising speed
-      const sp = Math.hypot(hole.vx, hole.vy) || 1, target = Math.min(W, H) * 0.11 + 40;
-      const k = 1 + (target / sp - 1) * Math.min(1, dt * 1.5);
-      hole.vx *= k; hole.vy *= k;
-    }
-    hole.x += hole.vx * dt; hole.y += hole.vy * dt;
-    const m = hole.r * 1.6;  // bounce off the edges
-    if (hole.x < m) { hole.x = m; hole.vx = Math.abs(hole.vx); }
-    if (hole.x > W - m) { hole.x = W - m; hole.vx = -Math.abs(hole.vx); }
-    if (hole.y < m) { hole.y = m; hole.vy = Math.abs(hole.vy); }
-    if (hole.y > H - m) { hole.y = H - m; hole.vy = -Math.abs(hole.vy); }
+    if (!ptr.seen) return;
+    const rate = orbOn ? 4 : 14, k = 1 - Math.exp(-rate * dt);
+    hole.x += (ptr.x - hole.x) * k; hole.y += (ptr.y - hole.y) * k;
+    const m = orbOn ? hole.r * 1.3 : 0;   // keep the orb fully on screen
+    hole.x = Math.max(m, Math.min(W - m, hole.x)); hole.y = Math.max(m, Math.min(H - m, hole.y));
   }
 
   function draw() {
@@ -133,11 +124,9 @@ if (dlg) {
   function stop() { cancelAnimationFrame(raf); raf = 0; }
 
   dlg.addEventListener('pointermove', e => {
-    // follow the cursor over the background, not while it's over buttons and tiles
-    ptr.active = !e.target.closest('.wc-tile, button, a, input, label, .wc-top, .wc-bottom');
-    ptr.x = e.clientX; ptr.y = e.clientY; ptr.at = performance.now();
+    ptr.x = e.clientX; ptr.y = e.clientY; ptr.seen = true;
   });
-  dlg.addEventListener('pointerleave', () => { ptr.active = false; dlg.classList.remove('orb-hover'); });
+  dlg.addEventListener('pointerleave', () => { dlg.classList.remove('orb-hover'); });
   const onOrb = e => orbOn && !e.target.closest('.wc-tile, button, a, input, label, .wc-top, .wc-bottom')
     && Math.hypot(e.clientX - hole.x, e.clientY - hole.y) < hole.r * 1.4;
   dlg.addEventListener('pointermove', e => dlg.classList.toggle('orb-hover', onOrb(e)));
