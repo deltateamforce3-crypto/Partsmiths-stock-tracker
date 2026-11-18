@@ -461,16 +461,20 @@ ${D.mode === 'auto' ? `
   };
 
   // ---------------------------------------------------------------- command center
-  // Built-in commands work for everyone. "Ask AI" uses the visitor's own Anthropic API key,
+  // Built-in commands work for everyone. "Ask AI" uses the visitor's own Claude (Anthropic) or Gemini (Google) API key,
   // kept only in this browser (like the Finnhub key). The AI can only run the site actions below.
-  const AI_MODEL = 'claude-haiku-5-5';
+  const AI_MODELS = { claude: 'claude-haiku-5-5', gemini: 'gemini-3.8-flash' };
+  const AI_NAMES = { claude: 'Claude Haiku 5.5', gemini: 'Gemini 3.8 Flash' };
+  // the key itself says which service it belongs to
+  const providerOf = k => /^AIza/.test(k) ? 'gemini' : /^sk-ant-/.test(k) ? 'claude' : null;
   const SECTIONS = { picks: 'picks', ideas: 'picks', tips: 'learn', learn: 'learn', strategies: 'learn', stories: 'stories', news: 'stories',
     tape: 'tape', chart: 'tape', sentiment: 'sentiment', social: 'sentiment', reddit: 'sentiment', calendar: 'calendar', earnings: 'calendar',
     week: 'calendar', method: 'method', methodology: 'method', sources: 'sources', top: 'sheet' };
   const FILTERS = { all: 'all', everything: 'all', mine: 'mine', 'my watchlist': 'mine', watchlist: 'mine', picks: 'pick', pick: 'pick',
     ai: 'ai', chips: 'ai', 'ai & chips': 'ai', mega: 'mega', 'mega-cap': 'mega', megacap: 'mega', trending: 'social', social: 'social', etf: 'etf', etfs: 'etf' };
   const ai = { key: '', history: [], busy: false };
-  try { ai.key = localStorage.getItem('pm-anthropic-key') || ''; } catch (e) {}
+  try { ai.key = localStorage.getItem('pm-ai-key') || localStorage.getItem('pm-anthropic-key') || ''; } catch (e) {}
+  ai.gHistory = [];
   const symsIn = text => [...new Set((String(text).toUpperCase().match(/\$?\b[A-Z][A-Z.]{0,5}\b/g) || []).map(t => t.replace('$', '')))].filter(t => bySym[t]);
 
   // the actions both the parser and the AI use; each returns a short line for the log
@@ -568,7 +572,9 @@ Rules:
 - Prices are a snapshot from ${snapStr}${live.on ? ' with live quotes on' : ''}; mention that when quoting prices.
 Site data (JSON): ${siteContext()}`;
 
-  async function askAI(text) {
+  async function askAI(text) { return providerOf(ai.key) === 'gemini' ? askGemini(text) : askClaude(text); }
+
+  async function askClaude(text) {
     ai.history.push({ role: 'user', content: text });
     if (ai.history.length > 16) ai.history = ai.history.slice(-16);
     while (ai.history.length && (ai.history[0].role !== 'user' || typeof ai.history[0].content !== 'string')) ai.history.shift();
@@ -576,7 +582,7 @@ Site data (JSON): ${siteContext()}`;
       const r = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-api-key': ai.key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
-        body: JSON.stringify({ model: AI_MODEL, max_tokens: 700, system: SYSTEM(), tools: TOOLS, messages: ai.history }),
+        body: JSON.stringify({ model: AI_MODELS.claude, max_tokens: 700, system: SYSTEM(), tools: TOOLS, messages: ai.history }),
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) {
@@ -593,6 +599,47 @@ Site data (JSON): ${siteContext()}`;
     }
   }
 
+  // Gemini: same tools, Google's format. The model's turns go back exactly as received
+  // (they can carry a "thought signature" Gemini needs for multi-step tool use).
+  const gSchema = x => {
+    if (Array.isArray(x)) return x.map(gSchema);
+    if (!x || typeof x !== 'object') return x;
+    const o = {};
+    for (const [k, v] of Object.entries(x)) o[k] = k === 'type' ? String(v).toUpperCase() : gSchema(v);
+    return o;
+  };
+  const G_TOOLS = [{ functionDeclarations: TOOLS.map(t => ({ name: t.name, description: t.description, parameters: gSchema(t.input_schema) })) }];
+  async function askGemini(text) {
+    const H = ai.gHistory;
+    H.push({ role: 'user', parts: [{ text }] });
+    while (H.length > 16) H.shift();
+    while (H.length && !(H[0].role === 'user' && H[0].parts.some(p => p.text))) H.shift();
+    for (let step = 0; step < 6; step++) {
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${AI_MODELS.gemini}:generateContent`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-goog-api-key': ai.key },
+        body: JSON.stringify({ systemInstruction: { parts: [{ text: SYSTEM() }] }, contents: H, tools: G_TOOLS, generationConfig: { maxOutputTokens: 2048 } }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) {
+        H.pop();
+        const msg = (j.error && j.error.message) || `HTTP ${r.status}`;
+        throw new Error(/api key not valid|API_KEY_INVALID/i.test(msg) || r.status === 401 || r.status === 403
+          ? 'Your Gemini API key was rejected. Check it under "AI settings".'
+          : r.status === 429 ? 'Rate limited by Google (or out of free quota). Try again in a moment.' : msg);
+      }
+      const cand = (j.candidates || [])[0], content = cand && cand.content;
+      if (!content || !content.parts) { logLine('err', cand && cand.finishReason ? `Gemini stopped (${cand.finishReason}). Try rephrasing.` : 'Gemini returned an empty answer. Try again.'); return; }
+      H.push({ role: 'model', parts: content.parts });
+      content.parts.filter(p => p.text && !p.thought && p.text.trim()).forEach(p => logLine('ai', p.text));
+      const calls = content.parts.filter(p => p.functionCall);
+      if (!calls.length) return;
+      const parts = calls.map(c => { const out = runTool(c.functionCall.name, c.functionCall.args || {}); logLine('act', out);
+        return { functionResponse: { name: c.functionCall.name, response: { result: out } } }; });
+      H.push({ role: 'user', parts });
+    }
+  }
+
   // ---- UI
   const cmdDlg = $('#cmdDlg'), cmdLog = $('#cmdLog'), cmdIn = $('#cmdInput');
   const SUGGEST = ['add NVDA', 'show my watchlist', 'top movers', "today's picks", 'how is AAPL doing', 'go to stories', 'go to tips', 'filter AI', 'dark mode', 'help'];
@@ -602,7 +649,8 @@ Site data (JSON): ${siteContext()}`;
     cmdLog.appendChild(d); cmdLog.scrollTop = cmdLog.scrollHeight;
   }
   function renderAIState() {
-    $('#aiState').innerHTML = ai.key ? `<span class="ai-on">● Ask AI on</span> · Claude, using your API key` : 'Ask AI is off: built-in commands only.';
+    const pv = providerOf(ai.key);
+    $('#aiState').innerHTML = ai.key ? `<span class="ai-on">● Ask AI on</span> · ${AI_NAMES[pv] || 'AI'}, using your API key` : 'Ask AI is off: built-in commands only.';
     $('#aiToggle').textContent = ai.key ? 'AI settings' : 'Connect AI';
   }
   function renderSuggest(filter = '') {
@@ -633,9 +681,13 @@ Site data (JSON): ${siteContext()}`;
   cmdDlg.addEventListener('click', e => { if (e.target === cmdDlg) cmdDlg.close(); });
   $('#aiToggle').onclick = () => { const p = $('#aiPanel'); p.hidden = !p.hidden; if (!p.hidden) { $('#aiKey').value = ai.key; $('#aiKey').focus(); } };
   $('#aiSave').onclick = () => {
-    ai.key = $('#aiKey').value.trim(); ai.history = [];
-    try { ai.key ? localStorage.setItem('pm-anthropic-key', ai.key) : localStorage.removeItem('pm-anthropic-key'); } catch (e) {}
-    $('#aiPanel').hidden = true; renderAIState(); logLine('sys', ai.key ? 'Ask AI is connected. Ask anything about today\'s data, or tell it what to do.' : 'Ask AI turned off. Your key was removed from this browser.'); cmdIn.focus();
+    const k = $('#aiKey').value.trim();
+    if (k && !providerOf(k)) { $('#aiKeyErr').textContent = 'That doesn\'t look like a Claude key (starts with sk-ant-) or a Gemini key (starts with AIza).'; return; }
+    $('#aiKeyErr').textContent = '';
+    ai.key = k; ai.history = []; ai.gHistory = [];
+    try { localStorage.removeItem('pm-anthropic-key'); k ? localStorage.setItem('pm-ai-key', k) : localStorage.removeItem('pm-ai-key'); } catch (e) {}
+    $('#aiPanel').hidden = true; renderAIState();
+    logLine('sys', k ? `Ask AI is connected with ${AI_NAMES[providerOf(k)]}. Ask anything about today's data, or tell it what to do.` : 'Ask AI turned off. Your key was removed from this browser.'); cmdIn.focus();
   };
   $('#aiForget').onclick = () => { $('#aiKey').value = ''; $('#aiSave').click(); };
   addEventListener('keydown', e => {

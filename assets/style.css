@@ -474,3 +474,6 @@ dialog.welcome > .wc-top { z-index: 3; }
 .cur-lbl { width: 4.6rem; }
 .cur-swatch.auto { background: linear-gradient(135deg, #0a0a0a 50%, #f5f5f5 50%); }
 .cur-bar { width: 25rem; }
+.ai-keys { margin: 0 0 .5rem; padding-left: 1.1rem; font-size: .86rem; }
+.ai-keys li { margin: .15rem 0; }
+.ai-keys code { font-size: .82rem; }
