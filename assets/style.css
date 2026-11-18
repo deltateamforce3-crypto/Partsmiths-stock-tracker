@@ -516,3 +516,20 @@ dialog.tour::backdrop { background: transparent; }
 .tour-launch span { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .tour-spot, .tour-card { transition: none; animation: none; } }
 @media (max-width: 1500px) { .appbar .doc-title { display: none; } }
+/* tour: easier-to-read text */
+.tour-card { width: min(26rem, calc(100vw - 24px)); padding: 1.15rem 1.25rem 1rem; background: linear-gradient(160deg, rgba(10, 18, 38, .985), rgba(6, 10, 24, .985)); }
+.tour-card::after { background: repeating-linear-gradient(transparent 0 3px, rgba(34, 211, 238, .025) 3px 4px); z-index: 0; }
+.tour-card > * { position: relative; z-index: 1; }
+.tour-meta { font-size: .78rem; letter-spacing: .12em; color: #7ee7f7; }
+.tour-card h3 { font-family: var(--font-ui); font-weight: 700; font-size: 1.4rem; line-height: 1.25; letter-spacing: -.005em; margin: .55rem 0 .45rem; text-shadow: 0 0 10px rgba(34, 211, 238, .28); }
+.tour-card p { font-family: var(--font-ui); font-size: 1.06rem; line-height: 1.62; color: #edf4fb; font-weight: 400; }
+.tour-btn { font-size: .98rem; height: 2.3rem; }
+.tour-btn.ghost { font-size: .95rem; color: #9fe5f5; }
+/* tour text in fixed sizes (the site's root font is 14px) */
+.tour-card { width: min(410px, calc(100vw - 24px)); padding: 18px 20px 16px; }
+.tour-meta { font-size: 12px; }
+.tour-card h3 { font-size: 23px; }
+.tour-card p { font-size: 17px; line-height: 1.6; }
+.tour-btn { font-size: 15px; height: 36px; padding: 0 14px; }
+.tour-btn.ghost { font-size: 15px; }
+.tour-progress { margin: 14px 0 12px; }
