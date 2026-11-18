@@ -539,7 +539,8 @@ ${D.mode === 'auto' ? `
     const t = raw.trim().toLowerCase().replace(/[?!.]+$/, '');
     let m;
     if (/^(help|commands|\?)$/.test(t)) return HELP;
-    if (/^(welcome|tour|intro|home|go home|back to home)$/.test(t)) { cmdDlg.close(); $('#helpBtn').click(); return 'Opened the welcome screen.'; }
+    if (/^(take the |start the |start |replay the |show me the )?(tour|walkthrough|guide|help me get started)$/.test(t) && window.pmTour) { cmdDlg.close(); window.pmTour(); return 'Started the tour.'; }
+    if (/^(welcome|intro|home|go home|back to home)$/.test(t)) { cmdDlg.close(); $('#helpBtn').click(); return 'Opened the welcome screen.'; }
     if (/^(clear|empty|reset) (my )?watch ?list$/.test(t)) return act.clear();
     if ((m = t.match(/^(add|watch|save|follow|track|\+)\s+(.+)$/))) { const s = targets(m[2]); return s == null ? null : s.length ? act.add(s) : 'No tracked stocks match that.'; }
     if ((m = t.match(/^(remove|unwatch|delete|drop|unfollow|-)\s+(.+)$/))) { const s = targets(m[2]); return s == null ? null : s.length ? act.remove(s) : 'No tracked stocks match that.'; }
