@@ -466,7 +466,8 @@ ${D.mode === 'auto' ? `
   const AI_MODELS = { claude: 'claude-haiku-5-5', gemini: 'gemini-3.8-flash' };
   const AI_NAMES = { claude: 'Claude Haiku 5.5', gemini: 'Gemini 3.8 Flash' };
   // the key itself says which service it belongs to
-  const providerOf = k => /^AIza/.test(k) ? 'gemini' : /^sk-ant-/.test(k) ? 'claude' : null;
+  // Gemini keys: classic "AIza…" or Google's newer "AQ.…" format
+  const providerOf = k => /^(AIza|AQ\.)/.test(k) ? 'gemini' : /^sk-ant-/.test(k) ? 'claude' : null;
   const SECTIONS = { picks: 'picks', ideas: 'picks', tips: 'learn', learn: 'learn', strategies: 'learn', stories: 'stories', news: 'stories',
     tape: 'tape', chart: 'tape', sentiment: 'sentiment', social: 'sentiment', reddit: 'sentiment', calendar: 'calendar', earnings: 'calendar',
     week: 'calendar', method: 'method', methodology: 'method', sources: 'sources', top: 'sheet' };
@@ -682,7 +683,7 @@ Site data (JSON): ${siteContext()}`;
   $('#aiToggle').onclick = () => { const p = $('#aiPanel'); p.hidden = !p.hidden; if (!p.hidden) { $('#aiKey').value = ai.key; $('#aiKey').focus(); } };
   $('#aiSave').onclick = () => {
     const k = $('#aiKey').value.trim();
-    if (k && !providerOf(k)) { $('#aiKeyErr').textContent = 'That doesn\'t look like a Claude key (starts with sk-ant-) or a Gemini key (starts with AIza).'; return; }
+    if (k && !providerOf(k)) { $('#aiKeyErr').textContent = 'That doesn\'t look like a Claude key (starts with sk-ant-) or a Gemini key (starts with AIza or AQ.).'; return; }
     $('#aiKeyErr').textContent = '';
     ai.key = k; ai.history = []; ai.gHistory = [];
     try { localStorage.removeItem('pm-anthropic-key'); k ? localStorage.setItem('pm-ai-key', k) : localStorage.removeItem('pm-ai-key'); } catch (e) {}

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20261118u">
+<link rel="stylesheet" href="assets/style.css?v=20261118v">
 <script>/* set the theme before first paint so there is no flash */
 (function(){var t="system";try{t=localStorage.getItem("pm-theme")||"system"}catch(e){}
 if(t==="system")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.appTheme=t})();</script>
@@ -198,10 +198,10 @@ if(t==="system")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"lig
     <p class="note">Ask AI works with <b>your own API key</b> from either service. Paste whichever you have and the site detects which one it is:</p>
     <ul class="note ai-keys">
       <li><b>Claude</b> (Claude Haiku 5.5): key starts with <code>sk-ant-</code>. Get one at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.</li>
-      <li><b>Gemini</b> (Gemini 3.8 Flash): key starts with <code>AIza</code>. Get one at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a>.</li>
+      <li><b>Gemini</b> (Gemini 3.8 Flash): key starts with <code>AIza</code> or <code>AQ.</code>. Get one at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a>.</li>
     </ul>
     <p class="note">The key stays in this browser's local storage and is only sent to that company. Any usage is billed to your own account. The AI can only use this site's actions: watchlist, Inspector, filters, scrolling and theme. It can't trade or reach any other account.</p>
-    <label class="field"><span>API key (Claude or Gemini)</span><input id="aiKey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-… or AIza…"></label>
+    <label class="field"><span>API key (Claude or Gemini)</span><input id="aiKey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-…, AIza… or AQ.…"></label>
     <p class="auth-err" id="aiKeyErr" role="alert"></p>
     <div class="btn-row"><button class="btn" type="button" id="aiForget">Remove key</button><span style="flex:1"></span><button class="btn primary" type="button" id="aiSave">Save</button></div>
   </div>
@@ -230,10 +230,10 @@ if(t==="system")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"lig
   </form>
 </dialog>
 
-<script src="assets/app.js?v=20261118u"></script>
-<script type="module" src="assets/account.js?v=20261118u"></script>
-<script type="module" src="assets/blackhole.js?v=20261118u"></script>
-<script type="module" src="assets/quotes.js?v=20261118u"></script>
-<script type="module" src="assets/cursor.js?v=20261118u"></script>
+<script src="assets/app.js?v=20261118v"></script>
+<script type="module" src="assets/account.js?v=20261118v"></script>
+<script type="module" src="assets/blackhole.js?v=20261118v"></script>
+<script type="module" src="assets/quotes.js?v=20261118v"></script>
+<script type="module" src="assets/cursor.js?v=20261118v"></script>
 </body>
 </html>
