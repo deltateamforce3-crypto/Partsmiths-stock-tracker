@@ -22,10 +22,22 @@
 
   // theme
   const root = document.documentElement;
-  let theme = 'light';
-  try { theme = localStorage.getItem('pm-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {}
-  const applyTheme = () => { root.dataset.appTheme = theme; $('#themeBtn use').setAttribute('href', theme === 'dark' ? '#i-sun' : '#i-moon'); drawChart(); };
-  $('#themeBtn').onclick = () => { theme = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('pm-theme', theme); } catch (e) {} applyTheme(); };
+  // pref is 'light', 'dark' or 'system'; 'system' follows the OS setting and updates when it changes.
+  const sysDark = matchMedia('(prefers-color-scheme: dark)');
+  let pref = 'system';
+  try { pref = localStorage.getItem('pm-theme') || 'system'; } catch (e) {}
+  if (!['light', 'dark', 'system'].includes(pref)) pref = 'system';
+  const applyTheme = () => {
+    root.dataset.appTheme = pref === 'system' ? (sysDark.matches ? 'dark' : 'light') : pref;
+    document.querySelectorAll('#themeSeg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.theme === pref)));
+    drawChart();
+  };
+  document.querySelectorAll('#themeSeg button').forEach(b => b.onclick = () => {
+    pref = b.dataset.theme;
+    try { localStorage.setItem('pm-theme', pref); } catch (e) {}
+    applyTheme();
+  });
+  sysDark.addEventListener('change', () => { if (pref === 'system') applyTheme(); });
 
   // header
   let snap = new Date(D.snapshot);
