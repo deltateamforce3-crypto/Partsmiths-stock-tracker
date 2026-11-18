@@ -2,7 +2,7 @@
 
 A stock-tracking dashboard built in the Partsmith CAD workbench style: app bar and ribbon on top, watchlist on the left, a drawing-sheet viewport in the middle, an inspector on the right, and a status bar laid out like a title block.
 
-- **Live quotes.** Each viewer can paste their own free Finnhub key, and the page then streams prices every 30 seconds. Without a key, it shows the latest data committed by the GitHub Action, which refreshes prices every hour from 10 AM to 3 PM ET and does the full daily update at 4 PM ET.
+- **Live quotes.** Each viewer can paste their own free Finnhub key, and the page then streams prices every 30 seconds. Without a key, it shows the latest data committed by the GitHub Action, which refreshes prices every hour from 10 AM to 5 PM ET and does the full daily update at 3 PM ET.
 - **Crowd sentiment.** Reddit mention counts (r/wallstreetbets, r/stocks, r/investing and more, via ApeWisdom) and Stocktwits trending symbols.
 - **3 watchlist ideas every trading day.** Each one is scored on catalyst, price action, crowd attention and analyst support, with risks and links to its sources.
 - **Sources everywhere.** Every number links back to where it came from.
@@ -60,7 +60,7 @@ python3 scripts/update_data.py --mode quotes   # prices only (~30 s)
 ## How it works
 
 ```
-GitHub Action (hourly + 4 PM ET) ──► scripts/update_data.py ──► data/market.json ──► GitHub Pages
+GitHub Action (hourly + 3 PM ET) ──► scripts/update_data.py ──► data/market.json ──► GitHub Pages
                                │                                            │
                 Finnhub · ApeWisdom · Stocktwits              index.html + assets/app.js
                                                               (re-fetches every 2 min;
@@ -69,10 +69,10 @@ GitHub Action (hourly + 4 PM ET) ──► scripts/update_data.py ──► data
 
 | Schedule (weekdays, US Eastern) | Mode | What it does |
 |---|---|---|
-| hourly, `10 AM – 3 PM` | `quotes` | Prices, ETF index proxies, macro proxies, index history |
-| `4 PM` | `full` | Closing prices, Reddit and Stocktwits sentiment, news, analyst trends, earnings calendar, **3 new picks for the next trading day** |
+| hourly, `10 AM – 5 PM` | `quotes` | Prices, ETF index proxies, macro proxies, index history (the 4 PM run picks up the close) |
+| `3 PM` | `full` | Prices, Reddit and Stocktwits sentiment, news, analyst trends, earnings calendar, **3 new picks for the next trading day** |
 
-GitHub cron only understands UTC and can delay or drop runs when it's busy. So the workflow fires every hour at :23 on weekdays and checks the time in New York before doing anything. If the 4 PM run is dropped, the full update runs at the next hour that works, up to 8 PM. For extra reliability, an outside scheduler such as cron-job.org can start the workflow through GitHub's API (`workflow_dispatch` with `mode: auto`).
+GitHub cron only understands UTC and can delay or drop runs when it's busy. So the workflow fires every hour at :23 on weekdays and checks the time in New York before doing anything. If the 3 PM run is dropped, the full update runs at the next hour that works, up to 8 PM. For extra reliability, an outside scheduler such as cron-job.org can start the workflow through GitHub's API (`workflow_dispatch` with `mode: auto`).
 
 GitHub may start scheduled runs a few minutes late. Scheduled workflows are also paused after 60 days with no repo activity. Re-enable them from the Actions tab.
 

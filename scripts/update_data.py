@@ -371,7 +371,7 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     data["mode"] = "auto"
     data["snapshot"] = now.isoformat(timespec="seconds")
     data["session"] = session_label(today)
-    data["nextRefresh"] = "GitHub Actions · hourly 10 AM–3 PM ET · full update 4 PM ET"
+    data["nextRefresh"] = "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET"
     sources = {k: v for k, v in (old.get("sources") or {}).items()
                if k in SOURCES or k.startswith("news-") or k.startswith("research-")}
     sources.update(SOURCES)
@@ -426,7 +426,7 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
             sources.update(dict(news_src))
         if picks:
             data["picks"] = picks
-            data["picksFor"] = session_label(next_trading_day(today)) if now.hour >= 16 else session_label(today)
+            data["picksFor"] = session_label(next_trading_day(today)) if now.hour >= 15 else session_label(today)
         data["_cand"] = {c["sym"]: c for c in cands}  # used below, removed before write
 
         # sentiment table
