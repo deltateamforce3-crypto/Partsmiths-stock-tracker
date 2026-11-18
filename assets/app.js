@@ -504,6 +504,36 @@ ${D.mode === 'auto' ? `
   };
   function saveMine() { try { localStorage.setItem('pm-my-watchlist', JSON.stringify(mine)); } catch (e) {} renderChips(); renderWL(); renderInsp(); renderSheet(); }
 
+  // Who a command is about: tickers ("nvda", "$amd"), company names ("apple", "google") and groups
+  // ("ai", "chips", "giants", "mega-caps", "picks", "trending", "etfs"). Several groups narrow down,
+  // so "AI giants" = AI/chip stocks that are also mega-caps. Returns null if any word isn't understood,
+  // so the request goes to Ask AI instead of guessing.
+  const FILLER = new Set('to my the a an all of from into on in onto off out for me please also plus and with every each some those these list watchlist watch stocks stock shares companies company names name ones tickers ticker today todays s'.split(' '));
+  const GROUPS = { ai: 'ai', chip: 'ai', chips: 'ai', chipmaker: 'ai', chipmakers: 'ai', semiconductor: 'ai', semiconductors: 'ai', semis: 'ai',
+    mega: 'mega', megacap: 'mega', megacaps: 'mega', giant: 'mega', giants: 'mega', big: 'mega', biggest: 'mega', largest: 'mega', large: 'mega', cap: 'mega', caps: 'mega',
+    pick: 'pick', picks: 'pick', ideas: 'pick', trending: 'social', trendy: 'social', hot: 'social', popular: 'social', meme: 'social', etf: 'etf', etfs: 'etf', funds: 'etf', fund: 'etf' };
+  const ALIASES = { google: 'GOOG', alphabet: 'GOOG', facebook: 'META', jpmorgan: 'JPM', chase: 'JPM', disney: 'DIS' };
+  function targets(text) {
+    const words = text.toLowerCase().replace(/['’]s\b/g, '').split(/[^a-z0-9.$-]+/).flatMap(w => w.split('-')).filter(Boolean);
+    const syms = new Set(), groups = new Set();
+    for (let w of words) {
+      w = w.replace(/^\$/, '').replace(/\.$/, '');
+      if (!w || FILLER.has(w)) continue;
+      if (GROUPS[w]) { groups.add(GROUPS[w]); continue; }
+      const up = w.toUpperCase();
+      if (bySym[up]) { syms.add(up); continue; }
+      if (ALIASES[w] && bySym[ALIASES[w]]) { syms.add(ALIASES[w]); continue; }
+      const byName = w.length >= 4 && D.watchlist.find(x => x.name.toLowerCase().split(/[^a-z0-9]+/).includes(w));
+      if (byName) { syms.add(byName.sym); continue; }
+      return null;   // a word we don't understand
+    }
+    if (groups.size) {
+      const inGroup = (w, g) => g === 'pick' ? pickSyms.includes(w.sym) : (w.tags || []).includes(g);
+      D.watchlist.filter(w => [...groups].every(g => inGroup(w, g))).forEach(w => syms.add(w.sym));
+    }
+    return [...syms];
+  }
+
   // plain-English parser for the built-in commands; returns null when it doesn't understand
   function runBuiltin(raw) {
     const t = raw.trim().toLowerCase().replace(/[?!.]+$/, '');
@@ -511,8 +541,8 @@ ${D.mode === 'auto' ? `
     if (/^(help|commands|\?)$/.test(t)) return HELP;
     if (/^(welcome|tour|intro|home|go home|back to home)$/.test(t)) { cmdDlg.close(); $('#helpBtn').click(); return 'Opened the welcome screen.'; }
     if (/^(clear|empty|reset) (my )?watch ?list$/.test(t)) return act.clear();
-    if ((m = t.match(/^(add|watch|save|follow|track|\+)\s+(.+)$/))) { const s = (m[2].toUpperCase().match(/[A-Z][A-Z.]*/g) || []).filter(x => x.length <= 6).filter(x => !['TO', 'MY', 'AND', 'THE', 'WATCHLIST', 'LIST'].includes(x)); return s.length ? act.add(s) : null; }
-    if ((m = t.match(/^(remove|unwatch|delete|drop|unfollow|-)\s+(.+)$/))) { const s = (m[2].toUpperCase().match(/[A-Z][A-Z.]*/g) || []).filter(x => x.length <= 6).filter(x => !['FROM', 'MY', 'AND', 'THE', 'WATCHLIST', 'LIST'].includes(x)); return s.length ? act.remove(s) : null; }
+    if ((m = t.match(/^(add|watch|save|follow|track|\+)\s+(.+)$/))) { const s = targets(m[2]); return s == null ? null : s.length ? act.add(s) : 'No tracked stocks match that.'; }
+    if ((m = t.match(/^(remove|unwatch|delete|drop|unfollow|-)\s+(.+)$/))) { const s = targets(m[2]); return s == null ? null : s.length ? act.remove(s) : 'No tracked stocks match that.'; }
     if ((m = t.match(/^(dark|light|system)( mode| theme)?$/)) || (m = t.match(/^(?:theme|mode)\s+(dark|light|system)$/))) return act.theme(m[1]);
     if (/^(live|live quotes|go live|stream( prices)?)$/.test(t)) { cmdDlg.close(); $('#liveBtn').click(); return 'Opened Live quotes.'; }
     if (/^(top )?movers$|^(best|worst|biggest movers)/.test(t)) return act.movers();
@@ -569,6 +599,8 @@ Rules:
 - Be brief: 1-4 short sentences, plain text, no markdown headers.
 - You can only do what the tools allow (watchlist, inspector, filters, scrolling, theme). You cannot trade, move money, look up stocks the site doesn't track, or browse the web. Say so if asked.
 - Only use symbols that appear in "stocks". If a stock isn't tracked, say so.
+- Each stock has "tags": ai = AI & chip stocks, mega = mega-cap giants, social = trending on Reddit/Stocktwits, etf = funds. "picks" lists today's 3 ideas.
+- For group requests ("all the AI giants", "big tech", "today's picks", "the trending ones"), choose every matching symbol from "stocks" and pass them all in ONE add_to_watchlist or remove_from_watchlist call. Then say which ones you added.
 - Never tell someone to buy or sell. You may explain the data, the picks' reasoning and risks. If asked for advice, note that this is not investment advice and they should consider their own goals or a licensed advisor.
 - Prices are a snapshot from ${snapStr}${live.on ? ' with live quotes on' : ''}; mention that when quoting prices.
 Site data (JSON): ${siteContext()}`;
