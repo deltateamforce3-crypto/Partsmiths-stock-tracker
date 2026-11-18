@@ -1,73 +1,83 @@
-/* Partsmith Markets — custom futuristic cursor + a "Cursor" bar to customise it.
-   The choice (style, color, size) is saved in this browser and applies to the welcome
+/* Partsmith Markets — custom cursor (Vercel-style triangle or a literal arrow) + a "Cursor" bar to
+   customise it: shape, direction (tilted / upright), color and size. The choice is saved in this browser and applies to the welcome
    screen and the main page. "Classic" switches back to the normal system cursor. */
 const STYLES = {
-  futuristic: { name: 'Futuristic' },
-  neon: { name: 'Neon' },
-  blade: { name: 'Blade' },
+  triangle: { name: 'Triangle' },
+  arrow: { name: 'Arrow' },
   classic: { name: 'Classic' },
 };
-const COLORS = { cyan: '#22d3ee', blue: '#5b7cf0', green: '#34d399', pink: '#f472b6', amber: '#fbbf24', white: '#e5e7eb' };
+const DIRS = { tilted: 'Tilted', upright: 'Upright' };
+const COLORS = { auto: 'auto', white: '#f5f5f5', black: '#0a0a0a', cyan: '#22d3ee', blue: '#5b7cf0', green: '#34d399', pink: '#f472b6', amber: '#fbbf24' };
 const SIZES = { normal: 32, large: 44 };
 const KEY = 'pm-cursor';
-let pref = { style: 'futuristic', color: 'cyan', size: 'normal' };
+let pref = { style: 'triangle', dir: 'tilted', color: 'auto', size: 'normal' };
 try { pref = { ...pref, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch (e) {}
-if (!STYLES[pref.style]) pref.style = 'futuristic';
-if (!COLORS[pref.color]) pref.color = 'cyan';
+if (!STYLES[pref.style]) pref.style = 'triangle';   // older saved styles (futuristic, neon, blade) fall back here
+if (!DIRS[pref.dir]) pref.dir = 'tilted';
+if (!COLORS[pref.color]) pref.color = 'auto';
 if (!SIZES[pref.size]) pref.size = 'normal';
 
-// 32×32 drawings, tip at (3,2). `click` adds a small targeting ring for links and buttons.
-function svg(style, c, click, px = 32) {
-  let body;
-  if (style === 'neon') {
-    const p = 'M3 2 L3 24 L9 18.6 L12.6 27.4 L16.4 25.8 L12.9 17.2 L21 17.2 Z';
-    body = `<path d="${p}" fill="none" stroke="${c}" stroke-opacity=".35" stroke-width="4.2" stroke-linejoin="round"/>
-      <path d="${p}" fill="${c}" fill-opacity=".14" stroke="${c}" stroke-width="1.6" stroke-linejoin="round"/>
-      <path d="${p}" fill="none" stroke="#fff" stroke-opacity=".85" stroke-width=".6" stroke-linejoin="round"/>`;
-  } else if (style === 'blade') {
-    const p = 'M3 2 L3 22.5 L7.8 18 L11 25.6 L13.4 24.6 L10.3 17.2 L16.6 17 Z';
-    body = `<path d="${p}" fill="#0b1020" stroke="${c}" stroke-width="1.5" stroke-linejoin="miter"/>
-      <path d="M4.6 6.5 L4.6 18.3" stroke="${c}" stroke-width="1.1" stroke-linecap="round"/>`;
-  } else { // futuristic
-    const p = 'M3 2 L3 24 L8.6 19 L12.4 27.6 L16.6 25.8 L12.9 17.6 L21.2 17.6 Z';
-    body = `<path d="${p}" fill="none" stroke="${c}" stroke-opacity=".3" stroke-width="4" stroke-linejoin="miter"/>
-      <path d="${p}" fill="#0b1020" stroke="${c}" stroke-width="1.6" stroke-linejoin="miter"/>
-      <path d="M5.2 7.2 L5.2 18.6 L8.4 15.8 M5.2 7.2 L14.2 15.6" fill="none" stroke="${c}" stroke-width="1" stroke-opacity=".9" stroke-linecap="square"/>
-      <rect x="11.4" y="21.4" width="1.6" height="1.6" fill="${c}" transform="rotate(-23 12.2 22.2)"/>`;
-  }
-  if (click) body += `<circle cx="25" cy="25" r="4.6" fill="none" stroke="${c}" stroke-width="1.6"/><circle cx="25" cy="25" r="1.4" fill="${c}"/>`;
+const dark = () => document.documentElement.dataset.appTheme === 'dark';
+const fillOf = color => color === 'auto' ? (dark() ? '#f5f5f5' : '#0a0a0a') : COLORS[color];
+// light fills get a dark outline, dark fills a light one, so the cursor shows on any background
+function edgeOf(hex) {
+  const n = parseInt(hex.slice(1), 16), l = (0.299 * (n >> 16 & 255) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255)) / 255;
+  return l > 0.55 ? '#0a0a0a' : '#ffffff';
+}
+// Shapes are drawn pointing straight up with the tip (the click point) at (16,2).
+// "Tilted" turns them about the tip like a normal cursor and moves the tip to (3,2).
+const SHAPES = {
+  triangle: 'M16 2 L29 25.5 L3 25.5 Z',
+  arrow: 'M16 2 L26 13 L19.6 13 L19.6 29 L12.4 29 L12.4 13 L6 13 Z',
+};
+function svg(style, color, dir, click, px = 32) {
+  const f = fillOf(color), e = edgeOf(f);
+  const tilt = style === 'triangle' ? -16 : -32;   // a wide triangle needs less tilt to still read as "pointing"
+  const tf = dir === 'tilted' ? `translate(${hot(style, dir)[0] - 16} 0) rotate(${tilt} 16 2)` : '';
+  let body = `<g transform="${tf}"><path d="${SHAPES[style]}" fill="${f}" stroke="${e}" stroke-width="1.4" stroke-linejoin="round"/></g>`;
+  if (click) body += `<circle cx="27" cy="6" r="3.3" fill="${f}" stroke="${e}" stroke-width="1.2"/>`;   // "clickable" marker
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${px}" height="${px}" viewBox="0 0 32 32">${body}</svg>`;
 }
-const url = (s, hot) => `url("data:image/svg+xml,${encodeURIComponent(s)}") ${hot} ${hot}`;
+// where the tip (click point) sits in the 32×32 drawing
+function hot(style, dir) { return dir === 'upright' ? [16, 2] : style === 'triangle' ? [8, 2] : [3, 2]; }
+const url = (s, x, y) => `url("data:image/svg+xml,${encodeURIComponent(s)}") ${x} ${y}`;
 
 function apply() {
   const root = document.documentElement;
   if (pref.style === 'classic') { root.removeAttribute('data-cursor'); return; }
-  const c = COLORS[pref.color], px = SIZES[pref.size], hot = Math.round(px * 3 / 32);
-  root.style.setProperty('--cur', url(svg(pref.style, c, false, px), hot) + ', auto');
-  root.style.setProperty('--cur-pointer', url(svg(pref.style, c, true, px), hot) + ', pointer');
+  const px = SIZES[pref.size], k = px / 32;
+  const [hx, hy] = hot(pref.style, pref.dir);
+  const x = Math.round(hx * k), y = Math.round(hy * k);
+  root.style.setProperty('--cur', url(svg(pref.style, pref.color, pref.dir, false, px), x, y) + ', auto');
+  root.style.setProperty('--cur-pointer', url(svg(pref.style, pref.color, pref.dir, true, px), x, y) + ', pointer');
   root.setAttribute('data-cursor', pref.style);
 }
 function save() { try { localStorage.setItem(KEY, JSON.stringify(pref)); } catch (e) {} apply(); renderAll(); }
+// "Auto" follows light / dark mode
+new MutationObserver(() => { apply(); renderAll(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-app-theme'] });
 
 // ---------------------------------------------------------------- the Cursor bar (one per slot)
 const slots = [...document.querySelectorAll('.cursor-slot')];
-const preview = (style, color, px = 22) => style === 'classic'
+const preview = (style, px = 22) => style === 'classic'
   ? `<svg viewBox="0 0 32 32" width="${px}" height="${px}" aria-hidden="true"><path d="M4 3 L4 24 L9.5 19 L13 27 L16 25.7 L12.6 18 L20 18 Z" fill="#fff" stroke="#111" stroke-width="1.5" stroke-linejoin="round"/></svg>`
-  : svg(style, COLORS[color], false, px).replace('<svg ', '<svg aria-hidden="true" ');
+  : svg(style, pref.color, pref.dir, false, px).replace('<svg ', '<svg aria-hidden="true" ');
 function render(slot) {
-  const open = slot.classList.contains('open');
+  const open = slot.classList.contains('open'), off = pref.style === 'classic' ? 'disabled' : '';
+  const swatch = (k, v) => k === 'auto'
+    ? `<button type="button" class="cur-swatch auto" data-color="auto" aria-pressed="${pref.color === 'auto'}" title="Auto: black in light mode, white in dark mode" aria-label="Auto" ${off}></button>`
+    : `<button type="button" class="cur-swatch" data-color="${k}" aria-pressed="${pref.color === k}" title="${k[0].toUpperCase() + k.slice(1)}" aria-label="${k}" style="--sw:${v}" ${off}></button>`;
   slot.innerHTML = `
-    <button type="button" class="btn sm cur-btn" aria-expanded="${open}" aria-haspopup="true" title="Customize your cursor">${preview(pref.style, pref.color, 18)}<span>Cursor</span></button>
+    <button type="button" class="btn sm cur-btn" aria-expanded="${open}" aria-haspopup="true" title="Customize your cursor">${preview(pref.style, 18)}<span>Cursor</span></button>
     <div class="cur-bar" role="group" aria-label="Cursor settings" ${open ? '' : 'hidden'}>
-      <div class="cur-row"><span class="cur-lbl">Style</span>
-        ${Object.entries(STYLES).map(([k, v]) => `<button type="button" class="cur-opt" data-style="${k}" aria-pressed="${pref.style === k}">${preview(k, pref.color)}<span>${v.name}</span></button>`).join('')}
+      <div class="cur-row"><span class="cur-lbl">Shape</span>
+        ${Object.entries(STYLES).map(([k, v]) => `<button type="button" class="cur-opt" data-style="${k}" aria-pressed="${pref.style === k}">${preview(k)}<span>${v.name}</span></button>`).join('')}
       </div>
-      <div class="cur-row"><span class="cur-lbl">Color</span>
-        ${Object.entries(COLORS).map(([k, v]) => `<button type="button" class="cur-swatch" data-color="${k}" aria-pressed="${pref.color === k}" title="${k[0].toUpperCase() + k.slice(1)}" aria-label="${k}" style="--sw:${v}" ${pref.style === 'classic' ? 'disabled' : ''}></button>`).join('')}
+      <div class="cur-row"><span class="cur-lbl">Direction</span>
+        ${Object.entries(DIRS).map(([k, v]) => `<button type="button" class="chip" data-dir="${k}" aria-pressed="${pref.dir === k}" ${off}>${v}</button>`).join('')}
       </div>
+      <div class="cur-row"><span class="cur-lbl">Color</span>${Object.entries(COLORS).map(([k, v]) => swatch(k, v)).join('')}</div>
       <div class="cur-row"><span class="cur-lbl">Size</span>
-        ${Object.keys(SIZES).map(k => `<button type="button" class="chip" data-size="${k}" aria-pressed="${pref.size === k}" ${pref.style === 'classic' ? 'disabled' : ''}>${k[0].toUpperCase() + k.slice(1)}</button>`).join('')}
+        ${Object.keys(SIZES).map(k => `<button type="button" class="chip" data-size="${k}" aria-pressed="${pref.size === k}" ${off}>${k[0].toUpperCase() + k.slice(1)}</button>`).join('')}
       </div>
     </div>`;
 }
@@ -80,6 +90,7 @@ slots.forEach(slot => {
     if (b.dataset.style) pref.style = b.dataset.style;
     else if (b.dataset.color) pref.color = b.dataset.color;
     else if (b.dataset.size) pref.size = b.dataset.size;
+    else if (b.dataset.dir) pref.dir = b.dataset.dir;
     else return;
     save();
   });

@@ -471,3 +471,6 @@ html[data-cursor] :is(button:disabled, [aria-disabled=true]) { cursor: not-allow
 @media (max-width: 900px) { .cur-btn span { display: none; } }
 dialog.welcome > .wc-top { z-index: 3; }
 .cur-bar { width: 26.5rem; }
+.cur-lbl { width: 4.6rem; }
+.cur-swatch.auto { background: linear-gradient(135deg, #0a0a0a 50%, #f5f5f5 50%); }
+.cur-bar { width: 25rem; }
