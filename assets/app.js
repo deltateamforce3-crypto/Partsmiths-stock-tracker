@@ -336,6 +336,12 @@ ${D.mode === 'auto' ? `
   };
 
   renderStatus(); setInterval(renderStatus, 30000);
+  // Background tabs get their timers slowed, so catch up as soon as the tab is visible again.
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible') return;
+    refreshData(); renderStatus();
+    if (live.on) pollLive();
+  });
   renderAll(); applyTheme();
   if (live.key) startLive();
 })();
