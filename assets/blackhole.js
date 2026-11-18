@@ -48,7 +48,11 @@ if (dlg) {
   function bend(px, py) {
     const dx = hole.x - px, dy = hole.y - py, d2 = dx * dx + dy * dy, d = Math.sqrt(d2) || 1;
     const R = hole.r * 5.5;
-    const pull = Math.min(d - hole.r * 1.05, (R * R * hole.r * 0.9) / (d2 + R * R * 0.6));
+    // with the orb showing, lines wrap around its edge; as it fades, that edge shrinks away and the
+    // pull eases off near the centre, so the grid just dips smoothly with no circular gap
+    const e = 1 - Math.pow(1 - show, 3), core = hole.r * 1.05 * e, soft = (hole.r * 1.6) ** 2;
+    const fall = e + (1 - e) * d2 / (d2 + soft);
+    const pull = Math.min(d - core, ((R * R * hole.r * 0.9) / (d2 + R * R * 0.6)) * fall);
     if (pull <= 0) return [px, py];
     return [px + (dx / d) * pull, py + (dy / d) * pull];
   }
