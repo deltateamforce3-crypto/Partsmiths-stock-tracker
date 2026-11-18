@@ -60,7 +60,7 @@ python3 scripts/update_data.py --mode quotes   # prices only (~30 s)
 ## How it works
 
 ```
-GitHub Action (hourly + 3 PM ET) ──► scripts/update_data.py ──► data/market.json ──► GitHub Pages
+GitHub Action (hourly + 3 PM ET) ──► scripts/update_data.py ──► data/market.json on the `data` branch ──► page reads it from raw.githubusercontent.com
                                │                                            │
                 Finnhub · ApeWisdom · Stocktwits              index.html + assets/app.js
                                                               (re-fetches every 2 min;
@@ -71,6 +71,8 @@ GitHub Action (hourly + 3 PM ET) ──► scripts/update_data.py ──► data
 |---|---|---|
 | hourly, `10 AM – 5 PM` | `quotes` | Prices, ETF index proxies, macro proxies, index history (the 4 PM run picks up the close) |
 | `3 PM` | `full` | Prices, Reddit and Stocktwits sentiment, news, analyst trends, earnings calendar, **3 new picks for the next trading day** |
+
+The updater commits to a separate `data` branch that holds only `data/market.json`, so `main` only changes when you push. You never have to pull before pushing, and every copy of the site (Vercel, GitHub Pages, or the folder on your computer) shows the newest data without redeploying. The `data/market.json` on `main` is only a fallback for before the first run.
 
 GitHub cron only understands UTC and can delay or drop runs when it's busy. So the workflow fires every hour at :23 on weekdays and checks the time in New York before doing anything. If the 3 PM run is dropped, the full update runs at the next hour that works, up to 8 PM. For extra reliability, an outside scheduler such as cron-job.org can start the workflow through GitHub's API (`workflow_dispatch` with `mode: auto`).
 

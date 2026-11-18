@@ -1,10 +1,20 @@
 /* Partsmith Markets — renders data/market.json and, when a Finnhub key is set, streams quotes. */
 (async function () {
+  // The GitHub updater saves fresh data to the repo's `data` branch, so read it from there
+  // (works on any host and on a local copy). Fall back to the copy shipped with the site.
+  const DATA_BRANCH_URL = 'https://raw.githubusercontent.com/deltateamforce3-crypto/Partsmiths-stock-tracker/data/data/market.json';
+  async function loadData() {
+    for (const url of [DATA_BRANCH_URL, 'data/market.json']) {
+      try {
+        const r = await fetch(url + '?t=' + Date.now(), { cache: 'no-store' });
+        if (r.ok) return await r.json();
+      } catch (e) { /* try the next copy */ }
+    }
+    throw new Error('Neither the data branch nor data/market.json could be loaded');
+  }
   let D;
   try {
-    const r = await fetch('data/market.json?t=' + Date.now(), { cache: 'no-store' });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    D = await r.json();
+    D = await loadData();
   } catch (err) {
     document.getElementById('sheet').innerHTML = `<section class="card"><div class="card-body note"><h2>Couldn't load data/market.json</h2><p>${String(err.message || err)}</p><p>Browsers block <code>fetch()</code> on pages opened straight from disk. Serve the folder instead: <code>python3 -m http.server 8000</code>, then open <code>http://localhost:8000</code>. On GitHub Pages this works automatically.</p></div></section>`;
     return;
@@ -288,9 +298,7 @@ ${D.mode === 'auto' ? `
   // Pull the committed data file again every 2 minutes (the GitHub Action updates it).
   async function refreshData() {
     try {
-      const r = await fetch('data/market.json?t=' + Date.now(), { cache: 'no-store' });
-      if (!r.ok) return;
-      const nd = await r.json();
+      const nd = await loadData();
       if (nd.snapshot !== D.snapshot) { D = nd; if (live.on) applyLive(); renderAll(); }
     } catch (e) { /* offline — keep showing what we have */ }
   }

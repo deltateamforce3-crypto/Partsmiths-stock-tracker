@@ -12,6 +12,10 @@ name: Update market data
 #   - 10:00-17:59 ET -> quotes (every hour)
 #   - otherwise      -> skip
 # workflow_dispatch also lets an outside scheduler (e.g. cron-job.org) start it.
+#
+# The data lives on its own branch, `data` (just data/market.json), so these hourly
+# commits never touch `main`. Your own pushes to `main` therefore never need a pull
+# first, and the page reads the newest data straight from the `data` branch.
 
 on:
   schedule:
@@ -37,6 +41,16 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+
+      - name: Load the latest data from the data branch
+        run: |
+          if git ls-remote --exit-code --heads origin data >/dev/null; then
+            git fetch --depth=1 origin data
+            git show FETCH_HEAD:data/market.json > data/market.json
+            echo "Loaded data/market.json from the data branch"
+          else
+            echo "No data branch yet; starting from the copy on main"
+          fi
 
       - name: Decide mode from New York time
         id: plan
@@ -65,13 +79,22 @@ jobs:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
         run: python3 scripts/update_data.py --mode "${{ steps.plan.outputs.mode }}"
 
-      - name: Commit data
+      - name: Save data to the data branch
         if: steps.plan.outputs.mode != 'skip'
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin data >/dev/null; then
+            git worktree add --detach "$RUNNER_TEMP/data" FETCH_HEAD
+          else
+            git worktree add --detach "$RUNNER_TEMP/data" HEAD
+            git -C "$RUNNER_TEMP/data" checkout --orphan data-new
+            git -C "$RUNNER_TEMP/data" rm -rfq .
+          fi
+          mkdir -p "$RUNNER_TEMP/data/data"
+          cp data/market.json "$RUNNER_TEMP/data/data/market.json"
+          cd "$RUNNER_TEMP/data"
           git add data/market.json
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
-          git commit -m "Market data (${{ steps.plan.outputs.mode }}) $(TZ=America/New_York date '+%Y-%m-%d %H:%M ET')"
-          git pull --rebase --autostash
-          git push
+          git commit -qm "Market data (${{ steps.plan.outputs.mode }}) $(TZ=America/New_York date '+%Y-%m-%d %H:%M ET')"
+          git push origin HEAD:refs/heads/data
