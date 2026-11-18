@@ -64,7 +64,7 @@
   renderRibbon();
 
   // watchlist
-  const filters = [['all', 'All'], ['pick', 'Picks'], ['ai', 'AI & chips'], ['mega', 'Mega-cap'], ['social', 'Trending']];
+  const filters = [['all', 'All'], ['pick', 'Picks'], ['ai', 'AI & chips'], ['mega', 'Mega-cap'], ['social', 'Trending'], ['etf', 'ETFs']];
   let filt = 'all', q = '', sel = pickSyms[0];
   $('#chips').innerHTML = filters.map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${k === filt}">${l}</button>`).join('');
   $('#chips').onclick = e => { const b = e.target.closest('.chip'); if (!b) return; filt = b.dataset.f; $('#chips').querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b)); renderWL(); };
@@ -73,7 +73,7 @@
     const rows = D.watchlist.filter(w => (filt === 'all' || (filt === 'pick' ? pickSyms.includes(w.sym) : w.tags.includes(filt))) && (!q || w.sym.toLowerCase().includes(q) || w.name.toLowerCase().includes(q)));
     $('#wlCount').textContent = rows.length + ' symbols';
     $('#wl').innerHTML = rows.map(w => `<button class="wl-row" role="option" data-s="${w.sym}" aria-selected="${w.sym === sel}">
-      <span class="wl-sym">${w.sym}${pickSyms.includes(w.sym) ? '<span class="badge pk">PICK</span>' : ''}${w.stale ? '<span class="badge stale">' + esc(w.stale) + '</span>' : ''}</span>
+      <span class="wl-sym">${w.sym}${pickSyms.includes(w.sym) ? '<span class="badge pk">PICK</span>' : ''}${w.tags.includes('etf') ? '<span class="badge" title="Exchange-traded fund">ETF</span>' : ''}${w.stale ? '<span class="badge stale">' + esc(w.stale) + '</span>' : ''}</span>
       <span class="wl-px">${w.px == null ? '—' : '$' + fmt(w.px)}</span>
       <span class="wl-name">${esc(w.name)}</span>
       <span class="wl-chg ${cls(w.pct)}">${w.pct == null ? 'n/a' : pct(w.pct)}${w.ah ? ` <span class="${cls(w.ahPct)}" title="After hours">· AH ${pct(w.ahPct)}</span>` : ''}</span>
@@ -297,7 +297,8 @@ ${D.mode === 'auto' ? `
   setInterval(refreshData, 120000);
 
   // Optional live mode: the viewer's own Finnhub key, kept only in this browser.
-  const live = { on: false, key: '', timer: null, quotes: {}, err: '', at: '', busy: false, last: 0 };
+  const live = { on: false, key: '', timer: null, quotes: {}, err: '', at: '', busy: false, last: 0, cursor: 0 };
+  const LIVE_BATCH = 24; // symbols per minute: stays under Finnhub's 60/min alongside the GitHub updater
   try { live.key = localStorage.getItem('pm-finnhub-key') || ''; } catch (e) {}
   function liveSymbols() {
     return [...new Set([...D.indices.map(i => i.sym), ...D.watchlist.map(w => w.sym)])].filter(s => /^[A-Z.]{1,6}$/.test(s));
@@ -317,7 +318,15 @@ ${D.mode === 'auto' ? `
     // Skip if a poll is still running or one finished in the last 20 s (tab switching, overlapping timers).
     if (live.busy || Date.now() - live.last < 20000) return;
     live.busy = true; live.last = Date.now();
-    const syms = liveSymbols();
+    // The list can be longer than one minute's budget, so poll the index ETFs, picks and core
+    // watchlist every time and rotate through the trending names in the remaining slots.
+    const all = liveSymbols();
+    const core = [...new Set([...D.indices.map(i => i.sym), ...pickSyms, ...D.watchlist.filter(w => !w.tags.includes('social')).map(w => w.sym)])].filter(s => all.includes(s)).slice(0, LIVE_BATCH);
+    const rest = all.filter(s => !core.includes(s));
+    const room = LIVE_BATCH - core.length, take = [];
+    for (let i = 0; i < Math.min(room, rest.length); i++) take.push(rest[(live.cursor + i) % rest.length]);
+    live.cursor = rest.length ? (live.cursor + take.length) % rest.length : 0;
+    const syms = [...core, ...take];
     let ok = 0;
     for (const s of syms) {
       try {

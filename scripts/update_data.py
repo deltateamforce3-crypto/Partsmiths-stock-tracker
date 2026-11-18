@@ -50,6 +50,10 @@ CNN_FG = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
 BROWSER_UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/131.0 Safari/537.36")
 REDDIT_SUBS = ["wallstreetbets", "stocks", "investing"]
+# How many tickers from each crowd list are added to the watchlist ("Trending")
+CROWD_TAKE = {"reddit": 8, "community": 5, "stocktwits": 8}
+ETF_WORDS = ("etf", "fund", "trust", "spdr", "ishares", "proshares", "direxion", "vanguard", "invesco",
+             "select sector", "index", "shares", "graniteshares", "tradr", "leverage", "2x", "3x")
 
 # Outlets with editorial standards and corrections policies; ranked ahead of blogs and
 # aggregator-only pieces when choosing headlines. Matched case-insensitively on Finnhub's
@@ -465,7 +469,11 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
 
     wl_syms = list(cfg["watchlist"])
     old_picks = [p["sym"] for p in old.get("picks", [])] if old.get("mode") == "auto" else []
-    quote_syms = [i["sym"] for i in cfg["indices"]] + [m["sym"] for m in cfg["macro"]] + wl_syms + old_picks
+    # tickers the crowd lists added at the last full run; hourly runs keep their prices fresh
+    crowd = list(old.get("crowdSyms", [])) if old.get("mode") == "auto" else []
+    crowd_names = dict(old.get("crowdNames", {})) if old.get("mode") == "auto" else {}
+    fund_syms = {i["sym"] for i in cfg["indices"]} | {m["sym"] for m in cfg["macro"]}
+    quote_syms = [i["sym"] for i in cfg["indices"]] + [m["sym"] for m in cfg["macro"]] + wl_syms + old_picks + crowd
     quotes = get_quotes(http, quote_syms)
     if not quotes:
         raise SystemExit("No quotes returned — check FINNHUB_API_KEY. Nothing written.")
@@ -518,6 +526,31 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
             data["picks"] = picks
             data["picksFor"] = session_label(next_trading_day(today)) if now.hour >= 15 else session_label(today)
         data["_cand"] = {c["sym"]: c for c in cands}  # used below, removed before write
+
+        # every ticker the crowd lists show (stocks and ETFs) also gets a watchlist row
+        names = {i["sym"]: i["name"] for i in cfg["indices"]} | {m["sym"]: m["k"] for m in cfg["macro"]}
+        names.update({r["sym"]: r["name"] for r in reddit if r["sym"] not in names})
+        for rows_ in subs.values():
+            names.update({r["sym"]: r["name"] for r in rows_ if r["sym"] not in names})
+        listed = ([r["sym"] for r in reddit[:CROWD_TAKE["reddit"]]]
+                  + [r["sym"] for rows_ in subs.values() for r in rows_[:CROWD_TAKE["community"]]]
+                  + twits[:CROWD_TAKE["stocktwits"]])
+        crowd, crowd_names = [], {}
+        for sym in dict.fromkeys(listed):
+            if sym in wl_syms or not sym.replace(".", "").isalpha() or len(sym) > 6:
+                continue
+            q = quotes.get(sym) or http.finnhub("/quote", symbol=sym)
+            if not valid_quote(q):
+                continue  # not a US-listed ticker (or a false match like "YOLO")
+            quotes[sym] = q
+            if sym not in profiles:
+                prof = http.finnhub("/stock/profile2", symbol=sym) or {}
+                nm = prof.get("name") or names.get(sym) or sym
+                is_fund = sym in fund_syms or not prof.get("name") and any(w in nm.lower() for w in ETF_WORDS)
+                profiles[sym] = {"name": nm, "industry": "ETF / fund" if is_fund else prof.get("finnhubIndustry"),
+                                 "mcap": None if is_fund else prof.get("marketCapitalization")}
+            crowd.append(sym)
+            crowd_names[sym] = profiles[sym]["name"]
 
         # sentiment table
         rows = []
@@ -592,13 +625,17 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     rd_by = {r["sym"]: r for r in reddit}
     old_wl = {w["sym"]: w for w in old.get("watchlist", [])}
     wl = []
-    for s in list(dict.fromkeys(wl_syms + pick_syms)):
+    for s in list(dict.fromkeys(wl_syms + pick_syms + crowd)):
         q = quotes.get(s)
         prev = old_wl.get(s, {})
-        name = (profiles.get(s) or {}).get("name") or prev.get("name") or s
+        name = (profiles.get(s) or {}).get("name") or crowd_names.get(s) or prev.get("name") or s
         tags = [t for t, syms in tags_cfg.items() if s in syms]
-        if s in rd_by and rd_by[s]["rank"] <= 25 or (s in cand and cand[s].get("stocktwits")):
+        if (s in crowd or s in rd_by and rd_by[s]["rank"] <= 25 or (s in cand and cand[s].get("stocktwits"))
+                or s not in wl_syms and "social" in prev.get("tags", [])):
             tags.append("social")
+        industry = (profiles.get(s) or {}).get("industry") or next((f[1] for f in prev.get("facts", []) if f[0] == "Industry"), None)
+        if s in fund_syms or industry == "ETF / fund":
+            tags.append("etf")
         row = {"sym": s, "name": name, "px": r2(q["c"]) if q else prev.get("px"),
                "pct": r2(q.get("dp")) if q else None, "tags": tags, "src": "finnhub"}
         if not q:
@@ -627,6 +664,8 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
             row["factsSrc"] = ["finnhub"] + (["apewisdom"] if s in rd_by else [])
         wl.append(row)
     data["watchlist"] = wl
+    data["crowdSyms"] = [s for s in crowd if s not in pick_syms]
+    data["crowdNames"] = {s: crowd_names.get(s, s) for s in data["crowdSyms"]}
 
     # ---- headline & summary written from the numbers, not from opinions
     idx = data["indices"]

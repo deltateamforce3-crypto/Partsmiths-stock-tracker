@@ -129,6 +129,24 @@ class BuildTests(unittest.TestCase):
         for n in d["macroNotes"]:
             self.assertIn(n["src"], d["sources"])
 
+    def test_crowd_tickers_join_watchlist(self):
+        d = self.run_build("full")
+        wl = {w["sym"]: w for w in d["watchlist"]}
+        for sym in ("GME", "HOOD", "TINY", "SPY"):  # Reddit, a community and Stocktwits names, incl. an ETF
+            self.assertIn(sym, wl)
+            self.assertIn("social", wl[sym]["tags"])
+        self.assertIn("etf", wl["SPY"]["tags"])
+        self.assertEqual(wl["SPY"]["name"], "S&P 500 (SPY)")
+        self.assertNotIn("etf", wl["GME"]["tags"])
+        self.assertNotIn("social", wl["MSFT"]["tags"], "core watchlist names are only tagged if the crowd lists them")
+        # hourly runs keep the crowd rows and refresh their prices
+        later = self.run_build("quotes", old=d, when=datetime(2026, 11, 19, 11, 0, tzinfo=ud.ET))
+        wl2 = {w["sym"]: w for w in later["watchlist"]}
+        self.assertEqual(set(wl), set(wl2))
+        self.assertIn("etf", wl2["SPY"]["tags"])
+        self.assertIn("social", wl2["TINY"]["tags"])
+        self.assertEqual(wl2["SPY"]["name"], "S&P 500 (SPY)")
+
     def test_cnn_failure_is_soft(self):
         http = FakeHttp()
         http.get = lambda *a, **k: None

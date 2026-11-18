@@ -90,6 +90,8 @@ Indices and macro use ETF proxies (SPY, DIA, QQQ, IWM, TLT, UUP, USO, GLD, IBIT)
 
 Headlines are ranked by outlet: established newsrooms (Reuters, AP, Bloomberg, CNBC, CNN, MarketWatch, WSJ, Barron's, FT and similar) come first, and the market headlines list shows only those, one per outlet. Reddit posts are not read directly: Reddit closed its public `.json` and RSS access in 2026, so Reddit data is ApeWisdom's mention counts. Change the communities with `reddit_communities` in `config.json`.
 
+Every ticker the crowd lists show (top 8 on Reddit overall, top 5 in each community, top 8 on Stocktwits), stocks and ETFs alike, also gets a watchlist row tagged **Trending** (and **ETFs** for funds). Hourly runs keep their prices fresh, and the list is rebuilt at each 3 PM update. Live quotes check up to 24 symbols a minute: the index ETFs, picks and core watchlist every time, with the trending names taking turns in the remaining slots.
+
 Every source fails soft. If one is down, the rest still update, and a **Data health** row in the sentiment table lists what failed.
 
 ### How the 3 ideas are picked
