@@ -585,3 +585,4 @@ dialog.tour.outro .tour-tri { animation: tour-rise-long 2.8s cubic-bezier(.45, 0
 /* fade the cursor bar in only when it opens, not on every change */
 .cur-bar { animation: none; }
 .cursor-slot.opening .cur-bar { animation: wc-fade .15s ease-out; }
+.cur-bar { width: 28rem; }

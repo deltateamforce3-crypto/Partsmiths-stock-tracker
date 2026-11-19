@@ -9,14 +9,16 @@ const STYLES = {
 };
 const DIRS = { tilted: 'Tilted', upright: 'Upright' };
 const COLORS = { auto: 'auto', white: '#f5f5f5', black: '#0a0a0a', cyan: '#22d3ee', blue: '#5b7cf0', green: '#34d399', pink: '#f472b6', amber: '#fbbf24' };
-const SIZES = { normal: 32, large: 44 };
+const SIZES = { small: 24, medium: 32, large: 44, xl: 60 };   // px; browsers allow cursor images up to 128
+const SIZE_NAMES = { small: 'Small', medium: 'Medium', large: 'Large', xl: 'Extra large' };
 const KEY = 'pm-cursor-v2';   // new key so everyone starts on the new iPad-style default
-let pref = { style: 'ipad', dir: 'tilted', color: 'auto', size: 'normal' };
+let pref = { style: 'ipad', dir: 'tilted', color: 'auto', size: 'medium' };
 try { pref = { ...pref, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch (e) {}
 if (!STYLES[pref.style]) pref.style = 'ipad';
 if (!DIRS[pref.dir]) pref.dir = 'tilted';
 if (!COLORS[pref.color]) pref.color = 'auto';
-if (!SIZES[pref.size]) pref.size = 'normal';
+if (pref.size === 'normal') pref.size = 'medium';   // older saved choice
+if (!SIZES[pref.size]) pref.size = 'medium';
 
 const dark = () => document.documentElement.dataset.appTheme === 'dark';
 const fillOf = color => color === 'auto' ? (dark() ? '#f5f5f5' : '#0a0a0a') : COLORS[color];
@@ -99,7 +101,7 @@ function render(slot) {
       </div>
       <div class="cur-row"><span class="cur-lbl">Color</span>${Object.entries(COLORS).map(([k, v]) => swatch(k, v)).join('')}</div>
       <div class="cur-row"><span class="cur-lbl">Size</span>
-        ${Object.keys(SIZES).map(k => `<button type="button" class="chip" data-size="${k}" aria-pressed="${pref.size === k}" ${off}>${k[0].toUpperCase() + k.slice(1)}</button>`).join('')}
+        ${Object.keys(SIZES).map(k => `<button type="button" class="chip" data-size="${k}" aria-pressed="${pref.size === k}" ${off}>${SIZE_NAMES[k]}</button>`).join('')}
       </div>
     </div>`;
 }
