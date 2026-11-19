@@ -132,13 +132,16 @@ $('#tourNext').onclick = () => steps[i].end ? outro() : show(i + 1, 1);
 
 // Finish or Skip: a Vercel-style triangle rises from the bottom of the screen and sweeps away the tour
 function outro() {
-  if (reduce.matches) return finish();
+  if (reduce.matches) { if (welcome && welcome.open) welcome.close(); return finish(); }
   if (dlg.classList.contains('outro')) return;   // already playing
   clearInterval(typer);
   // close the spotlight so the whole screen goes dark behind the triangle
   Object.assign(spot.style, { left: innerWidth / 2 + 'px', top: innerHeight / 2 + 'px', width: '0px', height: '0px' });
   spot.classList.add('none');
   dlg.classList.add('outro');
+  // while the screen is fully dark, swap the Home screen for the main site, so the triangle
+  // lifts away to reveal the website itself
+  setTimeout(() => { if (welcome && welcome.open) welcome.close(); }, 900);
   const tri = dlg.querySelector('.tour-tri');
   tri.addEventListener('animationend', () => { dlg.classList.remove('outro'); finish(); }, { once: true });
   setTimeout(() => { if (dlg.classList.contains('outro')) { dlg.classList.remove('outro'); finish(); } }, 3800);   // safety net
