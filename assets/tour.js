@@ -130,18 +130,22 @@ function finish(markDone = true) {
 }
 $('#tourNext').onclick = () => steps[i].end ? outro() : show(i + 1, 1);
 
-// Finish: a Vercel-style triangle rises from the bottom of the screen and sweeps away the tour
+// Finish or Skip: a Vercel-style triangle rises from the bottom of the screen and sweeps away the tour
 function outro() {
   if (reduce.matches) return finish();
+  if (dlg.classList.contains('outro')) return;   // already playing
   clearInterval(typer);
+  // close the spotlight so the whole screen goes dark behind the triangle
+  Object.assign(spot.style, { left: innerWidth / 2 + 'px', top: innerHeight / 2 + 'px', width: '0px', height: '0px' });
+  spot.classList.add('none');
   dlg.classList.add('outro');
   const tri = dlg.querySelector('.tour-tri');
   tri.addEventListener('animationend', () => { dlg.classList.remove('outro'); finish(); }, { once: true });
-  setTimeout(() => { if (dlg.classList.contains('outro')) { dlg.classList.remove('outro'); finish(); } }, 2200);   // safety net
+  setTimeout(() => { if (dlg.classList.contains('outro')) { dlg.classList.remove('outro'); finish(); } }, 3800);   // safety net
 }
 $('#tourBack').onclick = () => i > 0 && show(i - 1, -1);
-$('#tourSkip').onclick = () => finish();
-dlg.addEventListener('cancel', e => { e.preventDefault(); finish(); });   // Esc = skip
+$('#tourSkip').onclick = () => outro();
+dlg.addEventListener('cancel', e => { e.preventDefault(); outro(); });   // Esc = skip (same transition)
 dlg.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') { e.preventDefault(); $('#tourNext').click(); }
   else if (e.key === 'ArrowLeft') { e.preventDefault(); $('#tourBack').click(); }
