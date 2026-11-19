@@ -268,15 +268,17 @@
 
     <section class="card" id="tape">
       <div class="card-head">
-        <div><div class="eyebrow">Tape · last ${D.history.dates.length} sessions</div><h2>Indices since ${esc(D.history.dates[0] || '—')}</h2></div>
+        <div><div class="eyebrow">Index trend · ${D.history.dates.length} trading day${D.history.dates.length === 1 ? '' : 's'} recorded</div><h2>How the market has moved since ${esc(D.history.dates[0] || '—')}</h2></div>
         <div style="display:flex;gap:.4rem"><button class="btn sm" id="tblBtn" aria-pressed="false">Table view</button></div>
       </div>
       <div class="chart-wrap">
+        <p class="chart-explain">Each line starts at <b>0%</b> on the ${esc(D.history.dates[0] || 'first')} close and shows how much that index has gained or lost since. <span class="up">Above 0% = up</span>, <span class="down">below = down</span>. Hover the chart to see each day.</p>
+        ${D.history.dates.length < 5 ? `<p class="chart-building">Building history: ${D.history.dates.length} of ${D.history.days || 30} trading days recorded so far. The trend fills in one day at a time.</p>` : ''}
         <div class="legend" id="legend"></div>
-        <svg id="chart" role="img" aria-label="Percent change of S&P 500, Dow and Nasdaq since Nov 9"></svg>
+        <svg id="chart" role="img" aria-label="Percent change of the S&P 500, Dow and Nasdaq-100 since ${esc(D.history.dates[0] || '')}"></svg>
         <div class="tip" id="tip" hidden></div>
         <div id="tbl" hidden></div>
-        <div class="note" style="margin-top:.5rem">${esc(D.history.note)} <span class="srcs" style="display:inline-flex">${srcs(D.history.src)}</span></div>
+        <div class="note" style="margin-top:.5rem">Uses funds that track each index (SPY for the S&amp;P 500, DIA for the Dow, QQQ for the Nasdaq-100), so levels are fund prices, not index points. One point per trading day at the close; today's point moves until 4 PM ET. <span class="srcs" style="display:inline-flex">${srcs(D.history.src)}</span></div>
       </div>
     </section>
 
@@ -326,45 +328,71 @@ ${D.mode === 'auto' ? `
   function drawChart() {
     const svg = $('#chart'); if (!svg) return;
     const H = D.history;
-    if (!H || H.dates.length < 2) { svg.innerHTML = ''; svg.style.height = '40px'; $('#legend').innerHTML = '<span>History is building — the chart appears after the second trading day.</span>'; return; }
+    const short = n => n.replace(/\s*\(.*\)$/, '');   // "S&P 500 (SPY)" -> "S&P 500"
+    if (!H || H.dates.length < 2) { svg.innerHTML = ''; svg.style.height = '40px'; $('#legend').innerHTML = '<span>History is building: the chart appears after the second trading day.</span>'; return; }
     svg.style.height = '';
     const rel = H.series.map(s => { const b = s.values.find(v => v != null); return s.values.map(v => v == null || !b ? null : (v / b - 1) * 100); });
+    const lastOf = a => [...a].reverse().find(v => v != null);
     const C = colors();
-    $('#legend').innerHTML = H.series.map((s, i) => `<span><i style="background:${C[i]}"></i>${esc(s.name)}</span>`).join('');
-    const W = svg.clientWidth || 700, Ht = 280, m = { l: 44, r: 70, t: 14, b: 26 };
+    // legend: name, latest level, change since the start
+    $('#legend').innerHTML = H.series.map((s, i) => { const r = lastOf(rel[i]); return `<span><i style="background:${C[i]}"></i><b>${esc(short(s.name))}</b> <span class="lv">${fmt(lastOf(s.values))}</span> <span class="${cls(r)}">${r == null ? '' : (r > 0 ? '+' : r < 0 ? '−' : '') + Math.abs(r).toFixed(2) + '%'}</span></span>`; }).join('');
+    const W = svg.clientWidth || 700, Ht = 300, m = { l: 54, r: 132, t: 16, b: 30 };
     svg.setAttribute('viewBox', `0 0 ${W} ${Ht}`);
     const all = rel.flat().filter(v => v != null);
-    let lo = Math.floor(Math.min(...all, 0)), hi = Math.ceil(Math.max(...all, 0));
-    if (hi - lo < 1) { hi = lo + 1; }
-    const x = i => m.l + i * (W - m.l - m.r) / (H.dates.length - 1);
+    // "nice" gridline step for the range, always including 0
+    let lo = Math.min(...all, 0), hi = Math.max(...all, 0);
+    const span = Math.max(hi - lo, 0.5);
+    const step = [0.25, 0.5, 1, 2, 5, 10, 20].find(s => span / s <= 6) || 25;
+    lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step;
+    if (hi === lo) hi = lo + step;
+    const n = H.dates.length;
+    const x = i => n === 1 ? m.l : m.l + i * (W - m.l - m.r) / (n - 1);
     const y = v => m.t + (hi - v) * (Ht - m.t - m.b) / (hi - lo);
-    const cs = getComputedStyle(root), line = cs.getPropertyValue('--line').trim(), ink3 = cs.getPropertyValue('--ink-3').trim(), surf = cs.getPropertyValue('--raised').trim();
+    const cs = getComputedStyle(root), line = cs.getPropertyValue('--line').trim(), ink2 = cs.getPropertyValue('--ink-2').trim(), ink3 = cs.getPropertyValue('--ink-3').trim(), surf = cs.getPropertyValue('--raised').trim();
+    const okc = cs.getPropertyValue('--ok').trim(), bad = cs.getPropertyValue('--danger').trim();
+    const dp = step < 0.5 ? 2 : step < 1 ? 1 : 0;   // show gridline values exactly (−0.25%, not −0.3%)
+    const pctTxt = v => (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(dp) + '%';
     let g = '';
-    for (let v = lo; v <= hi; v += 1) g += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="${line}" stroke-width="1" ${v === 0 ? '' : 'stroke-dasharray="2 4"'}/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end">${v > 0 ? '+' : ''}${v}%</text>`;
-    H.dates.forEach((d, i) => g += `<text x="${x(i)}" y="${Ht - 8}" text-anchor="middle">${d}</text>`);
+    // faint up/down zones above and below 0%
+    g += `<rect x="${m.l}" y="${m.t}" width="${W - m.l - m.r}" height="${Math.max(0, y(0) - m.t)}" fill="${okc}" opacity=".045"/>`;
+    g += `<rect x="${m.l}" y="${y(0)}" width="${W - m.l - m.r}" height="${Math.max(0, Ht - m.b - y(0))}" fill="${bad}" opacity=".045"/>`;
+    for (let v = lo; v <= hi + 1e-9; v += step) {
+      const z = Math.abs(v) < 1e-9;
+      g += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="${z ? ink3 : line}" stroke-width="${z ? 1.4 : 1}" ${z ? '' : 'stroke-dasharray="2 4"'}/>`;
+      g += `<text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end" ${z ? `style="fill:${ink2};font-weight:700"` : ''}>${z ? '0%' : pctTxt(v)}</text>`;
+    }
+    if (n < 5) g += `<text x="${m.l + 6}" y="${y(0) - 6}" style="fill:${ink3};font-size:11px">start: ${esc(H.dates[0])} close</text>`;
+    // date labels: evenly spaced, always including the latest day, never overlapping
+    const every = Math.ceil(n / Math.max(2, Math.floor((W - m.l - m.r) / 70)));
+    const marks = H.dates.map((_, i) => i).filter(i => i % every === 0);
+    if (marks[marks.length - 1] !== n - 1) { if (marks.length && x(n - 1) - x(marks[marks.length - 1]) < 56) marks.pop(); marks.push(n - 1); }
+    marks.forEach(i => g += `<text x="${x(i)}" y="${Ht - 9}" text-anchor="middle">${esc(H.dates[i])}</text>`);
     rel.forEach((vals, si) => {
       const segs = [[]]; vals.forEach((v, i) => { if (v == null) segs.push([]); else segs[segs.length - 1].push([x(i), y(v)]); });
-      segs.filter(sg => sg.length > 1).forEach(sg => g += `<polyline fill="none" stroke="${C[si]}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" points="${sg.map(p => p.join(',')).join(' ')}"/>`);
-      vals.forEach((v, i) => { if (v != null) g += `<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="${C[si]}" stroke="${surf}" stroke-width="2"/>`; });
+      segs.filter(sg => sg.length > 1).forEach(sg => g += `<polyline fill="none" stroke="${C[si]}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="${sg.map(p => p.join(',')).join(' ')}"/>`);
+      vals.forEach((v, i) => { if (v != null) g += `<circle cx="${x(i)}" cy="${y(v)}" r="${i === vals.length - 1 ? 4 : 3}" fill="${C[si]}" stroke="${surf}" stroke-width="2"/>`; });
     });
-    // direct labels at end, de-collided
-    const ends = rel.map((v, i) => { const last = [...v].reverse().find(t => t != null); return { i, y: y(last ?? 0), v: last ?? 0 }; }).sort((a, b) => a.y - b.y);
-    for (let k = 1; k < ends.length; k++) if (ends[k].y - ends[k - 1].y < 13) ends[k].y = ends[k - 1].y + 13;
-    ends.forEach(e => g += `<text x="${W - m.r + 8}" y="${e.y + 4}" style="fill:${cs.getPropertyValue('--ink-2')};font-weight:600">${H.series[e.i].sym} ${e.v > 0 ? '+' : '−'}${Math.abs(e.v).toFixed(1)}%</text>`);
+    // end labels with full names, nudged apart so they never overlap
+    const ends = rel.map((v, i) => { const l = lastOf(v) ?? 0; return { i, y: y(l), v: l }; }).sort((a, b) => a.y - b.y);
+    for (let k = 1; k < ends.length; k++) if (ends[k].y - ends[k - 1].y < 15) ends[k].y = ends[k - 1].y + 15;
+    ends.forEach(e => g += `<text x="${W - m.r + 10}" y="${e.y + 4}" style="fill:${C[e.i]};font-weight:700">${esc(short(H.series[e.i].name))} ${e.v > 0 ? '+' : e.v < 0 ? '−' : ''}${Math.abs(e.v).toFixed(2)}%</text>`);
     g += `<line id="xh" x1="0" x2="0" y1="${m.t}" y2="${Ht - m.b}" stroke="${ink3}" stroke-width="1" opacity="0"/>`;
     g += `<rect x="${m.l - 10}" y="0" width="${W - m.l - m.r + 20}" height="${Ht}" fill="transparent" id="hit"/>`;
     svg.innerHTML = g;
     const tip = $('#tip'), xh = $('#xh');
-    $('#hit').onmousemove = e => {
-      const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * W / r.width;
-      const i = Math.max(0, Math.min(H.dates.length - 1, Math.round((px - m.l) / ((W - m.l - m.r) / (H.dates.length - 1)))));
+    const showAt = (clientX, clientY) => {
+      const r = svg.getBoundingClientRect(), px = (clientX - r.left) * W / r.width;
+      const i = n === 1 ? 0 : Math.max(0, Math.min(n - 1, Math.round((px - m.l) / ((W - m.l - m.r) / (n - 1)))));
       xh.setAttribute('x1', x(i)); xh.setAttribute('x2', x(i)); xh.setAttribute('opacity', .5);
       tip.hidden = false;
-      tip.innerHTML = `<div class="t">${H.dates[i]}</div>` + H.series.map((s, si) => `<div class="row"><span><i style="background:${C[si]}"></i>${s.name}</span><span>${s.values[i] == null ? 'not captured' : fmt(s.values[i]) + ' (' + (rel[si][i] >= 0 ? '+' : '−') + Math.abs(rel[si][i]).toFixed(2) + '%)'}</span></div>`).join('');
+      const rows = H.series.map((s, si) => ({ s, si, v: s.values[i], r: rel[si][i] })).sort((a, b) => (b.r ?? -1e9) - (a.r ?? -1e9));
+      tip.innerHTML = `<div class="t">${esc(H.dates[i])}${i === 0 ? ' · starting point' : ''}</div>` + rows.map(o => `<div class="row"><span><i style="background:${C[o.si]}"></i>${esc(short(o.s.name))}</span><span>${o.v == null ? 'not recorded' : fmt(o.v) + (i === 0 ? '' : ` <span class="${cls(o.r)}">${o.r >= 0 ? '+' : '−'}${Math.abs(o.r).toFixed(2)}%</span>`)}</span></div>`).join('');
       const wrap = svg.parentElement.getBoundingClientRect();
-      let left = e.clientX - wrap.left + 14; if (left + 230 > wrap.width) left = e.clientX - wrap.left - 244;
-      tip.style.left = left + 'px'; tip.style.top = (e.clientY - wrap.top - 20) + 'px';
+      let left = clientX - wrap.left + 14; if (left + 240 > wrap.width) left = clientX - wrap.left - 254;
+      tip.style.left = left + 'px'; tip.style.top = (clientY - wrap.top - 20) + 'px';
     };
+    $('#hit').onmousemove = e => showAt(e.clientX, e.clientY);
+    $('#hit').ontouchstart = e => { const t = e.touches[0]; showAt(t.clientX, t.clientY); };
     $('#hit').onmouseleave = () => { tip.hidden = true; xh.setAttribute('opacity', 0); };
   }
   function toggleTable(on) {
