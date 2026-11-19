@@ -366,7 +366,7 @@ ${D.mode === 'auto' ? `
       <div class="tb"><span class="k">Snapshot</span><span class="v">${esc(snapStr)}</span></div>
       <div class="tb ${stale ? 'warn' : ''}"><span class="k">Data age</span><span class="v">${age()}${stale ? ' · stale' : ''}</span></div>
       <div class="tb"><span class="k">Sources</span><span class="v">${Object.keys(D.sources).length}</span></div>
-      <div class="tb ${live.on ? '' : ''}"><span class="k">Quotes</span><span class="v">${live.on ? (live.err ? '<span style="color:var(--danger)">Live · ' + esc(live.err) + '</span>' : '<span style="color:var(--ok)">● Live · Finnhub' + (live.at ? ' · ' + live.at : '') + '</span>') : 'Snapshot'}</span></div>
+      <div class="tb ${live.on ? '' : ''}"><span class="k">Quotes</span><span class="v">${live.on ? (live.err ? '<span style="color:' + (/closed/.test(live.err) ? 'var(--ink-2)' : 'var(--danger)') + '">Live · ' + esc(live.err) + '</span>' : '<span style="color:var(--ok)">● Live · Finnhub' + (live.at ? ' · ' + live.at : '') + '</span>') : 'Snapshot'}</span></div>
       <div class="tb"><span class="k">Next refresh</span><span class="v">${esc(D.nextRefresh)}</span></div>
       <div class="tb"><span class="k">Rev</span><span class="v">Not investment advice</span></div>`;
   }
@@ -395,9 +395,36 @@ ${D.mode === 'auto' ? `
   setInterval(refreshData, 120000);
 
   // Optional live mode: the viewer's own Finnhub key, kept only in this browser.
-  const live = { on: false, key: '', timer: null, quotes: {}, err: '', at: '', busy: false, last: 0, cursor: 0 };
-  const LIVE_BATCH = 24; // symbols per minute: stays under Finnhub's 60/min alongside the GitHub updater
+  const live = { on: false, key: '', timer: null, quotes: {}, err: '', at: '', busy: false, last: 0, cursor: 0, pauseUntil: 0, closedDay: '' };
+  // One Finnhub key allows ~60 requests/minute, shared with the hourly GitHub updater. So:
+  // only ONE open tab polls (the others get its prices), only while a tab is visible,
+  // only while the US market is open, 15 symbols a minute, and a 3-minute pause after a rate limit.
+  const LIVE_BATCH = 15;
+  const TAB = Math.random().toString(36).slice(2);
+  const chan = 'BroadcastChannel' in window ? new BroadcastChannel('pm-live') : null;
   try { live.key = localStorage.getItem('pm-finnhub-key') || ''; } catch (e) {}
+  try { const c = JSON.parse(localStorage.getItem('pm-live-quotes') || 'null'); if (c && Date.now() - c.t < 15 * 60e3) { live.quotes = c.quotes; live.at = c.at; } } catch (e) {}
+  function etNow() {
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+      .formatToParts(new Date()).map(x => [x.type, x.value]));
+    return { day: `${p.year}-${p.month}-${p.day}`, wd: p.weekday, mins: (+p.hour % 24) * 60 + +p.minute };
+  }
+  // regular session 9:30 AM–4:00 PM ET, Mon–Fri (holidays aren't known, so those just return unchanged prices)
+  function marketOpen() { const t = etNow(); return !['Sat', 'Sun'].includes(t.wd) && t.mins >= 570 && t.mins < 960; }
+  function amLeader() {
+    // a tab may poll if no other tab has polled in the last 90 s
+    try {
+      const l = JSON.parse(localStorage.getItem('pm-live-leader') || 'null');
+      if (l && l.id !== TAB && Date.now() - l.t < 90e3) return false;
+      localStorage.setItem('pm-live-leader', JSON.stringify({ id: TAB, t: Date.now() }));
+    } catch (e) {}
+    return true;
+  }
+  if (chan) chan.onmessage = e => {   // prices fetched by the polling tab
+    if (!live.on || !e.data || !e.data.quotes) return;
+    Object.assign(live.quotes, e.data.quotes); live.at = e.data.at; live.err = e.data.err || '';
+    applyLive(); renderAll();
+  };
   function liveSymbols() {
     return [...new Set([...D.indices.map(i => i.sym), ...D.watchlist.map(w => w.sym)])].filter(s => /^[A-Z.]{1,6}$/.test(s));
   }
@@ -413,11 +440,14 @@ ${D.mode === 'auto' ? `
     D.sources['finnhub-live'] = { name: 'Finnhub — live quotes (your API key)', url: 'https://finnhub.io' };
   }
   async function pollLive() {
-    // Skip if a poll is still running or one finished in the last 20 s (tab switching, overlapping timers).
     if (live.busy || Date.now() - live.last < 20000) return;
+    if (document.hidden) return;                                   // nobody's looking
+    if (Date.now() < live.pauseUntil) { renderStatus(); return; }  // backing off after a rate limit
+    const open = marketOpen(), day = etNow().day;
+    if (!open && live.closedDay === day) { live.err = 'market closed, showing final prices'; renderStatus(); return; }
+    if (!amLeader()) return;                                       // another tab is polling for us
     live.busy = true; live.last = Date.now();
-    // The list can be longer than one minute's budget, so poll the index ETFs, picks and core
-    // watchlist every time and rotate through the trending names in the remaining slots.
+    // poll the index ETFs, picks, your watchlist and core names every time; rotate trending names through the rest
     const all = liveSymbols();
     const core = [...new Set([...D.indices.map(i => i.sym), ...pickSyms, ...mine, ...D.watchlist.filter(w => !w.tags.includes('social')).map(w => w.sym)])].filter(s => all.includes(s)).slice(0, LIVE_BATCH);
     const rest = all.filter(s => !core.includes(s));
@@ -425,24 +455,33 @@ ${D.mode === 'auto' ? `
     for (let i = 0; i < Math.min(room, rest.length); i++) take.push(rest[(live.cursor + i) % rest.length]);
     live.cursor = rest.length ? (live.cursor + take.length) % rest.length : 0;
     const syms = [...core, ...take];
-    let ok = 0;
+    let ok = 0; live.err = '';
+    const got = {};
     for (const s of syms) {
       try {
         const r = await fetch(`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(s)}&token=${encodeURIComponent(live.key)}`);
         if (r.status === 401 || r.status === 403) { live.err = 'key rejected'; break; }
-        if (r.status === 429) { live.err = 'rate limited, retrying next minute'; break; }
+        if (r.status === 429) { live.err = 'rate limited, pausing 3 min'; live.pauseUntil = Date.now() + 180e3; break; }
         const q = await r.json();
-        if (q && q.c) { live.quotes[s] = q; ok++; }
+        if (q && q.c) { live.quotes[s] = q; got[s] = q; ok++; }
       } catch (e) { live.err = 'network error'; break; }
     }
-    if (ok) { live.err = ok < syms.length && live.err ? live.err : ''; live.at = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' }); applyLive(); renderAll(); }
-    else renderStatus();
+    if (!open && ok) { live.closedDay = day; live.err = 'market closed, showing final prices'; }
+    if (ok) {
+      live.at = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' });
+      try { localStorage.setItem('pm-live-quotes', JSON.stringify({ quotes: live.quotes, at: live.at, t: Date.now() })); } catch (e) {}
+      if (chan) chan.postMessage({ quotes: got, at: live.at, err: live.err });
+      applyLive(); renderAll();
+    } else renderStatus();
     live.busy = false;
   }
   function startLive() {
     if (!live.key) return;
-    live.on = true; live.err = ''; live.last = 0; pollLive();
-    clearInterval(live.timer); live.timer = setInterval(pollLive, 60000); // ~19 calls/min, leaving room under the free tier's 60/min for the GitHub updater and a second tab
+    live.on = true; live.err = ''; live.last = 0;
+    if (Object.keys(live.quotes).length) { applyLive(); renderAll(); }   // prices another tab already fetched
+    setSnap(); renderStatus();
+    pollLive();
+    clearInterval(live.timer); live.timer = setInterval(pollLive, 60000);
     $('#liveBtn').setAttribute('aria-pressed', 'true');
   }
   function stopLive() { live.on = false; clearInterval(live.timer); $('#liveBtn').setAttribute('aria-pressed', 'false'); refreshData(); setSnap(); renderStatus(); }

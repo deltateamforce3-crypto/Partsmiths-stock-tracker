@@ -251,6 +251,40 @@ class StoryRobustnessTests(unittest.TestCase):
         self.assertNotIn("stories", data)            # no stories, but no crash
 
 
+class RateLimitTests(unittest.TestCase):
+    def test_waits_out_429_then_succeeds(self):
+        import io, urllib.error, urllib.request
+        calls = {"n": 0}
+        def fake_urlopen(req, timeout=20):
+            calls["n"] += 1
+            if calls["n"] <= 2:
+                raise urllib.error.HTTPError(req.full_url, 429, "Too Many Requests", {}, None)
+            return io.BytesIO(b'{"c": 101.5}')
+        orig_open, orig_sleep = urllib.request.urlopen, ud.time.sleep
+        urllib.request.urlopen, ud.time.sleep = fake_urlopen, lambda s: None
+        try:
+            http = ud.Http("k", min_interval=0)
+            self.assertEqual(http.get("https://finnhub.io/api/v1/quote"), {"c": 101.5})
+            self.assertEqual(http.rate_limited, 2)
+            self.assertEqual(http.errors, [])
+        finally:
+            urllib.request.urlopen, ud.time.sleep = orig_open, orig_sleep
+
+    def test_gives_up_when_backoff_budget_spent(self):
+        import urllib.error, urllib.request
+        def always_429(req, timeout=20):
+            raise urllib.error.HTTPError(req.full_url, 429, "Too Many Requests", {}, None)
+        orig_open, orig_sleep = urllib.request.urlopen, ud.time.sleep
+        urllib.request.urlopen, ud.time.sleep = always_429, lambda s: None
+        try:
+            http = ud.Http("k", min_interval=0)
+            self.assertIsNone(http.get("https://finnhub.io/api/v1/quote"))
+            self.assertEqual(http.backoff_left, 0)
+            self.assertIn("HTTP 429", http.errors[0])
+        finally:
+            urllib.request.urlopen, ud.time.sleep = orig_open, orig_sleep
+
+
 class TipsFileTests(unittest.TestCase):
     def test_tips_have_credible_sources(self):
         t = json.loads((ROOT / "data" / "tips.json").read_text())

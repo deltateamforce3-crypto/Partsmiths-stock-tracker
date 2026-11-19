@@ -90,24 +90,33 @@ class Http:
         self._last = 0.0
         self.calls = 0
         self.errors: list[str] = []
+        self.backoff_left = 300.0  # seconds this run may spend waiting out Finnhub rate limits
+        self.rate_limited = 0
 
     def get(self, url: str, params: dict | None = None, retries: int = 2, headers: dict | None = None):
         if params:
             url = f"{url}?{urllib.parse.urlencode(params)}"
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json", **(headers or {})})
-        for attempt in range(retries + 1):
+        attempt = 0
+        while True:
             try:
                 with urllib.request.urlopen(req, timeout=20) as r:
                     self.calls += 1
                     return json.loads(r.read().decode("utf-8"))
             except urllib.error.HTTPError as e:
-                if e.code == 429 and attempt < retries:
-                    time.sleep(5 * (attempt + 1))
+                if e.code == 429 and self.backoff_left > 0:
+                    # Rate limited (often because Live quotes in a browser shares the same Finnhub key).
+                    # Wait for the per-minute window to reset instead of giving up; capped per run.
+                    wait = min(20.0, self.backoff_left)
+                    self.backoff_left -= wait
+                    self.rate_limited += 1
+                    time.sleep(wait)
                     continue
                 self.errors.append(f"{urllib.parse.urlsplit(url).netloc} HTTP {e.code}")
                 return None
-            except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+            except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, ConnectionError) as e:
                 if attempt < retries:
+                    attempt += 1
                     time.sleep(2)
                     continue
                 self.errors.append(f"{urllib.parse.urlsplit(url).netloc} {type(e).__name__}")
@@ -618,7 +627,9 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     quote_syms = [i["sym"] for i in cfg["indices"]] + [m["sym"] for m in cfg["macro"]] + wl_syms + old_picks + crowd
     quotes = get_quotes(http, quote_syms)
     if not quotes:
-        raise SystemExit("No quotes returned — check FINNHUB_API_KEY. Nothing written.")
+        why = ("Finnhub kept rate-limiting this key (is Live quotes open in a browser with the same key?)"
+               if http.rate_limited else "check FINNHUB_API_KEY")
+        raise SystemExit(f"No quotes returned — {why}. Nothing written; the previous data is kept.")
 
     data["indices"] = build_indices(cfg, quotes) or old.get("indices", [])
     data["macro"] = build_macro(cfg, quotes, asof)
