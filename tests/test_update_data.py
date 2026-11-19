@@ -240,6 +240,17 @@ class StoryTests(unittest.TestCase):
         self.assertTrue(data.get("stories"))
 
 
+class StoryRobustnessTests(unittest.TestCase):
+    def test_crashing_feed_does_not_stop_build(self):
+        class Boom(FakeHttp):
+            def get_text(self, url, retries=1):
+                raise ConnectionResetError("peer reset")
+        cfg = json.loads((ROOT / "config.json").read_text())
+        data = ud.build("quotes", Boom(), cfg, {}, datetime(2026, 11, 18, 17, 23, tzinfo=ud.ET))
+        self.assertTrue(data["watchlist"])           # prices still built
+        self.assertNotIn("stories", data)            # no stories, but no crash
+
+
 class TipsFileTests(unittest.TestCase):
     def test_tips_have_credible_sources(self):
         t = json.loads((ROOT / "data" / "tips.json").read_text())

@@ -122,7 +122,7 @@ class Http:
                 with urllib.request.urlopen(req, timeout=20) as r:
                     self.calls += 1
                     return r.read().decode("utf-8", errors="replace")
-            except (urllib.error.URLError, TimeoutError, ValueError) as e:
+            except Exception as e:  # any network problem (resets, dropped connections, bad URLs) fails soft
                 if attempt < retries:
                     time.sleep(2)
                     continue
@@ -411,9 +411,12 @@ def pick_stories(items: list[dict], now_ts: float, limit: int = 6, per_outlet: i
 def daily_stories(http: Http, feeds: list[dict], now: datetime) -> list[dict]:
     items = []
     for f in feeds:
-        text = http.get_text(f["url"])
-        if text:
-            items += parse_feed(text, f["outlet"])
+        try:
+            text = http.get_text(f["url"])
+            if text:
+                items += parse_feed(text, f["outlet"])
+        except Exception as e:  # one broken feed must never stop the price update
+            http.errors.append(f"{f.get('outlet', 'feed')} {type(e).__name__}")
     picked = pick_stories(items, now.timestamp())
     return [{"title": i["title"], "url": i["url"], "summary": i["summary"], "outlet": i["outlet"],
              "time": datetime.fromtimestamp(i["ts"], ET).strftime("%a %-I:%M %p ET")} for i in picked]
@@ -624,7 +627,10 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     fg = cnn_fear_greed(http)
     if fg:
         data["fearGreed"] = fg
-    update_stories(data, http, cfg, now)
+    try:
+        update_stories(data, http, cfg, now)
+    except Exception as e:  # stories are a bonus; prices and picks still get saved
+        http.errors.append(f"stories {type(e).__name__}")
     profiles = {s: w for s, w in ((w["sym"], w) for w in old.get("watchlist", []))}
     spy_dp = (quotes.get("SPY") or {}).get("dp")
 
