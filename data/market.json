@@ -1,10 +1,10 @@
 {
-  "snapshot": "2026-11-19T13:36:27-05:00",
+  "snapshot": "2026-11-19T14:05:10-05:00",
   "session": "Thu 19 Nov 2026",
   "picksFor": "Thu 19 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily",
-  "headline": "S&P 500 (SPY) −1.02% · Dow −1.40% · Nasdaq-100 −1.06%",
-  "summary": "6 of 32 watchlist stocks are higher. Best: GP +6.62%. Worst: SLS −17.27%. CNN's Fear & Greed Index reads 20 (Extreme Fear).",
+  "headline": "S&P 500 (SPY) −1.40% · Dow −1.68% · Nasdaq-100 −1.55%",
+  "summary": "5 of 32 watchlist stocks are higher. Best: PANW +5.63%. Worst: SLS −18.33%. CNN's Fear & Greed Index reads 20 (Extreme Fear).",
   "summarySrc": [
     "finnhub",
     "cnn-fg"
@@ -13,76 +13,76 @@
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "last": 722.75,
-      "chg": -7.45,
-      "pct": -1.02,
+      "last": 719.95,
+      "chg": -10.25,
+      "pct": -1.4,
       "src": "finnhub"
     },
     {
       "sym": "DIA",
       "name": "Dow (DIA)",
-      "last": 494.73,
-      "chg": -7.0,
-      "pct": -1.4,
+      "last": 493.3,
+      "chg": -8.43,
+      "pct": -1.68,
       "src": "finnhub"
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "last": 652.49,
-      "chg": -7.02,
-      "pct": -1.06,
+      "last": 649.29,
+      "chg": -10.22,
+      "pct": -1.55,
       "src": "finnhub"
     },
     {
       "sym": "IWM",
       "name": "Russell 2000 (IWM)",
-      "last": 266.9,
-      "chg": -3.22,
-      "pct": -1.19,
+      "last": 265.77,
+      "chg": -4.35,
+      "pct": -1.61,
       "src": "finnhub"
     }
   ],
   "macro": [
     {
       "k": "Long Treasuries (TLT)",
-      "v": "$80.27",
-      "d": "+$0.05 · +0.06%",
+      "v": "$80.26",
+      "d": "+$0.04 · +0.05%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "1:36 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "US dollar (UUP)",
-      "v": "$29.65",
-      "d": "+$0.03 · +0.10%",
+      "v": "$29.63",
+      "d": "+$0.01 · +0.03%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "1:36 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "Oil (USO)",
-      "v": "$138.44",
-      "d": "+$2.33 · +1.71%",
+      "v": "$137.97",
+      "d": "+$1.86 · +1.37%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "1:36 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "Gold (GLD)",
-      "v": "$337.52",
-      "d": "−$3.67 · −1.08%",
+      "v": "$336.67",
+      "d": "−$4.52 · −1.32%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "1:36 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "Bitcoin (IBIT)",
-      "v": "$35.75",
-      "d": "+$0.39 · +1.10%",
+      "v": "$35.45",
+      "d": "+$0.09 · +0.25%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "1:36 PM"
+      "asof": "2:05 PM"
     }
   ],
   "history": {
@@ -97,7 +97,7 @@
         "name": "S&P 500 (SPY)",
         "values": [
           730.2,
-          722.75
+          719.95
         ]
       },
       {
@@ -105,7 +105,7 @@
         "name": "Dow (DIA)",
         "values": [
           501.64,
-          494.73
+          493.3
         ]
       },
       {
@@ -113,7 +113,7 @@
         "name": "Nasdaq-100 (QQQ)",
         "values": [
           659.51,
-          652.49
+          649.29
         ]
       }
     ],
@@ -125,9 +125,9 @@
     {
       "sym": "NVDA",
       "name": "NVIDIA Corporation",
-      "px": 149.2,
-      "pct": -1.17,
-      "chg": -1.76,
+      "px": 148.2,
+      "pct": -1.83,
+      "chg": -2.76,
       "tags": [
         "ai",
         "mega"
@@ -166,9 +166,9 @@
     {
       "sym": "AVGO",
       "name": "Broadcom Inc",
-      "px": 350.19,
-      "pct": -1.09,
-      "chg": -3.86,
+      "px": 347.63,
+      "pct": -1.81,
+      "chg": -6.42,
       "tags": [
         "ai",
         "mega"
@@ -207,9 +207,9 @@
     {
       "sym": "AMD",
       "name": "Advanced Micro Devices, Inc.",
-      "px": 484.86,
-      "pct": -8.54,
-      "chg": -45.28,
+      "px": 480.07,
+      "pct": -9.44,
+      "chg": -50.07,
       "tags": [
         "ai"
       ],
@@ -247,9 +247,9 @@
     {
       "sym": "MSFT",
       "name": "Microsoft Corporation",
-      "px": 503.05,
-      "pct": -1.03,
-      "chg": -5.24,
+      "px": 503.31,
+      "pct": -0.98,
+      "chg": -4.98,
       "tags": [
         "ai",
         "mega"
@@ -266,7 +266,7 @@
         ],
         [
           "Day range",
-          "$502.01 – $526.49"
+          "$500.26 – $526.49"
         ],
         [
           "Prev. close",
@@ -288,9 +288,9 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "px": 350.2,
-      "pct": -0.64,
-      "chg": -2.25,
+      "px": 349.11,
+      "pct": -0.95,
+      "chg": -3.34,
       "tags": [
         "mega"
       ],
@@ -328,9 +328,9 @@
     {
       "sym": "AMZN",
       "name": "Amazon.com Inc",
-      "px": 260.82,
-      "pct": -2.58,
-      "chg": -6.92,
+      "px": 258.91,
+      "pct": -3.3,
+      "chg": -8.83,
       "tags": [
         "mega"
       ],
@@ -346,7 +346,7 @@
         ],
         [
           "Day range",
-          "$259.31 – $274.00"
+          "$258.59 – $274.00"
         ],
         [
           "Prev. close",
@@ -368,9 +368,9 @@
     {
       "sym": "GOOG",
       "name": "Alphabet Inc.",
-      "px": 278.09,
-      "pct": -0.4,
-      "chg": -1.11,
+      "px": 275.96,
+      "pct": -1.16,
+      "chg": -3.24,
       "tags": [
         "ai",
         "mega"
@@ -387,7 +387,7 @@
         ],
         [
           "Day range",
-          "$276.56 – $292.21"
+          "$275.91 – $292.21"
         ],
         [
           "Prev. close",
@@ -409,9 +409,9 @@
     {
       "sym": "META",
       "name": "Meta Platforms, Inc.",
-      "px": 604.54,
-      "pct": -1.92,
-      "chg": -11.84,
+      "px": 599.94,
+      "pct": -2.67,
+      "chg": -16.44,
       "tags": [
         "ai",
         "mega"
@@ -428,7 +428,7 @@
         ],
         [
           "Day range",
-          "$601.27 – $630.06"
+          "$599.50 – $630.06"
         ],
         [
           "Prev. close",
@@ -450,9 +450,9 @@
     {
       "sym": "TSLA",
       "name": "Tesla Inc",
-      "px": 379.51,
-      "pct": -1.1,
-      "chg": -4.21,
+      "px": 376.6,
+      "pct": -1.86,
+      "chg": -7.12,
       "tags": [
         "mega"
       ],
@@ -490,9 +490,9 @@
     {
       "sym": "DIS",
       "name": "The Walt Disney Company",
-      "px": 121.57,
-      "pct": -0.65,
-      "chg": -0.79,
+      "px": 120.8,
+      "pct": -1.27,
+      "chg": -1.56,
       "tags": [],
       "src": "finnhub",
       "note": "Disney’s Experiences Segment Hit Record Quarterly Revenue of $10.1 Billion as Cruise Days Surged. Can the Momentum Last?",
@@ -528,9 +528,9 @@
     {
       "sym": "PLTR",
       "name": "Palantir Technologies Inc.",
-      "px": 155.96,
-      "pct": -0.45,
-      "chg": -0.71,
+      "px": 154.97,
+      "pct": -1.09,
+      "chg": -1.7,
       "tags": [
         "ai"
       ],
@@ -546,7 +546,7 @@
         ],
         [
           "Day range",
-          "$154.93 – $167.13"
+          "$154.44 – $167.13"
         ],
         [
           "Prev. close",
@@ -568,9 +568,9 @@
     {
       "sym": "INTC",
       "name": "Intel Corp",
-      "px": 56.8,
-      "pct": 3.9,
-      "chg": 2.13,
+      "px": 56.1,
+      "pct": 2.62,
+      "chg": 1.43,
       "tags": [
         "ai"
       ],
@@ -608,9 +608,9 @@
     {
       "sym": "JPM",
       "name": "JPMorgan Chase & Co.",
-      "px": 321.27,
-      "pct": -0.88,
-      "chg": -2.84,
+      "px": 320.71,
+      "pct": -1.05,
+      "chg": -3.4,
       "tags": [
         "mega"
       ],
@@ -648,9 +648,9 @@
     {
       "sym": "WMT",
       "name": "Walmart Inc.",
-      "px": 126.34,
-      "pct": -0.8,
-      "chg": -1.02,
+      "px": 126.39,
+      "pct": -0.76,
+      "chg": -0.97,
       "tags": [
         "mega"
       ],
@@ -688,9 +688,9 @@
     {
       "sym": "TTWO",
       "name": "Take-Two Interactive Software, Inc.",
-      "px": 214.56,
-      "pct": -0.95,
-      "chg": -2.05,
+      "px": 214.52,
+      "pct": -0.96,
+      "chg": -2.09,
       "tags": [
         "social"
       ],
@@ -728,9 +728,9 @@
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "px": 722.75,
-      "pct": -1.02,
-      "chg": -7.45,
+      "px": 719.95,
+      "pct": -1.4,
+      "chg": -10.25,
       "tags": [
         "social",
         "etf"
@@ -761,9 +761,9 @@
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "px": 652.49,
-      "pct": -1.06,
-      "chg": -7.02,
+      "px": 649.29,
+      "pct": -1.55,
+      "chg": -10.22,
       "tags": [
         "social",
         "etf"
@@ -794,9 +794,9 @@
     {
       "sym": "MU",
       "name": "Micron Technology, Inc.",
-      "px": 706.84,
-      "pct": 0.22,
-      "chg": 1.57,
+      "px": 698.31,
+      "pct": -0.99,
+      "chg": -6.96,
       "tags": [
         "social"
       ],
@@ -834,9 +834,9 @@
     {
       "sym": "NBIS",
       "name": "Nebius Group NV",
-      "px": 100.51,
-      "pct": -6.03,
-      "chg": -6.45,
+      "px": 98.78,
+      "pct": -7.65,
+      "chg": -8.18,
       "tags": [
         "social"
       ],
@@ -852,7 +852,7 @@
         ],
         [
           "Day range",
-          "$98.69 – $115.18"
+          "$98.55 – $115.19"
         ],
         [
           "Prev. close",
@@ -874,9 +874,9 @@
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies Corp",
-      "px": 137.78,
-      "pct": -3.99,
-      "chg": -5.72,
+      "px": 137.6,
+      "pct": -4.11,
+      "chg": -5.9,
       "tags": [
         "social"
       ],
@@ -914,9 +914,9 @@
     {
       "sym": "GP",
       "name": "GreenPower Motor Company Inc",
-      "px": 3.06,
-      "pct": 6.62,
-      "chg": 0.19,
+      "px": 3.01,
+      "pct": 4.88,
+      "chg": 0.14,
       "tags": [
         "social"
       ],
@@ -928,7 +928,7 @@
         ],
         [
           "Day range",
-          "$2.55 – $3.24"
+          "$2.55 – $3.23"
         ],
         [
           "Prev. close",
@@ -950,9 +950,9 @@
     {
       "sym": "VOO",
       "name": "Vanguard S&amp;P 500 ETF",
-      "px": 664.31,
-      "pct": -1.04,
-      "chg": -7.0,
+      "px": 661.46,
+      "pct": -1.47,
+      "chg": -9.85,
       "tags": [
         "social",
         "etf"
@@ -983,9 +983,9 @@
     {
       "sym": "NYT",
       "name": "The New York Times Company",
-      "px": 68.72,
-      "pct": -2.94,
-      "chg": -2.08,
+      "px": 68.57,
+      "pct": -3.15,
+      "chg": -2.23,
       "tags": [
         "social"
       ],
@@ -1019,9 +1019,9 @@
     {
       "sym": "HACK",
       "name": "ETF Managers Group LLC - ETFMG Prime Cyber Security ETF",
-      "px": 121.82,
-      "pct": 1.86,
-      "chg": 2.22,
+      "px": 121.43,
+      "pct": 1.53,
+      "chg": 1.83,
       "tags": [
         "social",
         "etf"
@@ -1034,7 +1034,7 @@
         ],
         [
           "Day range",
-          "$121.39 – $126.24"
+          "$121.18 – $126.24"
         ],
         [
           "Prev. close",
@@ -1052,9 +1052,9 @@
     {
       "sym": "WM",
       "name": "Waste Management Inc",
-      "px": 238.66,
-      "pct": -1.06,
-      "chg": -2.55,
+      "px": 239.05,
+      "pct": -0.9,
+      "chg": -2.16,
       "tags": [
         "social"
       ],
@@ -1088,9 +1088,9 @@
     {
       "sym": "HBM",
       "name": "Hudbay Minerals Inc",
-      "px": 17.62,
-      "pct": -2.38,
-      "chg": -0.43,
+      "px": 17.38,
+      "pct": -3.71,
+      "chg": -0.67,
       "tags": [
         "social"
       ],
@@ -1102,7 +1102,7 @@
         ],
         [
           "Day range",
-          "$17.39 – $18.64"
+          "$17.36 – $18.64"
         ],
         [
           "Prev. close",
@@ -1124,9 +1124,9 @@
     {
       "sym": "UNH",
       "name": "UnitedHealth Group Incorporated",
-      "px": 333.78,
-      "pct": -4.61,
-      "chg": -16.13,
+      "px": 334.83,
+      "pct": -4.31,
+      "chg": -15.08,
       "tags": [
         "social"
       ],
@@ -1164,9 +1164,9 @@
     {
       "sym": "BABA",
       "name": "Alibaba Group Holding Limited",
-      "px": 85.32,
-      "pct": 1.13,
-      "chg": 0.95,
+      "px": 84.86,
+      "pct": 0.58,
+      "chg": 0.49,
       "tags": [
         "social"
       ],
@@ -1204,9 +1204,9 @@
     {
       "sym": "GLD",
       "name": "Gold (GLD)",
-      "px": 337.52,
-      "pct": -1.08,
-      "chg": -3.67,
+      "px": 336.67,
+      "pct": -1.32,
+      "chg": -4.52,
       "tags": [
         "social",
         "etf"
@@ -1237,9 +1237,9 @@
     {
       "sym": "PANW",
       "name": "Palo Alto Networks, Inc.",
-      "px": 359.64,
-      "pct": 5.8,
-      "chg": 19.72,
+      "px": 359.07,
+      "pct": 5.63,
+      "chg": 19.15,
       "tags": [
         "social"
       ],
@@ -1277,9 +1277,9 @@
     {
       "sym": "SLS",
       "name": "Sellas Life Sciences Group Inc",
-      "px": 14.85,
-      "pct": -17.27,
-      "chg": -3.1,
+      "px": 14.66,
+      "pct": -18.33,
+      "chg": -3.29,
       "tags": [
         "social"
       ],
@@ -1317,9 +1317,9 @@
     {
       "sym": "CAPR",
       "name": "Capricor Therapeutics, Inc.",
-      "px": 7.91,
-      "pct": -1.49,
-      "chg": -0.12,
+      "px": 7.71,
+      "pct": -3.99,
+      "chg": -0.32,
       "tags": [
         "social"
       ],
@@ -1331,7 +1331,7 @@
         ],
         [
           "Day range",
-          "$7.71 – $9.13"
+          "$7.65 – $9.13"
         ],
         [
           "Prev. close",
@@ -1668,7 +1668,7 @@
     "week": 40,
     "month": 20,
     "year": 8,
-    "asOf": "2026-11-19T18:33:56+00:00"
+    "asOf": "2026-11-19T19:03:55+00:00"
   },
   "crowdSyms": [
     "SPY",
