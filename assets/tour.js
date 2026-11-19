@@ -1,21 +1,15 @@
-/* Partsmith Markets — guided tour with a futuristic HUD look.
-   Starts automatically on a visitor's first visit (once the Home screen is showing), can be
-   skipped at any step (button or Esc), and can be replayed from "Take the tour" on the Home
-   screen or by typing "tour" in the command center. Steps marked `home` run on the welcome
-   screen; the rest run on the main page. Steps whose target isn't visible are skipped. */
+/* Partsmith Markets — guided tour of the main site, with a futuristic HUD look.
+   It never runs on the welcome screen. It starts automatically once, the first time a visitor
+   enters the website (leaves the welcome screen, or lands straight on the site if they turned
+   the welcome screen off). After it's finished or skipped it never starts on its own again;
+   "Take the tour" on the Home screen or typing "tour" in the command center replays it. */
 const DONE = 'pm-tour-done';
 const welcome = document.getElementById('welcomeDlg');
 const visible = el => { if (!el) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
 const $ = s => document.querySelector(s);
 
 const STEPS = [
-  { home: true, title: 'Welcome aboard', body: 'A 60-second tour of Partsmith Markets. Use Next or the → key. Press Skip or Esc to leave anytime.' },
-  { home: true, el: '#wcAuthOut', title: 'Log in or sign up', body: 'Create a free account with your email or Google. Accounts unlock a few personal settings, like the one on the next step.' },
-  { home: true, el: () => visible($('#wcHideWrap')) ? $('#wcHideWrap') : $('#wcHint'), title: "Don't want this screen every time?",
-    body: 'Once you\'re logged in, tick "Don\'t show this welcome screen again" at the bottom. It\'s saved to your account, so it applies on every device. You can turn it back on from your account menu.' },
-  { home: true, el: '#welcomeDlg .cursor-slot', title: 'Make the cursor yours', body: 'Switch between the triangle, the arrow or the classic cursor. Tilt it, recolor it or make it bigger.' },
-  { home: true, el: '.wc-grid', title: "What's inside", body: 'Daily ideas, your watchlist, tips every 2 hours, daily stories, the command center and market mood. Click any tile to jump straight there.' },
-  { home: true, el: '#welcomeGo', title: 'Enter the dashboard', body: 'This takes you into the main site. Next, the tour shows you around it.' },
+  { title: 'Welcome to the dashboard', body: 'A quick tour of the main site. Use Next or the → key. Press Skip or Esc to leave anytime.' },
   { el: '#helpBtn', title: 'Back to home', body: 'The Home button, or the Partsmith Markets logo, brings you back to the welcome screen whenever you like.' },
   { el: '.menubar', alt: '.ribbon', title: 'Getting around', body: 'Jump to any section from here: Picks, Tips, Stories, Tape, Sentiment, Calendar and Sources. The Jump-to buttons on the right of the bar below do the same.' },
   { el: '.ribbon', title: 'Market at a glance', body: 'The major indexes, rates, oil, gold, bitcoin and CNN\'s Fear & Greed mood gauge. Hover any reading to see its source.' },
@@ -23,9 +17,13 @@ const STEPS = [
   { el: '#picks', title: "Today's 3 ideas", body: 'Three stocks scored on news, price action, crowd buzz and analysts, with the risks spelled out. Click a card to inspect it. Research, not advice.' },
   { el: '.sidebar-right', title: 'Inspector', body: 'Details for whichever stock you select: price, what\'s driving it, key figures and sources.' },
   { el: '#cmdBtn', title: 'Command center', body: 'Press Ctrl K (⌘K on a Mac) and type things like "add all AI giants", "go to stories" or "dark mode". Connect a Claude or Gemini key to ask questions in your own words.' },
-  { el: '#liveBtn', title: 'Live quotes', body: 'Prices refresh hourly on trading days. Paste a free Finnhub key here to stream them every minute.' },
+  { el: '#liveBtn', title: 'Live quotes', body: 'Prices refresh hourly on trading days, and the page updates itself. Paste a free Finnhub key here to stream them every minute.' },
+  { el: '.cursor-slot', title: 'Make the cursor yours', body: 'Switch between the triangle, the arrow or the classic cursor. Tilt it, recolor it or make it bigger.' },
   { el: '#themeSeg', title: 'Light or dark', body: 'Pick light, dark or match your device.' },
-  { el: '.acct', title: 'Your account', body: 'Log in, sign up or sign out here. Your name opens a menu with your settings.' },
+  { el: '.acct', title: 'Your account',
+    body: () => document.getElementById('acctSignOutTop') && !document.getElementById('acctSignOutTop').hidden
+      ? 'Click your name to open your account menu. Untick "Show the welcome screen when I visit" to come straight here next time, on any device.'
+      : 'Log in or sign up here. Once you\'re logged in, you can turn off the welcome screen so you land straight on this page, on any device.' },
   { el: '#quoteBar', title: 'Quote of the day', body: 'A new line from a legendary investor every day at midnight New York time.' },
   { el: '#status', title: 'Status bar', body: 'When the data was last updated, how old it is, and when the next refresh runs.' },
   { title: 'Tour complete', body: 'Replay this tour anytime: click "Take the tour" on the Home screen, or type "tour" in the command center.', end: true },
@@ -56,19 +54,20 @@ let i = 0, steps = [], typer = 0, active = false;
 
 const target = st => { const e = typeof st.el === 'function' ? st.el() : st.el && $(st.el); return visible(e) ? e : (st.alt && visible($(st.alt)) ? $(st.alt) : null); };
 
-// Show the right screen underneath: welcome steps need the Home screen open, the rest need it closed.
+// The tour covers the main site only, so make sure the welcome screen is out of the way.
 // (Both are modal dialogs; closing and reopening the tour keeps it on top.)
-function setScreen(home) {
-  if (!welcome || home === welcome.open) return;
-  dlg.close();
-  if (home) welcome.showModal(); else welcome.close();
-  dlg.showModal();
+function toSite() {
+  if (!welcome || !welcome.open) return;
+  const wasOpen = dlg.open;
+  if (wasOpen) dlg.close();
+  welcome.close();
+  if (wasOpen) dlg.showModal();
 }
 
 async function show(n, dir = 1) {
   i = n;
   const st = steps[i];
-  setScreen(!!st.home);
+  toSite();
   let el = st.el ? target(st) : null;
   if (st.el && !el) { // e.g. hidden on a small screen: skip it
     const nx = i + dir; if (nx >= 0 && nx < steps.length) return show(nx, dir); }
@@ -76,7 +75,7 @@ async function show(n, dir = 1) {
   place(el);
   $('#tourStep').textContent = `${String(i + 1).padStart(2, '0')} / ${String(steps.length).padStart(2, '0')}`;
   type($('#tourTitle'), st.title);
-  $('#tourBody').textContent = st.body;
+  $('#tourBody').textContent = typeof st.body === 'function' ? st.body() : st.body;
   $('#tourProg').innerHTML = steps.map((_, k) => `<i class="${k < i ? 'done' : k === i ? 'on' : ''}"></i>`).join('');
   $('#tourBack').disabled = i === 0;
   $('#tourNext').textContent = st.end ? 'Finish ✓' : 'Next ▸';
@@ -118,7 +117,7 @@ function start() {
   if (active) return;
   active = true;
   steps = STEPS.slice();
-  if (welcome && !welcome.open) welcome.showModal();
+  toSite();
   dlg.showModal();
   show(0);
 }
@@ -159,10 +158,13 @@ addEventListener('resize', () => { if (active) place(target(steps[i])); });
 window.pmTour = start;
 const replay = document.getElementById('tourBtn'); if (replay) replay.onclick = start;
 
-// first visit: start once the Home screen is showing
+// First visit to the website: start once, when the main site is showing. That's when the
+// visitor leaves the welcome screen, or straight away if the welcome screen is turned off
+// (account.js waits up to ~2.5 s to decide, so give it a moment before assuming that).
 let seen = false; try { seen = localStorage.getItem(DONE) === '1'; } catch (e) {}
 if (!seen && welcome) {
-  const kick = () => { if (welcome.open && !active) setTimeout(() => { if (welcome.open && !active) start(); }, 900); };
-  if (welcome.open) kick();
-  else new MutationObserver((_, mo) => { if (welcome.open) { mo.disconnect(); kick(); } }).observe(welcome, { attributes: true, attributeFilter: ['open'] });
+  let armed = true;
+  const go = () => { if (!armed || active || welcome.open) return; armed = false; setTimeout(() => { if (!welcome.open && !active) start(); }, 600); };
+  new MutationObserver(() => { if (!welcome.open) go(); }).observe(welcome, { attributes: true, attributeFilter: ['open'] });
+  setTimeout(() => { if (!welcome.open) go(); }, 3200);
 }
