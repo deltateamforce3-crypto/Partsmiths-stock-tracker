@@ -578,3 +578,7 @@ dialog.tour.outro .tour-tri { animation: tour-rise-long 2.8s cubic-bezier(.45, 0
 }
 .tour-tri { filter: drop-shadow(0 0 30px rgba(8, 145, 178, .5)) drop-shadow(0 0 3px rgba(34, 211, 238, .55)); }
 .tour-tri::after { background: linear-gradient(to top, rgba(14, 116, 144, .5), transparent 55%); }
+
+/* brief highlight on the status bar when new data arrives */
+.status.just-updated { animation: data-flash 1.6s ease-out; }
+@keyframes data-flash { 0%, 30% { box-shadow: inset 0 2px 0 var(--accent), 0 -6px 18px -6px var(--accent); } 100% { box-shadow: none; } }

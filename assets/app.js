@@ -386,13 +386,28 @@ ${D.mode === 'auto' ? `
   }
 
   // Pull the committed data file again every 2 minutes (the GitHub Action updates it).
+  // Pick up new data without a reload. Updates land a few minutes after :05 each hour, so check
+  // every 20 s from :04 to :15, and every minute otherwise. Only ever move forward in time (a
+  // fallback copy can be older), and say so when something new arrives.
+  let refreshing = false;
   async function refreshData() {
+    if (refreshing) return; refreshing = true;
     try {
       const nd = await loadData();
-      if (nd.snapshot !== D.snapshot) { D = nd; if (live.on) applyLive(); renderAll(); }
+      if (nd.snapshot !== D.snapshot && new Date(nd.snapshot) > new Date(D.snapshot)) {
+        D = nd; if (live.on) applyLive(); renderAll();
+        const t = new Date(D.snapshot).toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' });
+        toast(`Data updated · ${t} ET`);
+        const st = $('#status'); st.classList.remove('just-updated'); void st.offsetWidth; st.classList.add('just-updated');
+      }
     } catch (e) { /* offline — keep showing what we have */ }
+    refreshing = false;
   }
-  setInterval(refreshData, 120000);
+  (function scheduleRefresh() {
+    const m = new Date().getMinutes();
+    const soon = m >= 4 && m < 15;
+    setTimeout(() => { if (!document.hidden) refreshData(); scheduleRefresh(); }, soon ? 20000 : 60000);
+  })();
 
   // Optional live mode: the viewer's own Finnhub key, kept only in this browser.
   const live = { on: false, key: '', timer: null, quotes: {}, err: '', at: '', busy: false, last: 0, cursor: 0, pauseUntil: 0, closedDay: '' };
