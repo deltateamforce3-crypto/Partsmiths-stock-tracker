@@ -36,6 +36,7 @@ const dlg = document.createElement('dialog');
 dlg.className = 'tour'; dlg.setAttribute('aria-labelledby', 'tourTitle');
 dlg.innerHTML = `
   <div class="tour-spot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="tour-outro" aria-hidden="true"><div class="tour-tri"></div></div>
   <div class="tour-card" role="document">
     <div class="tour-meta"><span>SYS://TOUR</span><span id="tourStep">01 / 00</span></div>
     <h3 id="tourTitle"></h3>
@@ -127,7 +128,17 @@ function finish(markDone = true) {
   try { if (markDone) localStorage.setItem(DONE, '1'); } catch (e) {}
   dlg.close();
 }
-$('#tourNext').onclick = () => steps[i].end ? finish() : show(i + 1, 1);
+$('#tourNext').onclick = () => steps[i].end ? outro() : show(i + 1, 1);
+
+// Finish: a Vercel-style triangle rises from the bottom of the screen and sweeps away the tour
+function outro() {
+  if (reduce.matches) return finish();
+  clearInterval(typer);
+  dlg.classList.add('outro');
+  const tri = dlg.querySelector('.tour-tri');
+  tri.addEventListener('animationend', () => { dlg.classList.remove('outro'); finish(); }, { once: true });
+  setTimeout(() => { if (dlg.classList.contains('outro')) { dlg.classList.remove('outro'); finish(); } }, 2200);   // safety net
+}
 $('#tourBack').onclick = () => i > 0 && show(i - 1, -1);
 $('#tourSkip').onclick = () => finish();
 dlg.addEventListener('cancel', e => { e.preventDefault(); finish(); });   // Esc = skip

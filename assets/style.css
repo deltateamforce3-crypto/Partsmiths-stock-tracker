@@ -533,3 +533,30 @@ dialog.tour::backdrop { background: transparent; }
 .tour-btn { font-size: 15px; height: 36px; padding: 0 14px; }
 .tour-btn.ghost { font-size: 15px; }
 .tour-progress { margin: 14px 0 12px; }
+
+/* tour finish: Vercel-style triangle rising from the bottom */
+.tour-outro { position: absolute; inset: 0; pointer-events: none; display: none; overflow: hidden; }
+dialog.tour.outro .tour-outro { display: block; }
+dialog.tour.outro .tour-card { animation: tour-card-out .35s ease-in forwards; }
+dialog.tour.outro .tour-spot { transition: none; animation: tour-dim-out 1.25s ease-in .25s forwards; }
+.tour-tri { position: absolute; left: 50%; bottom: 0; width: min(46vmin, 360px); aspect-ratio: 1 / .866;
+  background: #0a0a0a; clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(0 0 22px rgba(34, 211, 238, .55));
+  transform: translate(-50%, 110%) scale(.7); opacity: 0; }
+[data-app-theme="dark"] .tour-tri { background: #f5f5f5; }
+.tour-tri::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(34, 211, 238, .55), transparent 55%); clip-path: inherit; }
+dialog.tour.outro .tour-tri { animation: tour-rise 1.35s cubic-bezier(.55, 0, .2, 1) forwards; }
+@keyframes tour-rise {
+  0%   { transform: translate(-50%, 110%) scale(.7); opacity: 0; }
+  15%  { opacity: 1; }
+  45%  { transform: translate(-50%, calc(-50vh + 50%)) scale(1); opacity: 1; }
+  62%  { transform: translate(-50%, calc(-50vh + 50%)) scale(1.06); opacity: 1; }
+  100% { transform: translate(-50%, calc(-100vh - 20%)) scale(1.5); opacity: 0; }
+}
+@keyframes tour-card-out { to { opacity: 0; transform: translateY(14px) scale(.97); } }
+@keyframes tour-dim-out { to { box-shadow: 0 0 0 9999px rgba(3, 7, 18, 0); } }
+/* glow sits on the wrapper; the shape itself is the clipped ::before */
+.tour-tri { background: none !important; clip-path: none; filter: drop-shadow(0 0 24px rgba(34, 211, 238, .6)) drop-shadow(0 0 4px rgba(34, 211, 238, .8)); }
+.tour-tri::before { content: ''; position: absolute; inset: 0; background: #0a0a0a; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+[data-app-theme="dark"] .tour-tri::before { background: #f5f5f5; }
+.tour-tri::after { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
