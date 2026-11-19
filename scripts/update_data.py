@@ -482,6 +482,30 @@ def earnings_calendar(http: Http, today: date, days=7):
     return data.get("earningsCalendar", []) or []
 
 
+# --------------------------------------------------------------------------- movers
+def market_movers(rows, mcfg=None):
+    """Large companies adding or removing the most stock-market value today.
+
+    Value change ~= market cap x today's % move. Ranking by dollars rather than percent
+    means a 2% drop in a $3T company outranks a 20% drop in a $5B one, which is what
+    actually moves the indexes and the wider economy's wealth.
+    """
+    mcfg = mcfg or {}
+    count, floor = mcfg.get("count", 5), mcfg.get("min_market_cap_millions", 50_000)
+    out = []
+    for w in rows:
+        mcap, dp = w.get("mcap"), w.get("pct")
+        if not mcap or dp is None or mcap < floor or "etf" in w.get("tags", []):
+            continue
+        prev_cap = mcap / (1 + dp / 100)  # cap at yesterday's close
+        out.append({"sym": w["sym"], "name": w["name"], "pct": dp, "chg": w.get("chg"),
+                    "valueB": round((mcap - prev_cap) / 1000, 1), "capB": round(mcap / 1000)})
+    up = sorted([m for m in out if m["valueB"] > 0], key=lambda m: -m["valueB"])[:count]
+    down = sorted([m for m in out if m["valueB"] < 0], key=lambda m: m["valueB"])[:count]
+    net = round(sum(m["valueB"] for m in out), 1)
+    return {"up": up, "down": down, "netB": net, "tracked": len(out), "floorB": round(floor / 1000), "src": "finnhub"}
+
+
 # --------------------------------------------------------------------------- picks
 def score_candidate(c, spy_dp):
     """Turn raw signals into four 0-10 scores. Every input is shown on the page."""
@@ -820,8 +844,13 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
             if s in rd_by:
                 row["facts"].append(["Reddit 24h", f"#{rd_by[s]['rank']} · {rd_by[s]['mentions']:,} mentions"])
             row["factsSrc"] = ["finnhub"] + (["apewisdom"] if s in rd_by else [])
+        prof_ = profiles.get(s) or {}
+        mcap = prof_.get("mcap") if prof_.get("mcap") is not None else prev.get("mcap")
+        if mcap and "etf" not in tags:
+            row["mcap"] = round(float(mcap))  # millions of USD, from Finnhub's profile at the last full run
         wl.append(row)
     data["watchlist"] = wl
+    data["movers"] = market_movers(wl, cfg.get("movers", {}))
     data["crowdSyms"] = [s for s in crowd if s not in pick_syms]
     data["crowdNames"] = {s: crowd_names.get(s, s) for s in data["crowdSyms"]}
 
@@ -839,6 +868,11 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
                         f"Worst: {movers[0]['sym']} {fmt_pct(movers[0]['pct'])}.")
         if reddit:
             summary += f" Most-discussed on Reddit: {reddit[0]['sym']} ({reddit[0]['mentions']:,} mentions)."
+        mv = data.get("movers") or {}
+        if mv.get("up") and mv.get("down"):
+            u, d_ = mv["up"][0], mv["down"][0]
+            summary += (f" Biggest lift: {u['sym']} (+${u['valueB']:,.1f}B in value); "
+                        f"biggest drag: {d_['sym']} (−${abs(d_['valueB']):,.1f}B).")
         fgd = data.get("fearGreed")
         if fgd:
             summary += f" CNN's Fear & Greed Index reads {fgd['score']} ({fgd['rating']})."

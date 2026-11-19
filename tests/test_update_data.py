@@ -165,6 +165,28 @@ class BuildTests(unittest.TestCase):
         self.assertIn("social", wl2["TINY"]["tags"])
         self.assertEqual(wl2["SPY"]["name"], "S&P 500 (SPY)")
 
+    def test_market_movers_rank_by_dollar_value(self):
+        rows = [
+            {"sym": "BIG", "name": "Big", "pct": -2.0, "chg": -4.0, "mcap": 3_000_000, "tags": []},    # -$61B
+            {"sym": "SMALL", "name": "Small", "pct": -20.0, "chg": -2.0, "mcap": 60_000, "tags": []},  # -$15B
+            {"sym": "UP", "name": "Up", "pct": 5.0, "chg": 3.0, "mcap": 1_000_000, "tags": []},        # +$48B
+            {"sym": "TINY", "name": "Tiny", "pct": 30.0, "chg": 1.0, "mcap": 2_000, "tags": []},        # under the floor
+            {"sym": "SPY", "name": "S&P ETF", "pct": 1.0, "chg": 7.0, "mcap": 9_000_000, "tags": ["etf"]},
+        ]
+        m = ud.market_movers(rows, {"count": 5, "min_market_cap_millions": 50_000})
+        self.assertEqual([x["sym"] for x in m["down"]], ["BIG", "SMALL"], "a 2% drop in a giant outranks a 20% drop in a small cap")
+        self.assertEqual([x["sym"] for x in m["up"]], ["UP"])
+        self.assertAlmostEqual(m["down"][0]["valueB"], -61.2, places=1)
+        self.assertEqual(m["tracked"], 3)
+
+    def test_full_build_has_movers(self):
+        d = self.run_build("full")
+        self.assertIn("movers", d)
+        self.assertTrue(d["movers"]["up"] or d["movers"]["down"])
+        for w in d["watchlist"]:
+            if "etf" in w["tags"]:
+                self.assertNotIn("mcap", w)
+
     def test_cnn_failure_is_soft(self):
         http = FakeHttp()
         http.get = lambda *a, **k: None

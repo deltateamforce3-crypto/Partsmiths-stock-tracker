@@ -119,6 +119,8 @@ Headlines are ranked by outlet: established newsrooms (Reuters, AP, Bloomberg, C
 
 Every ticker the crowd lists show (top 8 on Reddit overall, top 5 in each community, top 8 on Stocktwits), stocks and ETFs alike, also gets a watchlist row tagged **Trending** (and **ETFs** for funds). Hourly runs keep their prices fresh, and the list is rebuilt at each 3 PM update. Live quotes check up to 24 symbols a minute: the index ETFs, picks and core watchlist every time, with the trending names taking turns in the remaining slots.
 
+**Market movers** ranks every company in the watchlist worth $50B or more by the stock-market value it gained or lost today (market cap × today's % move), so a 2% slide in a $3T company outranks a 20% drop in a small one. It shows the top 5 lifting the market and the top 5 dragging it down, refreshed every hour. Change the count or size floor under `movers` in `config.json`.
+
 Every source fails soft. If one is down, the rest still update, and a **Data health** row in the sentiment table lists what failed.
 
 ### How the 3 ideas are picked

@@ -102,7 +102,7 @@
   renderRibbon();
 
   // watchlist
-  const filters = [['all', 'All'], ['mine', 'My watchlist'], ['pick', 'Picks'], ['ai', 'AI & chips'], ['mega', 'Mega-cap'], ['social', 'Trending'], ['etf', 'ETFs']];
+  const filters = [['all', 'All'], ['mine', 'My watchlist'], ['pick', 'Picks'], ['ai', 'AI & chips'], ['mega', 'Mega-cap'], ['social', 'Trending'], ['quantum', 'Quantum'], ['space', 'Space'], ['etf', 'ETFs']];
   let filt = 'all', q = '', sel = pickSyms[0];
   try { if (localStorage.getItem('pm-filter') === 'mine') filt = 'mine'; } catch (e) {}
   function renderChips() {
@@ -211,6 +211,27 @@
   const lean = { bull: 'Bullish', bear: 'Bearish', split: 'Split', info: 'Context' };
   function renderSheet() {
   const tableOpen = $('#tblBtn') && $('#tblBtn').getAttribute('aria-pressed') === 'true';
+  function moversCard() {
+    const M = D.movers;
+    if (!M || !(M.up.length || M.down.length)) return '';
+    const bn = v => (v > 0 ? '+' : v < 0 ? '−' : '') + '$' + Math.abs(v).toLocaleString('en-US', { maximumFractionDigits: 1 }) + 'B';
+    const row = m => `<button class="mover" data-s="${esc(m.sym)}" title="${esc(m.name)} · about $${m.capB.toLocaleString('en-US')}B company">
+        <span class="mv-sym">${esc(m.sym)}</span><span class="mv-name">${esc(m.name)}</span>
+        <span class="mv-val ${cls(m.valueB)}">${bn(m.valueB)}</span><span class="mv-chg ${cls(m.pct)}">${move(m.chg, m.pct)}</span></button>`;
+    const col = (title, list, empty) => `<div class="mv-col"><h3>${title}</h3>${list.length ? list.map(row).join('') : `<p class="note">${empty}</p>`}</div>`;
+    return `<section class="card" id="movers">
+      <div class="card-head">
+        <div><div class="eyebrow">Market movers · ${esc(D.session)}</div><h2>Who's moving the market</h2></div>
+        <div class="sub">Companies worth $${M.floorB}B+ ranked by stock-market value gained or lost today (market cap × today's move). Net across ${M.tracked} tracked: <b class="${cls(M.netB)}">${bn(M.netB)}</b></div>
+      </div>
+      <div class="movers">
+        ${col('Lifting the market', M.up, 'No large company is up today.')}
+        ${col('Dragging it down', M.down, 'No large company is down today.')}
+      </div>
+      <div class="card-body note" style="border-top:1px solid var(--line);padding-top:.6rem">Value is approximate: market caps come from Finnhub's company profiles at the last 3 PM update. Click a company to inspect it. <span class="srcs" style="display:inline-flex">${src(M.src)}</span></div>
+    </section>`;
+  }
+
   $('#sheet').innerHTML = `
     <section class="card">
       <div class="hero">
@@ -225,6 +246,8 @@
         </div>
       </div>
     </section>
+
+    ${moversCard()}
 
     <section class="card" id="picks">
       <div class="card-head">
@@ -320,7 +343,7 @@ ${D.mode === 'auto' ? `
   drawChart();
   }
 
-  $('#sheet').addEventListener('click', e => { const c = e.target.closest('.pick'); if (c && !e.target.closest('a')) select(c.dataset.s); });
+  $('#sheet').addEventListener('click', e => { const mv = e.target.closest('.mover'); if (mv) { select(mv.dataset.s); return; } const c = e.target.closest('.pick'); if (c && !e.target.closest('a')) select(c.dataset.s); });
   $('#sheet').addEventListener('keydown', e => { const c = e.target.closest('.pick'); if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); select(c.dataset.s); } });
 
   // chart (indexed % change since first date)

@@ -1,5 +1,11 @@
 {
-  "watchlist": ["NVDA", "AVGO", "AMD", "MSFT", "AAPL", "AMZN", "GOOG", "META", "TSLA", "DIS", "PLTR", "INTC", "JPM", "WMT"],
+  "watchlist": [
+    "NVDA", "AVGO", "AMD", "MSFT", "AAPL", "AMZN", "GOOG", "META", "TSLA", "DIS", "PLTR", "INTC", "JPM", "WMT",
+    "SPCX", "BRK.B", "LLY", "V", "MA", "XOM", "UNH", "ORCL", "COST", "NFLX", "JNJ", "PG", "HD", "ABBV", "BAC", "KO", "CRM", "TSM",
+    "IONQ", "RGTI", "QBTS", "QUBT",
+    "RKLB", "ASTS", "LUNR",
+    "NKE", "SBUX", "MCD", "PEP", "BA", "UBER", "COIN", "HOOD", "SHOP", "ARM", "MU", "SMCI", "ADBE", "PYPL", "F", "GM", "CVX", "GS", "MSTR", "SOFI", "RIVN"
+  ],
   "indices": [
     {"sym": "SPY", "name": "S&P 500 (SPY)"},
     {"sym": "DIA", "name": "Dow (DIA)"},
@@ -14,8 +20,10 @@
     {"sym": "IBIT", "k": "Bitcoin (IBIT)"}
   ],
   "tags": {
-    "ai": ["NVDA", "AVGO", "AMD", "PLTR", "INTC", "MSFT", "GOOG", "META"],
-    "mega": ["NVDA", "AVGO", "MSFT", "AAPL", "AMZN", "GOOG", "META", "TSLA", "JPM", "WMT"]
+    "ai": ["NVDA", "AVGO", "AMD", "PLTR", "INTC", "MSFT", "GOOG", "META", "ORCL", "TSM", "ARM", "MU", "SMCI", "CRM", "ADBE"],
+    "mega": ["NVDA", "AVGO", "MSFT", "AAPL", "AMZN", "GOOG", "META", "TSLA", "JPM", "WMT", "SPCX", "BRK.B", "LLY", "V", "MA", "XOM", "UNH", "ORCL", "COST", "NFLX", "JNJ", "PG", "HD", "ABBV", "BAC", "TSM"],
+    "quantum": ["IONQ", "RGTI", "QBTS", "QUBT"],
+    "space": ["SPCX", "RKLB", "ASTS", "LUNR"]
   },
   "picks": {
     "count": 3,
@@ -25,6 +33,7 @@
     "min_price": 5,
     "weights": {"Catalyst": 0.30, "Price action": 0.25, "Crowd": 0.25, "Institutional": 0.20}
   },
+  "movers": {"count": 5, "min_market_cap_millions": 50000},
   "history_days": 30,
   "research_links": [
     {"name": "Charles Schwab — Schwab Market Update (daily)", "url": "https://www.schwab.com/learn/story/schwab-market-update"}
