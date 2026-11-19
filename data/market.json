@@ -1,5 +1,5 @@
 {
-  "snapshot": "2026-11-19T16:05:21-05:00",
+  "snapshot": "2026-11-19T17:05:10-05:00",
   "session": "Thu 19 Nov 2026",
   "picksFor": "Fri 20 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily",
@@ -37,9 +37,9 @@
     {
       "sym": "IWM",
       "name": "Russell 2000 (IWM)",
-      "last": 264.2,
-      "chg": -5.92,
-      "pct": -2.19,
+      "last": 264.22,
+      "chg": -5.9,
+      "pct": -2.18,
       "src": "finnhub"
     }
   ],
@@ -50,7 +50,7 @@
       "d": "+$0.13 · +0.16%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     },
     {
       "k": "US dollar (UUP)",
@@ -58,7 +58,7 @@
       "d": "+$0.01 · +0.03%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     },
     {
       "k": "Oil (USO)",
@@ -66,7 +66,7 @@
       "d": "+$1.98 · +1.45%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     },
     {
       "k": "Gold (GLD)",
@@ -74,7 +74,7 @@
       "d": "−$6.01 · −1.76%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     },
     {
       "k": "Bitcoin (IBIT)",
@@ -82,7 +82,7 @@
       "d": "−$0.28 · −0.79%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     }
   ],
   "history": {
@@ -688,9 +688,9 @@
     {
       "sym": "PANW",
       "name": "Palo Alto Networks, Inc.",
-      "px": 361.81,
-      "pct": 6.44,
-      "chg": 21.89,
+      "px": 361.73,
+      "pct": 6.42,
+      "chg": 21.81,
       "tags": [
         "social"
       ],
@@ -914,9 +914,9 @@
     {
       "sym": "VOO",
       "name": "Vanguard S&amp;P 500 ETF",
-      "px": 657.95,
-      "pct": -1.99,
-      "chg": -13.36,
+      "px": 658.01,
+      "pct": -1.98,
+      "chg": -13.3,
       "tags": [
         "social",
         "etf"
@@ -1606,7 +1606,7 @@
     "week": 40,
     "month": 20,
     "year": 8,
-    "asOf": "2026-11-19T20:59:59+00:00"
+    "asOf": "2026-11-19T21:45:06+00:00"
   },
   "crowdSyms": [
     "SPY",
