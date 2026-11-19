@@ -425,7 +425,7 @@ dialog.welcome > .wc-orb-btn { position: absolute; top: 6.5rem; right: clamp(1re
 
 /* quote of the day strip + Home button */
 .quotebar { display: flex; align-items: baseline; justify-content: center; gap: .6rem; min-height: 1.9rem; padding: .3rem 1rem; background: var(--accent); color: var(--accent-ink); font-size: .92rem; line-height: 1.35; text-align: center; overflow: hidden; }
-.quotebar:empty { display: none; }
+.quotebar:empty { visibility: hidden; }   /* keep its height so nothing jumps when the quote loads */
 .qb-label { font-family: var(--font-tech); font-weight: 600; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; opacity: .8; white-space: nowrap; }
 .qb-text { font-style: italic; }
 .qb-who { font-family: var(--font-tech); font-weight: 600; white-space: nowrap; }
@@ -586,3 +586,43 @@ dialog.tour.outro .tour-tri { animation: tour-rise-long 2.8s cubic-bezier(.45, 0
 .cur-bar { animation: none; }
 .cursor-slot.opening .cur-bar { animation: wc-fade .15s ease-out; }
 .cur-bar { width: 28rem; }
+
+/* ===== smoothness & refinements ===== */
+/* reserve space up front so the page doesn't jump while it loads */
+.quotebar { min-height: 2.4rem; box-sizing: border-box; }
+.ribbon { min-height: var(--ribbon-h); }
+.sheet:empty { min-height: 60vh; }
+/* gentle scrolling for section jumps, contained so the page itself never rubber-bands */
+.scroll, .viewport { scroll-behavior: smooth; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+.scroll::-webkit-scrollbar, .viewport::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll::-webkit-scrollbar-thumb, .viewport::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 8px; border: 2px solid transparent; background-clip: padding-box; }
+.scroll::-webkit-scrollbar-track, .viewport::-webkit-scrollbar-track { background: transparent; }
+/* theme changes fade instead of flashing */
+body, .appbar, .ribbon, .sidebar, .card, .pick, .status, .btn, .chip, .wl-row, .readout, .tipcard, .quotebar { transition: background-color .25s ease, border-color .25s ease, color .25s ease; }
+/* market bar: the Jump-to buttons repeat the menu above, so they step aside on narrower screens */
+@media (max-width: 1500px) { .ribbon .rb-group:last-child { display: none; } }
+.ribbon { overflow-x: auto; scrollbar-width: none; }
+.ribbon::-webkit-scrollbar { display: none; }
+/* picks: a lone third card spans the row instead of leaving a gap */
+.picks > .pick:last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; }
+@media (min-width: 1700px) { .picks > .pick:last-child:nth-child(odd):not(:first-child) { grid-column: auto; } }
+.asof { display: block; margin-top: .2rem; font-size: .82rem; color: var(--ink-3); }
+/* first load: cards ease up in sequence */
+.sheet.intro > .card { animation: card-in .45s cubic-bezier(.2,.8,.2,1) both; }
+.sheet.intro > .card:nth-child(2) { animation-delay: .06s; } .sheet.intro > .card:nth-child(3) { animation-delay: .12s; }
+.sheet.intro > .card:nth-child(4) { animation-delay: .18s; } .sheet.intro > .card:nth-child(n+5) { animation-delay: .24s; }
+@keyframes card-in { from { opacity: 0; transform: translateY(10px); } }
+/* price ticks */
+.wl-px.tick-up { animation: tick-up 1.4s ease-out; }
+.wl-px.tick-down { animation: tick-down 1.4s ease-out; }
+@keyframes tick-up { 0%, 25% { color: var(--ok); background: color-mix(in srgb, var(--ok) 16%, transparent); } 100% { background: transparent; } }
+@keyframes tick-down { 0%, 25% { color: var(--danger); background: color-mix(in srgb, var(--danger) 16%, transparent); } 100% { background: transparent; } }
+.wl-px { border-radius: 4px; padding: 0 .2rem; margin-right: -.2rem; }
+/* softer, consistent hover feedback */
+.btn, .chip, .wl-row, .rb-btn, .add-btn { transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease, color .15s ease, transform .12s ease; }
+.btn:active, .chip:active, .add-btn:active { transform: scale(.97); }
+@media (prefers-reduced-motion: reduce) {
+  .scroll, .viewport { scroll-behavior: auto; }
+  .sheet.intro > .card, .wl-px.tick-up, .wl-px.tick-down { animation: none; }
+  .btn:active, .chip:active, .add-btn:active { transform: none; }
+}

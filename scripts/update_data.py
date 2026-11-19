@@ -858,6 +858,7 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     data["runInfo"] = {"mode": mode, "apiCalls": http.calls, "errors": sorted(set(http.errors))}
     if mode == "full":
         data["lastFull"] = today.isoformat()
+        data["picksAt"] = now.isoformat(timespec="minutes")   # when the pick write-ups were made
     return data
 
 

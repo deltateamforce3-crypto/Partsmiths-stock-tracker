@@ -122,7 +122,17 @@
     </button>${addBtn(w.sym, 'add-btn wl-add')}</div>`).join('') || (filt === 'mine' && !q
       ? '<div class="note" style="padding:1rem;text-align:center">Your watchlist is empty.<br>Click the <b>+</b> next to any stock to add it here.</div>'
       : '<div class="note" style="padding:1rem;text-align:center">No symbols match.</div>');
+    // flash a row green/red when its price changes (live quotes or a data update)
+    for (const w of rows) {
+      const before = prevPx[w.sym];
+      if (before != null && w.px != null && w.px !== before) {
+        const el = $(`#wl .wl-row[data-s="${w.sym}"] .wl-px`);
+        if (el) el.classList.add(w.px > before ? 'tick-up' : 'tick-down');
+      }
+      if (w.px != null) prevPx[w.sym] = w.px;
+    }
   }
+  const prevPx = {};
   $('#wl').onclick = e => { const r = e.target.closest('.wl-row'); if (r) select(r.dataset.s); };
   function select(s) { sel = s; renderWL(); renderInsp(); }
 
@@ -189,6 +199,14 @@
       </li>`).join('')}</ol>`;
   }
 
+  // When the pick write-ups were written (they come from the daily full update; prices above them are live)
+  function picksAsOf() {
+    let when = '';
+    if (D.picksAt) when = new Date(D.picksAt).toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', minute: '2-digit' }) + ' ET';
+    else if (D.lastFull) when = new Date(D.lastFull + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    return when ? `<span class="asof">Write-ups from the ${esc(when)} update · prices are current</span>` : '';
+  }
+
   // sheet
   const lean = { bull: 'Bullish', bear: 'Bearish', split: 'Split', info: 'Context' };
   function renderSheet() {
@@ -211,7 +229,7 @@
     <section class="card" id="picks">
       <div class="card-head">
         <div><div class="eyebrow">Today's 3 ideas · for ${esc(D.picksFor)}</div><h2>Watchlist picks</h2></div>
-        <div class="sub">${D.mode === 'auto' ? 'Scores 0–10 come from the rule in Methodology.' : 'Scores 0–10 are Claude\'s judgment from the cited sources.'} Click a card to inspect.</div>
+        <div class="sub">${D.mode === 'auto' ? 'Scores 0–10 come from the rule in Methodology.' : 'Scores 0–10 are Claude\'s judgment from the cited sources.'} Click a card to inspect.${picksAsOf()}</div>
       </div>
       <div class="picks">
         ${D.picks.map((p, n) => { const w = bySym[p.sym]; return `
@@ -383,6 +401,11 @@ ${D.mode === 'auto' ? `
     pickSyms = D.picks.map(p => p.sym);
     if (!bySym[sel]) sel = pickSyms[0] || D.watchlist[0].sym;
     setSnap(); renderRibbon(); renderWL(); renderInsp(); renderSheet(); renderStatus();
+    if (!renderAll.done) {   // cards ease in on first load only, never on later refreshes
+      renderAll.done = true;
+      $('#sheet').classList.add('intro');
+      setTimeout(() => $('#sheet').classList.remove('intro'), 1400);
+    }
   }
 
   // Pull the committed data file again every 2 minutes (the GitHub Action updates it).
