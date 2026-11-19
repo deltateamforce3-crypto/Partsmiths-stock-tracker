@@ -118,13 +118,20 @@ $('#authForm').onsubmit = async e => {
       await A.signInWithEmailAndPassword(auth, email, pass);
     }
     authDlg.close(); $('#authPass').value = '';
+    afterAuth(state.mode === 'signup');
   } catch (err) { showErr(friendly(err)); }
   busy(false);
 };
 $('#authGoogle').onclick = async () => {
   if (!enabled) return openAuth(state.mode);
   busy(true); showErr('');
-  try { const { auth, A } = await firebase(); await A.signInWithPopup(auth, new A.GoogleAuthProvider()); authDlg.close(); }
+  try {
+    const { auth, A } = await firebase();
+    const cred = await A.signInWithPopup(auth, new A.GoogleAuthProvider());
+    const info = A.getAdditionalUserInfo ? A.getAdditionalUserInfo(cred) : null;   // first Google sign-in = a new account
+    authDlg.close();
+    afterAuth(!!(info && info.isNewUser));
+  }
   catch (err) { showErr(friendly(err)); }
   busy(false);
 };
@@ -134,6 +141,16 @@ $('#authForgot').onclick = async e => {
   try { const { auth, A } = await firebase(); await A.sendPasswordResetEmail(auth, email); showErr('If that email has an account, a reset link is on its way.', true); }
   catch (err) { showErr(friendly(err)); }
 };
+
+// After signing in: a returning member goes straight to the website. A brand-new account
+// (email sign-up, or a first-ever Google sign-in) goes to the website and starts the tour.
+function afterAuth(isNew) {
+  setTimeout(() => {
+    if (isNew && window.pmTour) { window.pmTour(); return; }   // the tour closes the welcome screen itself
+    try { localStorage.setItem('pm-tour-done', '1'); } catch (e) {}   // existing members don't get the first-visit tour
+    if (welcome.open) welcome.close();
+  }, 350);
+}
 
 // ---------------------------------------------------------------- firebase
 let fbPromise = null;
