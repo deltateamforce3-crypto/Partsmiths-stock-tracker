@@ -1,89 +1,88 @@
 {
-  "snapshot": "2026-11-19T15:05:10-05:00",
+  "snapshot": "2026-11-19T16:05:21-05:00",
   "session": "Thu 19 Nov 2026",
   "picksFor": "Fri 20 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily",
-  "headline": "S&P 500 (SPY) −1.93% · Dow −2.15% · Nasdaq-100 −2.20%",
-  "summary": "6 of 30 watchlist stocks are higher. Best: ANT +15.20%. Worst: VCX −22.06%. Most-discussed on Reddit: NVDA (939 mentions). CNN's Fear & Greed Index reads 20 (Extreme Fear).",
+  "headline": "S&P 500 (SPY) −1.96% · Dow −2.18% · Nasdaq-100 −2.19%",
+  "summary": "6 of 30 watchlist stocks are higher. Best: ANT +17.07%. Worst: VCX −19.62%. CNN's Fear & Greed Index reads 19 (Extreme Fear).",
   "summarySrc": [
     "finnhub",
-    "apewisdom",
     "cnn-fg"
   ],
   "indices": [
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "last": 716.09,
-      "chg": -14.11,
-      "pct": -1.93,
+      "last": 715.87,
+      "chg": -14.33,
+      "pct": -1.96,
       "src": "finnhub"
     },
     {
       "sym": "DIA",
       "name": "Dow (DIA)",
-      "last": 490.96,
-      "chg": -10.77,
-      "pct": -2.15,
+      "last": 490.79,
+      "chg": -10.94,
+      "pct": -2.18,
       "src": "finnhub"
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "last": 645.01,
-      "chg": -14.5,
-      "pct": -2.2,
+      "last": 645.04,
+      "chg": -14.47,
+      "pct": -2.19,
       "src": "finnhub"
     },
     {
       "sym": "IWM",
       "name": "Russell 2000 (IWM)",
-      "last": 264.43,
-      "chg": -5.69,
-      "pct": -2.11,
+      "last": 264.2,
+      "chg": -5.92,
+      "pct": -2.19,
       "src": "finnhub"
     }
   ],
   "macro": [
     {
       "k": "Long Treasuries (TLT)",
-      "v": "$80.42",
-      "d": "+$0.20 · +0.25%",
+      "v": "$80.35",
+      "d": "+$0.13 · +0.16%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "4:05 PM"
     },
     {
       "k": "US dollar (UUP)",
-      "v": "$29.66",
-      "d": "+$0.04 · +0.14%",
+      "v": "$29.63",
+      "d": "+$0.01 · +0.03%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "4:05 PM"
     },
     {
       "k": "Oil (USO)",
-      "v": "$137.68",
-      "d": "+$1.57 · +1.15%",
+      "v": "$138.09",
+      "d": "+$1.98 · +1.45%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "4:05 PM"
     },
     {
       "k": "Gold (GLD)",
-      "v": "$335.73",
-      "d": "−$5.46 · −1.60%",
+      "v": "$335.18",
+      "d": "−$6.01 · −1.76%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "4:05 PM"
     },
     {
       "k": "Bitcoin (IBIT)",
-      "v": "$35.15",
-      "d": "−$0.21 · −0.59%",
+      "v": "$35.08",
+      "d": "−$0.28 · −0.79%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "4:05 PM"
     }
   ],
   "history": {
@@ -98,7 +97,7 @@
         "name": "S&P 500 (SPY)",
         "values": [
           730.2,
-          716.09
+          715.87
         ]
       },
       {
@@ -106,7 +105,7 @@
         "name": "Dow (DIA)",
         "values": [
           501.64,
-          490.96
+          490.79
         ]
       },
       {
@@ -114,7 +113,7 @@
         "name": "Nasdaq-100 (QQQ)",
         "values": [
           659.51,
-          645.01
+          645.04
         ]
       }
     ],
@@ -126,13 +125,12 @@
     {
       "sym": "NVDA",
       "name": "NVIDIA Corporation",
-      "px": 147.07,
-      "pct": -2.58,
-      "chg": -3.89,
+      "px": 145.98,
+      "pct": -3.3,
+      "chg": -4.98,
       "tags": [
         "ai",
-        "mega",
-        "social"
+        "mega"
       ],
       "src": "finnhub",
       "note": "Anthropic's $81 billion IPO puts AI valuations to the test",
@@ -142,11 +140,11 @@
       "facts": [
         [
           "Open",
-          "$153.09"
+          "$152.91"
         ],
         [
           "Day range",
-          "$146.67 – $158.13"
+          "$145.71 – $158.13"
         ],
         [
           "Prev. close",
@@ -159,23 +157,18 @@
         [
           "Mkt cap",
           "$3.68T"
-        ],
-        [
-          "Reddit 24h",
-          "#1 · 939 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "AVGO",
       "name": "Broadcom Inc",
-      "px": 345.89,
-      "pct": -2.3,
-      "chg": -8.16,
+      "px": 346.65,
+      "pct": -2.09,
+      "chg": -7.4,
       "tags": [
         "ai",
         "mega"
@@ -188,7 +181,7 @@
       "facts": [
         [
           "Open",
-          "$362.64"
+          "$362.94"
         ],
         [
           "Day range",
@@ -205,26 +198,20 @@
         [
           "Mkt cap",
           "$1.70T"
-        ],
-        [
-          "Reddit 24h",
-          "#59 · 11 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "AMD",
       "name": "Advanced Micro Devices, Inc.",
-      "px": 480.36,
-      "pct": -9.39,
-      "chg": -49.78,
+      "px": 489.19,
+      "pct": -7.72,
+      "chg": -40.95,
       "tags": [
-        "ai",
-        "social"
+        "ai"
       ],
       "src": "finnhub",
       "note": "AMD Is Actually Cheap With Projected Earnings Now Costing Less Than 50 Cents on The Dollar",
@@ -234,7 +221,7 @@
       "facts": [
         [
           "Open",
-          "$543.51"
+          "$542.17"
         ],
         [
           "Day range",
@@ -251,27 +238,21 @@
         [
           "Mkt cap",
           "$807.9B"
-        ],
-        [
-          "Reddit 24h",
-          "#3 · 494 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "MSFT",
       "name": "Microsoft Corporation",
-      "px": 499.48,
-      "pct": -1.73,
-      "chg": -8.81,
+      "px": 498.3,
+      "pct": -1.97,
+      "chg": -9.99,
       "tags": [
         "ai",
-        "mega",
-        "social"
+        "mega"
       ],
       "src": "finnhub",
       "note": "Bill Ackman's Microsoft Bet Has More at Stake Than It Seems",
@@ -281,11 +262,11 @@
       "facts": [
         [
           "Open",
-          "$517.25"
+          "$519.50"
         ],
         [
           "Day range",
-          "$498.92 – $526.49"
+          "$498.16 – $526.49"
         ],
         [
           "Prev. close",
@@ -298,23 +279,18 @@
         [
           "Mkt cap",
           "$3.85T"
-        ],
-        [
-          "Reddit 24h",
-          "#20 · 42 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "px": 348.8,
-      "pct": -1.04,
-      "chg": -3.65,
+      "px": 349.21,
+      "pct": -0.92,
+      "chg": -3.24,
       "tags": [
         "mega"
       ],
@@ -326,7 +302,7 @@
       "facts": [
         [
           "Open",
-          "$353.39"
+          "$352.91"
         ],
         [
           "Day range",
@@ -343,26 +319,20 @@
         [
           "Mkt cap",
           "$5.08T"
-        ],
-        [
-          "Reddit 24h",
-          "#41 · 19 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "AMZN",
       "name": "Amazon.com Inc",
-      "px": 257.1,
-      "pct": -3.97,
-      "chg": -10.64,
+      "px": 257.37,
+      "pct": -3.87,
+      "chg": -10.37,
       "tags": [
-        "mega",
-        "social"
+        "mega"
       ],
       "src": "finnhub",
       "note": "Anthropic's Record IPO Sets Up a $1.5 Trillion Test for Claude",
@@ -372,7 +342,7 @@
       "facts": [
         [
           "Open",
-          "$272.85"
+          "$272.56"
         ],
         [
           "Day range",
@@ -389,27 +359,21 @@
         [
           "Mkt cap",
           "$2.91T"
-        ],
-        [
-          "Reddit 24h",
-          "#11 · 69 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "GOOG",
       "name": "Alphabet Inc.",
-      "px": 272.59,
-      "pct": -2.37,
-      "chg": -6.61,
+      "px": 271.02,
+      "pct": -2.93,
+      "chg": -8.18,
       "tags": [
         "ai",
-        "mega",
-        "social"
+        "mega"
       ],
       "src": "finnhub",
       "note": "Is Snap Stock Ready For Shrinking Ad Sales?",
@@ -419,11 +383,11 @@
       "facts": [
         [
           "Open",
-          "$288.65"
+          "$290.82"
         ],
         [
           "Day range",
-          "$272.45 – $292.21"
+          "$270.72 – $292.21"
         ],
         [
           "Prev. close",
@@ -436,23 +400,18 @@
         [
           "Mkt cap",
           "$3.57T"
-        ],
-        [
-          "Reddit 24h",
-          "#7 · 102 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "META",
       "name": "Meta Platforms, Inc.",
-      "px": 599.2,
-      "pct": -2.79,
-      "chg": -17.18,
+      "px": 596.22,
+      "pct": -3.27,
+      "chg": -20.16,
       "tags": [
         "ai",
         "mega"
@@ -465,11 +424,11 @@
       "facts": [
         [
           "Open",
-          "$624.02"
+          "$624.66"
         ],
         [
           "Day range",
-          "$598.03 – $630.06"
+          "$595.78 – $630.06"
         ],
         [
           "Prev. close",
@@ -482,23 +441,18 @@
         [
           "Mkt cap",
           "$1.58T"
-        ],
-        [
-          "Reddit 24h",
-          "#35 · 23 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "TSLA",
       "name": "Tesla Inc",
-      "px": 374.79,
-      "pct": -2.33,
-      "chg": -8.93,
+      "px": 374.41,
+      "pct": -2.43,
+      "chg": -9.31,
       "tags": [
         "mega"
       ],
@@ -510,7 +464,7 @@
       "facts": [
         [
           "Open",
-          "$389.32"
+          "$389.90"
         ],
         [
           "Day range",
@@ -527,23 +481,18 @@
         [
           "Mkt cap",
           "$1.50T"
-        ],
-        [
-          "Reddit 24h",
-          "#32 · 25 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "DIS",
       "name": "The Walt Disney Company",
-      "px": 120.16,
-      "pct": -1.8,
-      "chg": -2.2,
+      "px": 120.25,
+      "pct": -1.72,
+      "chg": -2.11,
       "tags": [],
       "src": "finnhub",
       "note": "Disney (DIS) Stock Looks Fully Priced Following Q4 Earnings Beat",
@@ -553,11 +502,11 @@
       "facts": [
         [
           "Open",
-          "$122.16"
+          "$121.97"
         ],
         [
           "Day range",
-          "$120.07 – $122.30"
+          "$119.98 – $122.30"
         ],
         [
           "Prev. close",
@@ -579,9 +528,9 @@
     {
       "sym": "PLTR",
       "name": "Palantir Technologies Inc.",
-      "px": 153.98,
-      "pct": -1.72,
-      "chg": -2.69,
+      "px": 153.68,
+      "pct": -1.91,
+      "chg": -2.99,
       "tags": [
         "ai"
       ],
@@ -593,11 +542,11 @@
       "facts": [
         [
           "Open",
-          "$160.77"
+          "$160.63"
         ],
         [
           "Day range",
-          "$153.75 – $167.13"
+          "$153.20 – $167.13"
         ],
         [
           "Prev. close",
@@ -610,23 +559,18 @@
         [
           "Mkt cap",
           "$387.3B"
-        ],
-        [
-          "Reddit 24h",
-          "#63 · 11 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "INTC",
       "name": "Intel Corp",
-      "px": 55.55,
-      "pct": 1.61,
-      "chg": 0.88,
+      "px": 55.72,
+      "pct": 1.92,
+      "chg": 1.05,
       "tags": [
         "ai"
       ],
@@ -638,11 +582,11 @@
       "facts": [
         [
           "Open",
-          "$57.15"
+          "$57.50"
         ],
         [
           "Day range",
-          "$54.85 – $59.45"
+          "$54.85 – $59.44"
         ],
         [
           "Prev. close",
@@ -655,23 +599,18 @@
         [
           "Mkt cap",
           "$301.1B"
-        ],
-        [
-          "Reddit 24h",
-          "#31 · 26 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "JPM",
       "name": "JPMorgan Chase & Co.",
-      "px": 320.08,
-      "pct": -1.24,
-      "chg": -4.03,
+      "px": 320.22,
+      "pct": -1.2,
+      "chg": -3.89,
       "tags": [
         "mega"
       ],
@@ -700,23 +639,18 @@
         [
           "Mkt cap",
           "$857.5B"
-        ],
-        [
-          "Reddit 24h",
-          "#46 · 16 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "WMT",
       "name": "Walmart Inc.",
-      "px": 125.99,
-      "pct": -1.08,
-      "chg": -1.37,
+      "px": 126.04,
+      "pct": -1.04,
+      "chg": -1.32,
       "tags": [
         "mega"
       ],
@@ -728,7 +662,7 @@
       "facts": [
         [
           "Open",
-          "$125.33"
+          "$123.64"
         ],
         [
           "Day range",
@@ -745,23 +679,18 @@
         [
           "Mkt cap",
           "$979.9B"
-        ],
-        [
-          "Reddit 24h",
-          "#38 · 20 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "PANW",
       "name": "Palo Alto Networks, Inc.",
-      "px": 357.62,
-      "pct": 5.21,
-      "chg": 17.7,
+      "px": 361.81,
+      "pct": 6.44,
+      "chg": 21.89,
       "tags": [
         "social"
       ],
@@ -773,7 +702,7 @@
       "facts": [
         [
           "Open",
-          "$363.90"
+          "$355.81"
         ],
         [
           "Day range",
@@ -790,23 +719,18 @@
         [
           "Mkt cap",
           "$288.5B"
-        ],
-        [
-          "Reddit 24h",
-          "#12 · 58 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "BABA",
       "name": "Alibaba Group Holding Limited",
-      "px": 84.02,
-      "pct": -0.41,
-      "chg": -0.35,
+      "px": 83.31,
+      "pct": -1.26,
+      "chg": -1.06,
       "tags": [
         "social"
       ],
@@ -818,11 +742,11 @@
       "facts": [
         [
           "Open",
-          "$83.05"
+          "$83.40"
         ],
         [
           "Day range",
-          "$83.05 – $88.20"
+          "$83.25 – $88.20"
         ],
         [
           "Prev. close",
@@ -835,23 +759,18 @@
         [
           "Mkt cap",
           "$216.2B"
-        ],
-        [
-          "Reddit 24h",
-          "#60 · 11 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "px": 716.09,
-      "pct": -1.93,
-      "chg": -14.11,
+      "px": 715.87,
+      "pct": -1.96,
+      "chg": -14.33,
       "tags": [
         "social",
         "etf"
@@ -860,11 +779,11 @@
       "facts": [
         [
           "Open",
-          "$737.98"
+          "$737.46"
         ],
         [
           "Day range",
-          "$715.86 – $739.90"
+          "$715.65 – $739.90"
         ],
         [
           "Prev. close",
@@ -873,23 +792,18 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#2 · 517 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "px": 645.01,
-      "pct": -2.2,
-      "chg": -14.5,
+      "px": 645.04,
+      "pct": -2.19,
+      "chg": -14.47,
       "tags": [
         "social",
         "etf"
@@ -898,11 +812,11 @@
       "facts": [
         [
           "Open",
-          "$671.59"
+          "$671.09"
         ],
         [
           "Day range",
-          "$644.65 – $676.49"
+          "$644.34 – $676.49"
         ],
         [
           "Prev. close",
@@ -911,23 +825,18 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#4 · 286 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies Corp",
-      "px": 136.99,
-      "pct": -4.54,
-      "chg": -6.51,
+      "px": 138.43,
+      "pct": -3.53,
+      "chg": -5.07,
       "tags": [
         "social"
       ],
@@ -939,7 +848,7 @@
       "facts": [
         [
           "Open",
-          "$145.83"
+          "$144.91"
         ],
         [
           "Day range",
@@ -956,23 +865,18 @@
         [
           "Mkt cap",
           "$1.90T"
-        ],
-        [
-          "Reddit 24h",
-          "#5 · 166 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "MU",
       "name": "Micron Technology, Inc.",
-      "px": 692.65,
-      "pct": -1.79,
-      "chg": -12.62,
+      "px": 690.44,
+      "pct": -2.1,
+      "chg": -14.83,
       "tags": [
         "social"
       ],
@@ -984,11 +888,11 @@
       "facts": [
         [
           "Open",
-          "$736.66"
+          "$740.33"
         ],
         [
           "Day range",
-          "$691.72 – $760.01"
+          "$689.28 – $760.01"
         ],
         [
           "Prev. close",
@@ -1001,23 +905,18 @@
         [
           "Mkt cap",
           "$813.9B"
-        ],
-        [
-          "Reddit 24h",
-          "#6 · 118 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "VOO",
       "name": "Vanguard S&amp;P 500 ETF",
-      "px": 658.53,
-      "pct": -1.9,
-      "chg": -12.78,
+      "px": 657.95,
+      "pct": -1.99,
+      "chg": -13.36,
       "tags": [
         "social",
         "etf"
@@ -1026,11 +925,11 @@
       "facts": [
         [
           "Open",
-          "$678.37"
+          "$677.94"
         ],
         [
           "Day range",
-          "$658.01 – $680.14"
+          "$657.80 – $680.14"
         ],
         [
           "Prev. close",
@@ -1039,15 +938,10 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#8 · 91 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
@@ -1077,23 +971,18 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#43 · 17 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "TTWO",
       "name": "Take-Two Interactive Software, Inc.",
-      "px": 212.05,
-      "pct": -2.11,
-      "chg": -4.56,
+      "px": 208.65,
+      "pct": -3.67,
+      "chg": -7.96,
       "tags": [
         "social"
       ],
@@ -1105,11 +994,11 @@
       "facts": [
         [
           "Open",
-          "$217.43"
+          "$214.73"
         ],
         [
           "Day range",
-          "$208.59 – $225.69"
+          "$208.20 – $225.69"
         ],
         [
           "Prev. close",
@@ -1122,23 +1011,18 @@
         [
           "Mkt cap",
           "$42.0B"
-        ],
-        [
-          "Reddit 24h",
-          "#23 · 36 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "NBIS",
       "name": "Nebius Group NV",
-      "px": 97.87,
-      "pct": -8.5,
-      "chg": -9.09,
+      "px": 96.92,
+      "pct": -9.39,
+      "chg": -10.04,
       "tags": [
         "social"
       ],
@@ -1150,11 +1034,11 @@
       "facts": [
         [
           "Open",
-          "$111.54"
+          "$111.59"
         ],
         [
           "Day range",
-          "$97.72 – $115.19"
+          "$96.54 – $115.18"
         ],
         [
           "Prev. close",
@@ -1167,23 +1051,18 @@
         [
           "Mkt cap",
           "$30.9B"
-        ],
-        [
-          "Reddit 24h",
-          "#9 · 85 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "ANT",
       "name": "Anthropic, PBC",
-      "px": 95.62,
-      "pct": 15.2,
-      "chg": 12.62,
+      "px": 97.17,
+      "pct": 17.07,
+      "chg": 14.17,
       "tags": [
         "social"
       ],
@@ -1195,11 +1074,11 @@
       "facts": [
         [
           "Open",
-          "$111.51"
+          "$111.50"
         ],
         [
           "Day range",
-          "$92.72 – $115.11"
+          "$92.72 – $115.10"
         ],
         [
           "Prev. close",
@@ -1221,9 +1100,9 @@
     {
       "sym": "CAPR",
       "name": "Capricor Therapeutics, Inc.",
-      "px": 7.6,
-      "pct": -5.35,
-      "chg": -0.43,
+      "px": 7.53,
+      "pct": -6.23,
+      "chg": -0.5,
       "tags": [
         "social"
       ],
@@ -1231,11 +1110,11 @@
       "facts": [
         [
           "Open",
-          "$8.12"
+          "$8.04"
         ],
         [
           "Day range",
-          "$7.38 – $9.13"
+          "$7.38 – $9.12"
         ],
         [
           "Prev. close",
@@ -1257,9 +1136,9 @@
     {
       "sym": "IREN",
       "name": "IREN Limited",
-      "px": 14.42,
-      "pct": -5.38,
-      "chg": -0.82,
+      "px": 14.41,
+      "pct": -5.45,
+      "chg": -0.83,
       "tags": [
         "social"
       ],
@@ -1271,11 +1150,11 @@
       "facts": [
         [
           "Open",
-          "$15.93"
+          "$15.97"
         ],
         [
           "Day range",
-          "$14.18 – $16.67"
+          "$14.18 – $16.66"
         ],
         [
           "Prev. close",
@@ -1288,23 +1167,18 @@
         [
           "Mkt cap",
           "$6.4B"
-        ],
-        [
-          "Reddit 24h",
-          "#40 · 20 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "GME",
       "name": "GameStop Corp.",
-      "px": 27.12,
-      "pct": 2.22,
-      "chg": 0.59,
+      "px": 26.93,
+      "pct": 1.51,
+      "chg": 0.4,
       "tags": [
         "social"
       ],
@@ -1316,7 +1190,7 @@
       "facts": [
         [
           "Open",
-          "$26.53"
+          "$26.50"
         ],
         [
           "Day range",
@@ -1333,23 +1207,18 @@
         [
           "Mkt cap",
           "$13.3B"
-        ],
-        [
-          "Reddit 24h",
-          "#14 · 49 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
       "sym": "SVRA",
       "name": "Savara Inc.",
-      "px": 5.2,
-      "pct": 10.17,
-      "chg": 0.48,
+      "px": 5.21,
+      "pct": 10.38,
+      "chg": 0.49,
       "tags": [
         "social"
       ],
@@ -1357,11 +1226,11 @@
       "facts": [
         [
           "Open",
-          "$4.83"
+          "$4.81"
         ],
         [
           "Day range",
-          "$4.73 – $5.35"
+          "$4.73 – $5.34"
         ],
         [
           "Prev. close",
@@ -1383,9 +1252,9 @@
     {
       "sym": "VCX",
       "name": "Fundrise Innovation Fund LLC",
-      "px": 16.96,
-      "pct": -22.06,
-      "chg": -4.8,
+      "px": 17.49,
+      "pct": -19.62,
+      "chg": -4.27,
       "tags": [
         "social"
       ],
@@ -1393,11 +1262,11 @@
       "facts": [
         [
           "Open",
-          "$21.68"
+          "$21.23"
         ],
         [
           "Day range",
-          "$16.78 – $21.68"
+          "$16.78 – $21.64"
         ],
         [
           "Prev. close",
@@ -1634,18 +1503,6 @@
       "name": "Yahoo — Alibaba AI Cloud Revenue Surges 53% as Quarterly Earnings Miss Analyst Forecasts",
       "url": "https://finnhub.io/api/news?id=a669b9712fad39981e128dddb77362bde75b67a45752a0afbdac7c63d22f9653"
     },
-    "reddit-wallstreetbets": {
-      "name": "ApeWisdom — r/wallstreetbets ticker mentions",
-      "url": "https://apewisdom.io/wallstreetbets/"
-    },
-    "reddit-stocks": {
-      "name": "ApeWisdom — r/stocks ticker mentions",
-      "url": "https://apewisdom.io/stocks/"
-    },
-    "reddit-investing": {
-      "name": "ApeWisdom — r/investing ticker mentions",
-      "url": "https://apewisdom.io/investing/"
-    },
     "news-mkt-8780155": {
       "name": "Reuters — West presses Iran at IAEA to let inspections resume at bombed nuclear sites - Reuters",
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNX1BENXJsTm9KVlRxVjk0SENfVmszM1ZXVFpjQzJZcVRneVFiR210MTNseE0yUlJqWmRObE9ndjlKQkZUVFJqd0Joc3hFLWNhcW5KQ0ZKZWdBWDZ5Q1BCNWFQcDdBN1N5MDllSGNNYjdOUG1IaG5BNjB2S3hPMHRTSGpDM2phXzkzSUF6TkJtMktQRWpodkdiRVVSM0FJZ0lDOVRLZk5Dby1SdXV1elBEaW5GM0k?oc=5"
@@ -1737,19 +1594,19 @@
   },
   "mode": "auto",
   "runInfo": {
-    "mode": "full",
-    "apiCalls": 188,
+    "mode": "quotes",
+    "apiCalls": 38,
     "errors": []
   },
   "lastFull": "2026-11-19",
   "fearGreed": {
-    "score": 20,
+    "score": 19,
     "rating": "Extreme Fear",
     "prevClose": 25,
     "week": 40,
     "month": 20,
     "year": 8,
-    "asOf": "2026-11-19T20:02:54+00:00"
+    "asOf": "2026-11-19T20:59:59+00:00"
   },
   "crowdSyms": [
     "SPY",
