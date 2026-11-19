@@ -1826,5 +1826,51 @@
     "PANW": "Palo Alto Networks, Inc.",
     "SLS": "Sellas Life Sciences Group Inc",
     "CAPR": "Capricor Therapeutics, Inc."
-  }
+  },
+  "stories": [
+    {
+      "title": "‘I’ve been a stay-at-home mom’: I’m 50 and have a chronic illness. My husband lost his job. Should he raid his 401(k)?",
+      "url": "https://www.marketwatch.com/story/ive-been-a-stay-at-home-mom-im-50-and-have-a-chronic-illness-my-husband-lost-his-job-should-he-raid-his-401-k-63e59123?mod=mw_rss_topstories",
+      "summary": "“Our financial and healthcare situation has become increasingly concerning.”",
+      "outlet": "MarketWatch",
+      "time": "Wed 10:30 PM ET"
+    },
+    {
+      "title": "Palo Alto Networks’ stock gets a fresh AI-fueled boost from earnings",
+      "url": "https://www.marketwatch.com/story/palo-alto-networks-stock-soars-as-earnings-show-ai-has-upped-the-stakes-for-cybersecurity-308e34b8?mod=mw_rss_topstories",
+      "summary": "The company boosts its outlook in the face of the “current threat environment and demand we see ahead of us.”",
+      "outlet": "MarketWatch",
+      "time": "Wed 8:02 PM ET"
+    },
+    {
+      "title": "Big bets against AI debt, from CoreWeave to Oracle and the Mag 7, could soon hit the ETF market",
+      "url": "https://www.cnbc.com/2026/11/18/ai-credit-default-swaps-coreweave-debt.html",
+      "summary": "Investor fears about AI balance sheets and debt are running high, especially for neoclouds. ETFs targeting the credit default swaps of AI issuers are coming.",
+      "outlet": "CNBC",
+      "time": "Wed 6:38 PM ET"
+    },
+    {
+      "title": "Nasdaq Finds a Path Higher Ahead of Anthropic IPO: Stock Market Today",
+      "url": "https://www.kiplinger.com/investing/stocks/nasdaq-finds-a-path-higher-ahead-of-anthropic-ipo-stock-market-today",
+      "summary": "Investors, traders and speculators continue to assess and reassess AI's potential against a backdrop of higher interest rates.",
+      "outlet": "Kiplinger",
+      "time": "Wed 4:11 PM ET"
+    },
+    {
+      "title": "How to get Anthropic stock — without buying the IPO",
+      "url": "https://www.cnbc.com/2026/11/18/anthropic-ipo-stock-ai.html",
+      "summary": "Investors will get access to the AI startup's stock offering courtesy of its inclusion in many mutual funds and ETFs.",
+      "outlet": "CNBC",
+      "time": "Wed 2:37 PM ET"
+    },
+    {
+      "title": "Can Google win the AI race without killing its cash cow?",
+      "url": "https://www.npr.org/sections/planet-money/2026/11/17/g-s1-153933/can-google-win-the-ai-race-without-killing-its-cash-cow",
+      "summary": "In late October, Google had the worst stock day in its history as a public company. The Planet Money newsletter asks: has Google been caught in \"the innovator's dilemma\"?",
+      "outlet": "NPR",
+      "time": "Tue 6:30 AM ET"
+    }
+  ],
+  "storiesDate": "Wed 18 Nov 2026",
+  "lastStories": "2026-11-18"
 }
