@@ -13,8 +13,18 @@ const cacheKey = uid => 'pm-hide-welcome-' + uid;
 
 // ---------------------------------------------------------------- welcome screen
 function openWelcome() { if (!welcome.open) welcome.showModal(); renderAccount(); }
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+// Fade and ease the Home screen away instead of cutting to the website.
+function leaveWelcome(done) {
+  if (!welcome.open) { if (done) done(); return; }
+  if (reduceMotion.matches) { welcome.close(); if (done) done(); return; }
+  welcome.classList.add('leaving');
+  setTimeout(() => { welcome.close(); welcome.classList.remove('leaving'); if (done) done(); }, 380);
+}
 function closeWelcome(go) {
-  welcome.close();
+  leaveWelcome(() => afterLeave(go));
+}
+function afterLeave(go) {
   if (go === 'watchlist') {
     const side = $('.sidebar-left'); side.classList.remove('flash'); void side.offsetWidth; side.classList.add('flash');
     const add = $('.wl-add'); if (add) add.focus();
@@ -118,7 +128,7 @@ $('#authForm').onsubmit = async e => {
       await A.signInWithEmailAndPassword(auth, email, pass);
     }
     authDlg.close(); $('#authPass').value = '';
-    afterAuth(state.mode === 'signup');
+    afterAuth(state.mode === 'signup', auth.currentUser);
   } catch (err) { showErr(friendly(err)); }
   busy(false);
 };
@@ -130,7 +140,7 @@ $('#authGoogle').onclick = async () => {
     const cred = await A.signInWithPopup(auth, new A.GoogleAuthProvider());
     const info = A.getAdditionalUserInfo ? A.getAdditionalUserInfo(cred) : null;   // first Google sign-in = a new account
     authDlg.close();
-    afterAuth(!!(info && info.isNewUser));
+    afterAuth(!!(info && info.isNewUser), cred.user);
   }
   catch (err) { showErr(friendly(err)); }
   busy(false);
@@ -144,12 +154,29 @@ $('#authForgot').onclick = async e => {
 
 // After signing in: a returning member goes straight to the website. A brand-new account
 // (email sign-up, or a first-ever Google sign-in) goes to the website and starts the tour.
-function afterAuth(isNew) {
-  setTimeout(() => {
-    if (isNew && window.pmTour) { window.pmTour(); return; }   // the tour closes the welcome screen itself
-    try { localStorage.setItem('pm-tour-done', '1'); } catch (e) {}   // existing members don't get the first-visit tour
-    if (welcome.open) welcome.close();
-  }, 350);
+function afterAuth(isNew, user) {
+  if (!isNew) { try { localStorage.setItem('pm-tour-done', '1'); } catch (e) {} }   // existing members don't get the first-visit tour
+  const u = user || state.user || {};
+  const who = (u.displayName || '').split(' ')[0] || (u.email || '').split('@')[0] || '';
+  loginSplash(isNew ? `Welcome${who ? ', ' + who : ''}` : `Welcome back${who ? ', ' + who : ''}`, () => {
+    if (isNew && window.pmTour) window.pmTour();
+  });
+}
+
+// Login transition: a glowing black Vercel-style triangle on a dark screen. The Home screen is
+// closed behind it while the screen is covered, so it never flashes, then the splash fades to the site.
+function loginSplash(text, then) {
+  const sp = document.createElement('dialog');
+  sp.className = 'splash'; sp.setAttribute('aria-label', text);
+  sp.innerHTML = '<div class="splash-tri" aria-hidden="true"><i></i></div><div class="splash-text"></div>';
+  sp.querySelector('.splash-text').textContent = text;
+  sp.addEventListener('cancel', e => e.preventDefault());
+  document.body.appendChild(sp);
+  sp.showModal();                                   // top layer: above the Home screen
+  const quick = reduceMotion.matches;
+  setTimeout(() => { if (welcome.open) welcome.close(); }, quick ? 0 : 450);
+  setTimeout(() => sp.classList.add('out'), quick ? 500 : 1700);
+  setTimeout(() => { sp.close(); sp.remove(); if (then) then(); }, quick ? 700 : 2250);
 }
 
 // ---------------------------------------------------------------- firebase

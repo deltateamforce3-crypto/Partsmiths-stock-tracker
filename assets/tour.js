@@ -165,7 +165,8 @@ let seen = false; try { seen = localStorage.getItem(DONE) === '1'; } catch (e) {
 if (!seen && welcome) {
   let armed = true;
   const doneNow = () => { try { return localStorage.getItem(DONE) === '1'; } catch (e) { return false; } };   // e.g. set by logging in
-  const go = () => { if (!armed || active || welcome.open || doneNow()) return; armed = false; setTimeout(() => { if (!welcome.open && !active && !doneNow()) start(); }, 600); };
+  const splashing = () => !!document.querySelector('dialog.splash[open]');   // the login triangle starts the tour itself
+  const go = () => { if (!armed || active || welcome.open || doneNow() || splashing()) return; armed = false; setTimeout(() => { if (!welcome.open && !active && !doneNow() && !splashing()) start(); }, 600); };
   new MutationObserver(() => { if (!welcome.open) go(); }).observe(welcome, { attributes: true, attributeFilter: ['open'] });
   setTimeout(() => { if (!welcome.open) go(); }, 3200);
 }

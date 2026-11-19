@@ -653,3 +653,32 @@ body, .appbar, .ribbon, .sidebar, .card, .pick, .status, .btn, .chip, .wl-row, .
   .appbar-right { margin-left: auto; flex-wrap: wrap; justify-content: flex-end; row-gap: .35rem; }
   .app { grid-template-rows: auto auto auto auto auto; }
 }
+
+/* Home screen eases away into the website */
+dialog.welcome.leaving { animation: wc-leave .38s cubic-bezier(.4, 0, .2, 1) forwards; }
+@keyframes wc-leave { to { opacity: 0; transform: scale(1.025); filter: blur(2px); } }
+
+/* login splash: glowing black Vercel-style triangle */
+dialog.splash { position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0;
+  display: none; place-items: center; align-content: center; gap: 1.6rem; color: #e8f6ff;
+  background: radial-gradient(60% 55% at 50% 45%, #0c1730 0%, #050811 62%, #020306 100%); }
+dialog.splash[open] { display: grid; animation: splash-in .35s ease-out; }
+dialog.splash::backdrop { background: transparent; }
+dialog.splash.out { animation: splash-out .55s ease-in forwards; }
+.splash-tri { position: relative; width: min(30vmin, 220px); aspect-ratio: 1 / .866; animation: tri-in .7s cubic-bezier(.2, .9, .25, 1.15) both, tri-glow 1.6s ease-in-out .5s infinite alternate;
+  filter: drop-shadow(0 0 14px rgba(34, 211, 238, .75)) drop-shadow(0 0 46px rgba(91, 124, 240, .5)); }
+.splash-tri::before { content: ''; position: absolute; inset: 0; clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: linear-gradient(160deg, #e9fbff 0%, #22d3ee 45%, #5b7cf0 100%); }   /* the glowing rim */
+.splash-tri i { position: absolute; inset: 3.2% 3.6% 2% 3.6%; clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: linear-gradient(180deg, #11141b 0%, #000 70%); }                    /* the black triangle */
+.splash-text { font-family: var(--font-tech); font-weight: 600; font-size: clamp(1.2rem, 2.6vw, 1.7rem); letter-spacing: .04em;
+  text-shadow: 0 0 14px rgba(34, 211, 238, .45); animation: splash-text .6s ease-out .35s both; }
+@keyframes splash-in { from { opacity: 0; } }
+@keyframes splash-out { to { opacity: 0; transform: scale(1.04); } }
+@keyframes tri-in { from { opacity: 0; transform: translateY(18px) scale(.7); } }
+@keyframes tri-glow { to { filter: drop-shadow(0 0 22px rgba(34, 211, 238, .95)) drop-shadow(0 0 70px rgba(91, 124, 240, .7)); } }
+@keyframes splash-text { from { opacity: 0; transform: translateY(8px); } }
+@media (prefers-reduced-motion: reduce) { dialog.splash[open], dialog.splash.out, .splash-tri, .splash-text, dialog.welcome.leaving { animation: none; } }
+dialog.splash[open] { animation: none; }   /* cover the screen instantly so the Home screen never peeks through */
+dialog.splash[open].out { animation: splash-out .55s ease-in forwards; }
+@media (prefers-reduced-motion: reduce) { dialog.splash[open].out { animation: none; } }
