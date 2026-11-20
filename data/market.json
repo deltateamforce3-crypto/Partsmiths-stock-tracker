@@ -1642,49 +1642,49 @@
   },
   "stories": [
     {
+      "title": "Cathie Wood's ARK Invest was a big buyer of Anthropic during debut",
+      "url": "https://www.cnbc.com/2026/11/20/cathie-woods-ark-invest-was-a-big-buyer-of-anthropic-during-debut.html",
+      "summary": "Wood's firm bought $90.8 million worth of Anthropic in six funds, according to a trade notification from the firm.",
+      "outlet": "CNBC",
+      "time": "Fri 7:02 AM ET"
+    },
+    {
+      "title": "‘Nvidia’s turmoil has me spooked’: Should I sell my stocks and buy real estate — or ride out the storm?",
+      "url": "https://www.marketwatch.com/story/nvidia-spooked-me-should-i-sell-my-stocks-or-ride-out-the-market-turmoil-560583c6?mod=mw_rss_topstories",
+      "summary": "Tempted to ditch stocks for property or CDs? Take a deep breath before making any sudden moves.",
+      "outlet": "MarketWatch",
+      "time": "Fri 7:00 AM ET"
+    },
+    {
+      "title": "How AI Valuations’ Mismatch Impact Your Portfolio",
+      "url": "https://www.kiplinger.com/investing/tech-stocks/ai-valuations-dont-add-up",
+      "summary": "Enterprises don't refresh their tech stack every six weeks, but AI valuations assume they do — and that mismatch could cause trouble for investors.",
+      "outlet": "Kiplinger",
+      "time": "Fri 7:00 AM ET"
+    },
+    {
+      "title": "Citi warns a key stock-market signal is close to flashing red",
+      "url": "https://www.marketwatch.com/story/citi-warns-a-key-stock-market-signal-is-close-to-flashing-red-5cbee1c3?mod=mw_rss_topstories",
+      "summary": "Having turned risk averse more than a month ago, Citi strategists find no compelling reason to go more positive risk assets yet, despite the steep decline. If sentiment deteriorates further, buying long-duration bonds…",
+      "outlet": "MarketWatch",
+      "time": "Fri 6:45 AM ET"
+    },
+    {
+      "title": "Stocks Often Prosper After an Abrupt C.E.O. Exit. Is Nvidia Different?",
+      "url": "https://www.nytimes.com/2026/11/20/business/nvidia-ceo-stock-succession-jensen-huang.html",
+      "summary": "The stock value of a top executive is often less important than it initially seems. But Nvidia’s entanglement in U.S.-Chinese relations poses special problems.",
+      "outlet": "The New York Times",
+      "time": "Fri 5:02 AM ET"
+    },
+    {
       "title": "Anthropic IPO: Investors who flip the stock may face brokerage penalty",
       "url": "https://www.cnbc.com/2026/11/19/anthropic-ipo-flipping-rules.html",
       "summary": "Brokerage firms may put future IPO limits in place for investors who sell their Anthropic stake too soon.",
       "outlet": "CNBC",
-      "time": "Thu 8:05 AM ET"
-    },
-    {
-      "title": "Palo Alto Networks’ stock gets a fresh AI-fueled boost from earnings",
-      "url": "https://www.marketwatch.com/story/palo-alto-networks-stock-soars-as-earnings-show-ai-has-upped-the-stakes-for-cybersecurity-308e34b8?mod=mw_rss_topstories",
-      "summary": "The company boosts its outlook in the face of the “current threat environment and demand we see ahead of us.”",
-      "outlet": "MarketWatch",
-      "time": "Thu 7:34 AM ET"
-    },
-    {
-      "title": "Sandisk’s stock split is almost here. This is what investors need to know.",
-      "url": "https://www.marketwatch.com/story/sandisks-stock-split-is-almost-here-this-is-what-investors-need-to-know-e0a18461?mod=mw_rss_topstories",
-      "summary": "Sandisk is due to split its stock after Thursday’s close, and while the move has gotten some buzz, it won’t alter the fundamental picture for shareholders of the memory-chip company.",
-      "outlet": "MarketWatch",
-      "time": "Thu 7:14 AM ET"
-    },
-    {
-      "title": "Why AI Mistakes in Your Retirement Plan Can Be Disastrous",
-      "url": "https://www.kiplinger.com/retirement/retirement-planning/ai-mistakes-in-your-retirement-plan",
-      "summary": "AI can quickly explain simple rules. But for complex retirement planning decisions that are hard to undo, you need a professional who can be held accountable.",
-      "outlet": "Kiplinger",
-      "time": "Thu 6:00 AM ET"
-    },
-    {
-      "title": "Small-Cap Stocks Give This Top Vanguard Fund a Boost",
-      "url": "https://www.kiplinger.com/investing/mutual-funds/small-cap-stocks-give-this-top-vanguard-fund-a-boost",
-      "summary": "The use of two systematic models, which help Vanguard Strategic Equity managers find high-quality small- and mid-sized stocks, has helped the fund outperform.",
-      "outlet": "Kiplinger",
-      "time": "Thu 1:45 AM ET"
-    },
-    {
-      "title": "Big bets against AI debt, from CoreWeave to Oracle and the Mag 7, could soon hit the ETF market",
-      "url": "https://www.cnbc.com/2026/11/18/ai-credit-default-swaps-coreweave-debt.html",
-      "summary": "Investor fears about AI balance sheets and debt are running high, especially for neoclouds. ETFs targeting the credit default swaps of AI issuers are coming.",
-      "outlet": "CNBC",
-      "time": "Wed 6:38 PM ET"
+      "time": "Thu 7:16 PM ET"
     }
   ],
-  "storiesDate": "Thu 19 Nov 2026",
-  "lastStories": "2026-11-19",
+  "storiesDate": "Fri 20 Nov 2026",
+  "lastStories": "2026-11-20",
   "picksAt": "2026-11-19T15:05-05:00"
 }
