@@ -317,5 +317,88 @@ class TipsFileTests(unittest.TestCase):
             self.assertTrue(any(d in item["url"] for d in allowed), item["url"])
 
 
+class HistoryTests(unittest.TestCase):
+    """Growth-chart price history: Yahoo backfill once, then our own daily closes."""
+
+    def setUp(self):
+        import tempfile
+        self.dir = Path(tempfile.mkdtemp())
+        ud.YAHOO_PAUSE = 0
+        self.now = datetime(2026, 11, 19, 15, 30, tzinfo=ud.ET)
+
+    def http(self, yahoo_ok=True):
+        test = self
+
+        class H(ud.Http):
+            def __init__(self):
+                super().__init__("k", min_interval=0)
+                self.yahoo_calls = 0
+
+            def get(self, url, params=None, retries=2, headers=None):
+                if "finance.yahoo.com" not in url:
+                    return None
+                self.yahoo_calls += 1
+                if not yahoo_ok:
+                    return None
+                if params["range"] == "3y":
+                    start = datetime(2023, 11, 20, 16, 0, tzinfo=ud.ET)
+                    ts = [int((start + ud.timedelta(days=i)).timestamp()) for i in range(0, 1095)]
+                    return {"chart": {"result": [{"timestamp": ts, "indicators": {"quote": [{"close": [100 + i * 0.1 for i in range(len(ts))]}]}}]}}
+                t0 = int(datetime(2026, 11, 19, 9, 30, tzinfo=ud.ET).timestamp())
+                ts = [t0 + 300 * i for i in range(10)]
+                return {"chart": {"result": [{"timestamp": ts, "indicators": {"quote": [{"close": [50 + i for i in range(10)]}]}}]}}
+        return H()
+
+    def quote(self, c, t=None):
+        return {"c": c, "d": 1, "dp": 1, "h": c, "l": c, "o": c, "pc": c - 1,
+                "t": t or int(self.now.timestamp())}
+
+    def test_backfill_then_append_own_close(self):
+        h = self.http()
+        st = ud.update_price_history(h, self.dir, ["NVDA"], {"NVDA": self.quote(150.0)}, self.now, intraday=False)
+        hist = json.loads((self.dir / "NVDA.json").read_text())
+        self.assertEqual(st["backfilled"], 1)
+        self.assertEqual(hist["src"], "yahoo")
+        self.assertEqual(hist["d"][-1], "2026-11-19")
+        self.assertEqual(hist["c"][-1], 150.0, "today's close comes from the quote")
+        self.assertLessEqual(hist["d"][0], "2023-11-20")
+        # a second run the same month does not ask Yahoo again
+        h2 = self.http()
+        ud.update_price_history(h2, self.dir, ["NVDA"], {"NVDA": self.quote(151.0)}, self.now, intraday=False)
+        self.assertEqual(h2.yahoo_calls, 0)
+        hist = json.loads((self.dir / "NVDA.json").read_text())
+        self.assertEqual(hist["c"][-1], 151.0, "same-day runs overwrite today's close")
+
+    def test_works_without_yahoo(self):
+        h = self.http(yahoo_ok=False)
+        syms = ["A", "B", "C", "D", "E", "F"]
+        ud.update_price_history(h, self.dir, syms, {s: self.quote(10.0) for s in syms}, self.now, intraday=True)
+        self.assertEqual(h.yahoo_calls, ud.YAHOO_GIVE_UP_AFTER, "stops asking Yahoo after repeated failures")
+        hist = json.loads((self.dir / "F.json").read_text())
+        self.assertEqual((hist["src"], hist["d"], hist["c"]), ("own", ["2026-11-19"], [10.0]))
+        intra = json.loads((self.dir / "_intraday.json").read_text())
+        self.assertEqual(intra["series"]["A"]["c"], [10.0])
+        self.assertEqual(intra["series"]["A"]["pc"], 9.0)
+
+    def test_intraday_resets_each_day_and_uses_yahoo_path(self):
+        h = self.http()
+        ud.update_price_history(h, self.dir, ["X"], {"X": self.quote(60.0)}, self.now, intraday=True)
+        intra = json.loads((self.dir / "_intraday.json").read_text())
+        self.assertEqual(intra["date"], "2026-11-19")
+        self.assertEqual(intra["series"]["X"]["c"][:3], [50, 51, 52])
+        self.assertEqual(intra["series"]["X"]["c"][-1], 60.0)
+        nxt = datetime(2026, 11, 20, 10, 30, tzinfo=ud.ET)
+        ud.update_price_history(self.http(yahoo_ok=False), self.dir, ["X"],
+                                {"X": self.quote(61.0, int(nxt.timestamp()))}, nxt, intraday=True)
+        intra = json.loads((self.dir / "_intraday.json").read_text())
+        self.assertEqual((intra["date"], intra["series"]["X"]["c"]), ("2026-11-20", [61.0]))
+
+    def test_merge_never_rewrites_the_past(self):
+        hist = {"d": ["2026-11-18", "2026-11-19"], "c": [1.0, 2.0]}
+        self.assertFalse(ud.merge_close(hist, "2026-11-17", 9.0))
+        self.assertTrue(ud.merge_close(hist, "2026-11-20", 3.0))
+        self.assertEqual(hist["c"], [1.0, 2.0, 3.0])
+
+
 if __name__ == "__main__":
     unittest.main()

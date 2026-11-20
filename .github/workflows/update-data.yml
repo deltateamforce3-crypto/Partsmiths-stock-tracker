@@ -50,8 +50,8 @@ jobs:
         run: |
           if git ls-remote --exit-code --heads origin data >/dev/null; then
             git fetch --depth=1 origin data
-            git show FETCH_HEAD:data/market.json > data/market.json
-            echo "Loaded data/market.json from the data branch"
+            git archive FETCH_HEAD data | tar -x   # market.json + history/ (growth charts)
+            echo "Loaded data/ from the data branch ($(ls data/history 2>/dev/null | wc -l) history files)"
           else
             echo "No data branch yet; starting from the copy on main"
           fi
@@ -100,8 +100,9 @@ jobs:
           fi
           mkdir -p "$RUNNER_TEMP/data/data"
           cp data/market.json "$RUNNER_TEMP/data/data/market.json"
+          if [ -d data/history ]; then cp -r data/history "$RUNNER_TEMP/data/data/"; fi
           cd "$RUNNER_TEMP/data"
-          git add data/market.json
+          git add data
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -qm "Market data (${{ steps.plan.outputs.mode }}) $(TZ=America/New_York date '+%Y-%m-%d %H:%M ET')"
           git push origin HEAD:refs/heads/data

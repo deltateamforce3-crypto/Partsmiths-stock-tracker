@@ -482,6 +482,143 @@ def earnings_calendar(http: Http, today: date, days=7):
     return data.get("earningsCalendar", []) or []
 
 
+# --------------------------------------------------------------------------- price history (growth charts)
+# One small JSON file per symbol in data/history/ on the `data` branch:
+#   {"sym", "d": [ISO dates], "c": [closes], "src": "yahoo"|"own", "fetched": ISO date}
+# plus data/history/_intraday.json with today's price path for every symbol.
+# Yahoo's chart endpoint (keyless, unofficial) backfills 3 years ONCE per symbol and is
+# re-checked monthly to pick up splits. Every run then appends the day's close from the
+# Finnhub quote, so the charts keep working even if Yahoo blocks requests later.
+YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}"
+HISTORY_DAYS = 3 * 366 + 7
+HISTORY_REFETCH_DAYS = 30
+YAHOO_BUDGET = 200          # Yahoo requests per run, at most
+YAHOO_GIVE_UP_AFTER = 4     # consecutive Yahoo failures before the run stops asking
+YAHOO_PAUSE = 0.35          # seconds between Yahoo requests
+
+
+def yahoo_series(http: Http, sym: str, rng: str, interval: str):
+    """[(unix_ts, close)] from Yahoo's chart endpoint, or [] if unavailable."""
+    ysym = sym.replace(".", "-")  # BRK.B -> BRK-B
+    data = http.get(YAHOO_CHART.format(urllib.parse.quote(ysym)),
+                    {"range": rng, "interval": interval, "includePrePost": "false"},
+                    retries=1, headers={"User-Agent": BROWSER_UA})
+    try:
+        res = data["chart"]["result"][0]
+        ts, closes = res["timestamp"], res["indicators"]["quote"][0]["close"]
+    except (KeyError, IndexError, TypeError):
+        return []
+    return [(int(t), float(c)) for t, c in zip(ts, closes) if c is not None and t is not None]
+
+
+def _hist_path(hdir: Path, sym: str) -> Path:
+    safe = re.sub(r"[^A-Za-z0-9.-]", "_", sym)
+    return hdir / f"{safe}.json"
+
+
+def merge_close(hist: dict, day: str, close: float) -> bool:
+    """Add or replace the close for `day` (ISO). Returns True if anything changed."""
+    d, c = hist.setdefault("d", []), hist.setdefault("c", [])
+    close = round(close, 4)
+    if d and d[-1] == day:
+        if c[-1] == close:
+            return False
+        c[-1] = close
+        return True
+    if d and day < d[-1]:
+        return False  # never rewrite the past from a quote
+    d.append(day)
+    c.append(close)
+    return True
+
+
+def trim_history(hist: dict, today: date):
+    cutoff = (today - timedelta(days=HISTORY_DAYS)).isoformat()
+    keep = [i for i, day in enumerate(hist.get("d", [])) if day >= cutoff]
+    hist["d"] = [hist["d"][i] for i in keep]
+    hist["c"] = [hist["c"][i] for i in keep]
+
+
+def update_price_history(http: Http, hdir: Path, syms, quotes: dict, now: datetime, intraday: bool):
+    """Keep data/history/<SYM>.json and _intraday.json current. Fails soft throughout."""
+    hdir.mkdir(parents=True, exist_ok=True)
+    today = now.date()
+    yahoo_left, yahoo_fails, stats = YAHOO_BUDGET, 0, {"backfilled": 0, "appended": 0, "intraday": 0}
+
+    def ask_yahoo(sym, rng, interval):
+        nonlocal yahoo_left, yahoo_fails
+        if yahoo_left <= 0 or yahoo_fails >= YAHOO_GIVE_UP_AFTER:
+            return []
+        yahoo_left -= 1
+        time.sleep(YAHOO_PAUSE)
+        pts = yahoo_series(http, sym, rng, interval)
+        yahoo_fails = 0 if pts else yahoo_fails + 1
+        return pts
+
+    for sym in dict.fromkeys(syms):
+        path = _hist_path(hdir, sym)
+        try:
+            hist = json.loads(path.read_text()) if path.exists() else {"sym": sym, "d": [], "c": [], "src": "own"}
+        except (OSError, json.JSONDecodeError):
+            hist = {"sym": sym, "d": [], "c": [], "src": "own"}
+        changed = False
+        fetched = hist.get("fetched")
+        stale = (hist.get("src") != "yahoo" or not fetched
+                 or (today - date.fromisoformat(fetched)).days >= HISTORY_REFETCH_DAYS)
+        if stale:
+            pts = ask_yahoo(sym, "3y", "1d")
+            if len(pts) > 20:
+                by_day = {}
+                for t, c in pts:
+                    by_day[datetime.fromtimestamp(t, ET).date().isoformat()] = round(c, 4)
+                # keep our own closes for days Yahoo doesn't have yet
+                for day, c in zip(hist.get("d", []), hist.get("c", [])):
+                    by_day.setdefault(day, c)
+                days = sorted(by_day)
+                hist.update({"d": days, "c": [by_day[x] for x in days], "src": "yahoo", "fetched": today.isoformat()})
+                changed = True
+                stats["backfilled"] += 1
+        q = quotes.get(sym)
+        if valid_quote(q):
+            day = datetime.fromtimestamp(q["t"], ET).date().isoformat() if q.get("t") else today.isoformat()
+            if merge_close(hist, day, float(q["c"])):
+                changed = True
+                stats["appended"] += 1
+        if changed:
+            trim_history(hist, today)
+            hist["sym"] = sym
+            path.write_text(json.dumps(hist, separators=(",", ":")))
+
+    if not intraday:
+        return stats
+    ipath = hdir / "_intraday.json"
+    try:
+        intra = json.loads(ipath.read_text()) if ipath.exists() else {}
+    except (OSError, json.JSONDecodeError):
+        intra = {}
+    if intra.get("date") != today.isoformat():
+        intra = {"date": today.isoformat(), "series": {}}
+    series = intra.setdefault("series", {})
+    for sym in dict.fromkeys(syms):
+        q = quotes.get(sym)
+        if not valid_quote(q):
+            continue
+        s_ = series.setdefault(sym, {"t": [], "c": []})
+        s_["pc"] = round(float(q["pc"]), 4)
+        pts = [(t, c) for t, c in ask_yahoo(sym, "1d", "5m")
+               if datetime.fromtimestamp(t, ET).date() == today]
+        if pts:
+            s_["t"], s_["c"] = [t for t, _ in pts], [round(c, 4) for _, c in pts]
+            s_["src"] = "yahoo"
+        t_now = int(q.get("t") or now.timestamp())
+        if datetime.fromtimestamp(t_now, ET).date() == today and (not s_["t"] or t_now > s_["t"][-1]):
+            s_["t"].append(t_now)
+            s_["c"].append(round(float(q["c"]), 4))
+        stats["intraday"] += 1
+    ipath.write_text(json.dumps(intra, separators=(",", ":")))
+    return stats
+
+
 # --------------------------------------------------------------------------- movers
 def market_movers(rows, mcfg=None):
     """Large companies adding or removing the most stock-market value today.
@@ -628,7 +765,7 @@ def choose_picks(cands, weights, count, spy_dp):
 
 
 # --------------------------------------------------------------------------- build
-def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
+def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime, history_dir: Path | None = None) -> dict:
     today = now.date()
     asof = now.strftime("%-I:%M %p")
     data = dict(old)
@@ -889,6 +1026,14 @@ def build(mode: str, http: Http, cfg: dict, old: dict, now: datetime) -> dict:
     for p in data.get("picks", []):
         used.update(p.get("src", []))
     data["sources"] = {k: v for k, v in sources.items() if k in used or k in SOURCES or k.startswith("research-")}
+    if history_dir is not None:
+        chart_syms = ([w["sym"] for w in data["watchlist"]] + [i["sym"] for i in cfg["indices"]]
+                      + [m["sym"] for m in cfg["macro"]])
+        market_open = now.weekday() < 5 and 9 <= now.hour <= 17
+        try:
+            data["historyRun"] = update_price_history(http, history_dir, chart_syms, quotes, now, intraday=market_open)
+        except Exception as e:  # charts must never break the data update
+            http.errors.append(f"history {type(e).__name__}")
     data["runInfo"] = {"mode": mode, "apiCalls": http.calls, "errors": sorted(set(http.errors))}
     if mode == "full":
         data["lastFull"] = today.isoformat()
@@ -920,7 +1065,7 @@ def main(argv=None):
     out = Path(args.out)
     old = json.loads(out.read_text()) if out.exists() else {}
     http = Http(key)
-    data = build(args.mode, http, cfg, old, datetime.now(ET))
+    data = build(args.mode, http, cfg, old, datetime.now(ET), history_dir=out.parent / "history")
     out.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
     print(f"Wrote {out} ({args.mode}): {http.calls} API calls, {len(data.get('picks', []))} picks, "
           f"errors: {data['runInfo']['errors'] or 'none'}")

@@ -119,7 +119,7 @@
       <span class="wl-px">${w.px == null ? '—' : '$' + fmt(w.px)}</span>
       <span class="wl-name">${esc(w.name)}</span>
       <span class="wl-chg ${cls(w.pct)}">${w.pct == null ? 'n/a' : move(chgOf(w), w.pct)}${w.ah ? ` <span class="${cls(w.ahPct)}" title="After hours">· AH ${move(w.px != null ? w.ah - w.px : null, w.ahPct)}</span>` : ''}</span>
-    </button>${addBtn(w.sym, 'add-btn wl-add')}</div>`).join('') || (filt === 'mine' && !q
+    </button>${chartBtn(w.sym, 'wl-chart')}${addBtn(w.sym, 'add-btn wl-add')}</div>`).join('') || (filt === 'mine' && !q
       ? '<div class="note" style="padding:1rem;text-align:center">Your watchlist is empty.<br>Click the <b>+</b> next to any stock to add it here.</div>'
       : '<div class="note" style="padding:1rem;text-align:center">No symbols match.</div>');
     // flash a row green/red when its price changes (live quotes or a data update)
@@ -149,6 +149,7 @@
         <div class="${cls(w.pct)}" style="font-family:var(--font-tech);font-weight:600">${w.pct == null ? (w.stale ? 'Last verified: ' + esc(w.stale) : 'Close not captured') : move(chgOf(w), w.pct) + ' on the day'}</div>
         ${w.ah ? `<div class="${cls(w.ahPct)}" style="font-family:var(--font-tech)">After hours $${fmt(w.ah)} · ${move(w.px != null ? w.ah - w.px : null, w.ahPct)}</div>` : ''}
       </div>
+      <button type="button" class="btn g-open" data-chart="${w.sym}"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>Growth chart · 1D to 3Y</button>
       <div class="prop"><div class="prop-h">Quote</div><div class="kv">
         <span class="k">Price source</span><span class="v">${src(w.src)}</span>
         <span class="k">As of</span><span class="v">${w.stale ? esc(w.stale) : esc(snapStr)}</span>
@@ -259,7 +260,7 @@
         <article class="pick" data-s="${p.sym}" tabindex="0">
           <div class="pick-top">
             <div><div class="pick-no">IDEA ${String(n + 1).padStart(2, '0')}</div><div class="pick-sym">${p.sym}</div><div class="pick-name">${esc(w.name)}</div></div>
-            <span class="pick-actions"><span class="role">${esc(p.role)}</span>${addBtn(p.sym, 'add-btn')}</span>
+            <span class="pick-actions"><span class="role">${esc(p.role)}</span>${chartBtn(p.sym)}${addBtn(p.sym, 'add-btn')}</span>
           </div>
           <div class="pick-px"><span class="px">${w.px == null ? '—' : '$' + fmt(w.px)}</span>
             <span class="meta ${cls(w.pct)}">${w.pct == null ? (w.stale ? esc(w.stale) : '') : move(chgOf(w), w.pct)}</span>
@@ -482,6 +483,161 @@ ${D.mode === 'auto' ? `
     const soon = m >= 4 && m < 15;
     setTimeout(() => { if (!document.hidden) refreshData(); scheduleRefresh(); }, soon ? 20000 : 60000);
   })();
+
+  // ---------------------------------------------------------------- growth charts
+  // Daily closes live in data/history/<SYM>.json on the data branch (3 years, kept current by
+  // the updater); today's path lives in data/history/_intraday.json.
+  const HIST_BASES = [DATA_BRANCH_URL.replace(/market\.json$/, 'history/'), 'data/history/'];
+  const histCache = {};
+  let intraCache = null, intraAt = 0;
+  async function fetchJSON(name) {
+    for (const base of HIST_BASES) {
+      try { const r = await fetch(base + encodeURIComponent(name) + '?t=' + Math.floor(Date.now() / 120000), { cache: 'no-store' }); if (r.ok) return await r.json(); } catch (e) { /* next */ }
+    }
+    return null;
+  }
+  async function getDaily(sym) { if (!(sym in histCache)) histCache[sym] = await fetchJSON(sym + '.json'); return histCache[sym]; }
+  async function getIntraday() { if (!intraCache || Date.now() - intraAt > 120000) { intraCache = await fetchJSON('_intraday.json'); intraAt = Date.now(); } return intraCache; }
+
+  const RANGES = [['1D', 'Today'], ['1M', 'Past month'], ['YTD', 'Year to date'], ['1Y', 'Past year'], ['2Y', 'Past 2 years'], ['3Y', 'Past 3 years']];
+  const chartBtn = (s, extra = '') => `<button type="button" class="chart-btn ${extra}" data-chart="${s}" title="Growth chart for ${s}" aria-label="Growth chart for ${s}"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg></button>`;
+  const dir = v => v == null ? 'flat' : Math.round(v * 100) > 0 ? 'up' : Math.round(v * 100) < 0 ? 'down' : 'flat';
+  const arrow = d => d === 'up' ? '<svg class="g-arrow up" viewBox="0 0 12 12"><path d="M6 1.5 11 9H1Z"/></svg>'
+    : d === 'down' ? '<svg class="g-arrow down" viewBox="0 0 12 12"><path d="M6 10.5 1 3h10Z"/></svg>'
+    : '<svg class="g-arrow flat" viewBox="0 0 12 12"><path d="M1 6h10"/></svg>';
+
+  // Points for a range as [{t: ms, v: price}], plus the baseline price the change is measured from.
+  function seriesFor(range, daily, intra, w) {
+    if (range === '1D') {
+      const s = intra && intra.series && intra.series[w.sym];
+      if (!s || !s.t.length) return null;
+      const pts = s.t.map((t, i) => ({ t: t * 1000, v: s.c[i] }));
+      const base = s.pc != null ? s.pc : pts[0].v;
+      return { pts: [{ t: pts[0].t - 1, v: base, isBase: true }, ...pts], base, day: intra.date };
+    }
+    if (!daily || !daily.d || daily.d.length < 2) return null;
+    const all = daily.d.map((d, i) => ({ t: Date.parse(d + 'T16:00:00-05:00'), v: daily.c[i], d }));
+    // use today's latest price for the last point when the history hasn't caught up yet
+    if (w.px != null) {
+      const today = new Date(D.snapshot).toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+      if (all[all.length - 1].d < today) all.push({ t: Date.parse(today + 'T16:00:00-05:00'), v: w.px, d: today });
+      else if (all[all.length - 1].d === today) all[all.length - 1].v = w.px;
+    }
+    const last = new Date(all[all.length - 1].t);
+    let start;
+    if (range === 'YTD') start = Date.parse(last.getFullYear() + '-01-01T00:00:00-05:00');
+    else { const m = { '1M': 1, '1Y': 12, '2Y': 24, '3Y': 36 }[range]; const s = new Date(last); s.setMonth(s.getMonth() - m); start = s.getTime(); }
+    if (all[0].t > start + 20 * 86400000) return { pts: all, base: all[0].v, partial: true };   // not enough history yet
+    let i0 = all.findIndex(p => p.t >= start); if (i0 < 0) return null;
+    const base = i0 > 0 ? all[i0 - 1].v : all[0].v;   // close just before the range starts
+    const pts = all.slice(Math.max(0, i0 - 1));
+    return { pts, base };
+  }
+
+  function drawGrowth(svg, S, range) {
+    const W = svg.clientWidth || 640, H = svg.clientHeight || 320, m = { l: 12, r: 64, t: 14, b: 28 };
+    const pts = S.pts, vals = pts.map(p => p.v).concat(S.base);
+    let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.08 || hi * 0.01 || 1; lo -= pad; hi += pad;
+    const t0 = pts[0].t, t1 = pts[pts.length - 1].t;
+    const x = t => m.l + (t1 === t0 ? 0 : (t - t0) / (t1 - t0)) * (W - m.l - m.r);
+    const y = v => m.t + (1 - (v - lo) / (hi - lo)) * (H - m.t - m.b);
+    const d = dir(pts[pts.length - 1].v - S.base);
+    const color = d === 'up' ? 'var(--ok)' : d === 'down' ? 'var(--danger)' : 'var(--ink)';
+    const line = pts.map((p, i) => `${i ? 'L' : 'M'}${x(p.t).toFixed(1)},${y(p.v).toFixed(1)}`).join('');
+    const area = `${line}L${x(t1).toFixed(1)},${H - m.b}L${x(t0).toFixed(1)},${H - m.b}Z`;
+    // y gridlines
+    const step = niceStep((hi - lo) / 4); let grid = '';
+    for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) grid += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" class="g-grid"/><text x="${W - m.r + 8}" y="${y(v) + 4}" class="g-ax">$${fmtAx(v)}</text>`;
+    // x labels
+    const fmtT = t => { const dt = new Date(t); const o = { timeZone: 'America/New_York' };
+      return range === '1D' ? dt.toLocaleTimeString('en-US', { ...o, hour: 'numeric', minute: '2-digit' })
+        : range === '1M' ? dt.toLocaleDateString('en-US', { ...o, month: 'short', day: 'numeric' })
+        : range === 'YTD' || range === '1Y' ? dt.toLocaleDateString('en-US', { ...o, month: 'short' })
+        : dt.toLocaleDateString('en-US', { ...o, month: 'short', year: '2-digit' }).replace(' ', " '"); };
+    let xl = ''; const n = W < 480 ? 3 : 5;
+    for (let i = 0; i < n; i++) { const t = t0 + (t1 - t0) * (i / (n - 1)); xl += `<text x="${x(t)}" y="${H - 8}" class="g-ax" text-anchor="${i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}">${fmtT(t)}</text>`; }
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.innerHTML = `<defs><linearGradient id="gfill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${color}" stop-opacity=".28"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></linearGradient></defs>
+      ${grid}<line x1="${m.l}" x2="${W - m.r}" y1="${y(S.base)}" y2="${y(S.base)}" class="g-base"/>
+      <path d="${area}" fill="url(#gfill)"/><path d="${line}" class="g-line" style="stroke:${color}"/>
+      <circle cx="${x(t1)}" cy="${y(pts[pts.length - 1].v)}" r="4" style="fill:${color}" class="g-end"/>
+      ${xl}<g class="g-hover" visibility="hidden"><line class="g-cross" y1="${m.t}" y2="${H - m.b}"/><circle r="4.5" class="g-dot"/></g>`;
+    const hov = svg.querySelector('.g-hover'), tip = svg.parentElement.querySelector('.g-tip');
+    svg.onmousemove = e => {
+      const r = svg.getBoundingClientRect(), mx = (e.clientX - r.left) * (W / r.width);
+      const tt = t0 + Math.max(0, Math.min(1, (mx - m.l) / (W - m.l - m.r))) * (t1 - t0);
+      let best = pts[0]; for (const p of pts) if (Math.abs(p.t - tt) < Math.abs(best.t - tt)) best = p;
+      const cx = x(best.t), cy = y(best.v), dd = dir(best.v - S.base);
+      hov.setAttribute('visibility', 'visible'); hov.querySelector('line').setAttribute('x1', cx); hov.querySelector('line').setAttribute('x2', cx);
+      const dot = hov.querySelector('circle'); dot.setAttribute('cx', cx); dot.setAttribute('cy', cy);
+      const when = new Date(best.t).toLocaleString('en-US', range === '1D' ? { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' } : { timeZone: 'America/New_York', month: 'short', day: 'numeric', year: 'numeric' });
+      tip.innerHTML = `<div class="g-tip-d">${best.isBase ? 'Previous close' : when}</div><div class="g-tip-v">$${fmt(best.v)}</div><div class="${dd}">${arrow(dd)} ${move(best.v - S.base, (best.v / S.base - 1) * 100)}</div>`;
+      tip.hidden = false; const px = cx * (r.width / W);
+      tip.style.left = Math.min(r.width - tip.offsetWidth - 4, Math.max(4, px + 12)) + 'px';
+      tip.style.top = Math.max(4, cy * (r.height / H) - tip.offsetHeight - 10) + 'px';
+    };
+    svg.onmouseleave = () => { hov.setAttribute('visibility', 'hidden'); tip.hidden = true; };
+  }
+  function niceStep(raw) { const p = Math.pow(10, Math.floor(Math.log10(raw || 1))); const f = raw / p; return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p; }
+  function fmtAx(v) { return Math.abs(v) >= 1000 ? Math.round(v).toLocaleString('en-US') : v >= 100 ? v.toFixed(0) : v.toFixed(2); }
+
+  let gDlg = null, gSym = null, gRange = '1M';
+  function ensureGrowthDialog() {
+    if (gDlg) return gDlg;
+    gDlg = document.createElement('dialog'); gDlg.className = 'growth'; gDlg.setAttribute('aria-labelledby', 'gTitle');
+    gDlg.innerHTML = `<div class="g-head"><div><div class="eyebrow">Growth chart</div><h2 id="gTitle"></h2><div class="sub" id="gName"></div></div>
+        <button type="button" class="icon-btn g-close" aria-label="Close chart"><svg viewBox="0 0 24 24" class="ic"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <div class="g-summary" id="gSummary"></div>
+      <div class="g-tabs" role="tablist" aria-label="Time range">${RANGES.map(([k, l]) => `<button type="button" role="tab" data-r="${k}" title="${l}">${k}</button>`).join('')}</div>
+      <div class="g-body"><div class="g-plot"><svg id="gSvg" role="img"></svg><div class="g-tip" hidden></div><div class="g-msg" id="gMsg" hidden></div></div>
+        <aside class="g-key"><h3>Key</h3>
+          <div class="g-key-row">${arrow('up')}<span><b class="up">Rising</b><br><small>Green: worth more than at the start</small></span></div>
+          <div class="g-key-row">${arrow('down')}<span><b class="down">Falling</b><br><small>Red: worth less than at the start</small></span></div>
+          <div class="g-key-row">${arrow('flat')}<span><b class="flat-ink">No change</b><br><small>Same price as the start</small></span></div>
+          <h3 style="margin-top:.9rem">Every range</h3><div id="gAll"></div></aside></div>
+      <div class="note g-foot">Dashed line = price at the start of the range. Daily closes from Yahoo Finance (backfill) and Finnhub; today's path updates hourly while the market is open. Not investment advice.</div>`;
+    document.body.appendChild(gDlg);
+    gDlg.querySelector('.g-close').onclick = () => gDlg.close();
+    gDlg.addEventListener('click', e => { if (e.target === gDlg) gDlg.close(); const b = e.target.closest('[data-r]'); if (b) { gRange = b.dataset.r; renderGrowth(); } });
+    gDlg.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { const i = RANGES.findIndex(r => r[0] === gRange); gRange = RANGES[(i + (e.key === 'ArrowRight' ? 1 : RANGES.length - 1)) % RANGES.length][0]; renderGrowth(); } });
+    addEventListener('resize', () => { if (gDlg.open) renderGrowth(); });
+    return gDlg;
+  }
+  async function openChart(sym) {
+    ensureGrowthDialog(); gSym = sym;
+    const w = bySym[sym] || { sym, name: sym };
+    gDlg.querySelector('#gTitle').textContent = sym; gDlg.querySelector('#gName').textContent = w.name || '';
+    gDlg.querySelector('#gSummary').innerHTML = '<span class="g-loading">Loading chart…</span>'; gDlg.querySelector('#gSvg').innerHTML = '';
+    if (!gDlg.open) gDlg.showModal();
+    await Promise.all([getDaily(sym), getIntraday()]);
+    if (gSym === sym) renderGrowth();
+  }
+  function renderGrowth() {
+    const w = bySym[gSym] || { sym: gSym }, daily = histCache[gSym], intra = intraCache;
+    gDlg.querySelectorAll('.g-tabs [data-r]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.r === gRange)));
+    // every-range list (doubles as quick switcher)
+    gDlg.querySelector('#gAll').innerHTML = RANGES.map(([k, l]) => { const S = seriesFor(k, daily, intra, w);
+      if (!S || S.partial) return `<button type="button" class="g-all-row${k === gRange ? ' on' : ''}" data-r="${k}"><span>${l}</span><span class="g-na">building…</span></button>`;
+      const last = S.pts[S.pts.length - 1].v, d = dir(last - S.base);
+      return `<button type="button" class="g-all-row${k === gRange ? ' on' : ''}" data-r="${k}"><span>${l}</span><span class="${d}">${arrow(d)} ${pct((last / S.base - 1) * 100)}</span></button>`; }).join('');
+    const S = seriesFor(gRange, daily, intra, w), svg = gDlg.querySelector('#gSvg'), msg = gDlg.querySelector('#gMsg');
+    const label = RANGES.find(r => r[0] === gRange)[1];
+    if (!S || S.pts.length < 2 || S.partial) {
+      svg.innerHTML = ''; msg.hidden = false;
+      msg.innerHTML = gRange === '1D' ? "Today's chart fills in while the market is open. It updates every hour."
+        : (daily && daily.d && daily.d.length ? `Only ${daily.d.length} trading day${daily.d.length === 1 ? '' : 's'} of history so far. This range fills in as the history builds.`
+        : 'Price history for this company arrives with the next data update.');
+      gDlg.querySelector('#gSummary').innerHTML = `<div class="g-px">${w.px == null ? '—' : '$' + fmt(w.px)}</div><div class="g-chg flat">${label}: not enough data yet</div>`;
+      return;
+    }
+    msg.hidden = true;
+    const last = S.pts[S.pts.length - 1].v, chg = last - S.base, d = dir(chg);
+    gDlg.querySelector('#gSummary').innerHTML = `<div class="g-px">$${fmt(last)}</div>
+      <div class="g-chg ${d}">${arrow(d)} ${move(chg, (last / S.base - 1) * 100)} <span class="g-lbl">${label.toLowerCase()}${gRange === '1D' && S.day ? ' · ' + new Date(S.day + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) : ''}</span></div>`;
+    svg.setAttribute('aria-label', `${gSym} ${label}: ${d === 'up' ? 'rising' : d === 'down' ? 'falling' : 'no change'}, ${pct((last / S.base - 1) * 100)}`);
+    requestAnimationFrame(() => drawGrowth(svg, S, gRange));
+  }
+  document.addEventListener('click', e => { const b = e.target.closest('[data-chart]'); if (b) { e.preventDefault(); e.stopPropagation(); openChart(b.dataset.chart); } }, true);
 
   // Optional live mode: the viewer's own Finnhub key, kept only in this browser.
   const live = { on: false, key: '', timer: null, quotes: {}, err: '', at: '', busy: false, last: 0, cursor: 0, pauseUntil: 0, closedDay: '' };

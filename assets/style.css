@@ -693,3 +693,66 @@ dialog.splash[open].out { animation: splash-out .55s ease-in forwards; }
 .mv-name { color: var(--ink-2); font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .mv-val { font-family: var(--font-dim); font-weight: 600; font-size: 1.1rem; text-align: right; font-variant-numeric: tabular-nums; }
 .mv-chg { grid-column: 2 / 4; font-family: var(--font-tech); font-size: .86rem; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* growth charts ---------------------------------------------------------- */
+.chart-btn { flex: none; display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; padding: 0; border-radius: 999px; border: 1px solid var(--accent-line); background: var(--accent-softer); color: var(--accent-text); cursor: pointer; transition: background var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast); }
+.chart-btn svg, .g-open svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.chart-btn:hover { background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 3px var(--accent-softer); transform: translateY(-1px); }
+.g-open { width: 100%; justify-content: center; height: 2.4rem; font-weight: 600; background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.g-open:hover { box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow-1); }
+.g-open svg { width: 17px; height: 17px; }
+
+dialog.growth { width: min(64rem, 96vw); padding: 1.1rem 1.25rem 1rem; }
+dialog.growth[open] { animation: g-in .2s var(--ease, ease-out); }
+@keyframes g-in { from { opacity: 0; transform: translateY(8px) scale(.985); } to { opacity: 1; transform: none; } }
+.growth .g-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.growth h2 { font-family: var(--font-tech); font-size: 1.9rem; line-height: 1; margin: .15rem 0 .1rem; }
+.growth .g-close svg { stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; }
+.growth .g-summary { display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap; margin: .75rem 0 .8rem; min-height: 2.6rem; }
+.growth .g-px { font-family: var(--font-dim); font-weight: 600; font-size: 2.3rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.growth .g-chg { display: inline-flex; align-items: center; gap: .35rem; font-family: var(--font-tech); font-weight: 600; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.growth .g-lbl { color: var(--ink-2); font-weight: 500; font-size: .95rem; }
+.growth .g-loading { color: var(--ink-2); }
+.growth .up { color: var(--ok); } .growth .down { color: var(--danger); } .growth .flat { color: var(--ink); }
+
+.g-tabs { display: inline-flex; gap: 3px; padding: 3px; border-radius: var(--r); background: var(--sunken); border: 1px solid var(--line-2); margin-bottom: .8rem; }
+.g-tabs button { min-width: 3.3rem; height: 2.1rem; border: 0; border-radius: var(--r-s); background: transparent; color: var(--ink-2); font-family: var(--font-tech); font-weight: 600; font-size: 1rem; letter-spacing: .02em; cursor: pointer; transition: background var(--t-fast), color var(--t-fast); }
+.g-tabs button:hover { color: var(--ink); background: var(--hover); }
+.g-tabs button[aria-selected="true"] { background: var(--raised); color: var(--accent-text); box-shadow: var(--shadow-1); }
+
+.g-body { display: grid; grid-template-columns: 1fr 15rem; gap: 1rem; }
+.g-plot { position: relative; min-width: 0; min-height: clamp(16rem, 46vh, 26rem); border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); }
+#gSvg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; cursor: crosshair; }
+.g-grid { stroke: var(--line); stroke-width: 1; }
+.g-base { stroke: var(--ink-3); stroke-width: 1.2; stroke-dasharray: 4 4; }
+.g-line { fill: none; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.g-end { stroke: var(--panel); stroke-width: 2; }
+.g-ax { font-family: var(--font-tech); font-size: 12px; fill: var(--ink-2); }
+.g-cross { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
+.g-dot { fill: var(--raised); stroke: var(--ink); stroke-width: 2; }
+.g-tip { position: absolute; pointer-events: none; background: var(--raised); border: 1px solid var(--line-2); border-radius: var(--r); box-shadow: var(--shadow-2); padding: .45rem .6rem; font-family: var(--font-tech); font-size: .9rem; white-space: nowrap; }
+.g-tip-d { color: var(--ink-2); font-size: .82rem; }
+.g-tip-v { font-family: var(--font-dim); font-weight: 600; font-size: 1.15rem; }
+.g-tip .up, .g-tip .down, .g-tip .flat { display: flex; align-items: center; gap: .3rem; }
+.g-msg { position: absolute; inset: 0; display: grid; place-items: center; padding: 2rem; text-align: center; color: var(--ink-2); }
+
+.g-arrow { width: 13px; height: 13px; flex: none; }
+.g-arrow.up { fill: var(--ok); } .g-arrow.down { fill: var(--danger); }
+.g-arrow.flat { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; }
+.g-key { border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); padding: .75rem .8rem; align-self: start; }
+.g-key h3 { font-family: var(--font-tech); font-size: .84rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 .5rem; }
+.g-key-row { display: flex; gap: .55rem; align-items: flex-start; margin-bottom: .55rem; }
+.g-key-row .g-arrow { width: 16px; height: 16px; margin-top: .15rem; }
+.g-key-row small { color: var(--ink-2); font-size: .82rem; }
+.g-key .flat-ink { color: var(--ink); }
+.g-all-row { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: .35rem .45rem; border: 0; border-radius: var(--r-s); background: transparent; color: var(--ink); font-size: .92rem; cursor: pointer; text-align: left; }
+.g-all-row:hover { background: var(--hover); }
+.g-all-row.on { background: var(--accent-softer); box-shadow: inset 2px 0 0 var(--accent); }
+.g-all-row > span:last-child { display: inline-flex; align-items: center; gap: .3rem; font-family: var(--font-tech); font-weight: 600; font-variant-numeric: tabular-nums; }
+.g-na { color: var(--ink-3); font-weight: 500 !important; }
+.g-foot { margin-top: .75rem; font-size: .84rem; }
+@media (max-width: 760px) {
+  .g-body { grid-template-columns: 1fr; }
+  .g-tabs { display: flex; width: 100%; } .g-tabs button { flex: 1; min-width: 0; }
+  .growth .g-px { font-size: 1.9rem; }
+}

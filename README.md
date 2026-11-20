@@ -121,6 +121,8 @@ Every ticker the crowd lists show (top 8 on Reddit overall, top 5 in each commun
 
 **Market movers** ranks every company in the watchlist worth $50B or more by the stock-market value it gained or lost today (market cap × today's % move), so a 2% slide in a $3T company outranks a 20% drop in a small one. It shows the top 5 lifting the market and the top 5 dragging it down, refreshed every hour. Change the count or size floor under `movers` in `config.json`.
 
+**Growth charts.** Every company and ETF has a chart button (in the watchlist, the inspector and the pick cards) that opens a chart with 1D, 1M, YTD, 1Y, 2Y and 3Y ranges. Green means up over the range, red down, and black/white unchanged, with a key and an every-range summary on the side. The updater keeps one file per symbol in `data/history/` on the `data` branch: 3 years of daily closes backfilled once from Yahoo Finance's public chart data (re-checked monthly for splits), then extended every run with Finnhub's closing price, so charts keep working even if Yahoo stops answering. Today's path (1D) is saved hourly while the market is open.
+
 Every source fails soft. If one is down, the rest still update, and a **Data health** row in the sentiment table lists what failed.
 
 ### How the 3 ideas are picked
