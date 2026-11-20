@@ -1,10 +1,10 @@
 {
-  "snapshot": "2026-11-20T13:05:16-05:00",
+  "snapshot": "2026-11-20T14:05:12-05:00",
   "session": "Fri 20 Nov 2026",
   "picksFor": "Fri 20 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily",
-  "headline": "S&P 500 (SPY) −2.25% · Dow −0.85% · Nasdaq-100 −3.90%",
-  "summary": "20 of 74 watchlist stocks are higher. Best: CAPR +6.24%. Worst: VCX −20.13%. CNN's Fear & Greed Index reads 11 (Extreme Fear).",
+  "headline": "S&P 500 (SPY) −2.06% · Dow −0.64% · Nasdaq-100 −3.64%",
+  "summary": "20 of 74 watchlist stocks are higher. Best: CAPR +4.91%. Worst: VCX −19.38%. CNN's Fear & Greed Index reads 11 (Extreme Fear).",
   "summarySrc": [
     "finnhub",
     "cnn-fg"
@@ -13,76 +13,76 @@
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "last": 699.78,
-      "chg": -16.09,
-      "pct": -2.25,
+      "last": 701.13,
+      "chg": -14.74,
+      "pct": -2.06,
       "src": "finnhub"
     },
     {
       "sym": "DIA",
       "name": "Dow (DIA)",
-      "last": 486.63,
-      "chg": -4.16,
-      "pct": -0.85,
+      "last": 487.66,
+      "chg": -3.13,
+      "pct": -0.64,
       "src": "finnhub"
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "last": 619.89,
-      "chg": -25.15,
-      "pct": -3.9,
+      "last": 621.57,
+      "chg": -23.47,
+      "pct": -3.64,
       "src": "finnhub"
     },
     {
       "sym": "IWM",
       "name": "Russell 2000 (IWM)",
-      "last": 259.44,
-      "chg": -4.78,
-      "pct": -1.81,
+      "last": 260.01,
+      "chg": -4.21,
+      "pct": -1.59,
       "src": "finnhub"
     }
   ],
   "macro": [
     {
       "k": "Long Treasuries (TLT)",
-      "v": "$81.38",
-      "d": "+$1.03 · +1.28%",
+      "v": "$81.37",
+      "d": "+$1.02 · +1.27%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "US dollar (UUP)",
-      "v": "$29.62",
-      "d": "−$0.01 · −0.03%",
-      "dir": -1,
+      "v": "$29.65",
+      "d": "+$0.02 · +0.07%",
+      "dir": 1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "Oil (USO)",
-      "v": "$137.30",
-      "d": "−$0.79 · −0.57%",
-      "dir": -1,
+      "v": "$138.15",
+      "d": "+$0.06 · +0.04%",
+      "dir": 1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "Gold (GLD)",
-      "v": "$323.23",
-      "d": "−$11.95 · −3.57%",
+      "v": "$323.15",
+      "d": "−$12.03 · −3.59%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "Bitcoin (IBIT)",
-      "v": "$33.34",
-      "d": "−$1.74 · −4.96%",
+      "v": "$32.91",
+      "d": "−$2.17 · −6.19%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     }
   ],
   "history": {
@@ -99,7 +99,7 @@
         "values": [
           730.2,
           715.87,
-          699.78
+          701.13
         ]
       },
       {
@@ -108,7 +108,7 @@
         "values": [
           501.64,
           490.79,
-          486.63
+          487.66
         ]
       },
       {
@@ -117,7 +117,7 @@
         "values": [
           659.51,
           645.04,
-          619.89
+          621.57
         ]
       }
     ],
@@ -129,9 +129,9 @@
     {
       "sym": "NVDA",
       "name": "NVIDIA Corporation",
-      "px": 135.29,
-      "pct": -7.32,
-      "chg": -10.69,
+      "px": 135.57,
+      "pct": -7.13,
+      "chg": -10.41,
       "tags": [
         "ai",
         "mega"
@@ -170,9 +170,9 @@
     {
       "sym": "AVGO",
       "name": "Broadcom Inc",
-      "px": 305.59,
-      "pct": -11.84,
-      "chg": -41.06,
+      "px": 305.83,
+      "pct": -11.78,
+      "chg": -40.82,
       "tags": [
         "ai",
         "mega"
@@ -189,7 +189,7 @@
         ],
         [
           "Day range",
-          "$304.81 – $343.01"
+          "$304.65 – $343.01"
         ],
         [
           "Prev. close",
@@ -211,9 +211,9 @@
     {
       "sym": "AMD",
       "name": "Advanced Micro Devices, Inc.",
-      "px": 433.77,
-      "pct": -11.33,
-      "chg": -55.42,
+      "px": 434.4,
+      "pct": -11.2,
+      "chg": -54.79,
       "tags": [
         "ai"
       ],
@@ -251,9 +251,9 @@
     {
       "sym": "MSFT",
       "name": "Microsoft Corporation",
-      "px": 488.65,
-      "pct": -1.94,
-      "chg": -9.65,
+      "px": 490.31,
+      "pct": -1.6,
+      "chg": -7.99,
       "tags": [
         "ai",
         "mega"
@@ -292,9 +292,9 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "px": 345.73,
-      "pct": -1.0,
-      "chg": -3.48,
+      "px": 345.28,
+      "pct": -1.13,
+      "chg": -3.93,
       "tags": [
         "mega"
       ],
@@ -310,7 +310,7 @@
         ],
         [
           "Day range",
-          "$344.89 – $354.34"
+          "$344.24 – $354.34"
         ],
         [
           "Prev. close",
@@ -332,9 +332,9 @@
     {
       "sym": "AMZN",
       "name": "Amazon.com Inc",
-      "px": 250.02,
-      "pct": -2.86,
-      "chg": -7.35,
+      "px": 249.49,
+      "pct": -3.06,
+      "chg": -7.88,
       "tags": [
         "mega"
       ],
@@ -350,7 +350,7 @@
         ],
         [
           "Day range",
-          "$249.53 – $259.97"
+          "$249.16 – $259.97"
         ],
         [
           "Prev. close",
@@ -372,9 +372,9 @@
     {
       "sym": "GOOG",
       "name": "Alphabet Inc.",
-      "px": 270.46,
-      "pct": -0.21,
-      "chg": -0.56,
+      "px": 270.05,
+      "pct": -0.36,
+      "chg": -0.97,
       "tags": [
         "ai",
         "mega"
@@ -391,7 +391,7 @@
         ],
         [
           "Day range",
-          "$270.28 – $280.52"
+          "$269.44 – $280.52"
         ],
         [
           "Prev. close",
@@ -413,9 +413,9 @@
     {
       "sym": "META",
       "name": "Meta Platforms, Inc.",
-      "px": 568.73,
-      "pct": -4.61,
-      "chg": -27.49,
+      "px": 568.55,
+      "pct": -4.64,
+      "chg": -27.67,
       "tags": [
         "ai",
         "mega"
@@ -432,7 +432,7 @@
         ],
         [
           "Day range",
-          "$568.46 – $588.69"
+          "$566.67 – $588.69"
         ],
         [
           "Prev. close",
@@ -454,9 +454,9 @@
     {
       "sym": "TSLA",
       "name": "Tesla Inc",
-      "px": 351.47,
-      "pct": -6.13,
-      "chg": -22.94,
+      "px": 350.42,
+      "pct": -6.41,
+      "chg": -23.99,
       "tags": [
         "mega"
       ],
@@ -472,7 +472,7 @@
         ],
         [
           "Day range",
-          "$350.97 – $373.88"
+          "$349.81 – $373.88"
         ],
         [
           "Prev. close",
@@ -494,9 +494,9 @@
     {
       "sym": "DIS",
       "name": "The Walt Disney Company",
-      "px": 118.68,
-      "pct": -1.31,
-      "chg": -1.57,
+      "px": 118.51,
+      "pct": -1.45,
+      "chg": -1.74,
       "tags": [],
       "src": "finnhub",
       "note": "Disney (DIS) Stock Looks Fully Priced Following Q4 Earnings Beat",
@@ -510,7 +510,7 @@
         ],
         [
           "Day range",
-          "$118.43 – $122.00"
+          "$118.30 – $122.00"
         ],
         [
           "Prev. close",
@@ -532,9 +532,9 @@
     {
       "sym": "PLTR",
       "name": "Palantir Technologies Inc.",
-      "px": 146.34,
-      "pct": -4.78,
-      "chg": -7.34,
+      "px": 146.79,
+      "pct": -4.48,
+      "chg": -6.89,
       "tags": [
         "ai"
       ],
@@ -572,9 +572,9 @@
     {
       "sym": "INTC",
       "name": "Intel Corp",
-      "px": 52.53,
-      "pct": -5.73,
-      "chg": -3.19,
+      "px": 53.38,
+      "pct": -4.2,
+      "chg": -2.34,
       "tags": [
         "ai"
       ],
@@ -590,7 +590,7 @@
         ],
         [
           "Day range",
-          "$52.42 – $56.49"
+          "$52.38 – $56.49"
         ],
         [
           "Prev. close",
@@ -612,9 +612,9 @@
     {
       "sym": "JPM",
       "name": "JPMorgan Chase & Co.",
-      "px": 313.65,
-      "pct": -2.05,
-      "chg": -6.57,
+      "px": 314.48,
+      "pct": -1.79,
+      "chg": -5.74,
       "tags": [
         "mega"
       ],
@@ -630,7 +630,7 @@
         ],
         [
           "Day range",
-          "$313.40 – $320.88"
+          "$313.09 – $320.88"
         ],
         [
           "Prev. close",
@@ -652,9 +652,9 @@
     {
       "sym": "WMT",
       "name": "Walmart Inc.",
-      "px": 129.67,
-      "pct": 2.88,
-      "chg": 3.63,
+      "px": 129.2,
+      "pct": 2.51,
+      "chg": 3.16,
       "tags": [
         "mega"
       ],
@@ -692,9 +692,9 @@
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies Corp",
-      "px": 128.79,
-      "pct": -6.96,
-      "chg": -9.64,
+      "px": 130.06,
+      "pct": -6.05,
+      "chg": -8.37,
       "tags": [
         "mega",
         "space",
@@ -734,9 +734,9 @@
     {
       "sym": "BRK.B",
       "name": "BRK.B",
-      "px": 571.35,
-      "pct": -0.12,
-      "chg": -0.69,
+      "px": 570.26,
+      "pct": -0.31,
+      "chg": -1.78,
       "tags": [
         "mega"
       ],
@@ -748,7 +748,7 @@
         ],
         [
           "Day range",
-          "$570.13 – $576.89"
+          "$570.03 – $576.89"
         ],
         [
           "Prev. close",
@@ -762,9 +762,9 @@
     {
       "sym": "LLY",
       "name": "LLY",
-      "px": 1352.67,
-      "pct": 0.11,
-      "chg": 1.55,
+      "px": 1351.22,
+      "pct": 0.01,
+      "chg": 0.1,
       "tags": [
         "mega"
       ],
@@ -790,9 +790,9 @@
     {
       "sym": "V",
       "name": "V",
-      "px": 405.75,
-      "pct": 0.87,
-      "chg": 3.5,
+      "px": 407.01,
+      "pct": 1.18,
+      "chg": 4.76,
       "tags": [
         "mega"
       ],
@@ -818,9 +818,9 @@
     {
       "sym": "MA",
       "name": "MA",
-      "px": 630.02,
-      "pct": 0.56,
-      "chg": 3.52,
+      "px": 631.58,
+      "pct": 0.81,
+      "chg": 5.08,
       "tags": [
         "mega"
       ],
@@ -846,9 +846,9 @@
     {
       "sym": "XOM",
       "name": "XOM",
-      "px": 161.01,
-      "pct": 1.31,
-      "chg": 2.08,
+      "px": 161.16,
+      "pct": 1.4,
+      "chg": 2.23,
       "tags": [
         "mega"
       ],
@@ -860,7 +860,7 @@
         ],
         [
           "Day range",
-          "$158.60 – $161.36"
+          "$158.60 – $161.53"
         ],
         [
           "Prev. close",
@@ -874,9 +874,9 @@
     {
       "sym": "UNH",
       "name": "UNH",
-      "px": 344.03,
-      "pct": 4.1,
-      "chg": 13.55,
+      "px": 346.17,
+      "pct": 4.75,
+      "chg": 15.69,
       "tags": [
         "mega"
       ],
@@ -902,9 +902,9 @@
     {
       "sym": "ORCL",
       "name": "ORCL",
-      "px": 102.34,
-      "pct": -7.44,
-      "chg": -8.23,
+      "px": 102.93,
+      "pct": -6.91,
+      "chg": -7.64,
       "tags": [
         "ai",
         "mega"
@@ -931,9 +931,9 @@
     {
       "sym": "COST",
       "name": "COST",
-      "px": 1115.01,
-      "pct": 1.94,
-      "chg": 21.18,
+      "px": 1111.74,
+      "pct": 1.64,
+      "chg": 17.91,
       "tags": [
         "mega"
       ],
@@ -959,9 +959,9 @@
     {
       "sym": "NFLX",
       "name": "NFLX",
-      "px": 57.49,
-      "pct": -1.66,
-      "chg": -0.97,
+      "px": 57.44,
+      "pct": -1.74,
+      "chg": -1.02,
       "tags": [
         "mega"
       ],
@@ -973,7 +973,7 @@
         ],
         [
           "Day range",
-          "$57.45 – $59.36"
+          "$57.19 – $59.36"
         ],
         [
           "Prev. close",
@@ -987,9 +987,9 @@
     {
       "sym": "JNJ",
       "name": "JNJ",
-      "px": 270.51,
-      "pct": 1.26,
-      "chg": 3.37,
+      "px": 271.78,
+      "pct": 1.74,
+      "chg": 4.64,
       "tags": [
         "mega"
       ],
@@ -1015,9 +1015,9 @@
     {
       "sym": "PG",
       "name": "PG",
-      "px": 170.19,
-      "pct": 1.39,
-      "chg": 2.34,
+      "px": 170.23,
+      "pct": 1.42,
+      "chg": 2.38,
       "tags": [
         "mega"
       ],
@@ -1043,9 +1043,9 @@
     {
       "sym": "HD",
       "name": "HD",
-      "px": 343.37,
-      "pct": 1.99,
-      "chg": 6.69,
+      "px": 343.08,
+      "pct": 1.9,
+      "chg": 6.4,
       "tags": [
         "mega"
       ],
@@ -1071,9 +1071,9 @@
     {
       "sym": "ABBV",
       "name": "ABBV",
-      "px": 288.51,
-      "pct": 1.75,
-      "chg": 4.97,
+      "px": 288.62,
+      "pct": 1.79,
+      "chg": 5.08,
       "tags": [
         "mega"
       ],
@@ -1099,9 +1099,9 @@
     {
       "sym": "BAC",
       "name": "BAC",
-      "px": 47.73,
-      "pct": -1.73,
-      "chg": -0.84,
+      "px": 47.86,
+      "pct": -1.46,
+      "chg": -0.71,
       "tags": [
         "mega"
       ],
@@ -1113,7 +1113,7 @@
         ],
         [
           "Day range",
-          "$47.68 – $48.77"
+          "$47.63 – $48.77"
         ],
         [
           "Prev. close",
@@ -1127,9 +1127,9 @@
     {
       "sym": "KO",
       "name": "KO",
-      "px": 97.65,
-      "pct": 1.62,
-      "chg": 1.56,
+      "px": 97.58,
+      "pct": 1.55,
+      "chg": 1.49,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1153,9 +1153,9 @@
     {
       "sym": "CRM",
       "name": "CRM",
-      "px": 184.88,
-      "pct": 0.86,
-      "chg": 1.57,
+      "px": 184.83,
+      "pct": 0.83,
+      "chg": 1.52,
       "tags": [
         "ai"
       ],
@@ -1181,9 +1181,9 @@
     {
       "sym": "TSM",
       "name": "TSM",
-      "px": 321.81,
-      "pct": -8.6,
-      "chg": -30.28,
+      "px": 324.1,
+      "pct": -7.95,
+      "chg": -27.99,
       "tags": [
         "ai",
         "mega"
@@ -1210,9 +1210,9 @@
     {
       "sym": "IONQ",
       "name": "IONQ",
-      "px": 21.0,
-      "pct": -7.53,
-      "chg": -1.71,
+      "px": 21.37,
+      "pct": -5.9,
+      "chg": -1.34,
       "tags": [
         "quantum"
       ],
@@ -1238,9 +1238,9 @@
     {
       "sym": "RGTI",
       "name": "RGTI",
-      "px": 7.36,
-      "pct": -8.68,
-      "chg": -0.7,
+      "px": 7.49,
+      "pct": -7.07,
+      "chg": -0.57,
       "tags": [
         "quantum"
       ],
@@ -1266,9 +1266,9 @@
     {
       "sym": "QBTS",
       "name": "QBTS",
-      "px": 6.63,
-      "pct": -9.3,
-      "chg": -0.68,
+      "px": 6.73,
+      "pct": -7.93,
+      "chg": -0.58,
       "tags": [
         "quantum"
       ],
@@ -1294,9 +1294,9 @@
     {
       "sym": "QUBT",
       "name": "QUBT",
-      "px": 4.47,
-      "pct": -8.4,
-      "chg": -0.41,
+      "px": 4.49,
+      "pct": -7.99,
+      "chg": -0.39,
       "tags": [
         "quantum"
       ],
@@ -1322,9 +1322,9 @@
     {
       "sym": "RKLB",
       "name": "RKLB",
-      "px": 46.24,
-      "pct": -9.32,
-      "chg": -4.75,
+      "px": 46.86,
+      "pct": -8.1,
+      "chg": -4.13,
       "tags": [
         "space"
       ],
@@ -1336,7 +1336,7 @@
         ],
         [
           "Day range",
-          "$46.09 – $50.68"
+          "$46.08 – $50.68"
         ],
         [
           "Prev. close",
@@ -1350,9 +1350,9 @@
     {
       "sym": "ASTS",
       "name": "ASTS",
-      "px": 23.16,
-      "pct": -9.35,
-      "chg": -2.39,
+      "px": 23.63,
+      "pct": -7.51,
+      "chg": -1.92,
       "tags": [
         "space"
       ],
@@ -1378,9 +1378,9 @@
     {
       "sym": "LUNR",
       "name": "LUNR",
-      "px": 8.79,
-      "pct": -10.12,
-      "chg": -0.99,
+      "px": 8.92,
+      "pct": -8.79,
+      "chg": -0.86,
       "tags": [
         "space"
       ],
@@ -1406,9 +1406,9 @@
     {
       "sym": "NKE",
       "name": "NKE",
-      "px": 33.49,
-      "pct": -2.45,
-      "chg": -0.84,
+      "px": 33.58,
+      "pct": -2.18,
+      "chg": -0.75,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1432,9 +1432,9 @@
     {
       "sym": "SBUX",
       "name": "SBUX",
-      "px": 104.42,
-      "pct": -0.05,
-      "chg": -0.05,
+      "px": 104.28,
+      "pct": -0.18,
+      "chg": -0.19,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1458,9 +1458,9 @@
     {
       "sym": "MCD",
       "name": "MCD",
-      "px": 276.13,
-      "pct": 1.39,
-      "chg": 3.78,
+      "px": 275.54,
+      "pct": 1.17,
+      "chg": 3.19,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1484,9 +1484,9 @@
     {
       "sym": "PEP",
       "name": "PEP",
-      "px": 142.13,
-      "pct": 2.25,
-      "chg": 3.13,
+      "px": 141.52,
+      "pct": 1.81,
+      "chg": 2.52,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1510,9 +1510,9 @@
     {
       "sym": "BA",
       "name": "BA",
-      "px": 157.73,
-      "pct": -1.73,
-      "chg": -2.78,
+      "px": 158.13,
+      "pct": -1.48,
+      "chg": -2.38,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1522,7 +1522,7 @@
         ],
         [
           "Day range",
-          "$157.57 – $164.80"
+          "$157.52 – $164.80"
         ],
         [
           "Prev. close",
@@ -1536,9 +1536,9 @@
     {
       "sym": "UBER",
       "name": "UBER",
-      "px": 65.19,
-      "pct": -0.62,
-      "chg": -0.41,
+      "px": 65.04,
+      "pct": -0.85,
+      "chg": -0.56,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1548,7 +1548,7 @@
         ],
         [
           "Day range",
-          "$65.13 – $68.36"
+          "$65.00 – $68.36"
         ],
         [
           "Prev. close",
@@ -1562,9 +1562,9 @@
     {
       "sym": "COIN",
       "name": "COIN",
-      "px": 105.64,
-      "pct": -2.97,
-      "chg": -3.23,
+      "px": 105.31,
+      "pct": -3.27,
+      "chg": -3.56,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1574,7 +1574,7 @@
         ],
         [
           "Day range",
-          "$105.12 – $111.09"
+          "$104.60 – $111.09"
         ],
         [
           "Prev. close",
@@ -1588,9 +1588,9 @@
     {
       "sym": "HOOD",
       "name": "HOOD",
-      "px": 63.93,
-      "pct": -6.88,
-      "chg": -4.72,
+      "px": 63.97,
+      "pct": -6.82,
+      "chg": -4.68,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1600,7 +1600,7 @@
         ],
         [
           "Day range",
-          "$63.68 – $68.71"
+          "$63.60 – $68.71"
         ],
         [
           "Prev. close",
@@ -1614,9 +1614,9 @@
     {
       "sym": "SHOP",
       "name": "SHOP",
-      "px": 126.71,
-      "pct": -3.99,
-      "chg": -5.26,
+      "px": 127.23,
+      "pct": -3.59,
+      "chg": -4.74,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1626,7 +1626,7 @@
         ],
         [
           "Day range",
-          "$126.51 – $134.77"
+          "$126.30 – $134.77"
         ],
         [
           "Prev. close",
@@ -1640,9 +1640,9 @@
     {
       "sym": "ARM",
       "name": "ARM",
-      "px": 157.2,
-      "pct": -11.27,
-      "chg": -19.97,
+      "px": 158.35,
+      "pct": -10.62,
+      "chg": -18.82,
       "tags": [
         "ai"
       ],
@@ -1668,9 +1668,9 @@
     {
       "sym": "MU",
       "name": "Micron Technology, Inc.",
-      "px": 600.37,
-      "pct": -13.05,
-      "chg": -90.07,
+      "px": 610.54,
+      "pct": -11.57,
+      "chg": -79.9,
       "tags": [
         "ai",
         "social"
@@ -1687,7 +1687,7 @@
         ],
         [
           "Day range",
-          "$598.50 – $670.18"
+          "$598.02 – $670.18"
         ],
         [
           "Prev. close",
@@ -1709,9 +1709,9 @@
     {
       "sym": "SMCI",
       "name": "SMCI",
-      "px": 21.94,
-      "pct": -7.97,
-      "chg": -1.9,
+      "px": 22.26,
+      "pct": -6.63,
+      "chg": -1.58,
       "tags": [
         "ai"
       ],
@@ -1737,9 +1737,9 @@
     {
       "sym": "ADBE",
       "name": "ADBE",
-      "px": 224.74,
-      "pct": 1.38,
-      "chg": 3.06,
+      "px": 223.04,
+      "pct": 0.61,
+      "chg": 1.36,
       "tags": [
         "ai"
       ],
@@ -1765,9 +1765,9 @@
     {
       "sym": "PYPL",
       "name": "PYPL",
-      "px": 54.05,
-      "pct": -4.12,
-      "chg": -2.32,
+      "px": 54.45,
+      "pct": -3.41,
+      "chg": -1.92,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1791,9 +1791,9 @@
     {
       "sym": "F",
       "name": "F",
-      "px": 11.33,
-      "pct": 0.8,
-      "chg": 0.09,
+      "px": 11.35,
+      "pct": 0.98,
+      "chg": 0.11,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1817,9 +1817,9 @@
     {
       "sym": "GM",
       "name": "GM",
-      "px": 80.17,
-      "pct": -1.93,
-      "chg": -1.58,
+      "px": 80.21,
+      "pct": -1.88,
+      "chg": -1.54,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1843,9 +1843,9 @@
     {
       "sym": "CVX",
       "name": "CVX",
-      "px": 209.77,
-      "pct": 1.58,
-      "chg": 3.27,
+      "px": 209.84,
+      "pct": 1.62,
+      "chg": 3.34,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1855,7 +1855,7 @@
         ],
         [
           "Day range",
-          "$205.94 – $209.97"
+          "$205.94 – $210.13"
         ],
         [
           "Prev. close",
@@ -1869,9 +1869,9 @@
     {
       "sym": "GS",
       "name": "GS",
-      "px": 801.02,
-      "pct": -5.49,
-      "chg": -46.51,
+      "px": 803.81,
+      "pct": -5.16,
+      "chg": -43.72,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1881,7 +1881,7 @@
         ],
         [
           "Day range",
-          "$798.30 – $835.68"
+          "$798.18 – $835.68"
         ],
         [
           "Prev. close",
@@ -1895,9 +1895,9 @@
     {
       "sym": "MSTR",
       "name": "MSTR",
-      "px": 81.37,
-      "pct": -5.53,
-      "chg": -4.76,
+      "px": 81.2,
+      "pct": -5.72,
+      "chg": -4.93,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1921,9 +1921,9 @@
     {
       "sym": "SOFI",
       "name": "SOFI",
-      "px": 12.82,
-      "pct": -5.25,
-      "chg": -0.71,
+      "px": 12.84,
+      "pct": -5.1,
+      "chg": -0.69,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1933,7 +1933,7 @@
         ],
         [
           "Day range",
-          "$12.75 – $13.60"
+          "$12.72 – $13.60"
         ],
         [
           "Prev. close",
@@ -1947,9 +1947,9 @@
     {
       "sym": "RIVN",
       "name": "RIVN",
-      "px": 10.63,
-      "pct": -5.85,
-      "chg": -0.66,
+      "px": 10.61,
+      "pct": -6.02,
+      "chg": -0.68,
       "tags": [],
       "src": "finnhub",
       "facts": [
@@ -1959,7 +1959,7 @@
         ],
         [
           "Day range",
-          "$10.55 – $11.19"
+          "$10.54 – $11.19"
         ],
         [
           "Prev. close",
@@ -1973,9 +1973,9 @@
     {
       "sym": "PANW",
       "name": "Palo Alto Networks, Inc.",
-      "px": 350.24,
-      "pct": -3.18,
-      "chg": -11.49,
+      "px": 350.27,
+      "pct": -3.17,
+      "chg": -11.46,
       "tags": [
         "social"
       ],
@@ -2013,9 +2013,9 @@
     {
       "sym": "BABA",
       "name": "Alibaba Group Holding Limited",
-      "px": 82.65,
-      "pct": -0.79,
-      "chg": -0.66,
+      "px": 82.61,
+      "pct": -0.84,
+      "chg": -0.7,
       "tags": [
         "social"
       ],
@@ -2031,7 +2031,7 @@
         ],
         [
           "Day range",
-          "$82.38 – $84.68"
+          "$82.24 – $84.68"
         ],
         [
           "Prev. close",
@@ -2053,9 +2053,9 @@
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "px": 699.78,
-      "pct": -2.25,
-      "chg": -16.09,
+      "px": 701.13,
+      "pct": -2.06,
+      "chg": -14.74,
       "tags": [
         "social",
         "etf"
@@ -2086,9 +2086,9 @@
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "px": 619.89,
-      "pct": -3.9,
-      "chg": -25.15,
+      "px": 621.57,
+      "pct": -3.64,
+      "chg": -23.47,
       "tags": [
         "social",
         "etf"
@@ -2101,7 +2101,7 @@
         ],
         [
           "Day range",
-          "$619.15 – $643.28"
+          "$618.72 – $643.28"
         ],
         [
           "Prev. close",
@@ -2119,9 +2119,9 @@
     {
       "sym": "VOO",
       "name": "Vanguard S&amp;P 500 ETF",
-      "px": 643.81,
-      "pct": -2.16,
-      "chg": -14.2,
+      "px": 643.98,
+      "pct": -2.13,
+      "chg": -14.03,
       "tags": [
         "social",
         "etf"
@@ -2152,9 +2152,9 @@
     {
       "sym": "SGOV",
       "name": "iShares Trust - iShares 0-3 Month Treasury Bond ETF",
-      "px": 100.63,
+      "px": 100.64,
       "pct": 0.02,
-      "chg": 0.02,
+      "chg": 0.03,
       "tags": [
         "social",
         "etf"
@@ -2185,9 +2185,9 @@
     {
       "sym": "TTWO",
       "name": "Take-Two Interactive Software, Inc.",
-      "px": 207.74,
-      "pct": -0.44,
-      "chg": -0.91,
+      "px": 205.84,
+      "pct": -1.35,
+      "chg": -2.81,
       "tags": [
         "social"
       ],
@@ -2225,9 +2225,9 @@
     {
       "sym": "NBIS",
       "name": "Nebius Group NV",
-      "px": 84.51,
-      "pct": -12.8,
-      "chg": -12.41,
+      "px": 84.31,
+      "pct": -13.01,
+      "chg": -12.61,
       "tags": [
         "social"
       ],
@@ -2265,9 +2265,9 @@
     {
       "sym": "ANT",
       "name": "Anthropic, PBC",
-      "px": 84.99,
-      "pct": -12.53,
-      "chg": -12.18,
+      "px": 86.8,
+      "pct": -10.67,
+      "chg": -10.37,
       "tags": [
         "social"
       ],
@@ -2305,9 +2305,9 @@
     {
       "sym": "CAPR",
       "name": "Capricor Therapeutics, Inc.",
-      "px": 8.0,
-      "pct": 6.24,
-      "chg": 0.47,
+      "px": 7.9,
+      "pct": 4.91,
+      "chg": 0.37,
       "tags": [
         "social"
       ],
@@ -2341,9 +2341,9 @@
     {
       "sym": "IREN",
       "name": "IREN Limited",
-      "px": 12.46,
-      "pct": -13.53,
-      "chg": -1.95,
+      "px": 12.4,
+      "pct": -13.95,
+      "chg": -2.01,
       "tags": [
         "social"
       ],
@@ -2381,9 +2381,9 @@
     {
       "sym": "GME",
       "name": "GameStop Corp.",
-      "px": 26.91,
-      "pct": -0.07,
-      "chg": -0.02,
+      "px": 26.73,
+      "pct": -0.74,
+      "chg": -0.2,
       "tags": [
         "social"
       ],
@@ -2421,9 +2421,9 @@
     {
       "sym": "SVRA",
       "name": "Savara Inc.",
-      "px": 4.29,
-      "pct": -17.66,
-      "chg": -0.92,
+      "px": 4.35,
+      "pct": -16.51,
+      "chg": -0.86,
       "tags": [
         "social"
       ],
@@ -2457,9 +2457,9 @@
     {
       "sym": "VCX",
       "name": "Fundrise Innovation Fund LLC",
-      "px": 13.97,
-      "pct": -20.13,
-      "chg": -3.52,
+      "px": 14.1,
+      "pct": -19.38,
+      "chg": -3.39,
       "tags": [
         "social"
       ],
@@ -2813,7 +2813,7 @@
     "week": 37,
     "month": 29,
     "year": 5,
-    "asOf": "2026-11-20T18:02:52+00:00"
+    "asOf": "2026-11-20T19:03:01+00:00"
   },
   "crowdSyms": [
     "SPY",
@@ -2904,7 +2904,7 @@
   },
   "historyRun": {
     "backfilled": 0,
-    "appended": 79,
+    "appended": 81,
     "intraday": 81
   }
 }
