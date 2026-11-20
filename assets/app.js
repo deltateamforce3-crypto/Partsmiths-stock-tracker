@@ -429,12 +429,32 @@ ${D.mode === 'auto' ? `
 
   // title block (status bar) with live data-age counter
   function age() { const ms = Date.now() - snap.getTime(); if (ms < 0) return 'just now'; const h = Math.floor(ms / 36e5), mn = Math.floor(ms % 36e5 / 6e4); return h >= 48 ? Math.floor(h / 24) + 'd ' + (h % 24) + 'h' : h + 'h ' + String(mn).padStart(2, '0') + 'm'; }
+  // US market hours in New York time (holidays not modelled).
+  function marketState(now = new Date()) {
+    const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    const mins = et.getHours() * 60 + et.getMinutes(), wd = et.getDay();
+    const open = wd >= 1 && wd <= 5 && mins >= 570 && mins < 960;
+    if (open) return { open: true };
+    const nxt = new Date(et); if (wd >= 1 && wd <= 5 && mins < 570) { /* opens later today */ } else { do nxt.setDate(nxt.getDate() + 1); while (nxt.getDay() === 0 || nxt.getDay() === 6); }
+    const sameDay = nxt.toDateString() === et.toDateString();
+    const tomorrow = new Date(et); tomorrow.setDate(et.getDate() + 1);
+    const day = sameDay ? 'today' : nxt.toDateString() === tomorrow.toDateString() ? 'tomorrow' : nxt.toLocaleDateString('en-US', { weekday: 'long' });
+    // the last close: today's if past 4 PM on a weekday, otherwise the previous weekday's
+    const lastClose = new Date(et); if (!(wd >= 1 && wd <= 5 && mins >= 960)) { do lastClose.setDate(lastClose.getDate() - 1); while (lastClose.getDay() === 0 || lastClose.getDay() === 6); }
+    lastClose.setHours(16, 0, 0, 0);
+    return { open: false, reopens: `${day} 9:30 AM`, lastCloseET: lastClose };
+  }
   function renderStatus() {
-    const stale = Date.now() - snap.getTime() > 26 * 36e5;
+    const mk = marketState();
+    const snapET = new Date(snap.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    const hasFinal = !mk.open && snapET >= mk.lastCloseET;   // snapshot taken after the last close
+    const stale = Date.now() - snap.getTime() > 26 * 36e5 && !hasFinal;
     $('#status').innerHTML = `
       <div class="tb"><span class="k">Sheet</span><span class="v">MKT-${D.snapshot.slice(5, 10).replace('-', '')}</span></div>
       <div class="tb"><span class="k">Snapshot</span><span class="v">${esc(snapStr)}</span></div>
-      <div class="tb ${stale ? 'warn' : ''}"><span class="k">Data age</span><span class="v">${age()}${stale ? ' · stale' : ''}</span></div>
+      ${hasFinal && !live.on
+        ? `<div class="tb" title="Prices are the final closing prices, updated ${age()} ago. Hourly updates resume when the market opens."><span class="k">Market</span><span class="v">Closed · final prices · reopens ${esc(mk.reopens)} ET</span></div>`
+        : `<div class="tb ${stale ? 'warn' : ''}"><span class="k">Data age</span><span class="v">${age()}${stale ? ' · stale' : ''}</span></div>`}
       <div class="tb"><span class="k">Sources</span><span class="v">${Object.keys(D.sources).length}</span></div>
       <div class="tb ${live.on ? '' : ''}"><span class="k">Quotes</span><span class="v">${live.on ? (live.err ? '<span style="color:' + (/closed/.test(live.err) ? 'var(--ink-2)' : 'var(--danger)') + '">Live · ' + esc(live.err) + '</span>' : '<span style="color:var(--ok)">● Live · Finnhub' + (live.at ? ' · ' + live.at : '') + '</span>') : 'Snapshot'}</span></div>
       <div class="tb"><span class="k">Next refresh</span><span class="v">${esc(D.nextRefresh)}</span></div>
