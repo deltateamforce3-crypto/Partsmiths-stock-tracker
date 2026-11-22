@@ -4139,25 +4139,39 @@
   },
   "stories": [
     {
-      "title": "How a brutal week for stocks almost wiped out their gains for the entire year",
-      "url": "https://www.marketwatch.com/story/how-a-brutal-week-for-stocks-almost-wiped-out-their-gains-for-the-entire-year-ae6773c3?mod=mw_rss_topstories",
-      "summary": "Investors are now more focused on protecting their portfolios than looking for bargains",
-      "outlet": "MarketWatch",
-      "time": "Sat 7:00 AM ET"
-    },
-    {
-      "title": "How to Manage Sudden Wealth: An Expert Guide",
-      "url": "https://www.kiplinger.com/retirement/inheritance/expert-guide-to-managing-sudden-wealth",
-      "summary": "Managing sudden wealth means paying attention to emotions, pausing before you act and establishing boundaries before channeling the money toward priorities.",
+      "title": "How AI Is Reshaping Modern Retirement Planning",
+      "url": "https://www.kiplinger.com/retirement/retirement-planning/ai-is-making-retirement-planning-more-personalized",
+      "summary": "AI retirement planning tools are a world away from calculators that use your age to tell you what you need to save — and their capabilities are developing fast.",
       "outlet": "Kiplinger",
-      "time": "Sat 6:00 AM ET"
+      "time": "Sun 6:00 AM ET"
     },
     {
-      "title": "Dow, S&P 500 enter correction as Nasdaq suffers worst week since 2020",
-      "url": "https://www.marketwatch.com/story/dow-s-p-500-enter-correction-as-nasdaq-suffers-worst-week-since-2020-bd74dadf?mod=mw_rss_topstories",
-      "summary": "All 11 S&P 500 sectors finished more than 1% lower this week for the first time since April 2025.",
+      "title": "My husband is happily retired at 64 and thinks I should keep working. Is he being fair?",
+      "url": "https://www.marketwatch.com/story/my-husband-is-happily-retired-at-64-and-thinks-i-should-keep-working-is-he-being-fair-325c5f38?mod=mw_rss_topstories",
+      "summary": "“I’m exhausted. My alarm goes off at 6 a.m., and I have a 50-minute commute.”",
       "outlet": "MarketWatch",
-      "time": "Fri 5:46 PM ET"
+      "time": "Sat 8:15 PM ET"
+    },
+    {
+      "title": "What's next after a brutal stock plunge we might have seen coming",
+      "url": "https://www.npr.org/2026/11/21/nx-s1-6049146/whats-next-after-a-brutal-stock-plunge-we-might-have-seen-coming",
+      "summary": "Stocks tanked this week as investors grew wary of tech investments that have seen years of growth. NPR's Rob Schmitz speaks with Katie Martin of the Financial Times about the global ripple effects.",
+      "outlet": "NPR",
+      "time": "Sat 5:01 PM ET"
+    },
+    {
+      "title": "My First $1 Million: High School Teacher, 47, Columbus, Ohio",
+      "url": "https://www.kiplinger.com/personal-finance/my-first-million-80-high-school-teacher-columbus-ohio",
+      "summary": "\"When I finished college, my one simple goal was to never miss a year of filling up my Roth. I even made that happen on a $23,000 substitute teacher income.\"",
+      "outlet": "Kiplinger",
+      "time": "Sat 11:00 AM ET"
+    },
+    {
+      "title": "Retirees face a looming deadline for required withdrawals — missing it could trigger a tax penalty",
+      "url": "https://www.cnbc.com/2026/11/21/rmd-deadline-penalty-2026.html",
+      "summary": "The busy holiday season may lead retirees to miss a key deadline for retirement account withdrawals.",
+      "outlet": "CNBC",
+      "time": "Sat 9:30 AM ET"
     },
     {
       "title": "Stocks Often Prosper After an Abrupt C.E.O. Exit. Is Nvidia Different?",
@@ -4165,24 +4179,10 @@
       "summary": "The stock value of a top executive is often less important than it initially seems. But Nvidia’s entanglement in U.S.-Chinese relations poses special problems.",
       "outlet": "The New York Times",
       "time": "Fri 5:11 PM ET"
-    },
-    {
-      "title": "Nasdaq Dives 1,261 Points as Anthropic, AI Stocks Sink: Stock Market Today",
-      "url": "https://www.kiplinger.com/investing/stocks/nasdaq-dives-1-261-points-as-anthropic-ai-stocks-sink-stock-market-today",
-      "summary": "It was a rough end to a rough week, with the S&P 500 and Dow joining the Nasdaq in correction territory.",
-      "outlet": "Kiplinger",
-      "time": "Fri 4:12 PM ET"
-    },
-    {
-      "title": "Prediction markets outlook for stocks in 2026 dims amid AI sell-off",
-      "url": "https://www.cnbc.com/2026/11/20/sp-500-8000-kalshi-odds-ai-selloff.html",
-      "summary": "Odds that the S&P 500 will cross 8,000, which were once north of 70%, are extremely low on platform Kalshi.",
-      "outlet": "CNBC",
-      "time": "Fri 2:59 PM ET"
     }
   ],
-  "storiesDate": "Sat 21 Nov 2026",
-  "lastStories": "2026-11-21",
+  "storiesDate": "Sun 22 Nov 2026",
+  "lastStories": "2026-11-22",
   "picksAt": "2026-11-20T15:05-05:00",
   "movers": {
     "up": [
