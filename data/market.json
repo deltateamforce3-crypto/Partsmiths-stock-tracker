@@ -1,10 +1,10 @@
 {
-  "snapshot": "2026-11-23T16:05:12-05:00",
+  "snapshot": "2026-11-23T17:05:11-05:00",
   "session": "Mon 23 Nov 2026",
   "picksFor": "Tue 24 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily",
-  "headline": "S&P 500 (SPY) +4.74% · Dow +3.06% · Nasdaq-100 +7.00%",
-  "summary": "65 of 76 watchlist stocks are higher. Best: NVDA +31.48%. Worst: CRWD −8.92%. Biggest lift: TSM (+$6,401.3B in value); biggest drag: CRWD (−$20.8B). CNN's Fear & Greed Index reads 18 (Extreme Fear).",
+  "headline": "S&P 500 (SPY) +4.71% · Dow +3.06% · Nasdaq-100 +7.00%",
+  "summary": "65 of 76 watchlist stocks are higher. Best: NVDA +31.48%. Worst: CRWD −8.92%. Biggest lift: TSM (+$6,401.3B in value); biggest drag: CRWD (−$20.8B). CNN's Fear & Greed Index reads 17 (Extreme Fear).",
   "summarySrc": [
     "finnhub",
     "cnn-fg"
@@ -13,9 +13,9 @@
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "last": 722.51,
-      "chg": 32.7,
-      "pct": 4.74,
+      "last": 722.29,
+      "chg": 32.48,
+      "pct": 4.71,
       "src": "finnhub"
     },
     {
@@ -46,11 +46,11 @@
   "macro": [
     {
       "k": "Long Treasuries (TLT)",
-      "v": "$81.74",
-      "d": "+$0.29 · +0.36%",
+      "v": "$81.69",
+      "d": "+$0.24 · +0.29%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     },
     {
       "k": "US dollar (UUP)",
@@ -58,7 +58,7 @@
       "d": "+$0.16 · +0.54%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     },
     {
       "k": "Oil (USO)",
@@ -66,15 +66,15 @@
       "d": "−$6.27 · −4.49%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     },
     {
       "k": "Gold (GLD)",
-      "v": "$333.04",
-      "d": "+$10.17 · +3.15%",
+      "v": "$333.02",
+      "d": "+$10.15 · +3.14%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     },
     {
       "k": "Bitcoin (IBIT)",
@@ -82,7 +82,7 @@
       "d": "+$1.60 · +4.85%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "4:05 PM"
+      "asof": "5:05 PM"
     }
   ],
   "history": {
@@ -101,7 +101,7 @@
           730.2,
           715.87,
           689.81,
-          722.51
+          722.29
         ]
       },
       {
@@ -163,6 +163,10 @@
           "$4.06T"
         ],
         [
+          "Mkt cap",
+          "$4.06T"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -209,6 +213,10 @@
           "$1.49T"
         ],
         [
+          "Mkt cap",
+          "$1.49T"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -248,6 +256,10 @@
         [
           "Prev. close",
           "$424.39"
+        ],
+        [
+          "Mkt cap",
+          "$753.7B"
         ],
         [
           "Mkt cap",
@@ -300,6 +312,10 @@
           "$3.73T"
         ],
         [
+          "Mkt cap",
+          "$3.73T"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -345,6 +361,10 @@
           "$5.11T"
         ],
         [
+          "Mkt cap",
+          "$5.11T"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -384,6 +404,10 @@
         [
           "Prev. close",
           "$246.82"
+        ],
+        [
+          "Mkt cap",
+          "$2.78T"
         ],
         [
           "Mkt cap",
@@ -436,6 +460,10 @@
           "$3.47T"
         ],
         [
+          "Mkt cap",
+          "$3.47T"
+        ],
+        [
           "Industry",
           "Media"
         ],
@@ -476,6 +504,10 @@
         [
           "Prev. close",
           "$560.84"
+        ],
+        [
+          "Mkt cap",
+          "$1.51T"
         ],
         [
           "Mkt cap",
@@ -527,6 +559,10 @@
           "$1.50T"
         ],
         [
+          "Mkt cap",
+          "$1.50T"
+        ],
+        [
           "Industry",
           "Automobiles"
         ],
@@ -564,6 +600,10 @@
         [
           "Prev. close",
           "$117.98"
+        ],
+        [
+          "Mkt cap",
+          "$204.1B"
         ],
         [
           "Mkt cap",
@@ -615,6 +655,10 @@
           "$383.5B"
         ],
         [
+          "Mkt cap",
+          "$383.5B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -654,6 +698,10 @@
         [
           "Prev. close",
           "$51.28"
+        ],
+        [
+          "Mkt cap",
+          "$310.2B"
         ],
         [
           "Mkt cap",
@@ -705,6 +753,10 @@
           "$844.8B"
         ],
         [
+          "Mkt cap",
+          "$844.8B"
+        ],
+        [
           "Industry",
           "Banking"
         ],
@@ -744,6 +796,10 @@
         [
           "Prev. close",
           "$127.95"
+        ],
+        [
+          "Mkt cap",
+          "$979.9B"
         ],
         [
           "Mkt cap",
@@ -796,6 +852,10 @@
           "$1.88T"
         ],
         [
+          "Mkt cap",
+          "$1.88T"
+        ],
+        [
           "Industry",
           "Telecommunication"
         ],
@@ -835,6 +895,10 @@
         [
           "Prev. close",
           "$570.00"
+        ],
+        [
+          "Mkt cap",
+          "$1.22T"
         ],
         [
           "Mkt cap",
@@ -886,6 +950,10 @@
           "$1.29T"
         ],
         [
+          "Mkt cap",
+          "$1.29T"
+        ],
+        [
           "Industry",
           "Pharmaceuticals"
         ],
@@ -925,6 +993,10 @@
         [
           "Prev. close",
           "$401.87"
+        ],
+        [
+          "Mkt cap",
+          "$768.7B"
         ],
         [
           "Mkt cap",
@@ -976,6 +1048,10 @@
           "$552.6B"
         ],
         [
+          "Mkt cap",
+          "$552.6B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -1015,6 +1091,10 @@
         [
           "Prev. close",
           "$159.99"
+        ],
+        [
+          "Mkt cap",
+          "$763.8B"
         ],
         [
           "Mkt cap",
@@ -1066,6 +1146,10 @@
           "$365.3B"
         ],
         [
+          "Mkt cap",
+          "$365.3B"
+        ],
+        [
           "Industry",
           "Health Care"
         ],
@@ -1082,9 +1166,9 @@
     {
       "sym": "ORCL",
       "name": "Oracle Corporation",
-      "px": 113.77,
-      "pct": 12.43,
-      "chg": 12.58,
+      "px": 113.68,
+      "pct": 12.34,
+      "chg": 12.49,
       "tags": [
         "ai",
         "mega"
@@ -1106,6 +1190,10 @@
         [
           "Prev. close",
           "$101.19"
+        ],
+        [
+          "Mkt cap",
+          "$348.6B"
         ],
         [
           "Mkt cap",
@@ -1157,6 +1245,10 @@
           "$483.0B"
         ],
         [
+          "Mkt cap",
+          "$483.0B"
+        ],
+        [
           "Industry",
           "Retail"
         ],
@@ -1196,6 +1288,10 @@
         [
           "Prev. close",
           "$56.73"
+        ],
+        [
+          "Mkt cap",
+          "$238.3B"
         ],
         [
           "Mkt cap",
@@ -1247,6 +1343,10 @@
           "$651.2B"
         ],
         [
+          "Mkt cap",
+          "$651.2B"
+        ],
+        [
           "Industry",
           "Pharmaceuticals"
         ],
@@ -1286,6 +1386,10 @@
         [
           "Prev. close",
           "$169.37"
+        ],
+        [
+          "Mkt cap",
+          "$393.6B"
         ],
         [
           "Mkt cap",
@@ -1337,6 +1441,10 @@
           "$345.8B"
         ],
         [
+          "Mkt cap",
+          "$345.8B"
+        ],
+        [
           "Industry",
           "Retail"
         ],
@@ -1376,6 +1484,10 @@
         [
           "Prev. close",
           "$286.20"
+        ],
+        [
+          "Mkt cap",
+          "$510.6B"
         ],
         [
           "Mkt cap",
@@ -1427,6 +1539,10 @@
           "$333.5B"
         ],
         [
+          "Mkt cap",
+          "$333.5B"
+        ],
+        [
           "Industry",
           "Banking"
         ],
@@ -1464,6 +1580,10 @@
         [
           "Prev. close",
           "$96.99"
+        ],
+        [
+          "Mkt cap",
+          "$413.4B"
         ],
         [
           "Mkt cap",
@@ -1509,6 +1629,10 @@
         [
           "Prev. close",
           "$180.62"
+        ],
+        [
+          "Mkt cap",
+          "$151.7B"
         ],
         [
           "Mkt cap",
@@ -1561,6 +1685,10 @@
           "$51.86T"
         ],
         [
+          "Mkt cap",
+          "$51.86T"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -1596,6 +1724,10 @@
         [
           "Prev. close",
           "$20.72"
+        ],
+        [
+          "Mkt cap",
+          "$10.5B"
         ],
         [
           "Mkt cap",
@@ -1643,6 +1775,10 @@
           "$2.9B"
         ],
         [
+          "Mkt cap",
+          "$2.9B"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -1678,6 +1814,10 @@
         [
           "Prev. close",
           "$6.52"
+        ],
+        [
+          "Mkt cap",
+          "$2.9B"
         ],
         [
           "Mkt cap",
@@ -1757,6 +1897,10 @@
           "$31.8B"
         ],
         [
+          "Mkt cap",
+          "$31.8B"
+        ],
+        [
           "Industry",
           "Aerospace & Defense"
         ],
@@ -1796,6 +1940,10 @@
         [
           "Prev. close",
           "$23.27"
+        ],
+        [
+          "Mkt cap",
+          "$10.2B"
         ],
         [
           "Mkt cap",
@@ -1847,6 +1995,10 @@
           "$2.2B"
         ],
         [
+          "Mkt cap",
+          "$2.2B"
+        ],
+        [
           "Industry",
           "Aerospace & Defense"
         ],
@@ -1884,6 +2036,10 @@
         [
           "Prev. close",
           "$32.92"
+        ],
+        [
+          "Mkt cap",
+          "$49.6B"
         ],
         [
           "Mkt cap",
@@ -1933,6 +2089,10 @@
           "$120.0B"
         ],
         [
+          "Mkt cap",
+          "$120.0B"
+        ],
+        [
           "Industry",
           "Hotels, Restaurants & Leisure"
         ],
@@ -1970,6 +2130,10 @@
         [
           "Prev. close",
           "$273.24"
+        ],
+        [
+          "Mkt cap",
+          "$193.6B"
         ],
         [
           "Mkt cap",
@@ -2019,6 +2183,10 @@
           "$190.9B"
         ],
         [
+          "Mkt cap",
+          "$190.9B"
+        ],
+        [
           "Industry",
           "Beverages"
         ],
@@ -2056,6 +2224,10 @@
         [
           "Prev. close",
           "$155.89"
+        ],
+        [
+          "Mkt cap",
+          "$128.1B"
         ],
         [
           "Mkt cap",
@@ -2105,6 +2277,10 @@
           "$136.3B"
         ],
         [
+          "Mkt cap",
+          "$136.3B"
+        ],
+        [
           "Industry",
           "Road & Rail"
         ],
@@ -2142,6 +2318,10 @@
         [
           "Prev. close",
           "$101.97"
+        ],
+        [
+          "Mkt cap",
+          "$29.4B"
         ],
         [
           "Mkt cap",
@@ -2191,6 +2371,10 @@
           "$62.0B"
         ],
         [
+          "Mkt cap",
+          "$62.0B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -2228,6 +2412,10 @@
         [
           "Prev. close",
           "$123.72"
+        ],
+        [
+          "Mkt cap",
+          "$174.4B"
         ],
         [
           "Mkt cap",
@@ -2279,6 +2467,10 @@
           "$161.9B"
         ],
         [
+          "Mkt cap",
+          "$161.9B"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -2318,6 +2510,10 @@
         [
           "Prev. close",
           "$594.51"
+        ],
+        [
+          "Mkt cap",
+          "$805.3B"
         ],
         [
           "Mkt cap",
@@ -2369,6 +2565,10 @@
           "$16.9B"
         ],
         [
+          "Mkt cap",
+          "$16.9B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -2408,6 +2608,10 @@
         [
           "Prev. close",
           "$217.71"
+        ],
+        [
+          "Mkt cap",
+          "$86.6B"
         ],
         [
           "Mkt cap",
@@ -2457,6 +2661,10 @@
           "$45.1B"
         ],
         [
+          "Mkt cap",
+          "$45.1B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -2494,6 +2702,10 @@
         [
           "Prev. close",
           "$11.17"
+        ],
+        [
+          "Mkt cap",
+          "$45.9B"
         ],
         [
           "Mkt cap",
@@ -2543,6 +2755,10 @@
           "$67.9B"
         ],
         [
+          "Mkt cap",
+          "$67.9B"
+        ],
+        [
           "Industry",
           "Automobiles"
         ],
@@ -2580,6 +2796,10 @@
         [
           "Prev. close",
           "$208.37"
+        ],
+        [
+          "Mkt cap",
+          "$407.1B"
         ],
         [
           "Mkt cap",
@@ -2629,6 +2849,10 @@
           "$238.0B"
         ],
         [
+          "Mkt cap",
+          "$238.0B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -2666,6 +2890,10 @@
         [
           "Prev. close",
           "$77.80"
+        ],
+        [
+          "Mkt cap",
+          "$37.2B"
         ],
         [
           "Mkt cap",
@@ -2715,6 +2943,10 @@
           "$17.5B"
         ],
         [
+          "Mkt cap",
+          "$17.5B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -2758,6 +2990,10 @@
           "$16.5B"
         ],
         [
+          "Mkt cap",
+          "$16.5B"
+        ],
+        [
           "Industry",
           "Automobiles"
         ],
@@ -2774,9 +3010,9 @@
     {
       "sym": "SNDK",
       "name": "SanDisk Corporation",
-      "px": 87.25,
-      "pct": 10.11,
-      "chg": 8.01,
+      "px": 87.71,
+      "pct": 10.69,
+      "chg": 8.47,
       "tags": [
         "social"
       ],
@@ -2803,6 +3039,10 @@
           "$106.5B"
         ],
         [
+          "Mkt cap",
+          "$106.5B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -2819,9 +3059,9 @@
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "px": 722.51,
-      "pct": 4.74,
-      "chg": 32.7,
+      "px": 722.29,
+      "pct": 4.71,
+      "chg": 32.48,
       "tags": [
         "social",
         "etf"
@@ -2914,6 +3154,10 @@
           "$10.9B"
         ],
         [
+          "Mkt cap",
+          "$10.9B"
+        ],
+        [
           "Industry",
           "Media"
         ],
@@ -2949,6 +3193,10 @@
         [
           "Prev. close",
           "$19.36"
+        ],
+        [
+          "Mkt cap",
+          "$6.6B"
         ],
         [
           "Mkt cap",
@@ -2996,6 +3244,10 @@
           "$28.5B"
         ],
         [
+          "Mkt cap",
+          "$28.5B"
+        ],
+        [
           "Industry",
           "Utilities"
         ],
@@ -3012,9 +3264,9 @@
     {
       "sym": "VOO",
       "name": "Vanguard S&amp;P 500 ETF",
-      "px": 664.18,
-      "pct": 4.51,
-      "chg": 28.64,
+      "px": 663.91,
+      "pct": 4.46,
+      "chg": 28.37,
       "tags": [
         "social",
         "etf"
@@ -3140,6 +3392,10 @@
           "$212.8B"
         ],
         [
+          "Mkt cap",
+          "$212.8B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -3185,6 +3441,10 @@
           "$62.0B"
         ],
         [
+          "Mkt cap",
+          "$62.0B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -3220,6 +3480,10 @@
         [
           "Prev. close",
           "$6.01"
+        ],
+        [
+          "Mkt cap",
+          "$0.4B"
         ],
         [
           "Mkt cap",
@@ -3271,6 +3535,10 @@
           "$38.8B"
         ],
         [
+          "Mkt cap",
+          "$38.8B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -3310,6 +3578,10 @@
         [
           "Prev. close",
           "$13.66"
+        ],
+        [
+          "Mkt cap",
+          "$2.8B"
         ],
         [
           "Mkt cap",
@@ -3361,6 +3633,10 @@
           "$7.9B"
         ],
         [
+          "Mkt cap",
+          "$7.9B"
+        ],
+        [
           "Industry",
           "Hotels, Restaurants & Leisure"
         ],
@@ -3396,6 +3672,10 @@
         [
           "Prev. close",
           "$27.29"
+        ],
+        [
+          "Mkt cap",
+          "$25.55T"
         ],
         [
           "Mkt cap",
@@ -3887,13 +4167,13 @@
   },
   "lastFull": "2026-11-23",
   "fearGreed": {
-    "score": 18,
+    "score": 17,
     "rating": "Extreme Fear",
     "prevClose": 10,
     "week": 31,
     "month": 17,
     "year": 6,
-    "asOf": "2026-11-23T20:59:59+00:00"
+    "asOf": "2026-11-23T21:49:52+00:00"
   },
   "crowdSyms": [
     "SPY",
@@ -4061,14 +4341,14 @@
         "capB": 365
       }
     ],
-    "netB": 9134.4,
+    "netB": 9134.7,
     "tracked": 49,
     "floorB": 50,
     "src": "finnhub"
   },
   "historyRun": {
     "backfilled": 0,
-    "appended": 83,
+    "appended": 6,
     "intraday": 83
   }
 }
