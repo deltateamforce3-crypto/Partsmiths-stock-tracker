@@ -1,56 +1,57 @@
 {
-  "snapshot": "2026-11-24T14:05:13-05:00",
+  "snapshot": "2026-11-24T15:05:13-05:00",
   "session": "Tue 24 Nov 2026",
-  "picksFor": "Tue 24 Nov 2026",
+  "picksFor": "Wed 25 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily",
-  "headline": "S&P 500 (SPY) −0.64% · Dow +0.65% · Nasdaq-100 −2.04%",
-  "summary": "38 of 76 watchlist stocks are higher. Best: NKE +5.98%. Worst: HPE −16.31%. Biggest lift: AAPL (+$46.1B in value); biggest drag: TSM (−$2,239.9B). CNN's Fear & Greed Index reads 17 (Extreme Fear).",
+  "headline": "S&P 500 (SPY) −0.94% · Dow +0.46% · Nasdaq-100 −2.51%",
+  "summary": "36 of 77 watchlist stocks are higher. Best: ANF +21.51%. Worst: LABD −17.81%. Most-discussed on Reddit: NVDA (1,091 mentions). Biggest lift: LLY (+$42.5B in value); biggest drag: TSM (−$2,440.2B). CNN's Fear & Greed Index reads 17 (Extreme Fear).",
   "summarySrc": [
     "finnhub",
+    "apewisdom",
     "cnn-fg"
   ],
   "indices": [
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "last": 717.69,
-      "chg": -4.6,
-      "pct": -0.64,
+      "last": 715.51,
+      "chg": -6.78,
+      "pct": -0.94,
       "src": "finnhub"
     },
     {
       "sym": "DIA",
       "name": "Dow (DIA)",
-      "last": 499.03,
-      "chg": 3.23,
-      "pct": 0.65,
+      "last": 498.07,
+      "chg": 2.27,
+      "pct": 0.46,
       "src": "finnhub"
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "last": 637.74,
-      "chg": -13.29,
-      "pct": -2.04,
+      "last": 634.66,
+      "chg": -16.37,
+      "pct": -2.51,
       "src": "finnhub"
     },
     {
       "sym": "IWM",
       "name": "Russell 2000 (IWM)",
-      "last": 267.66,
-      "chg": 1.92,
-      "pct": 0.72,
+      "last": 266.69,
+      "chg": 0.95,
+      "pct": 0.36,
       "src": "finnhub"
     }
   ],
   "macro": [
     {
       "k": "Long Treasuries (TLT)",
-      "v": "$81.74",
-      "d": "+$0.05 · +0.06%",
+      "v": "$81.70",
+      "d": "+$0.01 · +0.01%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "2:05 PM"
+      "asof": "3:05 PM"
     },
     {
       "k": "US dollar (UUP)",
@@ -58,31 +59,31 @@
       "d": "−$0.13 · −0.44%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "2:05 PM"
+      "asof": "3:05 PM"
     },
     {
       "k": "Oil (USO)",
-      "v": "$136.03",
-      "d": "+$2.67 · +2.00%",
+      "v": "$135.59",
+      "d": "+$2.23 · +1.67%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "2:05 PM"
+      "asof": "3:05 PM"
     },
     {
       "k": "Gold (GLD)",
-      "v": "$325.86",
-      "d": "−$7.16 · −2.15%",
+      "v": "$325.84",
+      "d": "−$7.18 · −2.16%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "2:05 PM"
+      "asof": "3:05 PM"
     },
     {
       "k": "Bitcoin (IBIT)",
-      "v": "$33.80",
-      "d": "−$0.82 · −2.37%",
+      "v": "$33.72",
+      "d": "−$0.90 · −2.60%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "2:05 PM"
+      "asof": "3:05 PM"
     }
   ],
   "history": {
@@ -103,7 +104,7 @@
           715.87,
           689.81,
           722.29,
-          717.69
+          715.51
         ]
       },
       {
@@ -114,7 +115,7 @@
           490.79,
           481.08,
           495.8,
-          499.03
+          498.07
         ]
       },
       {
@@ -125,7 +126,7 @@
           645.04,
           608.45,
           651.03,
-          637.74
+          634.66
         ]
       }
     ],
@@ -137,17 +138,18 @@
     {
       "sym": "NVDA",
       "name": "NVIDIA Corporation",
-      "px": 153.04,
-      "pct": -7.28,
-      "chg": -12.01,
+      "px": 152.2,
+      "pct": -7.79,
+      "chg": -12.85,
       "tags": [
         "ai",
-        "mega"
+        "mega",
+        "social"
       ],
       "src": "finnhub",
-      "note": "Trump says he ‘convinced’ Nvidia board to reinstate Jensen Huang",
+      "note": "Lasertec Stocks Jump 9.75% Despite a Weak Quarter, Betting on Orders",
       "noteSrc": [
-        "news-NVDA-144051293"
+        "news-NVDA-144086708"
       ],
       "facts": [
         [
@@ -163,61 +165,38 @@
           "$165.05"
         ],
         [
-          "Mkt cap",
-          "$4.06T"
-        ],
-        [
-          "Mkt cap",
-          "$4.06T"
-        ],
-        [
-          "Mkt cap",
-          "$4.06T"
-        ],
-        [
-          "Mkt cap",
-          "$4.06T"
-        ],
-        [
-          "Mkt cap",
-          "$4.06T"
-        ],
-        [
-          "Mkt cap",
-          "$4.06T"
-        ],
-        [
-          "Mkt cap",
-          "$4.06T"
-        ],
-        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
-          "$4.06T"
+          "$3.98T"
+        ],
+        [
+          "Reddit 24h",
+          "#1 · 1,091 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 4058922
+      "mcap": 3977705
     },
     {
       "sym": "AVGO",
       "name": "Broadcom Inc",
-      "px": 303.47,
-      "pct": -3.21,
-      "chg": -10.08,
+      "px": 301.8,
+      "pct": -3.75,
+      "chg": -11.75,
       "tags": [
         "ai",
         "mega"
       ],
       "src": "finnhub",
-      "note": "All Broadcom Has to Do is Deliver Modestly to Prove Stanley Druckenmiller Wrong and Hit $500 in 2027",
+      "note": "Dell Reports Today. Here’s How Much of Your Tech ETF Is Riding on Its AI Server Business",
       "noteSrc": [
-        "news-AVGO-144051322"
+        "news-AVGO-144086713"
       ],
       "facts": [
         [
@@ -233,60 +212,38 @@
           "$313.55"
         ],
         [
-          "Mkt cap",
-          "$1.49T"
-        ],
-        [
-          "Mkt cap",
-          "$1.49T"
-        ],
-        [
-          "Mkt cap",
-          "$1.49T"
-        ],
-        [
-          "Mkt cap",
-          "$1.49T"
-        ],
-        [
-          "Mkt cap",
-          "$1.49T"
-        ],
-        [
-          "Mkt cap",
-          "$1.49T"
-        ],
-        [
-          "Mkt cap",
-          "$1.49T"
-        ],
-        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
-          "$1.49T"
+          "$1.44T"
+        ],
+        [
+          "Reddit 24h",
+          "#56 · 11 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 1494504
+      "mcap": 1437423
     },
     {
       "sym": "AMD",
       "name": "Advanced Micro Devices, Inc.",
-      "px": 413.66,
-      "pct": -8.78,
-      "chg": -39.8,
+      "px": 410.32,
+      "pct": -9.51,
+      "chg": -43.14,
       "tags": [
-        "ai"
+        "ai",
+        "social"
       ],
       "src": "finnhub",
-      "note": "Advanced Micro Devices vs. Dell Technologies: Comparing Revenue Trends Amid the Artificial Intelligence Boom",
+      "note": "Dell Reports Today. Here’s How Much of Your Tech ETF Is Riding on Its AI Server Business",
       "noteSrc": [
-        "news-AMD-144051382"
+        "news-AMD-144086713"
       ],
       "facts": [
         [
@@ -302,61 +259,38 @@
           "$453.46"
         ],
         [
-          "Mkt cap",
-          "$753.7B"
-        ],
-        [
-          "Mkt cap",
-          "$753.7B"
-        ],
-        [
-          "Mkt cap",
-          "$753.7B"
-        ],
-        [
-          "Mkt cap",
-          "$753.7B"
-        ],
-        [
-          "Mkt cap",
-          "$753.7B"
-        ],
-        [
-          "Mkt cap",
-          "$753.7B"
-        ],
-        [
-          "Mkt cap",
-          "$753.7B"
-        ],
-        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
-          "$753.7B"
+          "$743.7B"
+        ],
+        [
+          "Reddit 24h",
+          "#4 · 139 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 753686
+      "mcap": 743714
     },
     {
       "sym": "MSFT",
       "name": "Microsoft Corporation",
-      "px": 494.78,
-      "pct": 0.46,
-      "chg": 2.28,
+      "px": 493.4,
+      "pct": 0.18,
+      "chg": 0.9,
       "tags": [
         "ai",
         "mega"
       ],
       "src": "finnhub",
-      "note": "Nebius Keeps Plummeting Amid 50% Drop This Month: This Wall Street Pro Now Predicts 370% Returns After Slight Adjustment",
+      "note": "Why Is Snowflake Stock Going Up?",
       "noteSrc": [
-        "news-MSFT-144051286"
+        "news-MSFT-144086692"
       ],
       "facts": [
         [
@@ -372,60 +306,38 @@
           "$492.50"
         ],
         [
-          "Mkt cap",
-          "$3.73T"
-        ],
-        [
-          "Mkt cap",
-          "$3.73T"
-        ],
-        [
-          "Mkt cap",
-          "$3.73T"
-        ],
-        [
-          "Mkt cap",
-          "$3.73T"
-        ],
-        [
-          "Mkt cap",
-          "$3.73T"
-        ],
-        [
-          "Mkt cap",
-          "$3.73T"
-        ],
-        [
-          "Mkt cap",
-          "$3.73T"
-        ],
-        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
-          "$3.73T"
+          "$3.66T"
+        ],
+        [
+          "Reddit 24h",
+          "#29 · 25 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 3728878
+      "mcap": 3657401
     },
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "px": 352.24,
-      "pct": 0.91,
-      "chg": 3.16,
+      "px": 351.86,
+      "pct": 0.8,
+      "chg": 2.78,
       "tags": [
-        "mega"
+        "mega",
+        "social"
       ],
       "src": "finnhub",
-      "note": "Nvidia Is Now Second To Apple In The World’s Most Valued Companies On Jensen Huang Optimism",
+      "note": "Why Did Alphabet Stock Move?",
       "noteSrc": [
-        "news-AAPL-144051238"
+        "news-AAPL-144086674"
       ],
       "facts": [
         [
@@ -441,60 +353,37 @@
           "$349.08"
         ],
         [
-          "Mkt cap",
-          "$5.11T"
-        ],
-        [
-          "Mkt cap",
-          "$5.11T"
-        ],
-        [
-          "Mkt cap",
-          "$5.11T"
-        ],
-        [
-          "Mkt cap",
-          "$5.11T"
-        ],
-        [
-          "Mkt cap",
-          "$5.11T"
-        ],
-        [
-          "Mkt cap",
-          "$5.11T"
-        ],
-        [
-          "Mkt cap",
-          "$5.11T"
-        ],
-        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
-          "$5.11T"
+          "$5.07T"
+        ],
+        [
+          "Reddit 24h",
+          "#7 · 72 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 5109660
+      "mcap": 5072894
     },
     {
       "sym": "AMZN",
       "name": "Amazon.com Inc",
-      "px": 251.54,
-      "pct": -1.51,
-      "chg": -3.85,
+      "px": 251.22,
+      "pct": -1.63,
+      "chg": -4.17,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "What Explains The Fall In Meta Stock?",
+      "note": "Nike Sells Shoes. Can It Stop Paying For AI?",
       "noteSrc": [
-        "news-AMZN-144051287"
+        "news-AMZN-144086706"
       ],
       "facts": [
         [
@@ -510,61 +399,38 @@
           "$255.39"
         ],
         [
-          "Mkt cap",
-          "$2.78T"
-        ],
-        [
-          "Mkt cap",
-          "$2.78T"
-        ],
-        [
-          "Mkt cap",
-          "$2.78T"
-        ],
-        [
-          "Mkt cap",
-          "$2.78T"
-        ],
-        [
-          "Mkt cap",
-          "$2.78T"
-        ],
-        [
-          "Mkt cap",
-          "$2.78T"
-        ],
-        [
-          "Mkt cap",
-          "$2.78T"
-        ],
-        [
           "Industry",
           "Retail"
         ],
         [
           "Mkt cap",
-          "$2.78T"
+          "$2.76T"
+        ],
+        [
+          "Reddit 24h",
+          "#45 · 14 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 2781301
+      "mcap": 2761567
     },
     {
       "sym": "GOOG",
       "name": "Alphabet Inc.",
-      "px": 275.72,
-      "pct": -1.36,
-      "chg": -3.81,
+      "px": 275.01,
+      "pct": -1.62,
+      "chg": -4.52,
       "tags": [
         "ai",
         "mega"
       ],
       "src": "finnhub",
-      "note": "Stock Market Today: Dow Surges As Trump Says This On Huang's Nvidia Return; AI Plays Rocket (Live Coverage)",
+      "note": "Nike Sells Shoes. Can It Stop Paying For AI?",
       "noteSrc": [
-        "news-GOOG-144051335"
+        "news-GOOG-144086706"
       ],
       "facts": [
         [
@@ -580,61 +446,38 @@
           "$279.53"
         ],
         [
-          "Mkt cap",
-          "$3.47T"
-        ],
-        [
-          "Mkt cap",
-          "$3.47T"
-        ],
-        [
-          "Mkt cap",
-          "$3.47T"
-        ],
-        [
-          "Mkt cap",
-          "$3.47T"
-        ],
-        [
-          "Mkt cap",
-          "$3.47T"
-        ],
-        [
-          "Mkt cap",
-          "$3.47T"
-        ],
-        [
-          "Mkt cap",
-          "$3.47T"
-        ],
-        [
           "Industry",
           "Media"
         ],
         [
           "Mkt cap",
           "$3.47T"
+        ],
+        [
+          "Reddit 24h",
+          "#27 · 30 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 3470965
+      "mcap": 3468137
     },
     {
       "sym": "META",
       "name": "Meta Platforms, Inc.",
-      "px": 591.4,
-      "pct": -1.04,
-      "chg": -6.2,
+      "px": 588.66,
+      "pct": -1.5,
+      "chg": -8.94,
       "tags": [
         "ai",
         "mega"
       ],
       "src": "finnhub",
-      "note": "All Broadcom Has to Do is Deliver Modestly to Prove Stanley Druckenmiller Wrong and Hit $500 in 2027",
+      "note": "City watchdog threatens tech giants over rogue AI bots",
       "noteSrc": [
-        "news-META-144051322"
+        "news-META-144086768"
       ],
       "facts": [
         [
@@ -650,60 +493,38 @@
           "$597.60"
         ],
         [
-          "Mkt cap",
-          "$1.51T"
-        ],
-        [
-          "Mkt cap",
-          "$1.51T"
-        ],
-        [
-          "Mkt cap",
-          "$1.51T"
-        ],
-        [
-          "Mkt cap",
-          "$1.51T"
-        ],
-        [
-          "Mkt cap",
-          "$1.51T"
-        ],
-        [
-          "Mkt cap",
-          "$1.51T"
-        ],
-        [
-          "Mkt cap",
-          "$1.51T"
-        ],
-        [
           "Industry",
           "Media"
         ],
         [
           "Mkt cap",
-          "$1.51T"
+          "$1.53T"
+        ],
+        [
+          "Reddit 24h",
+          "#33 · 20 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 1512298
+      "mcap": 1527610
     },
     {
       "sym": "TSLA",
       "name": "Tesla Inc",
-      "px": 383.21,
-      "pct": -0.58,
-      "chg": -2.25,
+      "px": 381.33,
+      "pct": -1.07,
+      "chg": -4.13,
       "tags": [
-        "mega"
+        "mega",
+        "social"
       ],
       "src": "finnhub",
-      "note": "Tesla’s FSD v15 An ‘Illustration’ Of Head Start In Consumer Autonomy, Says JPMorgan – TSLA Stock Eyes Best Day In Over 19 Months",
+      "note": "Goldman, Morgan Stanley and Evercore Are Advising on What Could Be the Biggest Deal Ever",
       "noteSrc": [
-        "news-TSLA-144051393"
+        "news-TSLA-144086776"
       ],
       "facts": [
         [
@@ -719,58 +540,35 @@
           "$385.46"
         ],
         [
-          "Mkt cap",
-          "$1.50T"
-        ],
-        [
-          "Mkt cap",
-          "$1.50T"
-        ],
-        [
-          "Mkt cap",
-          "$1.50T"
-        ],
-        [
-          "Mkt cap",
-          "$1.50T"
-        ],
-        [
-          "Mkt cap",
-          "$1.50T"
-        ],
-        [
-          "Mkt cap",
-          "$1.50T"
-        ],
-        [
-          "Mkt cap",
-          "$1.50T"
-        ],
-        [
           "Industry",
           "Automobiles"
         ],
         [
           "Mkt cap",
           "$1.50T"
+        ],
+        [
+          "Reddit 24h",
+          "#23 · 33 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
       "mcap": 1501178
     },
     {
       "sym": "DIS",
       "name": "The Walt Disney Company",
-      "px": 122.32,
-      "pct": 1.7,
-      "chg": 2.05,
+      "px": 121.95,
+      "pct": 1.4,
+      "chg": 1.68,
       "tags": [],
       "src": "finnhub",
-      "note": "What Will Move Netflix Stock Over Six Months?",
+      "note": "Who is holding Jensen Huang accountable? It sure looks like nobody",
       "noteSrc": [
-        "news-DIS-144048417"
+        "news-DIS-144085289"
       ],
       "facts": [
         [
@@ -786,60 +584,32 @@
           "$120.27"
         ],
         [
-          "Mkt cap",
-          "$204.1B"
-        ],
-        [
-          "Mkt cap",
-          "$204.1B"
-        ],
-        [
-          "Mkt cap",
-          "$204.1B"
-        ],
-        [
-          "Mkt cap",
-          "$204.1B"
-        ],
-        [
-          "Mkt cap",
-          "$204.1B"
-        ],
-        [
-          "Mkt cap",
-          "$204.1B"
-        ],
-        [
-          "Mkt cap",
-          "$204.1B"
-        ],
-        [
           "Industry",
           "Media"
         ],
         [
           "Mkt cap",
-          "$204.1B"
+          "$205.4B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 204110
+      "mcap": 205425
     },
     {
       "sym": "PLTR",
       "name": "Palantir Technologies Inc.",
-      "px": 161.83,
-      "pct": 1.55,
-      "chg": 2.47,
+      "px": 160.89,
+      "pct": 0.96,
+      "chg": 1.53,
       "tags": [
         "ai"
       ],
       "src": "finnhub",
-      "note": "Why Is Palantir (PLTR) Stock Up Today? AI Rally Follows Nvidia CEO Return",
+      "note": "Why Is Snowflake Stock Going Up?",
       "noteSrc": [
-        "news-PLTR-144051298"
+        "news-PLTR-144086692"
       ],
       "facts": [
         [
@@ -855,60 +625,32 @@
           "$159.36"
         ],
         [
-          "Mkt cap",
-          "$383.5B"
-        ],
-        [
-          "Mkt cap",
-          "$383.5B"
-        ],
-        [
-          "Mkt cap",
-          "$383.5B"
-        ],
-        [
-          "Mkt cap",
-          "$383.5B"
-        ],
-        [
-          "Mkt cap",
-          "$383.5B"
-        ],
-        [
-          "Mkt cap",
-          "$383.5B"
-        ],
-        [
-          "Mkt cap",
-          "$383.5B"
-        ],
-        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
-          "$383.5B"
+          "$384.0B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 383484
+      "mcap": 383977
     },
     {
       "sym": "INTC",
       "name": "Intel Corp",
-      "px": 55.22,
-      "pct": -7.44,
-      "chg": -4.44,
+      "px": 54.85,
+      "pct": -8.06,
+      "chg": -4.81,
       "tags": [
         "ai"
       ],
       "src": "finnhub",
-      "note": "The 5 Best Stocks in SoftBank’s Portfolio",
+      "note": "Why Is Microchip Technology (MCHP) Stock Down Today? Chip Sector Selloff Hits Peers",
       "noteSrc": [
-        "news-INTC-144051479"
+        "news-INTC-144086874"
       ],
       "facts": [
         [
@@ -924,60 +666,37 @@
           "$59.66"
         ],
         [
-          "Mkt cap",
-          "$310.2B"
-        ],
-        [
-          "Mkt cap",
-          "$310.2B"
-        ],
-        [
-          "Mkt cap",
-          "$310.2B"
-        ],
-        [
-          "Mkt cap",
-          "$310.2B"
-        ],
-        [
-          "Mkt cap",
-          "$310.2B"
-        ],
-        [
-          "Mkt cap",
-          "$310.2B"
-        ],
-        [
-          "Mkt cap",
-          "$310.2B"
-        ],
-        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
-          "$310.2B"
+          "$317.1B"
+        ],
+        [
+          "Reddit 24h",
+          "#47 · 13 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 310237
+      "mcap": 317093
     },
     {
       "sym": "JPM",
       "name": "JPMorgan Chase & Co.",
-      "px": 316.9,
-      "pct": 0.08,
-      "chg": 0.24,
+      "px": 316.18,
+      "pct": -0.15,
+      "chg": -0.48,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "J.P. Morgan NextList Turns 10: The Books, Stages and Destinations Defining What's Next in 2027",
+      "note": "JPMorgan Dallas Hub Targets Private Equity and Hedge Funds",
       "noteSrc": [
-        "news-JPM-144050172"
+        "news-JPM-144086795"
       ],
       "facts": [
         [
@@ -993,60 +712,37 @@
           "$316.66"
         ],
         [
-          "Mkt cap",
-          "$844.8B"
-        ],
-        [
-          "Mkt cap",
-          "$844.8B"
-        ],
-        [
-          "Mkt cap",
-          "$844.8B"
-        ],
-        [
-          "Mkt cap",
-          "$844.8B"
-        ],
-        [
-          "Mkt cap",
-          "$844.8B"
-        ],
-        [
-          "Mkt cap",
-          "$844.8B"
-        ],
-        [
-          "Mkt cap",
-          "$844.8B"
-        ],
-        [
           "Industry",
           "Banking"
         ],
         [
           "Mkt cap",
-          "$844.8B"
+          "$840.9B"
+        ],
+        [
+          "Reddit 24h",
+          "#93 · 6 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 844829
+      "mcap": 840925
     },
     {
       "sym": "WMT",
       "name": "Walmart Inc.",
-      "px": 132.05,
-      "pct": 1.91,
-      "chg": 2.47,
+      "px": 131.57,
+      "pct": 1.54,
+      "chg": 1.99,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "Ken Fisher and 11 Other Big Funds Bought KLA Last Quarter. Brad Gerstner and 11 Others Sold. Who’s Right?",
+      "note": "Walmart’s Robot Warehouse Partner Symbotic Just Had Its First Profitable Year",
       "noteSrc": [
-        "news-WMT-144051445"
+        "news-WMT-144086837"
       ],
       "facts": [
         [
@@ -1062,61 +758,39 @@
           "$129.58"
         ],
         [
-          "Mkt cap",
-          "$979.9B"
-        ],
-        [
-          "Mkt cap",
-          "$979.9B"
-        ],
-        [
-          "Mkt cap",
-          "$979.9B"
-        ],
-        [
-          "Mkt cap",
-          "$979.9B"
-        ],
-        [
-          "Mkt cap",
-          "$979.9B"
-        ],
-        [
-          "Mkt cap",
-          "$979.9B"
-        ],
-        [
-          "Mkt cap",
-          "$979.9B"
-        ],
-        [
           "Industry",
           "Retail"
         ],
         [
           "Mkt cap",
           "$979.9B"
+        ],
+        [
+          "Reddit 24h",
+          "#36 · 18 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
       "mcap": 979897
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies Corp",
-      "px": 126.87,
-      "pct": -4.86,
-      "chg": -6.48,
+      "px": 125.61,
+      "pct": -5.8,
+      "chg": -7.74,
       "tags": [
         "mega",
-        "space"
+        "space",
+        "social"
       ],
       "src": "finnhub",
-      "note": "SpaceX Stocks Climb 8.69% as Jefferies Starts Coverage With Buy and $210 Target",
+      "note": "Goldman, Morgan Stanley and Evercore Are Advising on What Could Be the Biggest Deal Ever",
       "noteSrc": [
-        "news-SPCX-144051850"
+        "news-SPCX-144086776"
       ],
       "facts": [
         [
@@ -1132,60 +806,37 @@
           "$133.35"
         ],
         [
-          "Mkt cap",
-          "$1.88T"
-        ],
-        [
-          "Mkt cap",
-          "$1.88T"
-        ],
-        [
-          "Mkt cap",
-          "$1.88T"
-        ],
-        [
-          "Mkt cap",
-          "$1.88T"
-        ],
-        [
-          "Mkt cap",
-          "$1.88T"
-        ],
-        [
-          "Mkt cap",
-          "$1.88T"
-        ],
-        [
-          "Mkt cap",
-          "$1.88T"
-        ],
-        [
           "Industry",
           "Telecommunication"
         ],
         [
           "Mkt cap",
-          "$1.88T"
+          "$1.81T"
+        ],
+        [
+          "Reddit 24h",
+          "#15 · 47 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 1875463
+      "mcap": 1811035
     },
     {
       "sym": "BRK.B",
       "name": "Berkshire Hathaway Inc",
-      "px": 576.82,
-      "pct": 0.78,
-      "chg": 4.46,
+      "px": 576.14,
+      "pct": 0.66,
+      "chg": 3.78,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "Berkshire Hathaway's Next Big AI Bet Could Be Hiding in Plain Sight",
+      "note": "David Tepper, Seth Klarman and 5 Other Famous Investors Own Alphabet. Here’s Who Sold Recently",
       "noteSrc": [
-        "news-BRK.B-144028436"
+        "news-BRK.B-144072609"
       ],
       "facts": [
         [
@@ -1201,60 +852,33 @@
           "$572.36"
         ],
         [
-          "Mkt cap",
-          "$1.22T"
-        ],
-        [
-          "Mkt cap",
-          "$1.22T"
-        ],
-        [
-          "Mkt cap",
-          "$1.22T"
-        ],
-        [
-          "Mkt cap",
-          "$1.22T"
-        ],
-        [
-          "Mkt cap",
-          "$1.22T"
-        ],
-        [
-          "Mkt cap",
-          "$1.22T"
-        ],
-        [
-          "Mkt cap",
-          "$1.22T"
-        ],
-        [
           "Industry",
           "Financial Services"
         ],
         [
           "Mkt cap",
-          "$1.22T"
+          "$1.23T"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 1220443
+      "mcap": 1228820
     },
     {
       "sym": "LLY",
       "name": "Eli Lilly and Company",
-      "px": 1413.02,
-      "pct": 3.55,
-      "chg": 48.42,
+      "px": 1411.28,
+      "pct": 3.42,
+      "chg": 46.68,
       "tags": [
-        "mega"
+        "mega",
+        "social"
       ],
       "src": "finnhub",
-      "note": "Lilly buys Huntington’s drug developer LoQus23 in potentially $725M deal",
+      "note": "13 Big Funds Bought Johnson & Johnson Last Quarter, While 14 Sold. Who’s Right?",
       "noteSrc": [
-        "news-LLY-144051390"
+        "news-LLY-144086773"
       ],
       "facts": [
         [
@@ -1263,39 +887,11 @@
         ],
         [
           "Day range",
-          "$1,369.84 – $1,414.00"
+          "$1,369.84 – $1,415.00"
         ],
         [
           "Prev. close",
           "$1,364.60"
-        ],
-        [
-          "Mkt cap",
-          "$1.29T"
-        ],
-        [
-          "Mkt cap",
-          "$1.29T"
-        ],
-        [
-          "Mkt cap",
-          "$1.29T"
-        ],
-        [
-          "Mkt cap",
-          "$1.29T"
-        ],
-        [
-          "Mkt cap",
-          "$1.29T"
-        ],
-        [
-          "Mkt cap",
-          "$1.29T"
-        ],
-        [
-          "Mkt cap",
-          "$1.29T"
         ],
         [
           "Industry",
@@ -1303,27 +899,27 @@
         ],
         [
           "Mkt cap",
-          "$1.29T"
+          "$1.28T"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 1291690
+      "mcap": 1283741
     },
     {
       "sym": "V",
       "name": "Visa Inc.",
-      "px": 414.93,
-      "pct": 1.35,
-      "chg": 5.53,
+      "px": 415.32,
+      "pct": 1.45,
+      "chg": 5.92,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "A $6.8 Billion Fund Just Bought These 3 Stocks",
+      "note": "Circle's CPN Gains Traction: Can Payment Growth Accelerate?",
       "noteSrc": [
-        "news-V-144051345"
+        "news-V-144086814"
       ],
       "facts": [
         [
@@ -1337,34 +933,6 @@
         [
           "Prev. close",
           "$409.40"
-        ],
-        [
-          "Mkt cap",
-          "$768.7B"
-        ],
-        [
-          "Mkt cap",
-          "$768.7B"
-        ],
-        [
-          "Mkt cap",
-          "$768.7B"
-        ],
-        [
-          "Mkt cap",
-          "$768.7B"
-        ],
-        [
-          "Mkt cap",
-          "$768.7B"
-        ],
-        [
-          "Mkt cap",
-          "$768.7B"
-        ],
-        [
-          "Mkt cap",
-          "$768.7B"
         ],
         [
           "Industry",
@@ -1383,16 +951,16 @@
     {
       "sym": "MA",
       "name": "Mastercard Incorporated",
-      "px": 645.27,
-      "pct": 1.54,
-      "chg": 9.79,
+      "px": 645.83,
+      "pct": 1.63,
+      "chg": 10.35,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "Mastercard vs. PayPal: Which Financial Stock Is a Better Buy for 2027?",
+      "note": "What State Street Fin Select Sector SPDR (XLF) Bought: Berkshire Leads on Nov. 20",
       "noteSrc": [
-        "news-MA-144051448"
+        "news-MA-144080978"
       ],
       "facts": [
         [
@@ -1408,60 +976,32 @@
           "$635.48"
         ],
         [
-          "Mkt cap",
-          "$552.6B"
-        ],
-        [
-          "Mkt cap",
-          "$552.6B"
-        ],
-        [
-          "Mkt cap",
-          "$552.6B"
-        ],
-        [
-          "Mkt cap",
-          "$552.6B"
-        ],
-        [
-          "Mkt cap",
-          "$552.6B"
-        ],
-        [
-          "Mkt cap",
-          "$552.6B"
-        ],
-        [
-          "Mkt cap",
-          "$552.6B"
-        ],
-        [
           "Industry",
           "Financial Services"
         ],
         [
           "Mkt cap",
-          "$552.6B"
+          "$553.6B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 552635
+      "mcap": 553615
     },
     {
       "sym": "XOM",
       "name": "Exxonmobil Holdings Corp",
-      "px": 158.66,
-      "pct": 1.12,
-      "chg": 1.76,
+      "px": 158.75,
+      "pct": 1.18,
+      "chg": 1.85,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "Wall Street Opens Sharply Higher After the S&P 500's Seven-Day Slide",
+      "note": "Your Exxon Dividend Needs Only About $59 Oil",
       "noteSrc": [
-        "news-XOM-144051442"
+        "news-XOM-144086832"
       ],
       "facts": [
         [
@@ -1475,34 +1015,6 @@
         [
           "Prev. close",
           "$156.90"
-        ],
-        [
-          "Mkt cap",
-          "$763.8B"
-        ],
-        [
-          "Mkt cap",
-          "$763.8B"
-        ],
-        [
-          "Mkt cap",
-          "$763.8B"
-        ],
-        [
-          "Mkt cap",
-          "$763.8B"
-        ],
-        [
-          "Mkt cap",
-          "$763.8B"
-        ],
-        [
-          "Mkt cap",
-          "$763.8B"
-        ],
-        [
-          "Mkt cap",
-          "$763.8B"
         ],
         [
           "Industry",
@@ -1521,16 +1033,16 @@
     {
       "sym": "UNH",
       "name": "UnitedHealth Group Incorporated",
-      "px": 344.25,
-      "pct": 2.43,
-      "chg": 8.17,
+      "px": 344.43,
+      "pct": 2.48,
+      "chg": 8.35,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "Stock Market Today: Dow Surges As Trump Says This On Huang's Nvidia Return; AI Plays Rocket (Live Coverage)",
+      "note": "How Big Could CVS Health Stock's Next Fall Be?",
       "noteSrc": [
-        "news-UNH-144051335"
+        "news-UNH-144086866"
       ],
       "facts": [
         [
@@ -1544,34 +1056,6 @@
         [
           "Prev. close",
           "$336.08"
-        ],
-        [
-          "Mkt cap",
-          "$365.3B"
-        ],
-        [
-          "Mkt cap",
-          "$365.3B"
-        ],
-        [
-          "Mkt cap",
-          "$365.3B"
-        ],
-        [
-          "Mkt cap",
-          "$365.3B"
-        ],
-        [
-          "Mkt cap",
-          "$365.3B"
-        ],
-        [
-          "Mkt cap",
-          "$365.3B"
-        ],
-        [
-          "Mkt cap",
-          "$365.3B"
         ],
         [
           "Industry",
@@ -1590,17 +1074,17 @@
     {
       "sym": "ORCL",
       "name": "Oracle Corporation",
-      "px": 109.29,
-      "pct": -3.86,
-      "chg": -4.39,
+      "px": 108.91,
+      "pct": -4.2,
+      "chg": -4.77,
       "tags": [
         "ai",
         "mega"
       ],
       "src": "finnhub",
-      "note": "Why Is Palantir (PLTR) Stock Up Today? AI Rally Follows Nvidia CEO Return",
+      "note": "Bloom Energy is Down 22% Just This Month: Two Wall Street Pros Predict 109% Gains With 2 More $1 Dollar Lower",
       "noteSrc": [
-        "news-ORCL-144051298"
+        "news-ORCL-144086913"
       ],
       "facts": [
         [
@@ -1616,60 +1100,32 @@
           "$113.68"
         ],
         [
-          "Mkt cap",
-          "$348.6B"
-        ],
-        [
-          "Mkt cap",
-          "$348.6B"
-        ],
-        [
-          "Mkt cap",
-          "$348.6B"
-        ],
-        [
-          "Mkt cap",
-          "$348.6B"
-        ],
-        [
-          "Mkt cap",
-          "$348.6B"
-        ],
-        [
-          "Mkt cap",
-          "$348.6B"
-        ],
-        [
-          "Mkt cap",
-          "$348.6B"
-        ],
-        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
-          "$348.6B"
+          "$343.7B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 348607
+      "mcap": 343738
     },
     {
       "sym": "COST",
       "name": "Costco Wholesale Corp",
-      "px": 1088.74,
-      "pct": -0.84,
-      "chg": -9.17,
+      "px": 1088.6,
+      "pct": -0.85,
+      "chg": -9.31,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "‘They were all gone’: Costco generator sellouts fuel prepper fears. Is America headed for a crash?",
+      "note": "Sanofi Bets $41 Billion on Insmed to Fuel Growth Beyond Dupixent",
       "noteSrc": [
-        "news-COST-144051451"
+        "news-COST-144086842"
       ],
       "facts": [
         [
@@ -1685,60 +1141,37 @@
           "$1,097.91"
         ],
         [
-          "Mkt cap",
-          "$483.0B"
-        ],
-        [
-          "Mkt cap",
-          "$483.0B"
-        ],
-        [
-          "Mkt cap",
-          "$483.0B"
-        ],
-        [
-          "Mkt cap",
-          "$483.0B"
-        ],
-        [
-          "Mkt cap",
-          "$483.0B"
-        ],
-        [
-          "Mkt cap",
-          "$483.0B"
-        ],
-        [
-          "Mkt cap",
-          "$483.0B"
-        ],
-        [
           "Industry",
           "Retail"
         ],
         [
           "Mkt cap",
-          "$483.0B"
+          "$473.2B"
+        ],
+        [
+          "Reddit 24h",
+          "#78 · 8 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 483029
+      "mcap": 473222
     },
     {
       "sym": "NFLX",
       "name": "Netflix, Inc.",
-      "px": 59.02,
-      "pct": 1.58,
-      "chg": 0.92,
+      "px": 58.98,
+      "pct": 1.51,
+      "chg": 0.88,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "Netflix Needs 'Buzzy' Franchises",
+      "note": "Stocks give back gains as Anthropic dips below IPO price",
       "noteSrc": [
-        "news-NFLX-144051497"
+        "news-NFLX-144085288"
       ],
       "facts": [
         [
@@ -1754,60 +1187,37 @@
           "$58.10"
         ],
         [
-          "Mkt cap",
-          "$238.3B"
-        ],
-        [
-          "Mkt cap",
-          "$238.3B"
-        ],
-        [
-          "Mkt cap",
-          "$238.3B"
-        ],
-        [
-          "Mkt cap",
-          "$238.3B"
-        ],
-        [
-          "Mkt cap",
-          "$238.3B"
-        ],
-        [
-          "Mkt cap",
-          "$238.3B"
-        ],
-        [
-          "Mkt cap",
-          "$238.3B"
-        ],
-        [
           "Industry",
           "Media"
         ],
         [
           "Mkt cap",
-          "$238.3B"
+          "$238.6B"
+        ],
+        [
+          "Reddit 24h",
+          "#88 · 7 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 238335
+      "mcap": 238578
     },
     {
       "sym": "JNJ",
       "name": "Johnson & Johnson",
-      "px": 275.9,
-      "pct": 2.17,
-      "chg": 5.85,
+      "px": 275.8,
+      "pct": 2.13,
+      "chg": 5.75,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "Bristol Myers Squibb vs. Johnson & Johnson: Which Healthcare Giant's Stock Is a Better Buy for 2027?",
+      "note": "13 Big Funds Bought Johnson & Johnson Last Quarter, While 14 Sold. Who’s Right?",
       "noteSrc": [
-        "news-JNJ-144051443"
+        "news-JNJ-144086773"
       ],
       "facts": [
         [
@@ -1823,60 +1233,32 @@
           "$270.05"
         ],
         [
-          "Mkt cap",
-          "$651.2B"
-        ],
-        [
-          "Mkt cap",
-          "$651.2B"
-        ],
-        [
-          "Mkt cap",
-          "$651.2B"
-        ],
-        [
-          "Mkt cap",
-          "$651.2B"
-        ],
-        [
-          "Mkt cap",
-          "$651.2B"
-        ],
-        [
-          "Mkt cap",
-          "$651.2B"
-        ],
-        [
-          "Mkt cap",
-          "$651.2B"
-        ],
-        [
           "Industry",
           "Pharmaceuticals"
         ],
         [
           "Mkt cap",
-          "$651.2B"
+          "$650.1B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 651202
+      "mcap": 650094
     },
     {
       "sym": "PG",
       "name": "The Procter & Gamble Company",
-      "px": 172.25,
-      "pct": 1.56,
-      "chg": 2.65,
+      "px": 172.12,
+      "pct": 1.49,
+      "chg": 2.52,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "Bank of Oak Ridge Appoints Tony Lancaster to Board of Directors",
+      "note": "Nike Sells Shoes. Can It Stop Paying For AI?",
       "noteSrc": [
-        "news-PG-144051456"
+        "news-PG-144086706"
       ],
       "facts": [
         [
@@ -1892,60 +1274,32 @@
           "$169.60"
         ],
         [
-          "Mkt cap",
-          "$393.6B"
-        ],
-        [
-          "Mkt cap",
-          "$393.6B"
-        ],
-        [
-          "Mkt cap",
-          "$393.6B"
-        ],
-        [
-          "Mkt cap",
-          "$393.6B"
-        ],
-        [
-          "Mkt cap",
-          "$393.6B"
-        ],
-        [
-          "Mkt cap",
-          "$393.6B"
-        ],
-        [
-          "Mkt cap",
-          "$393.6B"
-        ],
-        [
           "Industry",
           "Consumer products"
         ],
         [
           "Mkt cap",
-          "$393.6B"
+          "$393.1B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 393583
+      "mcap": 393096
     },
     {
       "sym": "HD",
       "name": "The Home Depot, Inc.",
-      "px": 353.67,
-      "pct": 2.2,
-      "chg": 7.61,
+      "px": 352.76,
+      "pct": 1.94,
+      "chg": 6.7,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "The Home Depot (HD) Shares Fall as Depressed Home Turnover Weighs on Outlook",
+      "note": "Don’t Panic, Buy These Instead: Jim Cramer’s Emergency 5-Stock Portfolio",
       "noteSrc": [
-        "news-HD-144051461"
+        "news-HD-144085408"
       ],
       "facts": [
         [
@@ -1954,39 +1308,11 @@
         ],
         [
           "Day range",
-          "$343.19 – $354.23"
+          "$343.19 – $354.81"
         ],
         [
           "Prev. close",
           "$346.06"
-        ],
-        [
-          "Mkt cap",
-          "$345.8B"
-        ],
-        [
-          "Mkt cap",
-          "$345.8B"
-        ],
-        [
-          "Mkt cap",
-          "$345.8B"
-        ],
-        [
-          "Mkt cap",
-          "$345.8B"
-        ],
-        [
-          "Mkt cap",
-          "$345.8B"
-        ],
-        [
-          "Mkt cap",
-          "$345.8B"
-        ],
-        [
-          "Mkt cap",
-          "$345.8B"
         ],
         [
           "Industry",
@@ -1994,27 +1320,28 @@
         ],
         [
           "Mkt cap",
-          "$345.8B"
+          "$345.3B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 345804
+      "mcap": 345317
     },
     {
       "sym": "ABBV",
       "name": "AbbVie Inc.",
-      "px": 300.85,
-      "pct": 4.3,
-      "chg": 12.4,
+      "px": 299.69,
+      "pct": 3.9,
+      "chg": 11.24,
       "tags": [
-        "mega"
+        "mega",
+        "social"
       ],
       "src": "finnhub",
-      "note": "$100,000 in These 5 Dividend Stocks Could Pay $4,800 a Year",
+      "note": "13 Big Funds Bought Johnson & Johnson Last Quarter, While 14 Sold. Who’s Right?",
       "noteSrc": [
-        "news-ABBV-144051450"
+        "news-ABBV-144086773"
       ],
       "facts": [
         [
@@ -2030,60 +1357,32 @@
           "$288.45"
         ],
         [
-          "Mkt cap",
-          "$510.6B"
-        ],
-        [
-          "Mkt cap",
-          "$510.6B"
-        ],
-        [
-          "Mkt cap",
-          "$510.6B"
-        ],
-        [
-          "Mkt cap",
-          "$510.6B"
-        ],
-        [
-          "Mkt cap",
-          "$510.6B"
-        ],
-        [
-          "Mkt cap",
-          "$510.6B"
-        ],
-        [
-          "Mkt cap",
-          "$510.6B"
-        ],
-        [
           "Industry",
           "Biotechnology"
         ],
         [
           "Mkt cap",
-          "$510.6B"
+          "$509.9B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 510647
+      "mcap": 509869
     },
     {
       "sym": "BAC",
       "name": "Bank of America Corporation",
-      "px": 48.5,
-      "pct": 0.75,
-      "chg": 0.36,
+      "px": 48.32,
+      "pct": 0.37,
+      "chg": 0.18,
       "tags": [
         "mega"
       ],
       "src": "finnhub",
-      "note": "Do credit card points expire? Rules by issuer, airline, and hotel program",
+      "note": "Berkshire Hathaway Has Sold More Than Half Its Bank of America Shares Since 2024. Is the Stock a Buy, Sell, or Hold 25% Below Its High?",
       "noteSrc": [
-        "news-BAC-144051468"
+        "news-BAC-144086864"
       ],
       "facts": [
         [
@@ -2099,58 +1398,30 @@
           "$48.14"
         ],
         [
-          "Mkt cap",
-          "$333.5B"
-        ],
-        [
-          "Mkt cap",
-          "$333.5B"
-        ],
-        [
-          "Mkt cap",
-          "$333.5B"
-        ],
-        [
-          "Mkt cap",
-          "$333.5B"
-        ],
-        [
-          "Mkt cap",
-          "$333.5B"
-        ],
-        [
-          "Mkt cap",
-          "$333.5B"
-        ],
-        [
-          "Mkt cap",
-          "$333.5B"
-        ],
-        [
           "Industry",
           "Banking"
         ],
         [
           "Mkt cap",
-          "$333.5B"
+          "$332.2B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 333453
+      "mcap": 332176
     },
     {
       "sym": "KO",
       "name": "Coca-Cola Co",
-      "px": 97.76,
-      "pct": 1.96,
-      "chg": 1.88,
+      "px": 97.71,
+      "pct": 1.91,
+      "chg": 1.83,
       "tags": [],
       "src": "finnhub",
-      "note": "Coca-Cola vs. PepsiCo: Which Consumer Goods Stock Is a Better Buy for 2027?",
+      "note": "Can Coca-Cola Navigate Rising Costs While Protecting Margins?",
       "noteSrc": [
-        "news-KO-144051457"
+        "news-KO-144086854"
       ],
       "facts": [
         [
@@ -2166,60 +1437,37 @@
           "$95.88"
         ],
         [
-          "Mkt cap",
-          "$413.4B"
-        ],
-        [
-          "Mkt cap",
-          "$413.4B"
-        ],
-        [
-          "Mkt cap",
-          "$413.4B"
-        ],
-        [
-          "Mkt cap",
-          "$413.4B"
-        ],
-        [
-          "Mkt cap",
-          "$413.4B"
-        ],
-        [
-          "Mkt cap",
-          "$413.4B"
-        ],
-        [
-          "Mkt cap",
-          "$413.4B"
-        ],
-        [
           "Industry",
           "Beverages"
         ],
         [
           "Mkt cap",
-          "$413.4B"
+          "$412.5B"
+        ],
+        [
+          "Reddit 24h",
+          "#79 · 8 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 413413
+      "mcap": 412466
     },
     {
       "sym": "CRM",
       "name": "Salesforce, Inc.",
-      "px": 192.72,
-      "pct": 3.91,
-      "chg": 7.26,
+      "px": 192.0,
+      "pct": 3.53,
+      "chg": 6.54,
       "tags": [
         "ai"
       ],
       "src": "finnhub",
-      "note": "7 Big Funds Sold Workday Last Quarter. Should You Follow Them Before Earnings?",
+      "note": "What Could Salesforce Stock Be Worth In Three Years?",
       "noteSrc": [
-        "news-CRM-144051585"
+        "news-CRM-144086914"
       ],
       "facts": [
         [
@@ -2235,61 +1483,33 @@
           "$185.46"
         ],
         [
-          "Mkt cap",
-          "$151.7B"
-        ],
-        [
-          "Mkt cap",
-          "$151.7B"
-        ],
-        [
-          "Mkt cap",
-          "$151.7B"
-        ],
-        [
-          "Mkt cap",
-          "$151.7B"
-        ],
-        [
-          "Mkt cap",
-          "$151.7B"
-        ],
-        [
-          "Mkt cap",
-          "$151.7B"
-        ],
-        [
-          "Mkt cap",
-          "$151.7B"
-        ],
-        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
-          "$151.7B"
+          "$152.6B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 151720
+      "mcap": 152634
     },
     {
       "sym": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Co Ltd",
-      "px": 348.53,
-      "pct": -4.14,
-      "chg": -15.07,
+      "px": 347.5,
+      "pct": -4.43,
+      "chg": -16.1,
       "tags": [
         "ai",
         "mega"
       ],
       "src": "finnhub",
-      "note": "Asian shares mostly fall after S&P 500 drops 3.7% into a correction",
+      "note": "George Soros and 49 Other Big Funds Bought Intel Last Quarter, While 15 Sold. Who’s Right?",
       "noteSrc": [
-        "news-TSM-144031542"
+        "news-TSM-144077692"
       ],
       "facts": [
         [
@@ -2305,57 +1525,33 @@
           "$363.60"
         ],
         [
-          "Mkt cap",
-          "$51.86T"
-        ],
-        [
-          "Mkt cap",
-          "$51.86T"
-        ],
-        [
-          "Mkt cap",
-          "$51.86T"
-        ],
-        [
-          "Mkt cap",
-          "$51.86T"
-        ],
-        [
-          "Mkt cap",
-          "$51.86T"
-        ],
-        [
-          "Mkt cap",
-          "$51.86T"
-        ],
-        [
-          "Mkt cap",
-          "$51.86T"
-        ],
-        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
-          "$51.86T"
+          "$52.64T"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 51864738
+      "mcap": 52642709
     },
     {
       "sym": "IONQ",
       "name": "IonQ, Inc.",
-      "px": 22.44,
-      "pct": -3.86,
-      "chg": -0.9,
+      "px": 22.35,
+      "pct": -4.24,
+      "chg": -0.99,
       "tags": [
         "quantum"
       ],
       "src": "finnhub",
+      "note": "Innodata vs. IonQ: Is the Artificial Intelligence or Quantum Computing Stock the Better Buy for 2027?",
+      "noteSrc": [
+        "news-IONQ-144066105"
+      ],
       "facts": [
         [
           "Open",
@@ -2370,57 +1566,33 @@
           "$23.34"
         ],
         [
-          "Mkt cap",
-          "$10.5B"
-        ],
-        [
-          "Mkt cap",
-          "$10.5B"
-        ],
-        [
-          "Mkt cap",
-          "$10.5B"
-        ],
-        [
-          "Mkt cap",
-          "$10.5B"
-        ],
-        [
-          "Mkt cap",
-          "$10.5B"
-        ],
-        [
-          "Mkt cap",
-          "$10.5B"
-        ],
-        [
-          "Mkt cap",
-          "$10.5B"
-        ],
-        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
-          "$10.5B"
+          "$9.7B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 10458
+      "mcap": 9653
     },
     {
       "sym": "RGTI",
       "name": "Rigetti Computing, Inc.",
-      "px": 7.65,
-      "pct": -5.5,
-      "chg": -0.45,
+      "px": 7.6,
+      "pct": -6.11,
+      "chg": -0.49,
       "tags": [
         "quantum"
       ],
       "src": "finnhub",
+      "note": "IonQ Stock And Quantum Peers Tied To Energy Grid Demand",
+      "noteSrc": [
+        "news-RGTI-144065856"
+      ],
       "facts": [
         [
           "Open",
@@ -2435,57 +1607,33 @@
           "$8.10"
         ],
         [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
-          "$2.9B"
+          "$2.6B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 2895
+      "mcap": 2562
     },
     {
       "sym": "QBTS",
       "name": "D-Wave Quantum Inc.",
-      "px": 6.79,
-      "pct": -7.11,
-      "chg": -0.52,
+      "px": 6.77,
+      "pct": -7.39,
+      "chg": -0.54,
       "tags": [
         "quantum"
       ],
       "src": "finnhub",
+      "note": "IonQ Stock And Quantum Peers Tied To Energy Grid Demand",
+      "noteSrc": [
+        "news-QBTS-144065856"
+      ],
       "facts": [
         [
           "Open",
@@ -2500,53 +1648,25 @@
           "$7.31"
         ],
         [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
-          "Mkt cap",
-          "$2.9B"
-        ],
-        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
-          "$2.9B"
+          "$2.8B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 2889
+      "mcap": 2778
     },
     {
       "sym": "QUBT",
       "name": "QUBT",
-      "px": 4.41,
-      "pct": -6.67,
-      "chg": -0.32,
+      "px": 4.37,
+      "pct": -7.51,
+      "chg": -0.35,
       "tags": [
         "quantum"
       ],
@@ -2572,16 +1692,16 @@
     {
       "sym": "RKLB",
       "name": "Rocket Lab Corp",
-      "px": 46.66,
-      "pct": -5.98,
-      "chg": -2.97,
+      "px": 46.06,
+      "pct": -7.19,
+      "chg": -3.57,
       "tags": [
         "space"
       ],
       "src": "finnhub",
-      "note": "Rocket Lab Rallies 11% After Its Worst Week Ever as CFO Eyes Higher Electron Prices; AST SpaceMobile Jumps 14%, SpaceX Surges 9%",
+      "note": "Why Rocket Lab Demand News Could Make ETFs Worth A Look",
       "noteSrc": [
-        "news-RKLB-144050672"
+        "news-RKLB-144086027"
       ],
       "facts": [
         [
@@ -2597,60 +1717,32 @@
           "$49.63"
         ],
         [
-          "Mkt cap",
-          "$31.8B"
-        ],
-        [
-          "Mkt cap",
-          "$31.8B"
-        ],
-        [
-          "Mkt cap",
-          "$31.8B"
-        ],
-        [
-          "Mkt cap",
-          "$31.8B"
-        ],
-        [
-          "Mkt cap",
-          "$31.8B"
-        ],
-        [
-          "Mkt cap",
-          "$31.8B"
-        ],
-        [
-          "Mkt cap",
-          "$31.8B"
-        ],
-        [
           "Industry",
           "Aerospace & Defense"
         ],
         [
           "Mkt cap",
-          "$31.8B"
+          "$31.4B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 31816
+      "mcap": 31367
     },
     {
       "sym": "ASTS",
       "name": "AST SpaceMobile, Inc.",
-      "px": 23.74,
-      "pct": -7.52,
-      "chg": -1.93,
+      "px": 23.68,
+      "pct": -7.75,
+      "chg": -1.99,
       "tags": [
         "space"
       ],
       "src": "finnhub",
-      "note": "Musk Hails a “32 Hour Launch Pad Recycle” as SpaceX Sets Its Fastest Same-Pad Turnaround",
+      "note": "AST SpaceMobile Stock Gets FCC Approval for Direct to Device Service",
       "noteSrc": [
-        "news-ASTS-144034066"
+        "news-ASTS-144058197"
       ],
       "facts": [
         [
@@ -2666,60 +1758,37 @@
           "$25.67"
         ],
         [
-          "Mkt cap",
-          "$10.2B"
-        ],
-        [
-          "Mkt cap",
-          "$10.2B"
-        ],
-        [
-          "Mkt cap",
-          "$10.2B"
-        ],
-        [
-          "Mkt cap",
-          "$10.2B"
-        ],
-        [
-          "Mkt cap",
-          "$10.2B"
-        ],
-        [
-          "Mkt cap",
-          "$10.2B"
-        ],
-        [
-          "Mkt cap",
-          "$10.2B"
-        ],
-        [
           "Industry",
           "Telecommunication"
         ],
         [
           "Mkt cap",
-          "$10.2B"
+          "$10.0B"
+        ],
+        [
+          "Reddit 24h",
+          "#95 · 5 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 10248
+      "mcap": 10014
     },
     {
       "sym": "LUNR",
       "name": "Intuitive Machines Inc",
-      "px": 9.21,
-      "pct": -5.54,
-      "chg": -0.54,
+      "px": 9.13,
+      "pct": -6.36,
+      "chg": -0.62,
       "tags": [
         "space"
       ],
       "src": "finnhub",
-      "note": "Intuitive Machines: The Market Is Underestimating What's Coming Next",
+      "note": "NASA Is Handing Out Moon Contracts Again. Intuitive Machines, Firefly, and Redwire All Got Paid. Only 1 Has the Balance Sheet to Keep Winning.",
       "noteSrc": [
-        "news-LUNR-144037250"
+        "news-LUNR-144064231"
       ],
       "facts": [
         [
@@ -2735,58 +1804,30 @@
           "$9.75"
         ],
         [
-          "Mkt cap",
-          "$2.2B"
-        ],
-        [
-          "Mkt cap",
-          "$2.2B"
-        ],
-        [
-          "Mkt cap",
-          "$2.2B"
-        ],
-        [
-          "Mkt cap",
-          "$2.2B"
-        ],
-        [
-          "Mkt cap",
-          "$2.2B"
-        ],
-        [
-          "Mkt cap",
-          "$2.2B"
-        ],
-        [
-          "Mkt cap",
-          "$2.2B"
-        ],
-        [
           "Industry",
           "Aerospace & Defense"
         ],
         [
           "Mkt cap",
-          "$2.2B"
+          "$2.0B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 2223
+      "mcap": 2020
     },
     {
       "sym": "NKE",
       "name": "NIKE, Inc.",
-      "px": 35.78,
-      "pct": 5.98,
-      "chg": 2.02,
+      "px": 35.67,
+      "pct": 5.66,
+      "chg": 1.91,
       "tags": [],
       "src": "finnhub",
-      "note": "Did Topsports International's 62% Drop Catch You Out? What Bears Saw",
+      "note": "Nike Sells Shoes. Can It Stop Paying For AI?",
       "noteSrc": [
-        "news-NKE-144050545"
+        "news-NKE-144086706"
       ],
       "facts": [
         [
@@ -2802,58 +1843,35 @@
           "$33.76"
         ],
         [
-          "Mkt cap",
-          "$49.6B"
-        ],
-        [
-          "Mkt cap",
-          "$49.6B"
-        ],
-        [
-          "Mkt cap",
-          "$49.6B"
-        ],
-        [
-          "Mkt cap",
-          "$49.6B"
-        ],
-        [
-          "Mkt cap",
-          "$49.6B"
-        ],
-        [
-          "Mkt cap",
-          "$49.6B"
-        ],
-        [
-          "Mkt cap",
-          "$49.6B"
-        ],
-        [
           "Industry",
           "Textiles, Apparel & Luxury Goods"
         ],
         [
           "Mkt cap",
-          "$49.6B"
+          "$50.1B"
+        ],
+        [
+          "Reddit 24h",
+          "#77 · 8 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 49580
+      "mcap": 50144
     },
     {
       "sym": "SBUX",
       "name": "Starbucks Corp",
-      "px": 106.37,
-      "pct": 0.01,
-      "chg": 0.01,
+      "px": 106.08,
+      "pct": -0.26,
+      "chg": -0.28,
       "tags": [],
       "src": "finnhub",
-      "note": "Jensen Huang Just Got His Nvidia Job Back. When Steve Jobs, Howard Schultz and Bob Iger Came Back, the Stock Rose, and a Year Later 4 of 6 Comebacks Trailed the Market",
+      "note": "Who is holding Jensen Huang accountable? It sure looks like nobody",
       "noteSrc": [
-        "news-SBUX-144050047"
+        "news-SBUX-144085289"
       ],
       "facts": [
         [
@@ -2869,58 +1887,30 @@
           "$106.36"
         ],
         [
-          "Mkt cap",
-          "$120.0B"
-        ],
-        [
-          "Mkt cap",
-          "$120.0B"
-        ],
-        [
-          "Mkt cap",
-          "$120.0B"
-        ],
-        [
-          "Mkt cap",
-          "$120.0B"
-        ],
-        [
-          "Mkt cap",
-          "$120.0B"
-        ],
-        [
-          "Mkt cap",
-          "$120.0B"
-        ],
-        [
-          "Mkt cap",
-          "$120.0B"
-        ],
-        [
           "Industry",
           "Hotels, Restaurants & Leisure"
         ],
         [
           "Mkt cap",
-          "$120.0B"
+          "$121.1B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 120018
+      "mcap": 121113
     },
     {
       "sym": "MCD",
       "name": "McDonald's Corp",
-      "px": 280.22,
+      "px": 280.23,
       "pct": 1.39,
-      "chg": 3.84,
+      "chg": 3.85,
       "tags": [],
       "src": "finnhub",
-      "note": "McDonald’s and Burger King Items Come in ‘Lighter’ in Price vs. Portion Tests",
+      "note": "McDonald's Moves on Makeover; Dick's Sporting Goods Up on Earnings | Stock Movers",
       "noteSrc": [
-        "news-MCD-144051541"
+        "news-MCD-144086931"
       ],
       "facts": [
         [
@@ -2936,58 +1926,30 @@
           "$276.38"
         ],
         [
-          "Mkt cap",
-          "$193.6B"
-        ],
-        [
-          "Mkt cap",
-          "$193.6B"
-        ],
-        [
-          "Mkt cap",
-          "$193.6B"
-        ],
-        [
-          "Mkt cap",
-          "$193.6B"
-        ],
-        [
-          "Mkt cap",
-          "$193.6B"
-        ],
-        [
-          "Mkt cap",
-          "$193.6B"
-        ],
-        [
-          "Mkt cap",
-          "$193.6B"
-        ],
-        [
           "Industry",
           "Hotels, Restaurants & Leisure"
         ],
         [
           "Mkt cap",
-          "$193.6B"
+          "$196.9B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 193579
+      "mcap": 196935
     },
     {
       "sym": "PEP",
       "name": "PepsiCo, Inc.",
-      "px": 142.81,
-      "pct": 1.85,
-      "chg": 2.6,
+      "px": 142.46,
+      "pct": 1.6,
+      "chg": 2.25,
       "tags": [],
       "src": "finnhub",
-      "note": "Coca-Cola vs. PepsiCo: Which Consumer Goods Stock Is a Better Buy for 2027?",
+      "note": "Can Coca-Cola Navigate Rising Costs While Protecting Margins?",
       "noteSrc": [
-        "news-PEP-144051457"
+        "news-PEP-144086854"
       ],
       "facts": [
         [
@@ -3003,58 +1965,30 @@
           "$140.21"
         ],
         [
-          "Mkt cap",
-          "$190.9B"
-        ],
-        [
-          "Mkt cap",
-          "$190.9B"
-        ],
-        [
-          "Mkt cap",
-          "$190.9B"
-        ],
-        [
-          "Mkt cap",
-          "$190.9B"
-        ],
-        [
-          "Mkt cap",
-          "$190.9B"
-        ],
-        [
-          "Mkt cap",
-          "$190.9B"
-        ],
-        [
-          "Mkt cap",
-          "$190.9B"
-        ],
-        [
           "Industry",
           "Beverages"
         ],
         [
           "Mkt cap",
-          "$190.9B"
+          "$191.1B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 190886
+      "mcap": 191070
     },
     {
       "sym": "BA",
       "name": "Boeing Co",
-      "px": 165.29,
-      "pct": 1.79,
-      "chg": 2.9,
+      "px": 164.88,
+      "pct": 1.53,
+      "chg": 2.49,
       "tags": [],
       "src": "finnhub",
-      "note": "Boeing (BA) Gains Focus As Airborne Electronic Warfare Spending Expands",
+      "note": "Is Boeing Under $170 a Bargain or a Trap?",
       "noteSrc": [
-        "news-BA-144051601"
+        "news-BA-144087000"
       ],
       "facts": [
         [
@@ -3070,58 +2004,30 @@
           "$162.39"
         ],
         [
-          "Mkt cap",
-          "$128.1B"
-        ],
-        [
-          "Mkt cap",
-          "$128.1B"
-        ],
-        [
-          "Mkt cap",
-          "$128.1B"
-        ],
-        [
-          "Mkt cap",
-          "$128.1B"
-        ],
-        [
-          "Mkt cap",
-          "$128.1B"
-        ],
-        [
-          "Mkt cap",
-          "$128.1B"
-        ],
-        [
-          "Mkt cap",
-          "$128.1B"
-        ],
-        [
           "Industry",
           "Aerospace & Defense"
         ],
         [
           "Mkt cap",
-          "$128.1B"
+          "$128.7B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 128064
+      "mcap": 128686
     },
     {
       "sym": "UBER",
       "name": "Uber Technologies, Inc.",
-      "px": 64.89,
-      "pct": 1.28,
-      "chg": 0.82,
+      "px": 64.84,
+      "pct": 1.2,
+      "chg": 0.77,
       "tags": [],
       "src": "finnhub",
-      "note": "Uber Technologies (UBER) Expands Its Marketplace Into Retail And Resale Delivery",
+      "note": "Should You Buy Uber Stock For Its Cash?",
       "noteSrc": [
-        "news-UBER-144050396"
+        "news-UBER-144086993"
       ],
       "facts": [
         [
@@ -3135,34 +2041,6 @@
         [
           "Prev. close",
           "$64.07"
-        ],
-        [
-          "Mkt cap",
-          "$136.3B"
-        ],
-        [
-          "Mkt cap",
-          "$136.3B"
-        ],
-        [
-          "Mkt cap",
-          "$136.3B"
-        ],
-        [
-          "Mkt cap",
-          "$136.3B"
-        ],
-        [
-          "Mkt cap",
-          "$136.3B"
-        ],
-        [
-          "Mkt cap",
-          "$136.3B"
-        ],
-        [
-          "Mkt cap",
-          "$136.3B"
         ],
         [
           "Industry",
@@ -3181,14 +2059,14 @@
     {
       "sym": "COIN",
       "name": "Coinbase Global, Inc.",
-      "px": 103.25,
-      "pct": -5.08,
-      "chg": -5.53,
+      "px": 103.02,
+      "pct": -5.3,
+      "chg": -5.76,
       "tags": [],
       "src": "finnhub",
-      "note": "Why MoonPay wants a National Trust Bank",
+      "note": "What Is Pons? The Robinhood Chain Meme Coin Launchpad Explained",
       "noteSrc": [
-        "news-COIN-144051787"
+        "news-COIN-144087231"
       ],
       "facts": [
         [
@@ -3204,58 +2082,30 @@
           "$108.78"
         ],
         [
-          "Mkt cap",
-          "$29.4B"
-        ],
-        [
-          "Mkt cap",
-          "$29.4B"
-        ],
-        [
-          "Mkt cap",
-          "$29.4B"
-        ],
-        [
-          "Mkt cap",
-          "$29.4B"
-        ],
-        [
-          "Mkt cap",
-          "$29.4B"
-        ],
-        [
-          "Mkt cap",
-          "$29.4B"
-        ],
-        [
-          "Mkt cap",
-          "$29.4B"
-        ],
-        [
           "Industry",
           "Financial Services"
         ],
         [
           "Mkt cap",
-          "$29.4B"
+          "$28.8B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 29426
+      "mcap": 28801
     },
     {
       "sym": "HOOD",
       "name": "Robinhood Markets, Inc.",
-      "px": 65.04,
-      "pct": -3.46,
-      "chg": -2.33,
+      "px": 65.21,
+      "pct": -3.21,
+      "chg": -2.16,
       "tags": [],
       "src": "finnhub",
-      "note": "Ken Fisher and 10 Other Big Funds Sold Robinhood Markets Last Quarter, While 10 Bought. Who’s Right?",
+      "note": "What Just Happened To Coinbase Stock?",
       "noteSrc": [
-        "news-HOOD-144051711"
+        "news-HOOD-144087017"
       ],
       "facts": [
         [
@@ -3271,58 +2121,35 @@
           "$67.37"
         ],
         [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
           "Industry",
           "Financial Services"
         ],
         [
           "Mkt cap",
-          "$62.0B"
+          "$60.7B"
+        ],
+        [
+          "Reddit 24h",
+          "#66 · 9 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 62008
+      "mcap": 60666
     },
     {
       "sym": "SHOP",
       "name": "Shopify Inc.",
-      "px": 131.64,
-      "pct": -1.98,
-      "chg": -2.66,
+      "px": 131.29,
+      "pct": -2.24,
+      "chg": -3.01,
       "tags": [],
       "src": "finnhub",
-      "note": "Canadian Stocks Recover as Huang’s Return Fuels Metals, Tech",
+      "note": "Vtex (VTEX) Stock Is Up 6.4% Today Without Company News",
       "noteSrc": [
-        "news-SHOP-144051866"
+        "news-SHOP-144087303"
       ],
       "facts": [
         [
@@ -3331,39 +2158,11 @@
         ],
         [
           "Day range",
-          "$131.57 – $137.65"
+          "$131.01 – $137.65"
         ],
         [
           "Prev. close",
           "$134.30"
-        ],
-        [
-          "Mkt cap",
-          "$174.4B"
-        ],
-        [
-          "Mkt cap",
-          "$174.4B"
-        ],
-        [
-          "Mkt cap",
-          "$174.4B"
-        ],
-        [
-          "Mkt cap",
-          "$174.4B"
-        ],
-        [
-          "Mkt cap",
-          "$174.4B"
-        ],
-        [
-          "Mkt cap",
-          "$174.4B"
-        ],
-        [
-          "Mkt cap",
-          "$174.4B"
         ],
         [
           "Industry",
@@ -3371,27 +2170,27 @@
         ],
         [
           "Mkt cap",
-          "$174.4B"
+          "$172.8B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 174375
+      "mcap": 172780
     },
     {
       "sym": "ARM",
       "name": "ARM Holdings PLC",
-      "px": 162.46,
-      "pct": -8.04,
-      "chg": -14.21,
+      "px": 160.85,
+      "pct": -8.95,
+      "chg": -15.82,
       "tags": [
         "ai"
       ],
       "src": "finnhub",
-      "note": "Arm Holdings Stocks Soar 13.5% as CEO Rene Haas Commits Through 2033",
+      "note": "Arm Holdings Stocks Fall 4.89% as Chip Rally Cools After Haas Commits Through 2033",
       "noteSrc": [
-        "news-ARM-144051870"
+        "news-ARM-144087307"
       ],
       "facts": [
         [
@@ -3407,60 +2206,33 @@
           "$176.67"
         ],
         [
-          "Mkt cap",
-          "$161.9B"
-        ],
-        [
-          "Mkt cap",
-          "$161.9B"
-        ],
-        [
-          "Mkt cap",
-          "$161.9B"
-        ],
-        [
-          "Mkt cap",
-          "$161.9B"
-        ],
-        [
-          "Mkt cap",
-          "$161.9B"
-        ],
-        [
-          "Mkt cap",
-          "$161.9B"
-        ],
-        [
-          "Mkt cap",
-          "$161.9B"
-        ],
-        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
-          "$161.9B"
+          "$188.0B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 161949
+      "mcap": 187987
     },
     {
       "sym": "MU",
       "name": "Micron Technology, Inc.",
-      "px": 628.8,
-      "pct": -11.15,
-      "chg": -78.9,
+      "px": 624.86,
+      "pct": -11.71,
+      "chg": -82.84,
       "tags": [
-        "ai"
+        "ai",
+        "social"
       ],
       "src": "finnhub",
-      "note": "A $6.8 Billion Fund Just Bought These 3 Stocks",
+      "note": "Nvidia, Chip Stocks Fall As Data Center Spending Fears Return",
       "noteSrc": [
-        "news-MU-144051345"
+        "news-MU-144086704"
       ],
       "facts": [
         [
@@ -3476,46 +2248,23 @@
           "$707.70"
         ],
         [
-          "Mkt cap",
-          "$805.3B"
-        ],
-        [
-          "Mkt cap",
-          "$805.3B"
-        ],
-        [
-          "Mkt cap",
-          "$805.3B"
-        ],
-        [
-          "Mkt cap",
-          "$805.3B"
-        ],
-        [
-          "Mkt cap",
-          "$805.3B"
-        ],
-        [
-          "Mkt cap",
-          "$805.3B"
-        ],
-        [
-          "Mkt cap",
-          "$805.3B"
-        ],
-        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
-          "$805.3B"
+          "$800.7B"
+        ],
+        [
+          "Reddit 24h",
+          "#5 · 91 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 805251
+      "mcap": 800708
     },
     {
       "sym": "SMCI",
@@ -3527,9 +2276,9 @@
         "ai"
       ],
       "src": "finnhub",
-      "note": "Goldman Sachs Names Top Communication Technology Stock",
+      "note": "The U.S. Just Blacklisted the Firm Suspected of Funneling Nvidia Chips to China",
       "noteSrc": [
-        "news-SMCI-144051460"
+        "news-SMCI-144085957"
       ],
       "facts": [
         [
@@ -3545,60 +2294,32 @@
           "$24.53"
         ],
         [
-          "Mkt cap",
-          "$16.9B"
-        ],
-        [
-          "Mkt cap",
-          "$16.9B"
-        ],
-        [
-          "Mkt cap",
-          "$16.9B"
-        ],
-        [
-          "Mkt cap",
-          "$16.9B"
-        ],
-        [
-          "Mkt cap",
-          "$16.9B"
-        ],
-        [
-          "Mkt cap",
-          "$16.9B"
-        ],
-        [
-          "Mkt cap",
-          "$16.9B"
-        ],
-        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
-          "$16.9B"
+          "$16.2B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 16899
+      "mcap": 16171
     },
     {
       "sym": "ADBE",
       "name": "Adobe Inc",
-      "px": 232.14,
-      "pct": 3.64,
-      "chg": 8.16,
+      "px": 232.0,
+      "pct": 3.58,
+      "chg": 8.02,
       "tags": [
         "ai"
       ],
       "src": "finnhub",
-      "note": "Michael Burry’s Latest Top 10 Stock Picks Amid AI Crash",
+      "note": "What Could Salesforce Stock Be Worth In Three Years?",
       "noteSrc": [
-        "news-ADBE-144050089"
+        "news-ADBE-144086914"
       ],
       "facts": [
         [
@@ -3614,58 +2335,30 @@
           "$223.98"
         ],
         [
-          "Mkt cap",
-          "$86.6B"
-        ],
-        [
-          "Mkt cap",
-          "$86.6B"
-        ],
-        [
-          "Mkt cap",
-          "$86.6B"
-        ],
-        [
-          "Mkt cap",
-          "$86.6B"
-        ],
-        [
-          "Mkt cap",
-          "$86.6B"
-        ],
-        [
-          "Mkt cap",
-          "$86.6B"
-        ],
-        [
-          "Mkt cap",
-          "$86.6B"
-        ],
-        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
-          "$86.6B"
+          "$87.2B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 86611
+      "mcap": 87173
     },
     {
       "sym": "PYPL",
       "name": "PayPal Holdings, Inc.",
-      "px": 55.91,
-      "pct": 1.21,
-      "chg": 0.67,
+      "px": 56.01,
+      "pct": 1.39,
+      "chg": 0.77,
       "tags": [],
       "src": "finnhub",
-      "note": "Mastercard vs. PayPal: Which Financial Stock Is a Better Buy for 2027?",
+      "note": "HP Stock Enters Earnings Report With Low Expectations for PC Sales",
       "noteSrc": [
-        "news-PYPL-144051448"
+        "news-PYPL-144087149"
       ],
       "facts": [
         [
@@ -3681,58 +2374,30 @@
           "$55.24"
         ],
         [
-          "Mkt cap",
-          "$45.1B"
-        ],
-        [
-          "Mkt cap",
-          "$45.1B"
-        ],
-        [
-          "Mkt cap",
-          "$45.1B"
-        ],
-        [
-          "Mkt cap",
-          "$45.1B"
-        ],
-        [
-          "Mkt cap",
-          "$45.1B"
-        ],
-        [
-          "Mkt cap",
-          "$45.1B"
-        ],
-        [
-          "Mkt cap",
-          "$45.1B"
-        ],
-        [
           "Industry",
           "Financial Services"
         ],
         [
           "Mkt cap",
-          "$45.1B"
+          "$46.6B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 45088
+      "mcap": 46575
     },
     {
       "sym": "F",
       "name": "Ford Motor Co",
-      "px": 11.92,
-      "pct": 2.32,
-      "chg": 0.27,
+      "px": 11.89,
+      "pct": 2.06,
+      "chg": 0.24,
       "tags": [],
       "src": "finnhub",
-      "note": "Automaker Ford eyes aerospace growth with minority bet on Revolution Space",
+      "note": "Ford to acquire minority stake in satellite maker Revolution Space",
       "noteSrc": [
-        "news-F-144051723"
+        "news-F-144087157"
       ],
       "facts": [
         [
@@ -3748,58 +2413,30 @@
           "$11.65"
         ],
         [
-          "Mkt cap",
-          "$45.9B"
-        ],
-        [
-          "Mkt cap",
-          "$45.9B"
-        ],
-        [
-          "Mkt cap",
-          "$45.9B"
-        ],
-        [
-          "Mkt cap",
-          "$45.9B"
-        ],
-        [
-          "Mkt cap",
-          "$45.9B"
-        ],
-        [
-          "Mkt cap",
-          "$45.9B"
-        ],
-        [
-          "Mkt cap",
-          "$45.9B"
-        ],
-        [
           "Industry",
           "Automobiles"
         ],
         [
           "Mkt cap",
-          "$45.9B"
+          "$46.7B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 45882
+      "mcap": 46681
     },
     {
       "sym": "GM",
       "name": "General Motors Co",
-      "px": 81.77,
-      "pct": 0.16,
-      "chg": 0.13,
+      "px": 81.73,
+      "pct": 0.11,
+      "chg": 0.09,
       "tags": [],
       "src": "finnhub",
-      "note": "Why Did Tesla Stock Fall On Friday?",
+      "note": "GM, Ford in Pentagon Talks to Build Military Drones",
       "noteSrc": [
-        "news-GM-144051402"
+        "news-GM-144087101"
       ],
       "facts": [
         [
@@ -3815,58 +2452,30 @@
           "$81.64"
         ],
         [
-          "Mkt cap",
-          "$67.9B"
-        ],
-        [
-          "Mkt cap",
-          "$67.9B"
-        ],
-        [
-          "Mkt cap",
-          "$67.9B"
-        ],
-        [
-          "Mkt cap",
-          "$67.9B"
-        ],
-        [
-          "Mkt cap",
-          "$67.9B"
-        ],
-        [
-          "Mkt cap",
-          "$67.9B"
-        ],
-        [
-          "Mkt cap",
-          "$67.9B"
-        ],
-        [
           "Industry",
           "Automobiles"
         ],
         [
           "Mkt cap",
-          "$67.9B"
+          "$68.9B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 67948
+      "mcap": 68867
     },
     {
       "sym": "CVX",
       "name": "Chevron Corporation",
-      "px": 209.98,
-      "pct": 1.85,
-      "chg": 3.81,
+      "px": 209.79,
+      "pct": 1.76,
+      "chg": 3.62,
       "tags": [],
       "src": "finnhub",
-      "note": "Chevron Corp. (CVX): Q3 Earnings Triple on Refining Margin Surge",
+      "note": "Your Exxon Dividend Needs Only About $59 Oil",
       "noteSrc": [
-        "news-CVX-144051453"
+        "news-CVX-144086832"
       ],
       "facts": [
         [
@@ -3882,58 +2491,30 @@
           "$206.17"
         ],
         [
-          "Mkt cap",
-          "$407.1B"
-        ],
-        [
-          "Mkt cap",
-          "$407.1B"
-        ],
-        [
-          "Mkt cap",
-          "$407.1B"
-        ],
-        [
-          "Mkt cap",
-          "$407.1B"
-        ],
-        [
-          "Mkt cap",
-          "$407.1B"
-        ],
-        [
-          "Mkt cap",
-          "$407.1B"
-        ],
-        [
-          "Mkt cap",
-          "$407.1B"
-        ],
-        [
           "Industry",
           "Energy"
         ],
         [
           "Mkt cap",
-          "$407.1B"
+          "$405.2B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 407117
+      "mcap": 405211
     },
     {
       "sym": "GS",
       "name": "The Goldman Sachs Group, Inc.",
-      "px": 806.09,
-      "pct": -2.13,
-      "chg": -17.53,
+      "px": 803.9,
+      "pct": -2.39,
+      "chg": -19.72,
       "tags": [],
       "src": "finnhub",
-      "note": "Goldman Sachs Names Top Communication Technology Stock",
+      "note": "Goldman, Morgan Stanley and Evercore Are Advising on What Could Be the Biggest Deal Ever",
       "noteSrc": [
-        "news-GS-144051460"
+        "news-GS-144086776"
       ],
       "facts": [
         [
@@ -3949,58 +2530,30 @@
           "$823.62"
         ],
         [
-          "Mkt cap",
-          "$238.0B"
-        ],
-        [
-          "Mkt cap",
-          "$238.0B"
-        ],
-        [
-          "Mkt cap",
-          "$238.0B"
-        ],
-        [
-          "Mkt cap",
-          "$238.0B"
-        ],
-        [
-          "Mkt cap",
-          "$238.0B"
-        ],
-        [
-          "Mkt cap",
-          "$238.0B"
-        ],
-        [
-          "Mkt cap",
-          "$238.0B"
-        ],
-        [
           "Industry",
           "Financial Services"
         ],
         [
           "Mkt cap",
-          "$238.0B"
+          "$229.8B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 238049
+      "mcap": 229833
     },
     {
       "sym": "MSTR",
       "name": "Strategy Inc",
-      "px": 78.46,
-      "pct": -7.04,
-      "chg": -5.94,
+      "px": 78.17,
+      "pct": -7.38,
+      "chg": -6.23,
       "tags": [],
       "src": "finnhub",
-      "note": "Crypto premarket wrap: What investors need to know before the bell",
+      "note": "Stocks give back gains as Anthropic dips below IPO price",
       "noteSrc": [
-        "news-MSTR-144051786"
+        "news-MSTR-144085288"
       ],
       "facts": [
         [
@@ -4016,58 +2569,35 @@
           "$84.40"
         ],
         [
-          "Mkt cap",
-          "$37.2B"
-        ],
-        [
-          "Mkt cap",
-          "$37.2B"
-        ],
-        [
-          "Mkt cap",
-          "$37.2B"
-        ],
-        [
-          "Mkt cap",
-          "$37.2B"
-        ],
-        [
-          "Mkt cap",
-          "$37.2B"
-        ],
-        [
-          "Mkt cap",
-          "$37.2B"
-        ],
-        [
-          "Mkt cap",
-          "$37.2B"
-        ],
-        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
-          "$37.2B"
+          "$35.6B"
+        ],
+        [
+          "Reddit 24h",
+          "#32 · 21 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 37222
+      "mcap": 35647
     },
     {
       "sym": "SOFI",
       "name": "SoFi Technologies, Inc.",
-      "px": 12.83,
-      "pct": -1.99,
-      "chg": -0.26,
+      "px": 12.81,
+      "pct": -2.14,
+      "chg": -0.28,
       "tags": [],
       "src": "finnhub",
-      "note": "Upstart Is Yesterday's News. Is This Fintech Stock the Better Buy?",
+      "note": "Credit Card Rate Cap Might Change The Case For Investing In SoFi Stock",
       "noteSrc": [
-        "news-SOFI-144027212"
+        "news-SOFI-144071206"
       ],
       "facts": [
         [
@@ -4083,58 +2613,30 @@
           "$13.09"
         ],
         [
-          "Mkt cap",
-          "$17.5B"
-        ],
-        [
-          "Mkt cap",
-          "$17.5B"
-        ],
-        [
-          "Mkt cap",
-          "$17.5B"
-        ],
-        [
-          "Mkt cap",
-          "$17.5B"
-        ],
-        [
-          "Mkt cap",
-          "$17.5B"
-        ],
-        [
-          "Mkt cap",
-          "$17.5B"
-        ],
-        [
-          "Mkt cap",
-          "$17.5B"
-        ],
-        [
           "Industry",
           "Financial Services"
         ],
         [
           "Mkt cap",
-          "$17.5B"
+          "$17.0B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 17475
+      "mcap": 16989
     },
     {
       "sym": "RIVN",
       "name": "Rivian Automotive, Inc.",
-      "px": 11.28,
-      "pct": 0.53,
-      "chg": 0.06,
+      "px": 11.29,
+      "pct": 0.62,
+      "chg": 0.07,
       "tags": [],
       "src": "finnhub",
-      "note": "Not Lucid. Not Ford. The EV Stock Most Likely to Catch Every Refunded Cybertruck Buyer.",
+      "note": "Proto Labs Stock After Board Appointment What Frank Klein Could Mean",
       "noteSrc": [
-        "news-RIVN-144023590"
+        "news-RIVN-144065719"
       ],
       "facts": [
         [
@@ -4150,122 +2652,25 @@
           "$11.22"
         ],
         [
-          "Mkt cap",
-          "$16.5B"
-        ],
-        [
-          "Mkt cap",
-          "$16.5B"
-        ],
-        [
-          "Mkt cap",
-          "$16.5B"
-        ],
-        [
-          "Mkt cap",
-          "$16.5B"
-        ],
-        [
-          "Mkt cap",
-          "$16.5B"
-        ],
-        [
-          "Mkt cap",
-          "$16.5B"
-        ],
-        [
-          "Mkt cap",
-          "$16.5B"
-        ],
-        [
           "Industry",
           "Automobiles"
         ],
         [
           "Mkt cap",
-          "$16.5B"
+          "$16.3B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 16460
-    },
-    {
-      "sym": "SNDK",
-      "name": "SanDisk Corporation",
-      "px": 77.38,
-      "pct": -11.78,
-      "chg": -10.33,
-      "tags": [
-        "social"
-      ],
-      "src": "finnhub",
-      "note": "Meta Soars 6%, Cipher Up 17% as AI Stocks Rebound With Jensen Huang Back at Nvidia",
-      "noteSrc": [
-        "news-SNDK-144051245"
-      ],
-      "facts": [
-        [
-          "Open",
-          "$84.32"
-        ],
-        [
-          "Day range",
-          "$74.83 – $84.33"
-        ],
-        [
-          "Prev. close",
-          "$87.71"
-        ],
-        [
-          "Mkt cap",
-          "$106.5B"
-        ],
-        [
-          "Mkt cap",
-          "$106.5B"
-        ],
-        [
-          "Mkt cap",
-          "$106.5B"
-        ],
-        [
-          "Mkt cap",
-          "$106.5B"
-        ],
-        [
-          "Mkt cap",
-          "$106.5B"
-        ],
-        [
-          "Mkt cap",
-          "$106.5B"
-        ],
-        [
-          "Mkt cap",
-          "$106.5B"
-        ],
-        [
-          "Industry",
-          "Technology"
-        ],
-        [
-          "Mkt cap",
-          "$106.5B"
-        ]
-      ],
-      "factsSrc": [
-        "finnhub"
-      ],
-      "mcap": 106489
+      "mcap": 16285
     },
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "px": 717.69,
-      "pct": -0.64,
-      "chg": -4.6,
+      "px": 715.51,
+      "pct": -0.94,
+      "chg": -6.78,
       "tags": [
         "social",
         "etf"
@@ -4287,18 +2692,23 @@
         [
           "Industry",
           "ETF / fund"
+        ],
+        [
+          "Reddit 24h",
+          "#2 · 345 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ]
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "px": 637.74,
-      "pct": -2.04,
-      "chg": -13.29,
+      "px": 634.66,
+      "pct": -2.51,
+      "chg": -16.37,
       "tags": [
         "social",
         "etf"
@@ -4320,25 +2730,118 @@
         [
           "Industry",
           "ETF / fund"
+        ],
+        [
+          "Reddit 24h",
+          "#3 · 153 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ]
     },
     {
-      "sym": "NYT",
-      "name": "The New York Times Company",
-      "px": 69.83,
-      "pct": 2.21,
-      "chg": 1.51,
+      "sym": "HR",
+      "name": "Healthcare Realty Trust Inc",
+      "px": 20.04,
+      "pct": 1.42,
+      "chg": 0.28,
       "tags": [
         "social"
       ],
       "src": "finnhub",
-      "note": "Jensen Huang back at Nvidia, stock soars; Anthropic slides",
+      "facts": [
+        [
+          "Open",
+          "$19.73"
+        ],
+        [
+          "Day range",
+          "$19.60 – $20.05"
+        ],
+        [
+          "Prev. close",
+          "$19.76"
+        ],
+        [
+          "Industry",
+          "Real Estate"
+        ],
+        [
+          "Mkt cap",
+          "$6.8B"
+        ],
+        [
+          "Reddit 24h",
+          "#6 · 83 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ],
+      "mcap": 6750
+    },
+    {
+      "sym": "HPE",
+      "name": "Hewlett Packard Enterprise Company",
+      "px": 39.67,
+      "pct": -17.39,
+      "chg": -8.35,
+      "tags": [
+        "social"
+      ],
+      "src": "finnhub",
+      "note": "HPE is heading into 2027 with 'tremendous momentum': CEO Antonio Neri",
       "noteSrc": [
-        "news-NYT-144050737"
+        "news-HPE-144087129"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$43.27"
+        ],
+        [
+          "Day range",
+          "$39.50 – $43.27"
+        ],
+        [
+          "Prev. close",
+          "$48.02"
+        ],
+        [
+          "Industry",
+          "Technology"
+        ],
+        [
+          "Mkt cap",
+          "$53.8B"
+        ],
+        [
+          "Reddit 24h",
+          "#8 · 65 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ],
+      "mcap": 53755
+    },
+    {
+      "sym": "NYT",
+      "name": "The New York Times Company",
+      "px": 70.0,
+      "pct": 2.46,
+      "chg": 1.68,
+      "tags": [
+        "social"
+      ],
+      "src": "finnhub",
+      "note": "Why NYT's Multiple Fell As Its Stock Rose",
+      "noteSrc": [
+        "news-NYT-144054986"
       ],
       "facts": [
         [
@@ -4354,53 +2857,30 @@
           "$68.32"
         ],
         [
-          "Mkt cap",
-          "$10.9B"
-        ],
-        [
-          "Mkt cap",
-          "$10.9B"
-        ],
-        [
-          "Mkt cap",
-          "$10.9B"
-        ],
-        [
-          "Mkt cap",
-          "$10.9B"
-        ],
-        [
-          "Mkt cap",
-          "$10.9B"
-        ],
-        [
-          "Mkt cap",
-          "$10.9B"
-        ],
-        [
-          "Mkt cap",
-          "$10.9B"
-        ],
-        [
           "Industry",
           "Media"
         ],
         [
           "Mkt cap",
           "$10.9B"
+        ],
+        [
+          "Reddit 24h",
+          "#11 · 57 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 10876
+      "mcap": 10925
     },
     {
-      "sym": "HR",
-      "name": "Healthcare Realty Trust Inc",
-      "px": 19.99,
-      "pct": 1.16,
-      "chg": 0.23,
+      "sym": "CIA",
+      "name": "Citizens Inc",
+      "px": 3.14,
+      "pct": -1.26,
+      "chg": -0.04,
       "tags": [
         "social"
       ],
@@ -4408,129 +2888,79 @@
       "facts": [
         [
           "Open",
-          "$19.73"
+          "$3.19"
         ],
         [
           "Day range",
-          "$19.60 – $19.99"
+          "$3.10 – $3.20"
         ],
         [
           "Prev. close",
-          "$19.76"
-        ],
-        [
-          "Mkt cap",
-          "$6.6B"
-        ],
-        [
-          "Mkt cap",
-          "$6.6B"
-        ],
-        [
-          "Mkt cap",
-          "$6.6B"
-        ],
-        [
-          "Mkt cap",
-          "$6.6B"
-        ],
-        [
-          "Mkt cap",
-          "$6.6B"
-        ],
-        [
-          "Mkt cap",
-          "$6.6B"
-        ],
-        [
-          "Mkt cap",
-          "$6.6B"
+          "$3.18"
         ],
         [
           "Industry",
-          "Real Estate"
+          "Insurance"
         ],
         [
           "Mkt cap",
-          "$6.6B"
+          "$0.2B"
+        ],
+        [
+          "Reddit 24h",
+          "#25 · 31 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 6559
+      "mcap": 158
     },
     {
-      "sym": "DTE",
-      "name": "DTE Energy Company",
-      "px": 137.91,
-      "pct": 0.56,
-      "chg": 0.77,
+      "sym": "MAGA",
+      "name": "ETF Series Solutions Trust - Point Bridge GOP Stock Tracker ETF",
+      "px": 55.23,
+      "pct": 0.13,
+      "chg": 0.07,
       "tags": [
-        "social"
+        "social",
+        "etf"
       ],
       "src": "finnhub",
       "facts": [
         [
           "Open",
-          "$136.67"
+          "$55.23"
         ],
         [
           "Day range",
-          "$136.08 – $138.47"
+          "$55.23 – $55.23"
         ],
         [
           "Prev. close",
-          "$137.14"
-        ],
-        [
-          "Mkt cap",
-          "$28.5B"
-        ],
-        [
-          "Mkt cap",
-          "$28.5B"
-        ],
-        [
-          "Mkt cap",
-          "$28.5B"
-        ],
-        [
-          "Mkt cap",
-          "$28.5B"
-        ],
-        [
-          "Mkt cap",
-          "$28.5B"
-        ],
-        [
-          "Mkt cap",
-          "$28.5B"
-        ],
-        [
-          "Mkt cap",
-          "$28.5B"
+          "$55.15"
         ],
         [
           "Industry",
-          "Utilities"
+          "ETF / fund"
         ],
         [
-          "Mkt cap",
-          "$28.5B"
+          "Reddit 24h",
+          "#22 · 33 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
-      ],
-      "mcap": 28487
+        "finnhub",
+        "apewisdom"
+      ]
     },
     {
       "sym": "VOO",
       "name": "Vanguard S&amp;P 500 ETF",
-      "px": 659.21,
-      "pct": -0.71,
-      "chg": -4.7,
+      "px": 658.26,
+      "pct": -0.85,
+      "chg": -5.65,
       "tags": [
         "social",
         "etf"
@@ -4552,51 +2982,23 @@
         [
           "Industry",
           "ETF / fund"
+        ],
+        [
+          "Reddit 24h",
+          "#14 · 50 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
-      ]
-    },
-    {
-      "sym": "VT",
-      "name": "Vanguard Group, Inc. - Vanguard Total World Stock ETF",
-      "px": 147.37,
-      "pct": -0.57,
-      "chg": -0.84,
-      "tags": [
-        "social",
-        "etf"
-      ],
-      "src": "finnhub",
-      "facts": [
-        [
-          "Open",
-          "$147.53"
-        ],
-        [
-          "Day range",
-          "$146.28 – $148.06"
-        ],
-        [
-          "Prev. close",
-          "$148.21"
-        ],
-        [
-          "Industry",
-          "ETF / fund"
-        ]
-      ],
-      "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ]
     },
     {
       "sym": "VTI",
       "name": "Vanguard Total Stock Market ETF",
-      "px": 353.23,
-      "pct": -0.57,
-      "chg": -2.04,
+      "px": 352.68,
+      "pct": -0.73,
+      "chg": -2.59,
       "tags": [
         "social",
         "etf"
@@ -4618,66 +3020,81 @@
         [
           "Industry",
           "ETF / fund"
+        ],
+        [
+          "Reddit 24h",
+          "#35 · 18 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ]
     },
     {
-      "sym": "CRWD",
-      "name": "CrowdStrike Holdings, Inc.",
-      "px": 211.72,
-      "pct": 1.32,
-      "chg": 2.75,
+      "sym": "VT",
+      "name": "Vanguard Group, Inc. - Vanguard Total World Stock ETF",
+      "px": 147.23,
+      "pct": -0.66,
+      "chg": -0.98,
+      "tags": [
+        "social",
+        "etf"
+      ],
+      "src": "finnhub",
+      "facts": [
+        [
+          "Open",
+          "$147.53"
+        ],
+        [
+          "Day range",
+          "$146.28 – $148.06"
+        ],
+        [
+          "Prev. close",
+          "$148.21"
+        ],
+        [
+          "Industry",
+          "ETF / fund"
+        ],
+        [
+          "Reddit 24h",
+          "#54 · 11 mentions"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub",
+        "apewisdom"
+      ]
+    },
+    {
+      "sym": "DELL",
+      "name": "Dell Technologies Inc",
+      "px": 294.7,
+      "pct": -12.01,
+      "chg": -40.21,
       "tags": [
         "social"
       ],
       "src": "finnhub",
-      "note": "Stock Market Today: Dow Surges As Trump Says This On Huang's Nvidia Return; AI Plays Rocket (Live Coverage)",
+      "note": "Dell Technologies Stocks Fall 7.47% Hours Before Results Test a $95 Billion AI Backlog",
       "noteSrc": [
-        "news-CRWD-144051335"
+        "news-DELL-144086712"
       ],
       "facts": [
         [
           "Open",
-          "$211.00"
+          "$318.00"
         ],
         [
           "Day range",
-          "$208.11 – $215.50"
+          "$290.78 – $318.22"
         ],
         [
           "Prev. close",
-          "$208.97"
-        ],
-        [
-          "Mkt cap",
-          "$212.8B"
-        ],
-        [
-          "Mkt cap",
-          "$212.8B"
-        ],
-        [
-          "Mkt cap",
-          "$212.8B"
-        ],
-        [
-          "Mkt cap",
-          "$212.8B"
-        ],
-        [
-          "Mkt cap",
-          "$212.8B"
-        ],
-        [
-          "Mkt cap",
-          "$212.8B"
-        ],
-        [
-          "Mkt cap",
-          "$212.8B"
+          "$334.91"
         ],
         [
           "Industry",
@@ -4685,271 +3102,45 @@
         ],
         [
           "Mkt cap",
-          "$212.8B"
+          "$212.9B"
+        ],
+        [
+          "Reddit 24h",
+          "#13 · 53 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub"
+        "finnhub",
+        "apewisdom"
       ],
-      "mcap": 212794
+      "mcap": 212940
     },
     {
-      "sym": "HPE",
-      "name": "Hewlett Packard Enterprise Company",
-      "px": 40.19,
-      "pct": -16.31,
-      "chg": -7.83,
+      "sym": "TGTX",
+      "name": "TG Therapeutics, Inc.",
+      "px": 69.9,
+      "pct": 9.24,
+      "chg": 5.91,
       "tags": [
         "social"
       ],
       "src": "finnhub",
-      "note": "HPE Jumps 12.1% as Nvidia Rally Lifts AI Hardware Stocks on Monday",
+      "note": "Earnings Strength: 3 Companies Raising Guidance",
       "noteSrc": [
-        "news-HPE-144051700"
+        "news-TGTX-144058041"
       ],
       "facts": [
         [
           "Open",
-          "$43.27"
+          "$63.92"
         ],
         [
           "Day range",
-          "$39.68 – $43.27"
+          "$63.92 – $71.25"
         ],
         [
           "Prev. close",
-          "$48.02"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ],
-        [
-          "Industry",
-          "Technology"
-        ],
-        [
-          "Mkt cap",
-          "$62.0B"
-        ]
-      ],
-      "factsSrc": [
-        "finnhub"
-      ],
-      "mcap": 62046
-    },
-    {
-      "sym": "XMAX",
-      "name": "XMax Inc",
-      "px": 6.16,
-      "pct": -7.65,
-      "chg": -0.51,
-      "tags": [
-        "social"
-      ],
-      "src": "finnhub",
-      "facts": [
-        [
-          "Open",
-          "$6.62"
-        ],
-        [
-          "Day range",
-          "$6.01 – $6.63"
-        ],
-        [
-          "Prev. close",
-          "$6.67"
-        ],
-        [
-          "Mkt cap",
-          "$0.4B"
-        ],
-        [
-          "Mkt cap",
-          "$0.4B"
-        ],
-        [
-          "Mkt cap",
-          "$0.4B"
-        ],
-        [
-          "Mkt cap",
-          "$0.4B"
-        ],
-        [
-          "Mkt cap",
-          "$0.4B"
-        ],
-        [
-          "Mkt cap",
-          "$0.4B"
-        ],
-        [
-          "Mkt cap",
-          "$0.4B"
-        ],
-        [
-          "Industry",
-          "Consumer products"
-        ],
-        [
-          "Mkt cap",
-          "$0.4B"
-        ]
-      ],
-      "factsSrc": [
-        "finnhub"
-      ],
-      "mcap": 416
-    },
-    {
-      "sym": "ZS",
-      "name": "Zscaler, Inc.",
-      "px": 232.97,
-      "pct": 1.63,
-      "chg": 3.73,
-      "tags": [
-        "social"
-      ],
-      "src": "finnhub",
-      "note": "Dow Jones Futures Jump As Oracle, Korea Try To Ease Market Fears; Look For These Absolute Losers",
-      "noteSrc": [
-        "news-ZS-144030671"
-      ],
-      "facts": [
-        [
-          "Open",
-          "$230.41"
-        ],
-        [
-          "Day range",
-          "$228.50 – $236.98"
-        ],
-        [
-          "Prev. close",
-          "$229.24"
-        ],
-        [
-          "Mkt cap",
-          "$38.8B"
-        ],
-        [
-          "Mkt cap",
-          "$38.8B"
-        ],
-        [
-          "Mkt cap",
-          "$38.8B"
-        ],
-        [
-          "Mkt cap",
-          "$38.8B"
-        ],
-        [
-          "Mkt cap",
-          "$38.8B"
-        ],
-        [
-          "Mkt cap",
-          "$38.8B"
-        ],
-        [
-          "Mkt cap",
-          "$38.8B"
-        ],
-        [
-          "Industry",
-          "Technology"
-        ],
-        [
-          "Mkt cap",
-          "$38.8B"
-        ]
-      ],
-      "factsSrc": [
-        "finnhub"
-      ],
-      "mcap": 38779
-    },
-    {
-      "sym": "SLS",
-      "name": "Sellas Life Sciences Group Inc",
-      "px": 13.13,
-      "pct": -1.13,
-      "chg": -0.15,
-      "tags": [
-        "social"
-      ],
-      "src": "finnhub",
-      "note": "Sellas Life (SLS) Just Soared 74% Last Week — Time to Take Profits?",
-      "noteSrc": [
-        "news-SLS-144039814"
-      ],
-      "facts": [
-        [
-          "Open",
-          "$13.36"
-        ],
-        [
-          "Day range",
-          "$12.38 – $13.76"
-        ],
-        [
-          "Prev. close",
-          "$13.28"
-        ],
-        [
-          "Mkt cap",
-          "$2.8B"
-        ],
-        [
-          "Mkt cap",
-          "$2.8B"
-        ],
-        [
-          "Mkt cap",
-          "$2.8B"
-        ],
-        [
-          "Mkt cap",
-          "$2.8B"
-        ],
-        [
-          "Mkt cap",
-          "$2.8B"
-        ],
-        [
-          "Mkt cap",
-          "$2.8B"
-        ],
-        [
-          "Mkt cap",
-          "$2.8B"
+          "$63.99"
         ],
         [
           "Industry",
@@ -4957,89 +3148,131 @@
         ],
         [
           "Mkt cap",
-          "$2.8B"
+          "$10.0B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 2846
+      "mcap": 10018
     },
     {
-      "sym": "DKNG",
-      "name": "DraftKings Inc.",
-      "px": 16.41,
-      "pct": 4.12,
-      "chg": 0.65,
+      "sym": "FUBO",
+      "name": "FuboTV Inc.",
+      "px": 5.48,
+      "pct": -0.54,
+      "chg": -0.03,
       "tags": [
         "social"
       ],
       "src": "finnhub",
-      "note": "DraftKings Gains Legal Ground on Prediction Markets, but Its Quarterly EBITDA Loss Reaches $317 Million",
+      "facts": [
+        [
+          "Open",
+          "$5.38"
+        ],
+        [
+          "Day range",
+          "$5.31 – $5.60"
+        ],
+        [
+          "Prev. close",
+          "$5.51"
+        ],
+        [
+          "Industry",
+          "Media"
+        ],
+        [
+          "Mkt cap",
+          "$0.6B"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub"
+      ],
+      "mcap": 601
+    },
+    {
+      "sym": "ANF",
+      "name": "Abercrombie & Fitch Co.",
+      "px": 170.66,
+      "pct": 21.51,
+      "chg": 30.21,
+      "tags": [
+        "social"
+      ],
+      "src": "finnhub",
+      "note": "Abercrombie & Fitch Co (ANF) (Q3 2026) Earnings Call Highlights: Record $1. ...",
       "noteSrc": [
-        "news-DKNG-144030932"
+        "news-ANF-144087394"
       ],
       "facts": [
         [
           "Open",
-          "$15.71"
+          "$148.25"
         ],
         [
           "Day range",
-          "$15.43 – $16.63"
+          "$148.25 – $178.38"
         ],
         [
           "Prev. close",
-          "$15.76"
-        ],
-        [
-          "Mkt cap",
-          "$7.9B"
-        ],
-        [
-          "Mkt cap",
-          "$7.9B"
-        ],
-        [
-          "Mkt cap",
-          "$7.9B"
-        ],
-        [
-          "Mkt cap",
-          "$7.9B"
-        ],
-        [
-          "Mkt cap",
-          "$7.9B"
-        ],
-        [
-          "Mkt cap",
-          "$7.9B"
-        ],
-        [
-          "Mkt cap",
-          "$7.9B"
+          "$140.45"
         ],
         [
           "Industry",
-          "Hotels, Restaurants & Leisure"
+          "Retail"
         ],
         [
           "Mkt cap",
-          "$7.9B"
+          "$6.0B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 7904
+      "mcap": 5960
     },
     {
-      "sym": "SONY",
-      "name": "Sony Group Corp",
-      "px": 27.8,
-      "pct": -0.18,
-      "chg": -0.05,
+      "sym": "XBI",
+      "name": "SPDR Series Trust - SSgA SPDR Biotech",
+      "px": 156.1,
+      "pct": 6.08,
+      "chg": 8.94,
+      "tags": [
+        "social",
+        "etf"
+      ],
+      "src": "finnhub",
+      "facts": [
+        [
+          "Open",
+          "$147.36"
+        ],
+        [
+          "Day range",
+          "$147.36 – $157.30"
+        ],
+        [
+          "Prev. close",
+          "$147.16"
+        ],
+        [
+          "Industry",
+          "ETF / fund"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub"
+      ]
+    },
+    {
+      "sym": "LABD",
+      "name": "LABD",
+      "px": 6.37,
+      "pct": -17.81,
+      "chg": -1.38,
       "tags": [
         "social"
       ],
@@ -5047,129 +3280,131 @@
       "facts": [
         [
           "Open",
-          "$27.20"
+          "$7.73"
         ],
         [
           "Day range",
-          "$27.04 – $27.87"
+          "$6.16 – $7.80"
         ],
         [
           "Prev. close",
-          "$27.85"
+          "$7.75"
+        ]
+      ],
+      "factsSrc": [
+        "finnhub"
+      ]
+    },
+    {
+      "sym": "WULF",
+      "name": "TeraWulf Inc.",
+      "px": 10.01,
+      "pct": -8.25,
+      "chg": -0.9,
+      "tags": [
+        "social"
+      ],
+      "src": "finnhub",
+      "note": "Nebius & CoreWeave Jump 21% While Oracle Sees 12% Gains on Monday Following Jensen’s Return",
+      "noteSrc": [
+        "news-WULF-144053649"
+      ],
+      "facts": [
+        [
+          "Open",
+          "$10.65"
         ],
         [
-          "Mkt cap",
-          "$25.55T"
+          "Day range",
+          "$9.24 – $10.71"
         ],
         [
-          "Mkt cap",
-          "$25.55T"
-        ],
-        [
-          "Mkt cap",
-          "$25.55T"
-        ],
-        [
-          "Mkt cap",
-          "$25.55T"
-        ],
-        [
-          "Mkt cap",
-          "$25.55T"
-        ],
-        [
-          "Mkt cap",
-          "$25.55T"
-        ],
-        [
-          "Mkt cap",
-          "$25.55T"
+          "Prev. close",
+          "$10.91"
         ],
         [
           "Industry",
-          "Consumer products"
+          "Technology"
         ],
         [
           "Mkt cap",
-          "$25.55T"
+          "$5.9B"
         ]
       ],
       "factsSrc": [
         "finnhub"
       ],
-      "mcap": 25550901
+      "mcap": 5853
     }
   ],
   "picks": [
     {
-      "sym": "NVDA",
-      "role": "Relative strength",
+      "sym": "AAPL",
+      "role": "Crowd favorite",
       "risk": "high",
       "thesis": [
-        "Up 31.61% to $165.21 versus +4.77% for SPY — 26.84 pts better than the market.",
-        "#1 on Reddit with 1,514 mentions in 24h, +462.83% vs. 24h earlier and trending on Stocktwits.",
-        "96% of 69 covering analysts rate it Buy or Strong Buy (Finnhub, 2026-11-01)."
+        "#7 on Reddit with 72 mentions in 24h, +500.00% vs. 24h earlier.",
+        "91 headlines in the last 36h; latest: “Why Did Alphabet Stock Move?”",
+        "Up 0.80% to $351.86 versus −0.94% for SPY — 1.74 pts better than the market."
       ],
-      "risks": "Heavy social-media attention can reverse quickly. Already up 31.6% today — chasing a gap adds risk.",
-      "scores": {
-        "Catalyst": 8,
-        "Price action": 10,
-        "Crowd": 10,
-        "Institutional": 10
-      },
-      "src": [
-        "finnhub",
-        "apewisdom",
-        "stocktwits",
-        "news-NVDA-144051293",
-        "news-NVDA-144051300"
-      ]
-    },
-    {
-      "sym": "SNDK",
-      "role": "Relative strength",
-      "risk": "high",
-      "thesis": [
-        "Up 11.13% to $88.06 versus +4.77% for SPY — 6.36 pts better than the market.",
-        "86% of 35 covering analysts rate it Buy or Strong Buy (Finnhub, 2026-11-01).",
-        "34 headlines in the last 36h; latest: “Meta Soars 6%, Cipher Up 17% as AI Stocks Rebound With Jensen Huang Back at Nvidia”"
-      ],
-      "risks": "Already up 11.1% today — chasing a gap adds risk.",
-      "scores": {
-        "Catalyst": 8,
-        "Price action": 10,
-        "Crowd": 5,
-        "Institutional": 9
-      },
-      "src": [
-        "finnhub",
-        "apewisdom",
-        "stocktwits",
-        "news-SNDK-144051245",
-        "news-SNDK-144051638"
-      ]
-    },
-    {
-      "sym": "GOOG",
-      "role": "Analyst favorite",
-      "risk": "high",
-      "thesis": [
-        "90% of 68 covering analysts rate it Buy or Strong Buy (Finnhub, 2026-11-01).",
-        "88 headlines in the last 36h; latest: “Stock Market Today: Dow Surges As Trump Says This On Huang's Nvidia Return; AI Plays Rocket (Live Coverage)”",
-        "Up 6.23% to $280.44 versus +4.77% for SPY — 1.46 pts better than the market."
-      ],
-      "risks": "Already up 6.2% today — chasing a gap adds risk.",
+      "risks": "Heavy social-media attention can reverse quickly.",
       "scores": {
         "Catalyst": 8,
         "Price action": 7,
-        "Crowd": 7,
-        "Institutional": 9
+        "Crowd": 9,
+        "Institutional": 6
       },
       "src": [
         "finnhub",
         "apewisdom",
-        "news-GOOG-144051335",
-        "news-GOOG-144051322"
+        "news-AAPL-144086674",
+        "news-AAPL-144086669"
+      ]
+    },
+    {
+      "sym": "LLY",
+      "role": "Relative strength",
+      "risk": "mod",
+      "thesis": [
+        "Up 3.42% to $1,411.28 versus −0.94% for SPY — 4.36 pts better than the market.",
+        "86% of 37 covering analysts rate it Buy or Strong Buy (Finnhub, 2026-11-01).",
+        "35 headlines in the last 36h; latest: “13 Big Funds Bought Johnson & Johnson Last Quarter, While 14 Sold. Who’s Right?”"
+      ],
+      "risks": "Single-stock risk: size positions accordingly and diversify.",
+      "scores": {
+        "Catalyst": 8,
+        "Price action": 10,
+        "Crowd": 2,
+        "Institutional": 9
+      },
+      "src": [
+        "finnhub",
+        "stocktwits",
+        "news-LLY-144086773",
+        "news-LLY-144086774"
+      ]
+    },
+    {
+      "sym": "ABBV",
+      "role": "Relative strength",
+      "risk": "mod",
+      "thesis": [
+        "Up 3.90% to $299.69 versus −0.94% for SPY — 4.84 pts better than the market.",
+        "82% of 38 covering analysts rate it Buy or Strong Buy (Finnhub, 2026-11-01).",
+        "22 headlines in the last 36h; latest: “13 Big Funds Bought Johnson & Johnson Last Quarter, While 14 Sold. Who’s Right?”"
+      ],
+      "risks": "Single-stock risk: size positions accordingly and diversify.",
+      "scores": {
+        "Catalyst": 8,
+        "Price action": 10,
+        "Crowd": 2,
+        "Institutional": 8
+      },
+      "src": [
+        "finnhub",
+        "stocktwits",
+        "news-ABBV-144086773",
+        "news-ABBV-144085468"
       ]
     }
   ],
@@ -5179,45 +3414,45 @@
       "detail": "Fear & Greed Index (0 = extreme fear, 100 = extreme greed)",
       "tickers": "Broad market",
       "lean": "bear",
-      "read": "Reads 17 (Extreme Fear). Compare: previous close 10, a week ago 31, a month ago 17, a year ago 6.",
+      "read": "Reads 17 (Extreme Fear). Compare: previous close 17, a week ago 26, a month ago 17, a year ago 14.",
       "src": "cnn-fg"
     },
     {
       "platform": "Reddit (all)",
       "detail": "Most-mentioned tickers, last 24h (ApeWisdom)",
-      "tickers": "NVDA · SPY · QQQ · NYT · AMD · HR · MU · DTE",
+      "tickers": "NVDA · SPY · QQQ · AMD · MU · HR · AAPL · HPE",
       "lean": "info",
-      "read": "NVDA leads with 1,514 mentions across all tracked subreddits. Fastest risers: NVDA (+462.83%), SPY (+225.89%), QQQ (+213.64%).",
+      "read": "NVDA leads with 1,091 mentions across all tracked subreddits. Fastest risers: GME (+69.23%), SNDK (+66.67%), AMD (+31.13%).",
       "src": "apewisdom"
     },
     {
       "platform": "r/wallstreetbets",
       "detail": "Most-mentioned tickers, last 24h",
       "lean": "info",
-      "tickers": "NVDA · SPY · QQQ · NYT · AMD",
-      "read": "NVDA leads with 1,282 mentions and 11,231 upvotes. Biggest jump: NVDA (+501.88% vs. a day earlier).",
+      "tickers": "NVDA · SPY · QQQ · AMD · MU",
+      "read": "NVDA leads with 959 mentions and 5,592 upvotes. Biggest jump: HPE (+425.00% vs. a day earlier).",
       "src": "reddit-wallstreetbets"
     },
     {
       "platform": "r/stocks",
       "detail": "Most-mentioned tickers, last 24h",
       "lean": "info",
-      "tickers": "NVDA · AMD · SPY · HR · NYT",
-      "read": "NVDA leads with 139 mentions and 9,808 upvotes. Biggest jump: NVDA (+215.91% vs. a day earlier).",
+      "tickers": "NVDA · NYT · SPY · CIA · MAGA",
+      "read": "NVDA leads with 80 mentions and 1,949 upvotes. Biggest jump: NYT (+108.33% vs. a day earlier).",
       "src": "reddit-stocks"
     },
     {
       "platform": "r/investing",
       "detail": "Most-mentioned tickers, last 24h",
       "lean": "info",
-      "tickers": "NVDA · VOO · VT · VTI · AMD",
-      "read": "NVDA leads with 36 mentions and 3,498 upvotes. Biggest jump: VOO (+90.91% vs. a day earlier).",
+      "tickers": "VOO · NVDA · VTI · VT · QQQ",
+      "read": "VOO leads with 15 mentions and 47 upvotes. Biggest jump: VOO (−25.00% vs. a day earlier).",
       "src": "reddit-investing"
     },
     {
       "platform": "Stocktwits",
       "detail": "Trending symbols right now",
-      "tickers": "CRWD · HPE · NVDA · XMAX · ZS · SLS · DKNG · SONY",
+      "tickers": "DELL · TGTX · HPE · FUBO · ANF · XBI · LABD · WULF",
       "lean": "info",
       "read": "Symbols with unusually high message volume on Stocktwits.",
       "src": "stocktwits"
@@ -5225,25 +3460,25 @@
     {
       "platform": "Analysts",
       "detail": "Recommendation trend, 2026-11-01",
-      "tickers": "NVDA",
+      "tickers": "AAPL",
       "lean": "bull",
-      "read": "96% Buy/Strong Buy across 69 analysts.",
+      "read": "61% Buy/Strong Buy across 49 analysts.",
       "src": "finnhub"
     },
     {
       "platform": "Analysts",
       "detail": "Recommendation trend, 2026-11-01",
-      "tickers": "SNDK",
+      "tickers": "LLY",
       "lean": "bull",
-      "read": "86% Buy/Strong Buy across 35 analysts.",
+      "read": "86% Buy/Strong Buy across 37 analysts.",
       "src": "finnhub"
     },
     {
       "platform": "Analysts",
       "detail": "Recommendation trend, 2026-11-01",
-      "tickers": "GOOG",
+      "tickers": "ABBV",
       "lean": "bull",
-      "read": "90% Buy/Strong Buy across 68 analysts.",
+      "read": "82% Buy/Strong Buy across 38 analysts.",
       "src": "finnhub"
     },
     {
@@ -5257,15 +3492,22 @@
   ],
   "macroNotes": [
     {
-      "t": "Mexico, China agree to create working group to boost trade - Reuters (Reuters)",
-      "src": "news-mkt-8799961"
+      "t": "HPE shares tumble as shrinking AI margins overshadow upbeat forecast - Reuters (Reuters)",
+      "src": "news-mkt-8804308"
     },
     {
-      "t": "DNI Jay Clayton tapped as acting national cyber director (CNBC)",
-      "src": "news-mkt-8799849"
+      "t": "Gold is doing something strange. Here's one way to play it (CNBC)",
+      "src": "news-mkt-8804940"
     }
   ],
-  "calendar": [],
+  "calendar": [
+    {
+      "d": "Tue 24 Nov",
+      "items": [
+        "DELL PM"
+      ]
+    }
+  ],
   "calendarSrc": "finnhub",
   "sources": {
     "finnhub": {
@@ -5288,288 +3530,308 @@
       "name": "CNN Business — Fear & Greed Index",
       "url": "https://www.cnn.com/markets/fear-and-greed"
     },
-    "news-NVDA-144051293": {
-      "name": "Yahoo — Trump says he ‘convinced’ Nvidia board to reinstate Jensen Huang",
-      "url": "https://finnhub.io/api/news?id=9f92d005bacc300f499227c0c9eae63456c691364ec16f1b1409fb27119f61a5"
-    },
-    "news-NVDA-144051300": {
-      "name": "Yahoo — Should You Buy Marvell Technology Stock Before Dec. 1?",
-      "url": "https://finnhub.io/api/news?id=ff54b5c8210865bdba36a9faf2fecf3c0e93fc5cb7593e7dba18194f03fd6513"
-    },
-    "news-SNDK-144051245": {
-      "name": "Yahoo — Meta Soars 6%, Cipher Up 17% as AI Stocks Rebound With Jensen Huang Back at Nvidia",
-      "url": "https://finnhub.io/api/news?id=f591d909d6cd50404d017ba5ee87190aa57a2d45c3db31bdb6c7372290a9a3c8"
-    },
-    "news-SNDK-144051638": {
-      "name": "Yahoo — Situational Awareness Stock Portfolio: Leopold Aschenbrenner’s Top 5 Picks",
-      "url": "https://finnhub.io/api/news?id=f1187e29b66254dcf651b8b07e71513ec96a454292cfdecd22a6f4a71ac98e0b"
-    },
-    "news-GOOG-144051335": {
-      "name": "Yahoo — Stock Market Today: Dow Surges As Trump Says This On Huang's Nvidia Return; AI Plays Rocke",
-      "url": "https://finnhub.io/api/news?id=788ff0bfa2cc7d282f2645e183c11e7569d2f805989cbd86e6a866d0851b848c"
-    },
-    "news-GOOG-144051322": {
-      "name": "Yahoo — All Broadcom Has to Do is Deliver Modestly to Prove Stanley Druckenmiller Wrong and Hit $5",
-      "url": "https://finnhub.io/api/news?id=2f14eea7f143d4c25269f15259fe7bb161d5d3abd8d51f06e9c5da63faf8b43b"
-    },
-    "news-mkt-8799961": {
-      "name": "Reuters — Mexico, China agree to create working group to boost trade - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQNGQzdEcwdnZKUC05dU4zQWZFRkRKV0tmVTM1d0oxeU5ldlM0Ukk4RVhlZTNPZXZtQ2tGejdIa1V1SEdvLUx5VHJ6dGxDWlhya041NE9MckZkOEFzbjNneGhwMzFDOXhrWGx3c0JFMFg1NnhnaURuYVNpRWRIakNqbWxueHlYeU1zY3ZLYkVtZTVoX1JEV2N0Ug?oc=5"
-    },
-    "news-mkt-8799849": {
-      "name": "CNBC — DNI Jay Clayton tapped as acting national cyber director",
-      "url": "https://www.cnbc.com/2026/11/23/jay-clayton-cyber-director-kirsten-davies-trump.html"
-    },
-    "news-AVGO-144051322": {
-      "name": "Yahoo — All Broadcom Has to Do is Deliver Modestly to Prove Stanley Druckenmiller Wrong and Hit $5",
-      "url": "https://finnhub.io/api/news?id=2f14eea7f143d4c25269f15259fe7bb161d5d3abd8d51f06e9c5da63faf8b43b"
-    },
-    "news-AMD-144051382": {
-      "name": "Yahoo — Advanced Micro Devices vs. Dell Technologies: Comparing Revenue Trends Amid the Artificial",
-      "url": "https://finnhub.io/api/news?id=8b62e125baa3cff8b23128d7dcc972b0b200e8fc51aa74eba79f280565bf0450"
-    },
-    "news-MSFT-144051286": {
-      "name": "Yahoo — Nebius Keeps Plummeting Amid 50% Drop This Month: This Wall Street Pro Now Predicts 370% R",
-      "url": "https://finnhub.io/api/news?id=5688bed6854955cbc2f3ef9d1e65ce3f4c64aff31453410d08f36265bb9f9f23"
-    },
-    "news-AAPL-144051238": {
-      "name": "Yahoo — Nvidia Is Now Second To Apple In The World’s Most Valued Companies On Jensen Huang Optimis",
-      "url": "https://finnhub.io/api/news?id=8b486e39527a7c4e27450ea2605bb70f357b6a1ad86fc1740a8cdf5c796f4070"
-    },
-    "news-AMZN-144051287": {
-      "name": "Yahoo — What Explains The Fall In Meta Stock?",
-      "url": "https://finnhub.io/api/news?id=e3f30c263a0cfbe41aa6899748ad7c22ea2f742b5ca9225512f53bfcc25c8ffa"
-    },
-    "news-META-144051322": {
-      "name": "Yahoo — All Broadcom Has to Do is Deliver Modestly to Prove Stanley Druckenmiller Wrong and Hit $5",
-      "url": "https://finnhub.io/api/news?id=2f14eea7f143d4c25269f15259fe7bb161d5d3abd8d51f06e9c5da63faf8b43b"
-    },
-    "news-TSLA-144051393": {
-      "name": "Yahoo — Tesla’s FSD v15 An ‘Illustration’ Of Head Start In Consumer Autonomy, Says JPMorgan – TSLA",
-      "url": "https://finnhub.io/api/news?id=55d6ddd6741ce82a2531374a72bff852d969b04b73275415d54788b2ef38713f"
-    },
-    "news-DIS-144048417": {
-      "name": "Yahoo — What Will Move Netflix Stock Over Six Months?",
-      "url": "https://finnhub.io/api/news?id=f2efe33aef085c14b87afc49280e7d362d933a7e1ec6554e64420420413d5db8"
-    },
-    "news-PLTR-144051298": {
-      "name": "Yahoo — Why Is Palantir (PLTR) Stock Up Today? AI Rally Follows Nvidia CEO Return",
-      "url": "https://finnhub.io/api/news?id=35e3d327cbc2f2c306c83d524b5933e3fb63a70377c33aeafb8392416e6cf400"
-    },
-    "news-INTC-144051479": {
-      "name": "Yahoo — The 5 Best Stocks in SoftBank’s Portfolio",
-      "url": "https://finnhub.io/api/news?id=797be95e4e022c15f0701e5e99f23de496f9dc4fd999b69f7b015eeaf308cfd9"
-    },
-    "news-JPM-144050172": {
-      "name": "Yahoo — J.P. Morgan NextList Turns 10: The Books, Stages and Destinations Defining What's Next in ",
-      "url": "https://finnhub.io/api/news?id=572ae65ebe8302543b35ce047795d0632d5b4bdc7a6da9a36398d653653e83ba"
-    },
-    "news-WMT-144051445": {
-      "name": "Yahoo — Ken Fisher and 11 Other Big Funds Bought KLA Last Quarter. Brad Gerstner and 11 Others Sol",
-      "url": "https://finnhub.io/api/news?id=9da129d5a24b25c977a8291021ccc37850fd62faac46a28d6f9b362a57a04b52"
-    },
-    "news-SPCX-144051850": {
-      "name": "Yahoo — SpaceX Stocks Climb 8.69% as Jefferies Starts Coverage With Buy and $210 Target",
-      "url": "https://finnhub.io/api/news?id=57b96dfa99425ffa1e461f7ad039e9de56c827a5541c4cb5b7f565e13dc29d1f"
-    },
-    "news-BRK.B-144028436": {
-      "name": "Yahoo — Berkshire Hathaway's Next Big AI Bet Could Be Hiding in Plain Sight",
-      "url": "https://finnhub.io/api/news?id=2944de6068cacbc22b490deee0d94e9ce48c79a8f6c009c212020943fd9b7150"
-    },
-    "news-LLY-144051390": {
-      "name": "Yahoo — Lilly buys Huntington’s drug developer LoQus23 in potentially $725M deal",
-      "url": "https://finnhub.io/api/news?id=860f05a7ee9dd48a961ab6ba7eadaf3102db536da18618d7c6d774202a3020e6"
-    },
-    "news-V-144051345": {
-      "name": "Yahoo — A $6.8 Billion Fund Just Bought These 3 Stocks",
-      "url": "https://finnhub.io/api/news?id=390d8425b951aef062f8eb70d69d760abac234ebe664a62771b33814c35ddf8a"
-    },
-    "news-MA-144051448": {
-      "name": "Yahoo — Mastercard vs. PayPal: Which Financial Stock Is a Better Buy for 2027?",
-      "url": "https://finnhub.io/api/news?id=2f72328c5218c128115604bc09bf8a4e1424355a934e6d4caf8eddaee87d741e"
-    },
-    "news-XOM-144051442": {
-      "name": "Yahoo — Wall Street Opens Sharply Higher After the S&P 500's Seven-Day Slide",
-      "url": "https://finnhub.io/api/news?id=06d648e7fa7bd2d839eb0e2331ac2988180dec6e61337ee1d3cc2163d7f0075d"
-    },
-    "news-UNH-144051335": {
-      "name": "Yahoo — Stock Market Today: Dow Surges As Trump Says This On Huang's Nvidia Return; AI Plays Rocke",
-      "url": "https://finnhub.io/api/news?id=788ff0bfa2cc7d282f2645e183c11e7569d2f805989cbd86e6a866d0851b848c"
-    },
-    "news-ORCL-144051298": {
-      "name": "Yahoo — Why Is Palantir (PLTR) Stock Up Today? AI Rally Follows Nvidia CEO Return",
-      "url": "https://finnhub.io/api/news?id=35e3d327cbc2f2c306c83d524b5933e3fb63a70377c33aeafb8392416e6cf400"
-    },
-    "news-COST-144051451": {
-      "name": "Yahoo — ‘They were all gone’: Costco generator sellouts fuel prepper fears. Is America headed for ",
-      "url": "https://finnhub.io/api/news?id=cf514896068d2735bd2f89ed5ddebd6f727dc2147f3be5d6e1b2208c9fd32cb7"
-    },
-    "news-NFLX-144051497": {
-      "name": "Yahoo — Netflix Needs 'Buzzy' Franchises",
-      "url": "https://finnhub.io/api/news?id=b6050818cc82623dc2a070c08198a12ecdc7ffc11d93f0790c172547764f6420"
-    },
-    "news-JNJ-144051443": {
-      "name": "Yahoo — Bristol Myers Squibb vs. Johnson & Johnson: Which Healthcare Giant's Stock Is a Better Buy",
-      "url": "https://finnhub.io/api/news?id=b35ada46fe50bd1922248939cb7ee13b294c87fcd239299b2497f4fcdf625e83"
-    },
-    "news-PG-144051456": {
-      "name": "Yahoo — Bank of Oak Ridge Appoints Tony Lancaster to Board of Directors",
-      "url": "https://finnhub.io/api/news?id=d43eaafceedd6c4793d4231f89aa27ebf78ccf5aeb9c2841cb19861f5207252e"
-    },
-    "news-HD-144051461": {
-      "name": "Yahoo — The Home Depot (HD) Shares Fall as Depressed Home Turnover Weighs on Outlook",
-      "url": "https://finnhub.io/api/news?id=a10b07b295a1859ed5673939a6d2fc3f0bc5877787f1244f163278d00726c529"
-    },
-    "news-ABBV-144051450": {
-      "name": "Yahoo — $100,000 in These 5 Dividend Stocks Could Pay $4,800 a Year",
-      "url": "https://finnhub.io/api/news?id=26ee76e7a3d3619e474e13c4d87f38094d6843ef75667fdd6883ca7b81c6a687"
-    },
-    "news-BAC-144051468": {
-      "name": "Yahoo — Do credit card points expire? Rules by issuer, airline, and hotel program",
-      "url": "https://finnhub.io/api/news?id=dddcc924d09492e697dfcc4e61db219b587fd03f2f4617527a193354fdbf8d3b"
-    },
-    "news-KO-144051457": {
-      "name": "Yahoo — Coca-Cola vs. PepsiCo: Which Consumer Goods Stock Is a Better Buy for 2027?",
-      "url": "https://finnhub.io/api/news?id=4847d48636c8a96f5eb6a4d0b2ce3eb15e4c6569288325986216767584b6b487"
-    },
-    "news-CRM-144051585": {
-      "name": "Yahoo — 7 Big Funds Sold Workday Last Quarter. Should You Follow Them Before Earnings?",
-      "url": "https://finnhub.io/api/news?id=17d905feefba06b0669f9b1539f43670eeb4c90a205bf6635951e9cc8fd4207f"
-    },
-    "news-TSM-144031542": {
-      "name": "Yahoo — Asian shares mostly fall after S&P 500 drops 3.7% into a correction",
-      "url": "https://finnhub.io/api/news?id=e1fbaaf3c6c9be6bd9929761f6e52190c79ced2ebbbaeb0907282acec360c4f4"
-    },
-    "news-RKLB-144050672": {
-      "name": "Yahoo — Rocket Lab Rallies 11% After Its Worst Week Ever as CFO Eyes Higher Electron Prices; AST S",
-      "url": "https://finnhub.io/api/news?id=2479642f2ad58670a55bef66a14df7350d3f28c69e0013e4b13841af603d7ada"
-    },
-    "news-ASTS-144034066": {
-      "name": "Yahoo — Musk Hails a “32 Hour Launch Pad Recycle” as SpaceX Sets Its Fastest Same-Pad Turnaround",
-      "url": "https://finnhub.io/api/news?id=3248b5627d962fcad9d755092301206fae6ee7c84741c8637566d7ad462b795c"
-    },
-    "news-LUNR-144037250": {
-      "name": "SeekingAlpha — Intuitive Machines: The Market Is Underestimating What's Coming Next",
-      "url": "https://finnhub.io/api/news?id=623322d7976c199ad06f31c0f7ee468a06d3f11fb88fc4a118a2197719ecdec9"
-    },
-    "news-NKE-144050545": {
-      "name": "Yahoo — Did Topsports International's 62% Drop Catch You Out? What Bears Saw",
-      "url": "https://finnhub.io/api/news?id=cdb90522c827b07c4bd06dd7526be8829703ff8e2145e4cbfd9d1c873ba4f167"
-    },
-    "news-SBUX-144050047": {
-      "name": "Yahoo — Jensen Huang Just Got His Nvidia Job Back. When Steve Jobs, Howard Schultz and Bob Iger Ca",
-      "url": "https://finnhub.io/api/news?id=724b7a701e87a5b3199e0f9f684bd86245e42eb2626c6a6df6163a8094d65f2a"
-    },
-    "news-MCD-144051541": {
-      "name": "Yahoo — McDonald’s and Burger King Items Come in ‘Lighter’ in Price vs. Portion Tests",
-      "url": "https://finnhub.io/api/news?id=ecd44826c955ba34ddb453cfdaa68fcaa029ae091e6b7c0b7aa5697b7ce31c8a"
-    },
-    "news-PEP-144051457": {
-      "name": "Yahoo — Coca-Cola vs. PepsiCo: Which Consumer Goods Stock Is a Better Buy for 2027?",
-      "url": "https://finnhub.io/api/news?id=4847d48636c8a96f5eb6a4d0b2ce3eb15e4c6569288325986216767584b6b487"
-    },
-    "news-BA-144051601": {
-      "name": "Yahoo — Boeing (BA) Gains Focus As Airborne Electronic Warfare Spending Expands",
-      "url": "https://finnhub.io/api/news?id=528d9b7f4debc052b533ace0f19f83ac3fa4b1018e707156d952fc2f36e691fc"
-    },
-    "news-UBER-144050396": {
-      "name": "Yahoo — Uber Technologies (UBER) Expands Its Marketplace Into Retail And Resale Delivery",
-      "url": "https://finnhub.io/api/news?id=cb2b37a0ff9a1c3e488682a5ac55426b5e80382f3090a694f3937940e2e29f4b"
-    },
-    "news-COIN-144051787": {
-      "name": "Yahoo — Why MoonPay wants a National Trust Bank",
-      "url": "https://finnhub.io/api/news?id=6a9f651896a9cfc966c829122f0c837d6d0809c4da2ebc160be03435d36068f8"
-    },
-    "news-HOOD-144051711": {
-      "name": "Yahoo — Ken Fisher and 10 Other Big Funds Sold Robinhood Markets Last Quarter, While 10 Bought. Wh",
-      "url": "https://finnhub.io/api/news?id=b8aa66027d78140d85af94f4261082e1ac1ffe19a899b9d8279bbea11a9dd13e"
-    },
-    "news-SHOP-144051866": {
-      "name": "Yahoo — Canadian Stocks Recover as Huang’s Return Fuels Metals, Tech",
-      "url": "https://finnhub.io/api/news?id=bf471c209b431e5a79c0ba79cf95b4714d5f85aadb3436d56bca6c4dacb751f2"
-    },
-    "news-ARM-144051870": {
-      "name": "Yahoo — Arm Holdings Stocks Soar 13.5% as CEO Rene Haas Commits Through 2033",
-      "url": "https://finnhub.io/api/news?id=2256bd887b7f2661b8606af7ec24e5227e764f582d33dbacaa3bff56b3846d46"
-    },
-    "news-MU-144051345": {
-      "name": "Yahoo — A $6.8 Billion Fund Just Bought These 3 Stocks",
-      "url": "https://finnhub.io/api/news?id=390d8425b951aef062f8eb70d69d760abac234ebe664a62771b33814c35ddf8a"
-    },
-    "news-SMCI-144051460": {
-      "name": "Yahoo — Goldman Sachs Names Top Communication Technology Stock",
-      "url": "https://finnhub.io/api/news?id=bce800c7a73891d112c69b046dccc8863766762cd63ff3dedd1b9874b5a7d42b"
-    },
-    "news-ADBE-144050089": {
-      "name": "Yahoo — Michael Burry’s Latest Top 10 Stock Picks Amid AI Crash",
-      "url": "https://finnhub.io/api/news?id=63c73c54772066c1d9fb061326a7afd1c77443d4173849ded5fc28898df0c4c8"
-    },
-    "news-PYPL-144051448": {
-      "name": "Yahoo — Mastercard vs. PayPal: Which Financial Stock Is a Better Buy for 2027?",
-      "url": "https://finnhub.io/api/news?id=2f72328c5218c128115604bc09bf8a4e1424355a934e6d4caf8eddaee87d741e"
-    },
-    "news-F-144051723": {
-      "name": "Yahoo — Automaker Ford eyes aerospace growth with minority bet on Revolution Space",
-      "url": "https://finnhub.io/api/news?id=57208c51e2bb95c7c8728949fb9aee66db1f41ea4e56a1208dffafca832cd630"
-    },
-    "news-GM-144051402": {
-      "name": "Yahoo — Why Did Tesla Stock Fall On Friday?",
-      "url": "https://finnhub.io/api/news?id=61edd3772462eb9b81ff693faad3e0ccb3fce9447c1194e0c1985fc8fc5b31a5"
-    },
-    "news-CVX-144051453": {
-      "name": "Yahoo — Chevron Corp. (CVX): Q3 Earnings Triple on Refining Margin Surge",
-      "url": "https://finnhub.io/api/news?id=186802f494677968a469c5c563f81f6c712f439135a421166223bb98b3b29e1b"
-    },
-    "news-GS-144051460": {
-      "name": "Yahoo — Goldman Sachs Names Top Communication Technology Stock",
-      "url": "https://finnhub.io/api/news?id=bce800c7a73891d112c69b046dccc8863766762cd63ff3dedd1b9874b5a7d42b"
-    },
-    "news-MSTR-144051786": {
-      "name": "Yahoo — Crypto premarket wrap: What investors need to know before the bell",
-      "url": "https://finnhub.io/api/news?id=eeb2b279b7871fe6e2972bc6aa0b3e282175783f588dc3b089511be47c39c48b"
-    },
-    "news-SOFI-144027212": {
-      "name": "Yahoo — Upstart Is Yesterday's News. Is This Fintech Stock the Better Buy?",
-      "url": "https://finnhub.io/api/news?id=f4db7aff2ac3f7e7c400d98e43f14b4614ba713ecdb9d231c098d1d237f0d2b7"
-    },
-    "news-RIVN-144023590": {
-      "name": "Yahoo — Not Lucid. Not Ford. The EV Stock Most Likely to Catch Every Refunded Cybertruck Buyer.",
-      "url": "https://finnhub.io/api/news?id=07f226eca34b4ef94333c336bb614cf68915c3a4d51c20d98f857a0d3c4e244d"
-    },
-    "news-NYT-144050737": {
-      "name": "Yahoo — Jensen Huang back at Nvidia, stock soars; Anthropic slides",
-      "url": "https://finnhub.io/api/news?id=b0e70e97225fde2a7b202e36cac163d887f51551270335e1059a8db875678ea2"
-    },
-    "news-CRWD-144051335": {
-      "name": "Yahoo — Stock Market Today: Dow Surges As Trump Says This On Huang's Nvidia Return; AI Plays Rocke",
-      "url": "https://finnhub.io/api/news?id=788ff0bfa2cc7d282f2645e183c11e7569d2f805989cbd86e6a866d0851b848c"
-    },
-    "news-HPE-144051700": {
-      "name": "Yahoo — HPE Jumps 12.1% as Nvidia Rally Lifts AI Hardware Stocks on Monday",
-      "url": "https://finnhub.io/api/news?id=31c3444e82e743d0346a6d47f942afa05078e12893f2bb7494de4dbdabb21177"
-    },
-    "news-ZS-144030671": {
-      "name": "Yahoo — Dow Jones Futures Jump As Oracle, Korea Try To Ease Market Fears; Look For These Absolute ",
-      "url": "https://finnhub.io/api/news?id=a93b730137d0a5ac37d94f5cab3336af9e713697c41f1ca6f43ba4efa2ec9fae"
-    },
-    "news-SLS-144039814": {
-      "name": "Yahoo — Sellas Life (SLS) Just Soared 74% Last Week — Time to Take Profits?",
-      "url": "https://finnhub.io/api/news?id=97452f48d6fec8804d77a33c4091d5399d0c792eedc8063fe122d06fce2494ce"
-    },
-    "news-DKNG-144030932": {
-      "name": "Yahoo — DraftKings Gains Legal Ground on Prediction Markets, but Its Quarterly EBITDA Loss Reaches",
-      "url": "https://finnhub.io/api/news?id=55781eef0c21bde908aa66a1bd994198b3e128fc128c1d2f9fb1b77f1b052989"
+    "news-AAPL-144086674": {
+      "name": "Yahoo — Why Did Alphabet Stock Move?",
+      "url": "https://finnhub.io/api/news?id=b3b5d01ea58f56ba93d025d546bd00caba78ab0ebd22e1ebccec2f606f0649a2"
+    },
+    "news-AAPL-144086669": {
+      "name": "Yahoo — Apple Stock Has 3 Things Going for It in 2027. Here’s My Price Target",
+      "url": "https://finnhub.io/api/news?id=a985a20fa15fa73b8569fa97e90ec7a11d9f9b733d2a22b3005de49ef36a23f4"
+    },
+    "news-LLY-144086773": {
+      "name": "Yahoo — 13 Big Funds Bought Johnson & Johnson Last Quarter, While 14 Sold. Who’s Right?",
+      "url": "https://finnhub.io/api/news?id=57d13d2ce8b85efeb328d62da403534943657f9e5078fa7be6e832a4ae52cb63"
+    },
+    "news-LLY-144086774": {
+      "name": "Yahoo — Novo vs. Amgen: Which Healthcare Stock Is the Better Buy Now?",
+      "url": "https://finnhub.io/api/news?id=c8d9bb77fac22037c07aa2cbe57fb4632034219736e239dde81f2f1df88364f9"
+    },
+    "news-ABBV-144086773": {
+      "name": "Yahoo — 13 Big Funds Bought Johnson & Johnson Last Quarter, While 14 Sold. Who’s Right?",
+      "url": "https://finnhub.io/api/news?id=57d13d2ce8b85efeb328d62da403534943657f9e5078fa7be6e832a4ae52cb63"
+    },
+    "news-ABBV-144085468": {
+      "name": "Yahoo — AbbVie Gets FDA Approval for Rinvoq in Nonsegmental Vitiligo",
+      "url": "https://finnhub.io/api/news?id=f6c6696ba8928f9f2a51541f2f12bdd1d18b97934042588f57cd364000447e4f"
+    },
+    "reddit-wallstreetbets": {
+      "name": "ApeWisdom — r/wallstreetbets ticker mentions",
+      "url": "https://apewisdom.io/wallstreetbets/"
+    },
+    "reddit-stocks": {
+      "name": "ApeWisdom — r/stocks ticker mentions",
+      "url": "https://apewisdom.io/stocks/"
+    },
+    "reddit-investing": {
+      "name": "ApeWisdom — r/investing ticker mentions",
+      "url": "https://apewisdom.io/investing/"
+    },
+    "news-mkt-8804308": {
+      "name": "Reuters — HPE shares tumble as shrinking AI margins overshadow upbeat forecast - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPamhxOU8weWdPQlYzdmRWR0hKdVBPdGhpcXVzUVBOcWpmNmdlTXUxSXFiSUE0SUF2Q0NWVlNUOE43TG0tYXFZYm50TnlrNDRJdGxGTUlpeUhKT0lRVjFHb3NPVS1CLS0tWmZoc1lNcEtKTDBWVDhmSVRmVlpxbWRSUmNsWkFva1czcWxXdUJBLW9mVFNLZmk3LU9ZOHZaWFZoNmlV?oc=5"
+    },
+    "news-mkt-8804940": {
+      "name": "CNBC — Gold is doing something strange. Here's one way to play it",
+      "url": "https://www.cnbc.com/2026/11/24/gold-is-doing-something-strange-heres-one-way-to-play-it-.html"
+    },
+    "news-NVDA-144086708": {
+      "name": "Yahoo — Lasertec Stocks Jump 9.75% Despite a Weak Quarter, Betting on Orders",
+      "url": "https://finnhub.io/api/news?id=c02a2cd042a831b235991255acae6458d866d1950a3bb3a38f0ae40919a06e62"
+    },
+    "news-AVGO-144086713": {
+      "name": "Yahoo — Dell Reports Today. Here’s How Much of Your Tech ETF Is Riding on Its AI Server Business",
+      "url": "https://finnhub.io/api/news?id=b5cb576bb3550f878d395fcbbc158adf34f2a73fc67b204c6b4bb16a594c237b"
+    },
+    "news-AMD-144086713": {
+      "name": "Yahoo — Dell Reports Today. Here’s How Much of Your Tech ETF Is Riding on Its AI Server Business",
+      "url": "https://finnhub.io/api/news?id=b5cb576bb3550f878d395fcbbc158adf34f2a73fc67b204c6b4bb16a594c237b"
+    },
+    "news-MSFT-144086692": {
+      "name": "Yahoo — Why Is Snowflake Stock Going Up?",
+      "url": "https://finnhub.io/api/news?id=32b4179b54b3a9015cd7846e8c4c689dba8e6bb02cfd5c46220a015e5867e22d"
+    },
+    "news-AMZN-144086706": {
+      "name": "Yahoo — Nike Sells Shoes. Can It Stop Paying For AI?",
+      "url": "https://finnhub.io/api/news?id=9377cbd05c3447905d4e409550db73bd3931cdc2609f761ed6c4b0a27887f5f2"
+    },
+    "news-GOOG-144086706": {
+      "name": "Yahoo — Nike Sells Shoes. Can It Stop Paying For AI?",
+      "url": "https://finnhub.io/api/news?id=9377cbd05c3447905d4e409550db73bd3931cdc2609f761ed6c4b0a27887f5f2"
+    },
+    "news-META-144086768": {
+      "name": "Yahoo — City watchdog threatens tech giants over rogue AI bots",
+      "url": "https://finnhub.io/api/news?id=0d3314e051af4492285e2764cd5810c13e661e9d34e84b62d1c2d79bfed74f66"
+    },
+    "news-TSLA-144086776": {
+      "name": "Yahoo — Goldman, Morgan Stanley and Evercore Are Advising on What Could Be the Biggest Deal Ever",
+      "url": "https://finnhub.io/api/news?id=c0f17e0e9c54f0f2fcac7c1d7b29835ee343993abd3b3d4bdee99bfb888b6fdd"
+    },
+    "news-DIS-144085289": {
+      "name": "Yahoo — Who is holding Jensen Huang accountable? It sure looks like nobody",
+      "url": "https://finnhub.io/api/news?id=bfa7bc1d09e13e5ca92df80414a31e8e55757b29ea2c52b0d8f3a3e55f87912d"
+    },
+    "news-PLTR-144086692": {
+      "name": "Yahoo — Why Is Snowflake Stock Going Up?",
+      "url": "https://finnhub.io/api/news?id=32b4179b54b3a9015cd7846e8c4c689dba8e6bb02cfd5c46220a015e5867e22d"
+    },
+    "news-INTC-144086874": {
+      "name": "Yahoo — Why Is Microchip Technology (MCHP) Stock Down Today? Chip Sector Selloff Hits Peers",
+      "url": "https://finnhub.io/api/news?id=9fcc8c75d402b46de3f17037aa68f9fa7028a7c6bcbc582da0ceec129fbf486e"
+    },
+    "news-JPM-144086795": {
+      "name": "Yahoo — JPMorgan Dallas Hub Targets Private Equity and Hedge Funds",
+      "url": "https://finnhub.io/api/news?id=98d5956fc34ad9c8af002b81f0cd24df1dda11e5ba87714879a9627c4f774260"
+    },
+    "news-WMT-144086837": {
+      "name": "Yahoo — Walmart’s Robot Warehouse Partner Symbotic Just Had Its First Profitable Year",
+      "url": "https://finnhub.io/api/news?id=391117292db8c60e862010777f2c4e73b836d01fef9d6376c88c8c35a18e184b"
+    },
+    "news-SPCX-144086776": {
+      "name": "Yahoo — Goldman, Morgan Stanley and Evercore Are Advising on What Could Be the Biggest Deal Ever",
+      "url": "https://finnhub.io/api/news?id=c0f17e0e9c54f0f2fcac7c1d7b29835ee343993abd3b3d4bdee99bfb888b6fdd"
+    },
+    "news-BRK.B-144072609": {
+      "name": "Yahoo — David Tepper, Seth Klarman and 5 Other Famous Investors Own Alphabet. Here’s Who Sold Rece",
+      "url": "https://finnhub.io/api/news?id=c0a3a940ecfd94a0438778eb0972c5ca74e167332ae43259a87423375cc9586f"
+    },
+    "news-V-144086814": {
+      "name": "Yahoo — Circle's CPN Gains Traction: Can Payment Growth Accelerate?",
+      "url": "https://finnhub.io/api/news?id=daabd67c75b1a72c4d9161f095398125daf250edca070b2ab22eb607c886bfd1"
+    },
+    "news-MA-144080978": {
+      "name": "Yahoo — What State Street Fin Select Sector SPDR (XLF) Bought: Berkshire Leads on Nov. 20",
+      "url": "https://finnhub.io/api/news?id=1e163e5c367d07051fa06eed455cdbec945f252bda1999a8d91ac12a95252a04"
+    },
+    "news-XOM-144086832": {
+      "name": "Yahoo — Your Exxon Dividend Needs Only About $59 Oil",
+      "url": "https://finnhub.io/api/news?id=5e0a1b49e4df2febd9b9c3a320faf38a7819d3a8f0b4f77e8251b532a28aae47"
+    },
+    "news-UNH-144086866": {
+      "name": "Yahoo — How Big Could CVS Health Stock's Next Fall Be?",
+      "url": "https://finnhub.io/api/news?id=5ac01bea358190bcb5ffb8be7206e506bcfbc2586639836ea95a7360d527d8ae"
+    },
+    "news-ORCL-144086913": {
+      "name": "Yahoo — Bloom Energy is Down 22% Just This Month: Two Wall Street Pros Predict 109% Gains With 2 M",
+      "url": "https://finnhub.io/api/news?id=354f3f30568dc85684bfcab86dc671aad440d4dbb8042a6a6cadc615e5d5e4b9"
+    },
+    "news-COST-144086842": {
+      "name": "Yahoo — Sanofi Bets $41 Billion on Insmed to Fuel Growth Beyond Dupixent",
+      "url": "https://finnhub.io/api/news?id=53491c6b2335191593e7ae2b80b619ac3f4a998314f0e689990bfbb32be52f3d"
+    },
+    "news-NFLX-144085288": {
+      "name": "Yahoo — Stocks give back gains as Anthropic dips below IPO price",
+      "url": "https://finnhub.io/api/news?id=7a818833a1c617f7042e7f231d6c9971250edac4caa4597061bc959152da8838"
+    },
+    "news-JNJ-144086773": {
+      "name": "Yahoo — 13 Big Funds Bought Johnson & Johnson Last Quarter, While 14 Sold. Who’s Right?",
+      "url": "https://finnhub.io/api/news?id=57d13d2ce8b85efeb328d62da403534943657f9e5078fa7be6e832a4ae52cb63"
+    },
+    "news-PG-144086706": {
+      "name": "Yahoo — Nike Sells Shoes. Can It Stop Paying For AI?",
+      "url": "https://finnhub.io/api/news?id=9377cbd05c3447905d4e409550db73bd3931cdc2609f761ed6c4b0a27887f5f2"
+    },
+    "news-HD-144085408": {
+      "name": "Yahoo — Don’t Panic, Buy These Instead: Jim Cramer’s Emergency 5-Stock Portfolio",
+      "url": "https://finnhub.io/api/news?id=bb1c6b8681f9594cac10df9b2029ea955f2d3ed6e9196e8f5bbf694d7d71b0e9"
+    },
+    "news-BAC-144086864": {
+      "name": "Yahoo — Berkshire Hathaway Has Sold More Than Half Its Bank of America Shares Since 2024. Is the S",
+      "url": "https://finnhub.io/api/news?id=3dc027a099789c3fac3d31c362a1b8af5f61842c186d4cbf82ea6d3fb81c237e"
+    },
+    "news-KO-144086854": {
+      "name": "Yahoo — Can Coca-Cola Navigate Rising Costs While Protecting Margins?",
+      "url": "https://finnhub.io/api/news?id=7fed4efb440d8226489a10aa40b93ff40d1bd9697a471c020b42029877b6b90d"
+    },
+    "news-CRM-144086914": {
+      "name": "Yahoo — What Could Salesforce Stock Be Worth In Three Years?",
+      "url": "https://finnhub.io/api/news?id=3d18d9a1d6ca69aa3469703fb603aed7de7d7280014aab0a5514c33a7f83b363"
+    },
+    "news-TSM-144077692": {
+      "name": "Yahoo — George Soros and 49 Other Big Funds Bought Intel Last Quarter, While 15 Sold. Who’s Right?",
+      "url": "https://finnhub.io/api/news?id=79405befc1e64679add2ca096d905bde93345332f423fe420b165d8794a5ee22"
+    },
+    "news-IONQ-144066105": {
+      "name": "Yahoo — Innodata vs. IonQ: Is the Artificial Intelligence or Quantum Computing Stock the Better Bu",
+      "url": "https://finnhub.io/api/news?id=f85214721e0c99e2eb9194a6439d8bbdad5292e87c77d024240926fe19c3b42a"
+    },
+    "news-RGTI-144065856": {
+      "name": "Yahoo — IonQ Stock And Quantum Peers Tied To Energy Grid Demand",
+      "url": "https://finnhub.io/api/news?id=746c13e4a9ae3e4651124ab038acc1791c8f0148b8a3ea72788ffe10f9650b8d"
+    },
+    "news-QBTS-144065856": {
+      "name": "Yahoo — IonQ Stock And Quantum Peers Tied To Energy Grid Demand",
+      "url": "https://finnhub.io/api/news?id=746c13e4a9ae3e4651124ab038acc1791c8f0148b8a3ea72788ffe10f9650b8d"
+    },
+    "news-RKLB-144086027": {
+      "name": "Yahoo — Why Rocket Lab Demand News Could Make ETFs Worth A Look",
+      "url": "https://finnhub.io/api/news?id=13e5df50b036c5bbd0268fca5216829fe1f17b727bccbb8ab223ed14d2cfaae6"
+    },
+    "news-ASTS-144058197": {
+      "name": "Yahoo — AST SpaceMobile Stock Gets FCC Approval for Direct to Device Service",
+      "url": "https://finnhub.io/api/news?id=4b0776bf0fdf3adb111ab10ac467024ced29f4b624beae579746388bc4308c12"
+    },
+    "news-LUNR-144064231": {
+      "name": "Yahoo — NASA Is Handing Out Moon Contracts Again. Intuitive Machines, Firefly, and Redwire All Got",
+      "url": "https://finnhub.io/api/news?id=254c579abae69ada3ae187ae9b34643f16f9325a2503efbdf9a3ab1fb4d0d796"
+    },
+    "news-NKE-144086706": {
+      "name": "Yahoo — Nike Sells Shoes. Can It Stop Paying For AI?",
+      "url": "https://finnhub.io/api/news?id=9377cbd05c3447905d4e409550db73bd3931cdc2609f761ed6c4b0a27887f5f2"
+    },
+    "news-SBUX-144085289": {
+      "name": "Yahoo — Who is holding Jensen Huang accountable? It sure looks like nobody",
+      "url": "https://finnhub.io/api/news?id=bfa7bc1d09e13e5ca92df80414a31e8e55757b29ea2c52b0d8f3a3e55f87912d"
+    },
+    "news-MCD-144086931": {
+      "name": "Yahoo — McDonald's Moves on Makeover; Dick's Sporting Goods Up on Earnings | Stock Movers",
+      "url": "https://finnhub.io/api/news?id=fb7b299f98124933aa5ade2dda565e1d7dcb354a8d668d21a3c03cf9b6f866ec"
+    },
+    "news-PEP-144086854": {
+      "name": "Yahoo — Can Coca-Cola Navigate Rising Costs While Protecting Margins?",
+      "url": "https://finnhub.io/api/news?id=7fed4efb440d8226489a10aa40b93ff40d1bd9697a471c020b42029877b6b90d"
+    },
+    "news-BA-144087000": {
+      "name": "Yahoo — Is Boeing Under $170 a Bargain or a Trap?",
+      "url": "https://finnhub.io/api/news?id=40326a7b2b4752927b79fee00f128e6e28cb368e43ec9bb42cd147efd89608d9"
+    },
+    "news-UBER-144086993": {
+      "name": "Yahoo — Should You Buy Uber Stock For Its Cash?",
+      "url": "https://finnhub.io/api/news?id=31b3062bf77b85579a3fa51e9079f7c2752fde915342c207a298c63018b393cc"
+    },
+    "news-COIN-144087231": {
+      "name": "Yahoo — What Is Pons? The Robinhood Chain Meme Coin Launchpad Explained",
+      "url": "https://finnhub.io/api/news?id=02d44940bb91ad9832dfb7f2700d1bb2e8032c1c736698b4bfe3563691537276"
+    },
+    "news-HOOD-144087017": {
+      "name": "Yahoo — What Just Happened To Coinbase Stock?",
+      "url": "https://finnhub.io/api/news?id=1cc0f56fc794204ce2372fe2ca74b87521eea80bef116a95c20d3024642d40fb"
+    },
+    "news-SHOP-144087303": {
+      "name": "Yahoo — Vtex (VTEX) Stock Is Up 6.4% Today Without Company News",
+      "url": "https://finnhub.io/api/news?id=5842fbece9e00a75e4b2fa7175c719ac5d66be0063463cb16b3dc9e567a332c4"
+    },
+    "news-ARM-144087307": {
+      "name": "Yahoo — Arm Holdings Stocks Fall 4.89% as Chip Rally Cools After Haas Commits Through 2033",
+      "url": "https://finnhub.io/api/news?id=4b530c41e76985b151d01b76ecb6308d852257a8b0421442fb852effd2445720"
+    },
+    "news-MU-144086704": {
+      "name": "Yahoo — Nvidia, Chip Stocks Fall As Data Center Spending Fears Return",
+      "url": "https://finnhub.io/api/news?id=9a0f04063c522622d5af5c33d534269437d3725c861a32003a70ada427b403f2"
+    },
+    "news-SMCI-144085957": {
+      "name": "Yahoo — The U.S. Just Blacklisted the Firm Suspected of Funneling Nvidia Chips to China",
+      "url": "https://finnhub.io/api/news?id=b12f494587f1eba14918abb645226ae361b2736fe012cf115f4b6df991c8130d"
+    },
+    "news-ADBE-144086914": {
+      "name": "Yahoo — What Could Salesforce Stock Be Worth In Three Years?",
+      "url": "https://finnhub.io/api/news?id=3d18d9a1d6ca69aa3469703fb603aed7de7d7280014aab0a5514c33a7f83b363"
+    },
+    "news-PYPL-144087149": {
+      "name": "Yahoo — HP Stock Enters Earnings Report With Low Expectations for PC Sales",
+      "url": "https://finnhub.io/api/news?id=e71a73c014b5e4acd40f0e4a9e1b3b647e8c3c4da66f1675c4bbc7ae5f7daf5f"
+    },
+    "news-F-144087157": {
+      "name": "Yahoo — Ford to acquire minority stake in satellite maker Revolution Space",
+      "url": "https://finnhub.io/api/news?id=7f5a165bc153f98ff173b45be3619e28e76c2b872dd7081e1b5445c9413e30f6"
+    },
+    "news-GM-144087101": {
+      "name": "Yahoo — GM, Ford in Pentagon Talks to Build Military Drones",
+      "url": "https://finnhub.io/api/news?id=e4e9ef0b52eecbbb965ffcf0664115a8c7697a72242ac1080b62d6e3eb3eff18"
+    },
+    "news-CVX-144086832": {
+      "name": "Yahoo — Your Exxon Dividend Needs Only About $59 Oil",
+      "url": "https://finnhub.io/api/news?id=5e0a1b49e4df2febd9b9c3a320faf38a7819d3a8f0b4f77e8251b532a28aae47"
+    },
+    "news-GS-144086776": {
+      "name": "Yahoo — Goldman, Morgan Stanley and Evercore Are Advising on What Could Be the Biggest Deal Ever",
+      "url": "https://finnhub.io/api/news?id=c0f17e0e9c54f0f2fcac7c1d7b29835ee343993abd3b3d4bdee99bfb888b6fdd"
+    },
+    "news-MSTR-144085288": {
+      "name": "Yahoo — Stocks give back gains as Anthropic dips below IPO price",
+      "url": "https://finnhub.io/api/news?id=7a818833a1c617f7042e7f231d6c9971250edac4caa4597061bc959152da8838"
+    },
+    "news-SOFI-144071206": {
+      "name": "Yahoo — Credit Card Rate Cap Might Change The Case For Investing In SoFi Stock",
+      "url": "https://finnhub.io/api/news?id=9885208128f200a0c3ffa5661c75ba731541e09f43b6408ea86c6d107e6a0171"
+    },
+    "news-RIVN-144065719": {
+      "name": "Yahoo — Proto Labs Stock After Board Appointment What Frank Klein Could Mean",
+      "url": "https://finnhub.io/api/news?id=a2b2cbb0be2ba33dbedde6759f86ba577d3a23bb588cc2b919278623453469a8"
+    },
+    "news-HPE-144087129": {
+      "name": "Yahoo — HPE is heading into 2027 with 'tremendous momentum': CEO Antonio Neri",
+      "url": "https://finnhub.io/api/news?id=c5fb8741b252f168f921570d3ee536ecf2806c78a73252c1cb38d335ac718c96"
+    },
+    "news-NYT-144054986": {
+      "name": "Yahoo — Why NYT's Multiple Fell As Its Stock Rose",
+      "url": "https://finnhub.io/api/news?id=60162e0d13eab3903babdfbd54730b49feba3475798ee9624d70c4fad1f558e5"
+    },
+    "news-DELL-144086712": {
+      "name": "Yahoo — Dell Technologies Stocks Fall 7.47% Hours Before Results Test a $95 Billion AI Backlog",
+      "url": "https://finnhub.io/api/news?id=a102788df36764515dc1f98b36bf882d3f4b4cca36dbafeb2b3621403e14df51"
+    },
+    "news-TGTX-144058041": {
+      "name": "Yahoo — Earnings Strength: 3 Companies Raising Guidance",
+      "url": "https://finnhub.io/api/news?id=4c1c6c577447cb138246bf640ebc4f12acc2e1df865202331a27e0d41fdb8840"
+    },
+    "news-ANF-144087394": {
+      "name": "Yahoo — Abercrombie & Fitch Co (ANF) (Q3 2026) Earnings Call Highlights: Record $1. ...",
+      "url": "https://finnhub.io/api/news?id=568768a29ab2a01c6d549b0ac0cd803e6550bbf7b8910c005f1eef6c3a01d112"
+    },
+    "news-WULF-144053649": {
+      "name": "Yahoo — Nebius & CoreWeave Jump 21% While Oracle Sees 12% Gains on Monday Following Jensen’s Retur",
+      "url": "https://finnhub.io/api/news?id=ae1d79a6722f12eb6ab68f314c9f071e8a0a60f18f80c55aceae5fac4f053799"
     }
   },
   "mode": "auto",
   "runInfo": {
-    "mode": "quotes",
-    "apiCalls": 84,
+    "mode": "full",
+    "apiCalls": 368,
     "errors": [
       "query1.finance.yahoo.com HTTP 429"
     ]
   },
-  "lastFull": "2026-11-23",
+  "lastFull": "2026-11-24",
   "fearGreed": {
     "score": 17,
     "rating": "Extreme Fear",
@@ -5577,41 +3839,45 @@
     "week": 26,
     "month": 17,
     "year": 14,
-    "asOf": "2026-11-24T19:01:30+00:00"
+    "asOf": "2026-11-24T19:55:25+00:00"
   },
   "crowdSyms": [
     "SPY",
     "QQQ",
-    "NYT",
     "HR",
-    "DTE",
-    "VOO",
-    "VT",
-    "VTI",
-    "CRWD",
     "HPE",
-    "XMAX",
-    "ZS",
-    "SLS",
-    "DKNG",
-    "SONY"
+    "NYT",
+    "CIA",
+    "MAGA",
+    "VOO",
+    "VTI",
+    "VT",
+    "DELL",
+    "TGTX",
+    "FUBO",
+    "ANF",
+    "XBI",
+    "LABD",
+    "WULF"
   ],
   "crowdNames": {
     "SPY": "S&P 500 (SPY)",
     "QQQ": "Nasdaq-100 (QQQ)",
-    "NYT": "The New York Times Company",
     "HR": "Healthcare Realty Trust Inc",
-    "DTE": "DTE Energy Company",
-    "VOO": "Vanguard S&amp;P 500 ETF",
-    "VT": "Vanguard Group, Inc. - Vanguard Total World Stock ETF",
-    "VTI": "Vanguard Total Stock Market ETF",
-    "CRWD": "CrowdStrike Holdings, Inc.",
     "HPE": "Hewlett Packard Enterprise Company",
-    "XMAX": "XMax Inc",
-    "ZS": "Zscaler, Inc.",
-    "SLS": "Sellas Life Sciences Group Inc",
-    "DKNG": "DraftKings Inc.",
-    "SONY": "Sony Group Corp"
+    "NYT": "The New York Times Company",
+    "CIA": "Citizens Inc",
+    "MAGA": "ETF Series Solutions Trust - Point Bridge GOP Stock Tracker ETF",
+    "VOO": "Vanguard S&amp;P 500 ETF",
+    "VTI": "Vanguard Total Stock Market ETF",
+    "VT": "Vanguard Group, Inc. - Vanguard Total World Stock ETF",
+    "DELL": "Dell Technologies Inc",
+    "TGTX": "TG Therapeutics, Inc.",
+    "FUBO": "FuboTV Inc.",
+    "ANF": "Abercrombie & Fitch Co.",
+    "XBI": "SPDR Series Trust - SSgA SPDR Biotech",
+    "LABD": "LABD",
+    "WULF": "TeraWulf Inc."
   },
   "stories": [
     {
@@ -5659,100 +3925,100 @@
   ],
   "storiesDate": "Tue 24 Nov 2026",
   "lastStories": "2026-11-24",
-  "picksAt": "2026-11-23T15:05-05:00",
+  "picksAt": "2026-11-24T15:05-05:00",
   "movers": {
     "up": [
       {
-        "sym": "AAPL",
-        "name": "Apple Inc.",
-        "pct": 0.91,
-        "chg": 3.16,
-        "valueB": 46.1,
-        "capB": 5110
-      },
-      {
         "sym": "LLY",
         "name": "Eli Lilly and Company",
-        "pct": 3.55,
-        "chg": 48.42,
-        "valueB": 44.3,
-        "capB": 1292
+        "pct": 3.42,
+        "chg": 46.68,
+        "valueB": 42.5,
+        "capB": 1284
+      },
+      {
+        "sym": "AAPL",
+        "name": "Apple Inc.",
+        "pct": 0.8,
+        "chg": 2.78,
+        "valueB": 40.3,
+        "capB": 5073
       },
       {
         "sym": "ABBV",
         "name": "AbbVie Inc.",
-        "pct": 4.3,
-        "chg": 12.4,
-        "valueB": 21.1,
-        "capB": 511
+        "pct": 3.9,
+        "chg": 11.24,
+        "valueB": 19.1,
+        "capB": 510
       },
       {
         "sym": "WMT",
         "name": "Walmart Inc.",
-        "pct": 1.91,
-        "chg": 2.47,
-        "valueB": 18.4,
+        "pct": 1.54,
+        "chg": 1.99,
+        "valueB": 14.9,
         "capB": 980
       },
       {
-        "sym": "MSFT",
-        "name": "Microsoft Corporation",
-        "pct": 0.46,
-        "chg": 2.28,
-        "valueB": 17.1,
-        "capB": 3729
+        "sym": "JNJ",
+        "name": "Johnson & Johnson",
+        "pct": 2.13,
+        "chg": 5.75,
+        "valueB": 13.6,
+        "capB": 650
       }
     ],
     "down": [
       {
         "sym": "TSM",
         "name": "Taiwan Semiconductor Manufacturing Co Ltd",
-        "pct": -4.14,
-        "chg": -15.07,
-        "valueB": -2239.9,
-        "capB": 51865
+        "pct": -4.43,
+        "chg": -16.1,
+        "valueB": -2440.2,
+        "capB": 52643
       },
       {
         "sym": "NVDA",
         "name": "NVIDIA Corporation",
-        "pct": -7.28,
-        "chg": -12.01,
-        "valueB": -318.7,
-        "capB": 4059
-      },
-      {
-        "sym": "MU",
-        "name": "Micron Technology, Inc.",
-        "pct": -11.15,
-        "chg": -78.9,
-        "valueB": -101.1,
-        "capB": 805
+        "pct": -7.79,
+        "chg": -12.85,
+        "valueB": -336.0,
+        "capB": 3978
       },
       {
         "sym": "SPCX",
         "name": "Space Exploration Technologies Corp",
-        "pct": -4.86,
-        "chg": -6.48,
-        "valueB": -95.8,
-        "capB": 1875
+        "pct": -5.8,
+        "chg": -7.74,
+        "valueB": -111.5,
+        "capB": 1811
+      },
+      {
+        "sym": "MU",
+        "name": "Micron Technology, Inc.",
+        "pct": -11.71,
+        "chg": -82.84,
+        "valueB": -106.2,
+        "capB": 801
       },
       {
         "sym": "AMD",
         "name": "Advanced Micro Devices, Inc.",
-        "pct": -8.78,
-        "chg": -39.8,
-        "valueB": -72.5,
-        "capB": 754
+        "pct": -9.51,
+        "chg": -43.14,
+        "valueB": -78.2,
+        "capB": 744
       }
     ],
-    "netB": -2860.6,
-    "tracked": 49,
+    "netB": -3148.4,
+    "tracked": 48,
     "floorB": 50,
     "src": "finnhub"
   },
   "historyRun": {
     "backfilled": 0,
-    "appended": 83,
-    "intraday": 83
+    "appended": 82,
+    "intraday": 84
   }
 }
