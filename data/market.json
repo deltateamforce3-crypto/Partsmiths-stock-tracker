@@ -4211,11 +4211,39 @@
   },
   "stories": [
     {
-      "title": "The biggest money-making energy trade looks over. What to buy instead",
-      "url": "https://www.cnbc.com/2026/11/23/refinery-stocks-crack-spreads.html",
-      "summary": "The epic boom in refinery-related stocks is unwinding.",
+      "title": "Roth IRA conversions aren’t free money. Watch out for these 5 costly mistakes.",
+      "url": "https://www.marketwatch.com/story/roth-ira-conversions-arent-free-money-watch-out-for-these-5-costly-mistakes-39b182d3?mod=mw_rss_topstories",
+      "summary": "Do it poorly, and you trigger taxes you didn’t even know existed.",
+      "outlet": "MarketWatch",
+      "time": "Tue 7:01 AM ET"
+    },
+    {
+      "title": "This billionaire bought Nvidia in anticipation of Jensen Huang’s return — and warns the S&P 500 could fall by a third",
+      "url": "https://www.marketwatch.com/story/this-billionaire-bought-nvidia-in-anticipation-of-jensen-huangs-return-and-warns-the-s-p-500-could-fall-by-a-third-dcff9489?mod=mw_rss_topstories",
+      "summary": "Jim Mellon is a billionaire investor with strong views on diverse asset classes. He’s bearish on the AI sector and U.S. stocks generally but he sees real value in Chinese equity markets and long-term Japanese…",
+      "outlet": "MarketWatch",
+      "time": "Tue 6:59 AM ET"
+    },
+    {
+      "title": "Nvidia surge: What investors should do with the stock and the AI trade now",
+      "url": "https://www.cnbc.com/2026/11/23/nvidia-stock-jensen-huang-ai-trade.html",
+      "summary": "The market is loving the return of Jensen Huang, but investors and lawmakers have their guards up.",
       "outlet": "CNBC",
-      "time": "Mon 7:00 AM ET"
+      "time": "Mon 5:43 PM ET"
+    },
+    {
+      "title": "Average 401(k), IRA balances fall as more workers tap their accounts, Fidelity says",
+      "url": "https://www.cnbc.com/2026/11/23/fidelity-401k-ira-balances-q3-2026.html",
+      "summary": "Retirement account balances fell in the third quarter amid market swings, according to Fidelity. At the same time, more savers tapped their accounts for cash.",
+      "outlet": "CNBC",
+      "time": "Mon 5:09 PM ET"
+    },
+    {
+      "title": "Nasdaq Soars 1,471 Points as Jensen Huang Returns to Nvidia: Stock Market Today",
+      "url": "https://www.kiplinger.com/investing/stocks/nasdaq-soars-1-471-points-as-huang-returns-to-nvidia-stock-market-today",
+      "summary": "Jensen Huang's return as Nvidia CEO sparked a historic $1 trillion surge for the chip stock — and lifted the Dow and S&P 500 out of correction territory.",
+      "outlet": "Kiplinger",
+      "time": "Mon 4:11 PM ET"
     },
     {
       "title": "From Wall Street to Main Street, how artificial intelligence is affecting the economy",
@@ -4223,38 +4251,10 @@
       "summary": "Artificial intelligence is sending shock waves through the stock market, as investors try to predict how their big bets will pay off. Meanwhile some real businesses are putting AI to work, with mixed results.",
       "outlet": "NPR",
       "time": "Mon 6:46 AM ET"
-    },
-    {
-      "title": "Economist discusses Anthropic's Wall Street debut",
-      "url": "https://www.npr.org/2026/11/23/nx-s1-6048611/economist-discusses-anthropics-wall-street-debut",
-      "summary": "NPR's Michel Martin speaks with Mark Zandi, chief economist for Moody's Analytics, about Anthropic's Wall Street debut and why it seems to have triggered recent market volatility.",
-      "outlet": "NPR",
-      "time": "Mon 6:46 AM ET"
-    },
-    {
-      "title": "Copper's Bull Case: 3 Less Obvious Stocks to Invest In",
-      "url": "https://www.kiplinger.com/investing/commodities/coppers-bull-case-ways-to-invest",
-      "summary": "Enthusiasm for copper has grown and tightening supplies could cause prices to heat up further. These three routes could allow investors to bypass the crowds.",
-      "outlet": "Kiplinger",
-      "time": "Mon 6:00 AM ET"
-    },
-    {
-      "title": "The U.S. may enter a recession if the Fed raises rates, hedge-fund manager Bill Ackman says",
-      "url": "https://www.marketwatch.com/story/the-u-s-may-enter-a-recession-if-the-fed-raises-rates-hedge-fund-manager-bill-ackman-says-16738971?mod=mw_rss_topstories",
-      "summary": "The Pershing Square Capital Management CEO wrote in a post on X that he thinks financial conditions have already considerably tightened.",
-      "outlet": "MarketWatch",
-      "time": "Mon 5:57 AM ET"
-    },
-    {
-      "title": "Social Security benefits are rising in 2027, but other changes could affect what you keep",
-      "url": "https://www.cnbc.com/2026/11/22/social-security-changes-cola-taxes-medicare.html",
-      "summary": "A 3.6% Social Security cost-of-living adjustment for 2027 will increase benefits across the board. But Medicare and tax changes will also affect retirees.",
-      "outlet": "CNBC",
-      "time": "Sun 9:30 AM ET"
     }
   ],
-  "storiesDate": "Mon 23 Nov 2026",
-  "lastStories": "2026-11-23",
+  "storiesDate": "Tue 24 Nov 2026",
+  "lastStories": "2026-11-24",
   "picksAt": "2026-11-23T15:05-05:00",
   "movers": {
     "up": [
