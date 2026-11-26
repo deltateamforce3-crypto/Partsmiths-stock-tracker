@@ -1,13 +1,12 @@
 {
-  "snapshot": "2026-11-26T15:05:12-05:00",
+  "snapshot": "2026-11-26T15:17:37-05:00",
   "session": "Thu 26 Nov 2026",
   "picksFor": "Fri 27 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily",
   "headline": "S&P 500 (SPY) −0.28% · Dow +0.31% · Nasdaq-100 −0.65%",
-  "summary": "46 of 76 watchlist stocks are higher. Best: ASTS +10.34%. Worst: SNDK −5.54%. Most-discussed on Reddit: NVDA (250 mentions). Biggest lift: META (+$51.4B in value); biggest drag: TSM (−$1,150.1B). CNN's Fear & Greed Index reads 15 (Extreme Fear).",
+  "summary": "46 of 76 watchlist stocks are higher. Best: ASTS +10.34%. Worst: SNDK −5.54%. Biggest lift: META (+$51.4B in value); biggest drag: TSM (−$1,150.1B). CNN's Fear & Greed Index reads 15 (Extreme Fear).",
   "summarySrc": [
     "finnhub",
-    "apewisdom",
     "cnn-fg"
   ],
   "indices": [
@@ -51,7 +50,7 @@
       "d": "+$0.77 · +0.94%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "3:17 PM"
     },
     {
       "k": "US dollar (UUP)",
@@ -59,7 +58,7 @@
       "d": "−$0.02 · −0.07%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "3:17 PM"
     },
     {
       "k": "Oil (USO)",
@@ -67,7 +66,7 @@
       "d": "+$4.43 · +3.27%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "3:17 PM"
     },
     {
       "k": "Gold (GLD)",
@@ -75,7 +74,7 @@
       "d": "+$2.04 · +0.63%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "3:17 PM"
     },
     {
       "k": "Bitcoin (IBIT)",
@@ -83,7 +82,7 @@
       "d": "+$0.33 · +0.98%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:05 PM"
+      "asof": "3:17 PM"
     }
   ],
   "history": {
@@ -151,8 +150,7 @@
       "chg": -6.05,
       "tags": [
         "ai",
-        "mega",
-        "social"
+        "mega"
       ],
       "src": "finnhub",
       "note": "Alphabet Could Be the Safest Way to Own Anthropic. Here’s the Math.",
@@ -173,21 +171,20 @@
           "$155.38"
         ],
         [
+          "Mkt cap",
+          "$3.60T"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
           "$3.60T"
-        ],
-        [
-          "Reddit 24h",
-          "#1 · 250 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 3598130
     },
@@ -220,21 +217,20 @@
           "$301.08"
         ],
         [
+          "Mkt cap",
+          "$1.44T"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
           "$1.44T"
-        ],
-        [
-          "Reddit 24h",
-          "#85 · 4 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 1436194
     },
@@ -245,8 +241,7 @@
       "pct": -1.74,
       "chg": -7.2,
       "tags": [
-        "ai",
-        "social"
+        "ai"
       ],
       "src": "finnhub",
       "note": "nVent Electric (NVT) Brings AI Data Center Cooling And Power Systems To SC26",
@@ -267,21 +262,20 @@
           "$413.27"
         ],
         [
+          "Mkt cap",
+          "$665.9B"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
           "$665.9B"
-        ],
-        [
-          "Reddit 24h",
-          "#4 · 56 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 665925
     },
@@ -314,21 +308,20 @@
           "$496.13"
         ],
         [
+          "Mkt cap",
+          "$3.64T"
+        ],
+        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
           "$3.64T"
-        ],
-        [
-          "Reddit 24h",
-          "#89 · 4 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 3638315
     },
@@ -339,8 +332,7 @@
       "pct": 0.44,
       "chg": 1.55,
       "tags": [
-        "mega",
-        "social"
+        "mega"
       ],
       "src": "finnhub",
       "note": "Apple, Exxon and Lowe’s Are Rewarding Shareholders Beyond Their Regular Dividends",
@@ -361,21 +353,20 @@
           "$354.07"
         ],
         [
+          "Mkt cap",
+          "$5.17T"
+        ],
+        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
           "$5.17T"
-        ],
-        [
-          "Reddit 24h",
-          "#10 · 25 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 5167353
     },
@@ -407,21 +398,20 @@
           "$252.29"
         ],
         [
+          "Mkt cap",
+          "$2.64T"
+        ],
+        [
           "Industry",
           "Retail"
         ],
         [
           "Mkt cap",
           "$2.64T"
-        ],
-        [
-          "Reddit 24h",
-          "#41 · 10 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 2643055
     },
@@ -454,21 +444,20 @@
           "$276.58"
         ],
         [
+          "Mkt cap",
+          "$3.36T"
+        ],
+        [
           "Industry",
           "Media"
         ],
         [
           "Mkt cap",
           "$3.36T"
-        ],
-        [
-          "Reddit 24h",
-          "#28 · 12 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 3357491
     },
@@ -501,21 +490,20 @@
           "$589.82"
         ],
         [
+          "Mkt cap",
+          "$1.56T"
+        ],
+        [
           "Industry",
           "Media"
         ],
         [
           "Mkt cap",
           "$1.56T"
-        ],
-        [
-          "Reddit 24h",
-          "#36 · 10 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 1559026
     },
@@ -547,21 +535,20 @@
           "$384.68"
         ],
         [
+          "Mkt cap",
+          "$1.50T"
+        ],
+        [
           "Industry",
           "Automobiles"
         ],
         [
           "Mkt cap",
           "$1.50T"
-        ],
-        [
-          "Reddit 24h",
-          "#27 · 12 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 1501178
     },
@@ -589,6 +576,10 @@
         [
           "Prev. close",
           "$122.51"
+        ],
+        [
+          "Mkt cap",
+          "$214.5B"
         ],
         [
           "Industry",
@@ -632,6 +623,10 @@
           "$161.18"
         ],
         [
+          "Mkt cap",
+          "$394.2B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -673,21 +668,20 @@
           "$54.80"
         ],
         [
+          "Mkt cap",
+          "$289.5B"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
           "$289.5B"
-        ],
-        [
-          "Reddit 24h",
-          "#88 · 4 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 289508
     },
@@ -717,6 +711,10 @@
         [
           "Prev. close",
           "$317.10"
+        ],
+        [
+          "Mkt cap",
+          "$841.1B"
         ],
         [
           "Industry",
@@ -760,21 +758,20 @@
           "$132.31"
         ],
         [
+          "Mkt cap",
+          "$979.9B"
+        ],
+        [
           "Industry",
           "Retail"
         ],
         [
           "Mkt cap",
           "$979.9B"
-        ],
-        [
-          "Reddit 24h",
-          "#75 · 5 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 979897
     },
@@ -786,8 +783,7 @@
       "chg": 1.66,
       "tags": [
         "mega",
-        "space",
-        "social"
+        "space"
       ],
       "src": "finnhub",
       "note": "Tesla: A SpaceX Merger Could Turn $5,000 Into $10,000",
@@ -808,21 +804,20 @@
           "$125.81"
         ],
         [
+          "Mkt cap",
+          "$1.73T"
+        ],
+        [
           "Industry",
           "Telecommunication"
         ],
         [
           "Mkt cap",
           "$1.73T"
-        ],
-        [
-          "Reddit 24h",
-          "#12 · 21 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 1730771
     },
@@ -852,6 +847,10 @@
         [
           "Prev. close",
           "$577.21"
+        ],
+        [
+          "Mkt cap",
+          "$1.23T"
         ],
         [
           "Industry",
@@ -895,6 +894,10 @@
           "$1,407.59"
         ],
         [
+          "Mkt cap",
+          "$1.31T"
+        ],
+        [
           "Industry",
           "Pharmaceuticals"
         ],
@@ -934,6 +937,10 @@
         [
           "Prev. close",
           "$416.78"
+        ],
+        [
+          "Mkt cap",
+          "$768.7B"
         ],
         [
           "Industry",
@@ -977,21 +984,20 @@
           "$647.44"
         ],
         [
+          "Mkt cap",
+          "$575.0B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
         [
           "Mkt cap",
           "$575.0B"
-        ],
-        [
-          "Reddit 24h",
-          "#74 · 5 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 574950
     },
@@ -1021,6 +1027,10 @@
         [
           "Prev. close",
           "$158.23"
+        ],
+        [
+          "Mkt cap",
+          "$763.8B"
         ],
         [
           "Industry",
@@ -1062,6 +1072,10 @@
         [
           "Prev. close",
           "$341.88"
+        ],
+        [
+          "Mkt cap",
+          "$365.3B"
         ],
         [
           "Industry",
@@ -1106,21 +1120,20 @@
           "$109.50"
         ],
         [
+          "Mkt cap",
+          "$314.1B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
           "$314.1B"
-        ],
-        [
-          "Reddit 24h",
-          "#87 · 4 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 314106
     },
@@ -1152,21 +1165,20 @@
           "$1,091.71"
         ],
         [
+          "Mkt cap",
+          "$481.6B"
+        ],
+        [
           "Industry",
           "Retail"
         ],
         [
           "Mkt cap",
           "$481.6B"
-        ],
-        [
-          "Reddit 24h",
-          "#86 · 4 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 481597
     },
@@ -1196,6 +1208,10 @@
         [
           "Prev. close",
           "$58.87"
+        ],
+        [
+          "Mkt cap",
+          "$244.0B"
         ],
         [
           "Industry",
@@ -1239,6 +1255,10 @@
           "$276.46"
         ],
         [
+          "Mkt cap",
+          "$659.5B"
+        ],
+        [
           "Industry",
           "Pharmaceuticals"
         ],
@@ -1278,6 +1298,10 @@
         [
           "Prev. close",
           "$172.47"
+        ],
+        [
+          "Mkt cap",
+          "$401.5B"
         ],
         [
           "Industry",
@@ -1321,6 +1345,10 @@
           "$353.69"
         ],
         [
+          "Mkt cap",
+          "$360.5B"
+        ],
+        [
           "Industry",
           "Retail"
         ],
@@ -1360,6 +1388,10 @@
         [
           "Prev. close",
           "$300.28"
+        ],
+        [
+          "Mkt cap",
+          "$520.5B"
         ],
         [
           "Industry",
@@ -1403,6 +1435,10 @@
           "$48.56"
         ],
         [
+          "Mkt cap",
+          "$334.9B"
+        ],
+        [
           "Industry",
           "Banking"
         ],
@@ -1440,6 +1476,10 @@
         [
           "Prev. close",
           "$97.62"
+        ],
+        [
+          "Mkt cap",
+          "$419.8B"
         ],
         [
           "Industry",
@@ -1481,6 +1521,10 @@
         [
           "Prev. close",
           "$193.26"
+        ],
+        [
+          "Mkt cap",
+          "$162.3B"
         ],
         [
           "Industry",
@@ -1525,21 +1569,20 @@
           "$349.20"
         ],
         [
+          "Mkt cap",
+          "$57.83T"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
           "$57.83T"
-        ],
-        [
-          "Reddit 24h",
-          "#40 · 10 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 57829183
     },
@@ -1569,6 +1612,10 @@
         [
           "Prev. close",
           "$22.40"
+        ],
+        [
+          "Mkt cap",
+          "$10.2B"
         ],
         [
           "Industry",
@@ -1612,6 +1659,10 @@
           "$7.59"
         ],
         [
+          "Mkt cap",
+          "$2.7B"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -1651,6 +1702,10 @@
         [
           "Prev. close",
           "$6.74"
+        ],
+        [
+          "Mkt cap",
+          "$2.7B"
         ],
         [
           "Industry",
@@ -1722,21 +1777,20 @@
           "$45.98"
         ],
         [
+          "Mkt cap",
+          "$29.7B"
+        ],
+        [
           "Industry",
           "Aerospace & Defense"
         ],
         [
           "Mkt cap",
           "$29.7B"
-        ],
-        [
-          "Reddit 24h",
-          "#42 · 9 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 29718
     },
@@ -1747,8 +1801,7 @@
       "pct": 10.34,
       "chg": 2.44,
       "tags": [
-        "space",
-        "social"
+        "space"
       ],
       "src": "finnhub",
       "note": "AST SpaceMobile (ASTS) Stages Impressive Comeback From Record Low",
@@ -1769,21 +1822,20 @@
           "$23.60"
         ],
         [
+          "Mkt cap",
+          "$10.2B"
+        ],
+        [
           "Industry",
           "Telecommunication"
         ],
         [
           "Mkt cap",
           "$10.2B"
-        ],
-        [
-          "Reddit 24h",
-          "#14 · 18 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 10151
     },
@@ -1813,6 +1865,10 @@
         [
           "Prev. close",
           "$8.93"
+        ],
+        [
+          "Mkt cap",
+          "$2.1B"
         ],
         [
           "Industry",
@@ -1854,6 +1910,10 @@
           "$35.75"
         ],
         [
+          "Mkt cap",
+          "$54.5B"
+        ],
+        [
           "Industry",
           "Textiles, Apparel & Luxury Goods"
         ],
@@ -1891,6 +1951,10 @@
         [
           "Prev. close",
           "$106.38"
+        ],
+        [
+          "Mkt cap",
+          "$122.8B"
         ],
         [
           "Industry",
@@ -1932,6 +1996,10 @@
           "$280.70"
         ],
         [
+          "Mkt cap",
+          "$200.1B"
+        ],
+        [
           "Industry",
           "Hotels, Restaurants & Leisure"
         ],
@@ -1969,6 +2037,10 @@
         [
           "Prev. close",
           "$142.68"
+        ],
+        [
+          "Mkt cap",
+          "$196.1B"
         ],
         [
           "Industry",
@@ -2010,6 +2082,10 @@
           "$163.59"
         ],
         [
+          "Mkt cap",
+          "$130.4B"
+        ],
+        [
           "Industry",
           "Aerospace & Defense"
         ],
@@ -2047,6 +2123,10 @@
         [
           "Prev. close",
           "$64.70"
+        ],
+        [
+          "Mkt cap",
+          "$136.3B"
         ],
         [
           "Industry",
@@ -2088,6 +2168,10 @@
           "$102.34"
         ],
         [
+          "Mkt cap",
+          "$27.5B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -2127,21 +2211,20 @@
           "$65.65"
         ],
         [
+          "Mkt cap",
+          "$59.2B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
         [
           "Mkt cap",
           "$59.2B"
-        ],
-        [
-          "Reddit 24h",
-          "#58 · 6 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 59234
     },
@@ -2169,6 +2252,10 @@
         [
           "Prev. close",
           "$132.31"
+        ],
+        [
+          "Mkt cap",
+          "$171.6B"
         ],
         [
           "Industry",
@@ -2212,6 +2299,10 @@
           "$161.56"
         ],
         [
+          "Mkt cap",
+          "$171.9B"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -2232,8 +2323,7 @@
       "pct": -4.53,
       "chg": -28.5,
       "tags": [
-        "ai",
-        "social"
+        "ai"
       ],
       "src": "finnhub",
       "note": "Micron Stocks Fall 4.53% as TrendForce Cuts 2027 Memory Forecasts",
@@ -2254,21 +2344,20 @@
           "$629.79"
         ],
         [
+          "Mkt cap",
+          "$680.3B"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
         [
           "Mkt cap",
           "$680.3B"
-        ],
-        [
-          "Reddit 24h",
-          "#5 · 49 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 680268
     },
@@ -2300,21 +2389,20 @@
           "$22.62"
         ],
         [
+          "Mkt cap",
+          "$15.4B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
           "$15.4B"
-        ],
-        [
-          "Reddit 24h",
-          "#72 · 5 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 15367
     },
@@ -2344,6 +2432,10 @@
         [
           "Prev. close",
           "$232.08"
+        ],
+        [
+          "Mkt cap",
+          "$90.6B"
         ],
         [
           "Industry",
@@ -2385,6 +2477,10 @@
           "$56.17"
         ],
         [
+          "Mkt cap",
+          "$48.0B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -2422,6 +2518,10 @@
         [
           "Prev. close",
           "$11.95"
+        ],
+        [
+          "Mkt cap",
+          "$48.6B"
         ],
         [
           "Industry",
@@ -2463,6 +2563,10 @@
           "$82.32"
         ],
         [
+          "Mkt cap",
+          "$70.8B"
+        ],
+        [
           "Industry",
           "Automobiles"
         ],
@@ -2500,6 +2604,10 @@
         [
           "Prev. close",
           "$208.73"
+        ],
+        [
+          "Mkt cap",
+          "$414.6B"
         ],
         [
           "Industry",
@@ -2541,6 +2649,10 @@
           "$806.02"
         ],
         [
+          "Mkt cap",
+          "$231.0B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -2580,21 +2692,20 @@
           "$77.55"
         ],
         [
+          "Mkt cap",
+          "$33.8B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
           "$33.8B"
-        ],
-        [
-          "Reddit 24h",
-          "#50 · 8 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 33771
     },
@@ -2622,6 +2733,10 @@
         [
           "Prev. close",
           "$12.86"
+        ],
+        [
+          "Mkt cap",
+          "$17.0B"
         ],
         [
           "Industry",
@@ -2661,6 +2776,10 @@
         [
           "Prev. close",
           "$11.35"
+        ],
+        [
+          "Mkt cap",
+          "$17.1B"
         ],
         [
           "Industry",
@@ -2703,15 +2822,10 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#2 · 166 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
@@ -2741,15 +2855,10 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#3 · 86 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
@@ -2779,15 +2888,10 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#6 · 47 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
@@ -2814,21 +2918,20 @@
           "$137.70"
         ],
         [
+          "Mkt cap",
+          "$28.7B"
+        ],
+        [
           "Industry",
           "Utilities"
         ],
         [
           "Mkt cap",
           "$28.7B"
-        ],
-        [
-          "Reddit 24h",
-          "#7 · 44 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 28677
     },
@@ -2860,21 +2963,20 @@
           "$77.95"
         ],
         [
+          "Mkt cap",
+          "$83.8B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
         [
           "Mkt cap",
           "$83.8B"
-        ],
-        [
-          "Reddit 24h",
-          "#8 · 41 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 83791
     },
@@ -2905,15 +3007,10 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#18 · 15 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
@@ -2944,21 +3041,20 @@
           "$70.44"
         ],
         [
+          "Mkt cap",
+          "$11.5B"
+        ],
+        [
           "Industry",
           "Media"
         ],
         [
           "Mkt cap",
           "$11.5B"
-        ],
-        [
-          "Reddit 24h",
-          "#19 · 14 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ],
       "mcap": 11465
     },
@@ -2989,15 +3085,10 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#16 · 16 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
@@ -3027,15 +3118,10 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#26 · 12 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
@@ -3065,15 +3151,10 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#11 · 21 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
@@ -3103,15 +3184,10 @@
         [
           "Industry",
           "ETF / fund"
-        ],
-        [
-          "Reddit 24h",
-          "#54 · 7 mentions"
         ]
       ],
       "factsSrc": [
-        "finnhub",
-        "apewisdom"
+        "finnhub"
       ]
     },
     {
@@ -3140,6 +3216,10 @@
         [
           "Prev. close",
           "$205.29"
+        ],
+        [
+          "Mkt cap",
+          "$10.3B"
         ],
         [
           "Industry",
@@ -3183,6 +3263,10 @@
           "$318.03"
         ],
         [
+          "Mkt cap",
+          "$327.6B"
+        ],
+        [
           "Industry",
           "Aerospace & Defense"
         ],
@@ -3224,6 +3308,10 @@
           "$232.32"
         ],
         [
+          "Mkt cap",
+          "$142.1B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -3263,6 +3351,10 @@
         [
           "Prev. close",
           "$153.17"
+        ],
+        [
+          "Mkt cap",
+          "$14.1B"
         ],
         [
           "Industry",
@@ -3524,18 +3616,6 @@
       "name": "Yahoo — Cerebras Expands AI Inference Reach: Can It Challenge NVDA & AMD?",
       "url": "https://finnhub.io/api/news?id=03f38cb1cb453ba672ce13a0e3df51366c1b059d752ca9fabb5702e4d1a10cb8"
     },
-    "reddit-wallstreetbets": {
-      "name": "ApeWisdom — r/wallstreetbets ticker mentions",
-      "url": "https://apewisdom.io/wallstreetbets/"
-    },
-    "reddit-stocks": {
-      "name": "ApeWisdom — r/stocks ticker mentions",
-      "url": "https://apewisdom.io/stocks/"
-    },
-    "reddit-investing": {
-      "name": "ApeWisdom — r/investing ticker mentions",
-      "url": "https://apewisdom.io/investing/"
-    },
     "news-mkt-8813942": {
       "name": "Reuters — Two Italians killed in attack on Kuwait site, Iran denies involvement - Reuters",
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPeE9DZXQ0VUMxV052eWlmWWlKM3R0LTFiMS1ITm93Ty1NOWpta1ZVNU5MeWVVMHRlcmdXd0NpZmxJeGlGZEhCeklaaEs2VWlSWnR0RVRLUHhCNm9MeFNTMmNUZFEyWWdoUVVBWUZTcVc0LVNFY0gxN050ZHNtS3psSVRHQWtBVEM5N3dPYVl6T1Flb0tBb1BlUGVxQ3ZaNURWVU9vTHYtTGxFRDJSQVhaMU1Tbw?oc=5"
@@ -3795,8 +3875,8 @@
   },
   "mode": "auto",
   "runInfo": {
-    "mode": "full",
-    "apiCalls": 359,
+    "mode": "quotes",
+    "apiCalls": 84,
     "errors": [
       "query1.finance.yahoo.com HTTP 429"
     ]
@@ -3986,7 +4066,7 @@
   },
   "historyRun": {
     "backfilled": 0,
-    "appended": 11,
+    "appended": 0,
     "intraday": 83
   }
 }
