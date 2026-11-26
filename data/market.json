@@ -1,10 +1,10 @@
 {
-  "snapshot": "2026-11-26T15:17:37-05:00",
+  "snapshot": "2026-11-26T16:05:10-05:00",
   "session": "Thu 26 Nov 2026",
   "picksFor": "Fri 27 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily",
-  "headline": "S&P 500 (SPY) −0.28% · Dow +0.31% · Nasdaq-100 −0.65%",
-  "summary": "46 of 76 watchlist stocks are higher. Best: ASTS +10.34%. Worst: SNDK −5.54%. Biggest lift: META (+$51.4B in value); biggest drag: TSM (−$1,150.1B). CNN's Fear & Greed Index reads 15 (Extreme Fear).",
+  "headline": "S&P 500 (SPY) −0.29% · Dow +0.31% · Nasdaq-100 −0.65%",
+  "summary": "45 of 76 watchlist stocks are higher. Best: ASTS +10.25%. Worst: SNDK −5.57%. Biggest lift: META (+$51.3B in value); biggest drag: TSM (−$1,156.1B). CNN's Fear & Greed Index reads 15 (Extreme Fear).",
   "summarySrc": [
     "finnhub",
     "cnn-fg"
@@ -13,76 +13,76 @@
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "last": 716.74,
-      "chg": -2.04,
-      "pct": -0.28,
+      "last": 716.7,
+      "chg": -2.08,
+      "pct": -0.29,
       "src": "finnhub"
     },
     {
       "sym": "DIA",
       "name": "Dow (DIA)",
-      "last": 501.31,
-      "chg": 1.57,
+      "last": 501.27,
+      "chg": 1.53,
       "pct": 0.31,
       "src": "finnhub"
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "last": 633.97,
-      "chg": -4.13,
+      "last": 633.93,
+      "chg": -4.17,
       "pct": -0.65,
       "src": "finnhub"
     },
     {
       "sym": "IWM",
       "name": "Russell 2000 (IWM)",
-      "last": 268.91,
-      "chg": 1.77,
-      "pct": 0.66,
+      "last": 268.87,
+      "chg": 1.73,
+      "pct": 0.65,
       "src": "finnhub"
     }
   ],
   "macro": [
     {
       "k": "Long Treasuries (TLT)",
-      "v": "$82.26",
-      "d": "+$0.77 · +0.94%",
+      "v": "$82.24",
+      "d": "+$0.75 · +0.92%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:17 PM"
+      "asof": "4:05 PM"
     },
     {
       "k": "US dollar (UUP)",
-      "v": "$29.61",
-      "d": "−$0.02 · −0.07%",
+      "v": "$29.60",
+      "d": "−$0.03 · −0.10%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "3:17 PM"
+      "asof": "4:05 PM"
     },
     {
       "k": "Oil (USO)",
-      "v": "$139.86",
-      "d": "+$4.43 · +3.27%",
+      "v": "$139.89",
+      "d": "+$4.46 · +3.29%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:17 PM"
+      "asof": "4:05 PM"
     },
     {
       "k": "Gold (GLD)",
-      "v": "$327.49",
-      "d": "+$2.04 · +0.63%",
+      "v": "$327.45",
+      "d": "+$2.00 · +0.61%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:17 PM"
+      "asof": "4:05 PM"
     },
     {
       "k": "Bitcoin (IBIT)",
-      "v": "$34.09",
-      "d": "+$0.33 · +0.98%",
+      "v": "$34.07",
+      "d": "+$0.31 · +0.92%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "3:17 PM"
+      "asof": "4:05 PM"
     }
   ],
   "history": {
@@ -107,7 +107,7 @@
           722.29,
           718.78,
           716.7,
-          716.74
+          716.7
         ]
       },
       {
@@ -120,7 +120,7 @@
           495.8,
           499.74,
           501.27,
-          501.31
+          501.27
         ]
       },
       {
@@ -133,7 +133,7 @@
           651.03,
           638.1,
           633.93,
-          633.97
+          633.93
         ]
       }
     ],
@@ -145,9 +145,9 @@
     {
       "sym": "NVDA",
       "name": "NVIDIA Corporation",
-      "px": 149.33,
-      "pct": -3.89,
-      "chg": -6.05,
+      "px": 149.3,
+      "pct": -3.91,
+      "chg": -6.08,
       "tags": [
         "ai",
         "mega"
@@ -160,7 +160,7 @@
       "facts": [
         [
           "Open",
-          "$144.07"
+          "$144.06"
         ],
         [
           "Day range",
@@ -169,6 +169,10 @@
         [
           "Prev. close",
           "$155.38"
+        ],
+        [
+          "Mkt cap",
+          "$3.60T"
         ],
         [
           "Mkt cap",
@@ -191,9 +195,9 @@
     {
       "sym": "AVGO",
       "name": "Broadcom Inc",
-      "px": 300.9,
-      "pct": -0.06,
-      "chg": -0.18,
+      "px": 300.86,
+      "pct": -0.07,
+      "chg": -0.22,
       "tags": [
         "ai",
         "mega"
@@ -206,7 +210,7 @@
       "facts": [
         [
           "Open",
-          "$286.99"
+          "$286.98"
         ],
         [
           "Day range",
@@ -215,6 +219,10 @@
         [
           "Prev. close",
           "$301.08"
+        ],
+        [
+          "Mkt cap",
+          "$1.44T"
         ],
         [
           "Mkt cap",
@@ -237,9 +245,9 @@
     {
       "sym": "AMD",
       "name": "Advanced Micro Devices, Inc.",
-      "px": 406.07,
-      "pct": -1.74,
-      "chg": -7.2,
+      "px": 406.03,
+      "pct": -1.75,
+      "chg": -7.24,
       "tags": [
         "ai"
       ],
@@ -251,7 +259,7 @@
       "facts": [
         [
           "Open",
-          "$382.90"
+          "$382.89"
         ],
         [
           "Day range",
@@ -260,6 +268,10 @@
         [
           "Prev. close",
           "$413.27"
+        ],
+        [
+          "Mkt cap",
+          "$665.9B"
         ],
         [
           "Mkt cap",
@@ -282,9 +294,9 @@
     {
       "sym": "MSFT",
       "name": "Microsoft Corporation",
-      "px": 489.97,
-      "pct": -1.24,
-      "chg": -6.16,
+      "px": 489.93,
+      "pct": -1.25,
+      "chg": -6.2,
       "tags": [
         "ai",
         "mega"
@@ -297,7 +309,7 @@
       "facts": [
         [
           "Open",
-          "$485.24"
+          "$485.23"
         ],
         [
           "Day range",
@@ -306,6 +318,10 @@
         [
           "Prev. close",
           "$496.13"
+        ],
+        [
+          "Mkt cap",
+          "$3.64T"
         ],
         [
           "Mkt cap",
@@ -328,9 +344,9 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "px": 355.62,
-      "pct": 0.44,
-      "chg": 1.55,
+      "px": 355.58,
+      "pct": 0.43,
+      "chg": 1.51,
       "tags": [
         "mega"
       ],
@@ -342,7 +358,7 @@
       "facts": [
         [
           "Open",
-          "$353.49"
+          "$353.48"
         ],
         [
           "Day range",
@@ -351,6 +367,10 @@
         [
           "Prev. close",
           "$354.07"
+        ],
+        [
+          "Mkt cap",
+          "$5.17T"
         ],
         [
           "Mkt cap",
@@ -373,9 +393,9 @@
     {
       "sym": "AMZN",
       "name": "Amazon.com Inc",
-      "px": 244.47,
-      "pct": -3.1,
-      "chg": -7.82,
+      "px": 244.43,
+      "pct": -3.12,
+      "chg": -7.86,
       "tags": [
         "mega"
       ],
@@ -387,7 +407,7 @@
       "facts": [
         [
           "Open",
-          "$243.13"
+          "$243.12"
         ],
         [
           "Day range",
@@ -396,6 +416,10 @@
         [
           "Prev. close",
           "$252.29"
+        ],
+        [
+          "Mkt cap",
+          "$2.64T"
         ],
         [
           "Mkt cap",
@@ -418,9 +442,9 @@
     {
       "sym": "GOOG",
       "name": "Alphabet Inc.",
-      "px": 271.02,
-      "pct": -2.01,
-      "chg": -5.56,
+      "px": 270.98,
+      "pct": -2.02,
+      "chg": -5.6,
       "tags": [
         "ai",
         "mega"
@@ -433,7 +457,7 @@
       "facts": [
         [
           "Open",
-          "$263.33"
+          "$263.32"
         ],
         [
           "Day range",
@@ -442,6 +466,10 @@
         [
           "Prev. close",
           "$276.58"
+        ],
+        [
+          "Mkt cap",
+          "$3.36T"
         ],
         [
           "Mkt cap",
@@ -464,9 +492,9 @@
     {
       "sym": "META",
       "name": "Meta Platforms, Inc.",
-      "px": 609.93,
-      "pct": 3.41,
-      "chg": 20.11,
+      "px": 609.89,
+      "pct": 3.4,
+      "chg": 20.07,
       "tags": [
         "ai",
         "mega"
@@ -479,7 +507,7 @@
       "facts": [
         [
           "Open",
-          "$575.35"
+          "$575.34"
         ],
         [
           "Day range",
@@ -488,6 +516,10 @@
         [
           "Prev. close",
           "$589.82"
+        ],
+        [
+          "Mkt cap",
+          "$1.56T"
         ],
         [
           "Mkt cap",
@@ -510,9 +542,9 @@
     {
       "sym": "TSLA",
       "name": "Tesla Inc",
-      "px": 380.18,
-      "pct": -1.17,
-      "chg": -4.5,
+      "px": 380.14,
+      "pct": -1.18,
+      "chg": -4.54,
       "tags": [
         "mega"
       ],
@@ -524,7 +556,7 @@
       "facts": [
         [
           "Open",
-          "$370.52"
+          "$370.51"
         ],
         [
           "Day range",
@@ -533,6 +565,10 @@
         [
           "Prev. close",
           "$384.68"
+        ],
+        [
+          "Mkt cap",
+          "$1.50T"
         ],
         [
           "Mkt cap",
@@ -555,9 +591,9 @@
     {
       "sym": "DIS",
       "name": "The Walt Disney Company",
-      "px": 125.63,
-      "pct": 2.55,
-      "chg": 3.12,
+      "px": 125.6,
+      "pct": 2.52,
+      "chg": 3.09,
       "tags": [],
       "src": "finnhub",
       "note": "NFL's Thanksgiving Boom Raises Stakes for Disney, Netflix",
@@ -567,7 +603,7 @@
       "facts": [
         [
           "Open",
-          "$121.98"
+          "$121.97"
         ],
         [
           "Day range",
@@ -576,6 +612,10 @@
         [
           "Prev. close",
           "$122.51"
+        ],
+        [
+          "Mkt cap",
+          "$214.5B"
         ],
         [
           "Mkt cap",
@@ -598,9 +638,9 @@
     {
       "sym": "PLTR",
       "name": "Palantir Technologies Inc.",
-      "px": 163.62,
-      "pct": 1.51,
-      "chg": 2.44,
+      "px": 163.59,
+      "pct": 1.5,
+      "chg": 2.41,
       "tags": [
         "ai"
       ],
@@ -612,7 +652,7 @@
       "facts": [
         [
           "Open",
-          "$154.23"
+          "$154.22"
         ],
         [
           "Day range",
@@ -621,6 +661,10 @@
         [
           "Prev. close",
           "$161.18"
+        ],
+        [
+          "Mkt cap",
+          "$394.2B"
         ],
         [
           "Mkt cap",
@@ -643,9 +687,9 @@
     {
       "sym": "INTC",
       "name": "Intel Corp",
-      "px": 54.49,
-      "pct": -0.57,
-      "chg": -0.31,
+      "px": 54.47,
+      "pct": -0.6,
+      "chg": -0.33,
       "tags": [
         "ai"
       ],
@@ -657,15 +701,19 @@
       "facts": [
         [
           "Open",
-          "$52.02"
+          "$52.01"
         ],
         [
           "Day range",
-          "$49.16 – $55.01"
+          "$49.16 – $55.00"
         ],
         [
           "Prev. close",
           "$54.80"
+        ],
+        [
+          "Mkt cap",
+          "$289.5B"
         ],
         [
           "Mkt cap",
@@ -688,9 +736,9 @@
     {
       "sym": "JPM",
       "name": "JPMorgan Chase & Co.",
-      "px": 316.78,
-      "pct": -0.1,
-      "chg": -0.32,
+      "px": 316.74,
+      "pct": -0.11,
+      "chg": -0.36,
       "tags": [
         "mega"
       ],
@@ -702,7 +750,7 @@
       "facts": [
         [
           "Open",
-          "$310.57"
+          "$310.56"
         ],
         [
           "Day range",
@@ -711,6 +759,10 @@
         [
           "Prev. close",
           "$317.10"
+        ],
+        [
+          "Mkt cap",
+          "$841.1B"
         ],
         [
           "Mkt cap",
@@ -733,9 +785,9 @@
     {
       "sym": "WMT",
       "name": "Walmart Inc.",
-      "px": 131.97,
-      "pct": -0.26,
-      "chg": -0.34,
+      "px": 131.94,
+      "pct": -0.28,
+      "chg": -0.37,
       "tags": [
         "mega"
       ],
@@ -747,7 +799,7 @@
       "facts": [
         [
           "Open",
-          "$132.53"
+          "$132.52"
         ],
         [
           "Day range",
@@ -756,6 +808,10 @@
         [
           "Prev. close",
           "$132.31"
+        ],
+        [
+          "Mkt cap",
+          "$979.9B"
         ],
         [
           "Mkt cap",
@@ -778,9 +834,9 @@
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies Corp",
-      "px": 127.47,
-      "pct": 1.32,
-      "chg": 1.66,
+      "px": 127.44,
+      "pct": 1.3,
+      "chg": 1.63,
       "tags": [
         "mega",
         "space"
@@ -793,7 +849,7 @@
       "facts": [
         [
           "Open",
-          "$118.48"
+          "$118.47"
         ],
         [
           "Day range",
@@ -802,6 +858,10 @@
         [
           "Prev. close",
           "$125.81"
+        ],
+        [
+          "Mkt cap",
+          "$1.73T"
         ],
         [
           "Mkt cap",
@@ -824,9 +884,9 @@
     {
       "sym": "BRK.B",
       "name": "Berkshire Hathaway Inc",
-      "px": 579.36,
+      "px": 579.32,
       "pct": 0.37,
-      "chg": 2.15,
+      "chg": 2.11,
       "tags": [
         "mega"
       ],
@@ -853,6 +913,10 @@
           "$1.23T"
         ],
         [
+          "Mkt cap",
+          "$1.23T"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -869,9 +933,9 @@
     {
       "sym": "LLY",
       "name": "Eli Lilly and Company",
-      "px": 1392.26,
+      "px": 1392.22,
       "pct": -1.09,
-      "chg": -15.33,
+      "chg": -15.37,
       "tags": [
         "mega"
       ],
@@ -883,7 +947,7 @@
       "facts": [
         [
           "Open",
-          "$1,405.01"
+          "$1,405.00"
         ],
         [
           "Day range",
@@ -892,6 +956,10 @@
         [
           "Prev. close",
           "$1,407.59"
+        ],
+        [
+          "Mkt cap",
+          "$1.31T"
         ],
         [
           "Mkt cap",
@@ -914,9 +982,9 @@
     {
       "sym": "V",
       "name": "Visa Inc.",
-      "px": 424.43,
-      "pct": 1.84,
-      "chg": 7.65,
+      "px": 424.39,
+      "pct": 1.83,
+      "chg": 7.61,
       "tags": [
         "mega"
       ],
@@ -928,7 +996,7 @@
       "facts": [
         [
           "Open",
-          "$415.43"
+          "$415.42"
         ],
         [
           "Day range",
@@ -937,6 +1005,10 @@
         [
           "Prev. close",
           "$416.78"
+        ],
+        [
+          "Mkt cap",
+          "$768.7B"
         ],
         [
           "Mkt cap",
@@ -959,9 +1031,9 @@
     {
       "sym": "MA",
       "name": "Mastercard Incorporated",
-      "px": 660.01,
+      "px": 659.97,
       "pct": 1.94,
-      "chg": 12.57,
+      "chg": 12.53,
       "tags": [
         "mega"
       ],
@@ -973,7 +1045,7 @@
       "facts": [
         [
           "Open",
-          "$644.44"
+          "$644.43"
         ],
         [
           "Day range",
@@ -982,6 +1054,10 @@
         [
           "Prev. close",
           "$647.44"
+        ],
+        [
+          "Mkt cap",
+          "$575.0B"
         ],
         [
           "Mkt cap",
@@ -1004,9 +1080,9 @@
     {
       "sym": "XOM",
       "name": "Exxonmobil Holdings Corp",
-      "px": 158.11,
-      "pct": -0.08,
-      "chg": -0.12,
+      "px": 158.08,
+      "pct": -0.09,
+      "chg": -0.15,
       "tags": [
         "mega"
       ],
@@ -1018,7 +1094,7 @@
       "facts": [
         [
           "Open",
-          "$158.13"
+          "$158.12"
         ],
         [
           "Day range",
@@ -1027,6 +1103,10 @@
         [
           "Prev. close",
           "$158.23"
+        ],
+        [
+          "Mkt cap",
+          "$763.8B"
         ],
         [
           "Mkt cap",
@@ -1049,9 +1129,9 @@
     {
       "sym": "UNH",
       "name": "UnitedHealth Group Incorporated",
-      "px": 346.23,
-      "pct": 1.27,
-      "chg": 4.35,
+      "px": 346.19,
+      "pct": 1.26,
+      "chg": 4.31,
       "tags": [
         "mega"
       ],
@@ -1063,7 +1143,7 @@
       "facts": [
         [
           "Open",
-          "$338.51"
+          "$338.50"
         ],
         [
           "Day range",
@@ -1072,6 +1152,10 @@
         [
           "Prev. close",
           "$341.88"
+        ],
+        [
+          "Mkt cap",
+          "$365.3B"
         ],
         [
           "Mkt cap",
@@ -1094,9 +1178,9 @@
     {
       "sym": "ORCL",
       "name": "Oracle Corporation",
-      "px": 103.91,
-      "pct": -5.11,
-      "chg": -5.59,
+      "px": 103.88,
+      "pct": -5.13,
+      "chg": -5.62,
       "tags": [
         "ai",
         "mega"
@@ -1109,7 +1193,7 @@
       "facts": [
         [
           "Open",
-          "$103.25"
+          "$103.24"
         ],
         [
           "Day range",
@@ -1118,6 +1202,10 @@
         [
           "Prev. close",
           "$109.50"
+        ],
+        [
+          "Mkt cap",
+          "$314.1B"
         ],
         [
           "Mkt cap",
@@ -1140,9 +1228,9 @@
     {
       "sym": "COST",
       "name": "Costco Wholesale Corp",
-      "px": 1086.85,
+      "px": 1086.81,
       "pct": -0.45,
-      "chg": -4.86,
+      "chg": -4.9,
       "tags": [
         "mega"
       ],
@@ -1154,7 +1242,7 @@
       "facts": [
         [
           "Open",
-          "$1,092.01"
+          "$1,092.00"
         ],
         [
           "Day range",
@@ -1163,6 +1251,10 @@
         [
           "Prev. close",
           "$1,091.71"
+        ],
+        [
+          "Mkt cap",
+          "$481.6B"
         ],
         [
           "Mkt cap",
@@ -1185,9 +1277,9 @@
     {
       "sym": "NFLX",
       "name": "Netflix, Inc.",
-      "px": 59.43,
-      "pct": 0.95,
-      "chg": 0.56,
+      "px": 59.41,
+      "pct": 0.92,
+      "chg": 0.54,
       "tags": [
         "mega"
       ],
@@ -1199,15 +1291,19 @@
       "facts": [
         [
           "Open",
-          "$57.98"
+          "$57.97"
         ],
         [
           "Day range",
-          "$57.02 – $59.58"
+          "$57.02 – $59.57"
         ],
         [
           "Prev. close",
           "$58.87"
+        ],
+        [
+          "Mkt cap",
+          "$244.0B"
         ],
         [
           "Mkt cap",
@@ -1230,9 +1326,9 @@
     {
       "sym": "JNJ",
       "name": "Johnson & Johnson",
-      "px": 273.98,
-      "pct": -0.9,
-      "chg": -2.48,
+      "px": 273.94,
+      "pct": -0.91,
+      "chg": -2.52,
       "tags": [
         "mega"
       ],
@@ -1244,7 +1340,7 @@
       "facts": [
         [
           "Open",
-          "$278.33"
+          "$278.32"
         ],
         [
           "Day range",
@@ -1253,6 +1349,10 @@
         [
           "Prev. close",
           "$276.46"
+        ],
+        [
+          "Mkt cap",
+          "$659.5B"
         ],
         [
           "Mkt cap",
@@ -1275,9 +1375,9 @@
     {
       "sym": "PG",
       "name": "The Procter & Gamble Company",
-      "px": 173.26,
-      "pct": 0.46,
-      "chg": 0.79,
+      "px": 173.23,
+      "pct": 0.44,
+      "chg": 0.76,
       "tags": [
         "mega"
       ],
@@ -1289,7 +1389,7 @@
       "facts": [
         [
           "Open",
-          "$173.27"
+          "$173.26"
         ],
         [
           "Day range",
@@ -1298,6 +1398,10 @@
         [
           "Prev. close",
           "$172.47"
+        ],
+        [
+          "Mkt cap",
+          "$401.5B"
         ],
         [
           "Mkt cap",
@@ -1320,9 +1424,9 @@
     {
       "sym": "HD",
       "name": "The Home Depot, Inc.",
-      "px": 361.3,
-      "pct": 2.15,
-      "chg": 7.61,
+      "px": 361.26,
+      "pct": 2.14,
+      "chg": 7.57,
       "tags": [
         "mega"
       ],
@@ -1334,7 +1438,7 @@
       "facts": [
         [
           "Open",
-          "$355.01"
+          "$355.00"
         ],
         [
           "Day range",
@@ -1343,6 +1447,10 @@
         [
           "Prev. close",
           "$353.69"
+        ],
+        [
+          "Mkt cap",
+          "$360.5B"
         ],
         [
           "Mkt cap",
@@ -1365,9 +1473,9 @@
     {
       "sym": "ABBV",
       "name": "AbbVie Inc.",
-      "px": 294.52,
-      "pct": -1.92,
-      "chg": -5.76,
+      "px": 294.48,
+      "pct": -1.93,
+      "chg": -5.8,
       "tags": [
         "mega"
       ],
@@ -1379,7 +1487,7 @@
       "facts": [
         [
           "Open",
-          "$302.15"
+          "$302.14"
         ],
         [
           "Day range",
@@ -1388,6 +1496,10 @@
         [
           "Prev. close",
           "$300.28"
+        ],
+        [
+          "Mkt cap",
+          "$520.5B"
         ],
         [
           "Mkt cap",
@@ -1410,9 +1522,9 @@
     {
       "sym": "BAC",
       "name": "Bank of America Corporation",
-      "px": 48.55,
-      "pct": -0.02,
-      "chg": -0.01,
+      "px": 48.54,
+      "pct": -0.04,
+      "chg": -0.02,
       "tags": [
         "mega"
       ],
@@ -1424,7 +1536,7 @@
       "facts": [
         [
           "Open",
-          "$47.18"
+          "$47.17"
         ],
         [
           "Day range",
@@ -1433,6 +1545,10 @@
         [
           "Prev. close",
           "$48.56"
+        ],
+        [
+          "Mkt cap",
+          "$334.9B"
         ],
         [
           "Mkt cap",
@@ -1455,9 +1571,9 @@
     {
       "sym": "KO",
       "name": "Coca-Cola Co",
-      "px": 97.61,
-      "pct": -0.01,
-      "chg": -0.01,
+      "px": 97.59,
+      "pct": -0.03,
+      "chg": -0.03,
       "tags": [],
       "src": "finnhub",
       "note": "Coca-Cola (KO) Up 6.4% Since Last Earnings Report: Can It Continue?",
@@ -1467,7 +1583,7 @@
       "facts": [
         [
           "Open",
-          "$98.12"
+          "$98.11"
         ],
         [
           "Day range",
@@ -1476,6 +1592,10 @@
         [
           "Prev. close",
           "$97.62"
+        ],
+        [
+          "Mkt cap",
+          "$419.8B"
         ],
         [
           "Mkt cap",
@@ -1498,9 +1618,9 @@
     {
       "sym": "CRM",
       "name": "Salesforce, Inc.",
-      "px": 197.24,
-      "pct": 2.06,
-      "chg": 3.98,
+      "px": 197.21,
+      "pct": 2.04,
+      "chg": 3.95,
       "tags": [
         "ai"
       ],
@@ -1512,7 +1632,7 @@
       "facts": [
         [
           "Open",
-          "$190.37"
+          "$190.36"
         ],
         [
           "Day range",
@@ -1521,6 +1641,10 @@
         [
           "Prev. close",
           "$193.26"
+        ],
+        [
+          "Mkt cap",
+          "$162.3B"
         ],
         [
           "Mkt cap",
@@ -1543,9 +1667,9 @@
     {
       "sym": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Co Ltd",
-      "px": 342.38,
-      "pct": -1.95,
-      "chg": -6.82,
+      "px": 342.34,
+      "pct": -1.96,
+      "chg": -6.86,
       "tags": [
         "ai",
         "mega"
@@ -1558,7 +1682,7 @@
       "facts": [
         [
           "Open",
-          "$329.13"
+          "$329.12"
         ],
         [
           "Day range",
@@ -1567,6 +1691,10 @@
         [
           "Prev. close",
           "$349.20"
+        ],
+        [
+          "Mkt cap",
+          "$57.83T"
         ],
         [
           "Mkt cap",
@@ -1589,9 +1717,9 @@
     {
       "sym": "IONQ",
       "name": "IonQ, Inc.",
-      "px": 23.55,
-      "pct": 5.13,
-      "chg": 1.15,
+      "px": 23.54,
+      "pct": 5.09,
+      "chg": 1.14,
       "tags": [
         "quantum"
       ],
@@ -1603,7 +1731,7 @@
       "facts": [
         [
           "Open",
-          "$21.32"
+          "$21.31"
         ],
         [
           "Day range",
@@ -1612,6 +1740,10 @@
         [
           "Prev. close",
           "$22.40"
+        ],
+        [
+          "Mkt cap",
+          "$10.2B"
         ],
         [
           "Mkt cap",
@@ -1634,9 +1766,9 @@
     {
       "sym": "RGTI",
       "name": "Rigetti Computing, Inc.",
-      "px": 7.87,
-      "pct": 3.69,
-      "chg": 0.28,
+      "px": 7.85,
+      "pct": 3.43,
+      "chg": 0.26,
       "tags": [
         "quantum"
       ],
@@ -1652,11 +1784,15 @@
         ],
         [
           "Day range",
-          "$6.87 – $8.07"
+          "$6.87 – $8.06"
         ],
         [
           "Prev. close",
           "$7.59"
+        ],
+        [
+          "Mkt cap",
+          "$2.7B"
         ],
         [
           "Mkt cap",
@@ -1679,9 +1815,9 @@
     {
       "sym": "QBTS",
       "name": "D-Wave Quantum Inc.",
-      "px": 7.02,
-      "pct": 4.15,
-      "chg": 0.28,
+      "px": 7.0,
+      "pct": 3.86,
+      "chg": 0.26,
       "tags": [
         "quantum"
       ],
@@ -1693,15 +1829,19 @@
       "facts": [
         [
           "Open",
-          "$6.39"
+          "$6.38"
         ],
         [
           "Day range",
-          "$6.08 – $7.11"
+          "$6.08 – $7.10"
         ],
         [
           "Prev. close",
           "$6.74"
+        ],
+        [
+          "Mkt cap",
+          "$2.7B"
         ],
         [
           "Mkt cap",
@@ -1724,9 +1864,9 @@
     {
       "sym": "QUBT",
       "name": "QUBT",
-      "px": 4.61,
-      "pct": 5.49,
-      "chg": 0.24,
+      "px": 4.59,
+      "pct": 5.03,
+      "chg": 0.22,
       "tags": [
         "quantum"
       ],
@@ -1734,11 +1874,11 @@
       "facts": [
         [
           "Open",
-          "$4.17"
+          "$4.16"
         ],
         [
           "Day range",
-          "$3.98 – $4.63"
+          "$3.98 – $4.62"
         ],
         [
           "Prev. close",
@@ -1752,9 +1892,9 @@
     {
       "sym": "RKLB",
       "name": "Rocket Lab Corp",
-      "px": 47.04,
-      "pct": 2.31,
-      "chg": 1.06,
+      "px": 47.02,
+      "pct": 2.26,
+      "chg": 1.04,
       "tags": [
         "space"
       ],
@@ -1766,15 +1906,19 @@
       "facts": [
         [
           "Open",
-          "$43.90"
+          "$43.89"
         ],
         [
           "Day range",
-          "$42.12 – $48.17"
+          "$42.12 – $48.16"
         ],
         [
           "Prev. close",
           "$45.98"
+        ],
+        [
+          "Mkt cap",
+          "$29.7B"
         ],
         [
           "Mkt cap",
@@ -1797,9 +1941,9 @@
     {
       "sym": "ASTS",
       "name": "AST SpaceMobile, Inc.",
-      "px": 26.04,
-      "pct": 10.34,
-      "chg": 2.44,
+      "px": 26.02,
+      "pct": 10.25,
+      "chg": 2.42,
       "tags": [
         "space"
       ],
@@ -1811,15 +1955,19 @@
       "facts": [
         [
           "Open",
-          "$22.65"
+          "$22.64"
         ],
         [
           "Day range",
-          "$22.50 – $26.68"
+          "$22.50 – $26.66"
         ],
         [
           "Prev. close",
           "$23.60"
+        ],
+        [
+          "Mkt cap",
+          "$10.2B"
         ],
         [
           "Mkt cap",
@@ -1842,9 +1990,9 @@
     {
       "sym": "LUNR",
       "name": "Intuitive Machines Inc",
-      "px": 9.16,
-      "pct": 2.58,
-      "chg": 0.23,
+      "px": 9.14,
+      "pct": 2.35,
+      "chg": 0.21,
       "tags": [
         "space"
       ],
@@ -1856,15 +2004,19 @@
       "facts": [
         [
           "Open",
-          "$8.51"
+          "$8.50"
         ],
         [
           "Day range",
-          "$8.01 – $9.39"
+          "$8.01 – $9.38"
         ],
         [
           "Prev. close",
           "$8.93"
+        ],
+        [
+          "Mkt cap",
+          "$2.1B"
         ],
         [
           "Mkt cap",
@@ -1887,9 +2039,9 @@
     {
       "sym": "NKE",
       "name": "NIKE, Inc.",
-      "px": 36.67,
-      "pct": 2.57,
-      "chg": 0.92,
+      "px": 36.66,
+      "pct": 2.55,
+      "chg": 0.91,
       "tags": [],
       "src": "finnhub",
       "note": "Nike Slumped to $34, Yet This Apparel Pick Surged 23% Since October",
@@ -1899,7 +2051,7 @@
       "facts": [
         [
           "Open",
-          "$35.66"
+          "$35.65"
         ],
         [
           "Day range",
@@ -1908,6 +2060,10 @@
         [
           "Prev. close",
           "$35.75"
+        ],
+        [
+          "Mkt cap",
+          "$54.5B"
         ],
         [
           "Mkt cap",
@@ -1930,9 +2086,9 @@
     {
       "sym": "SBUX",
       "name": "Starbucks Corp",
-      "px": 107.77,
-      "pct": 1.31,
-      "chg": 1.39,
+      "px": 107.74,
+      "pct": 1.28,
+      "chg": 1.36,
       "tags": [],
       "src": "finnhub",
       "note": "Tim Hortons Could Follow Starbucks With Major China Move",
@@ -1942,7 +2098,7 @@
       "facts": [
         [
           "Open",
-          "$105.25"
+          "$105.24"
         ],
         [
           "Day range",
@@ -1951,6 +2107,10 @@
         [
           "Prev. close",
           "$106.38"
+        ],
+        [
+          "Mkt cap",
+          "$122.8B"
         ],
         [
           "Mkt cap",
@@ -1973,9 +2133,9 @@
     {
       "sym": "MCD",
       "name": "McDonald's Corp",
-      "px": 283.54,
-      "pct": 1.01,
-      "chg": 2.84,
+      "px": 283.5,
+      "pct": 1.0,
+      "chg": 2.8,
       "tags": [],
       "src": "finnhub",
       "note": "MCD's Entry-Level Value Push: A Key Catalyst for Its 2027 Outlook?",
@@ -1985,7 +2145,7 @@
       "facts": [
         [
           "Open",
-          "$281.44"
+          "$281.43"
         ],
         [
           "Day range",
@@ -1994,6 +2154,10 @@
         [
           "Prev. close",
           "$280.70"
+        ],
+        [
+          "Mkt cap",
+          "$200.1B"
         ],
         [
           "Mkt cap",
@@ -2016,9 +2180,9 @@
     {
       "sym": "PEP",
       "name": "PepsiCo, Inc.",
-      "px": 143.96,
-      "pct": 0.9,
-      "chg": 1.28,
+      "px": 143.93,
+      "pct": 0.88,
+      "chg": 1.25,
       "tags": [],
       "src": "finnhub",
       "note": "A $1,500,000 Portfolio in McCormick, PepsiCo and Bristol Myers Squibb Pays $61,489 a Year in Dividends. Here’s What Happens if One Cuts",
@@ -2028,7 +2192,7 @@
       "facts": [
         [
           "Open",
-          "$144.16"
+          "$144.15"
         ],
         [
           "Day range",
@@ -2037,6 +2201,10 @@
         [
           "Prev. close",
           "$142.68"
+        ],
+        [
+          "Mkt cap",
+          "$196.1B"
         ],
         [
           "Mkt cap",
@@ -2059,9 +2227,9 @@
     {
       "sym": "BA",
       "name": "Boeing Co",
-      "px": 164.56,
-      "pct": 0.59,
-      "chg": 0.97,
+      "px": 164.53,
+      "pct": 0.57,
+      "chg": 0.94,
       "tags": [],
       "src": "finnhub",
       "note": "Why Is Boeing (BA) Down 1.6% Since Last Earnings Report?",
@@ -2071,7 +2239,7 @@
       "facts": [
         [
           "Open",
-          "$161.36"
+          "$161.35"
         ],
         [
           "Day range",
@@ -2080,6 +2248,10 @@
         [
           "Prev. close",
           "$163.59"
+        ],
+        [
+          "Mkt cap",
+          "$130.4B"
         ],
         [
           "Mkt cap",
@@ -2102,9 +2274,9 @@
     {
       "sym": "UBER",
       "name": "Uber Technologies, Inc.",
-      "px": 66.37,
-      "pct": 2.58,
-      "chg": 1.67,
+      "px": 66.35,
+      "pct": 2.55,
+      "chg": 1.65,
       "tags": [],
       "src": "finnhub",
       "note": "Uber’s Driverless Lucid Tests Begin. Lucid’s Robotaxi Order Now Tops Two Years of Deliveries",
@@ -2114,7 +2286,7 @@
       "facts": [
         [
           "Open",
-          "$64.01"
+          "$64.00"
         ],
         [
           "Day range",
@@ -2123,6 +2295,10 @@
         [
           "Prev. close",
           "$64.70"
+        ],
+        [
+          "Mkt cap",
+          "$136.3B"
         ],
         [
           "Mkt cap",
@@ -2145,9 +2321,9 @@
     {
       "sym": "COIN",
       "name": "Coinbase Global, Inc.",
-      "px": 103.75,
-      "pct": 1.37,
-      "chg": 1.41,
+      "px": 103.72,
+      "pct": 1.34,
+      "chg": 1.38,
       "tags": [],
       "src": "finnhub",
       "note": "5 Stocks Poised to Benefit as Prediction Markets Gain Traction",
@@ -2157,7 +2333,7 @@
       "facts": [
         [
           "Open",
-          "$98.13"
+          "$98.12"
         ],
         [
           "Day range",
@@ -2166,6 +2342,10 @@
         [
           "Prev. close",
           "$102.34"
+        ],
+        [
+          "Mkt cap",
+          "$27.5B"
         ],
         [
           "Mkt cap",
@@ -2188,9 +2368,9 @@
     {
       "sym": "HOOD",
       "name": "Robinhood Markets, Inc.",
-      "px": 65.8,
-      "pct": 0.23,
-      "chg": 0.15,
+      "px": 65.78,
+      "pct": 0.2,
+      "chg": 0.13,
       "tags": [],
       "src": "finnhub",
       "note": "Cathie Wood Buys $87.8 Million in Anthropic  Shares This Week",
@@ -2200,15 +2380,19 @@
       "facts": [
         [
           "Open",
-          "$62.42"
+          "$62.41"
         ],
         [
           "Day range",
-          "$61.26 – $66.25"
+          "$61.26 – $66.24"
         ],
         [
           "Prev. close",
           "$65.65"
+        ],
+        [
+          "Mkt cap",
+          "$59.2B"
         ],
         [
           "Mkt cap",
@@ -2231,9 +2415,9 @@
     {
       "sym": "SHOP",
       "name": "Shopify Inc.",
-      "px": 133.43,
-      "pct": 0.85,
-      "chg": 1.12,
+      "px": 133.4,
+      "pct": 0.82,
+      "chg": 1.09,
       "tags": [],
       "src": "finnhub",
       "note": "Crosslist, a Leading Cross-listing App, Launches TikTok Shop Integration, Letting Sellers Publish Existing Listings in Minutes",
@@ -2243,7 +2427,7 @@
       "facts": [
         [
           "Open",
-          "$125.81"
+          "$125.80"
         ],
         [
           "Day range",
@@ -2252,6 +2436,10 @@
         [
           "Prev. close",
           "$132.31"
+        ],
+        [
+          "Mkt cap",
+          "$171.6B"
         ],
         [
           "Mkt cap",
@@ -2274,9 +2462,9 @@
     {
       "sym": "ARM",
       "name": "ARM Holdings PLC",
-      "px": 161.54,
-      "pct": -0.01,
-      "chg": -0.02,
+      "px": 161.51,
+      "pct": -0.03,
+      "chg": -0.05,
       "tags": [
         "ai"
       ],
@@ -2288,7 +2476,7 @@
       "facts": [
         [
           "Open",
-          "$149.55"
+          "$149.54"
         ],
         [
           "Day range",
@@ -2297,6 +2485,10 @@
         [
           "Prev. close",
           "$161.56"
+        ],
+        [
+          "Mkt cap",
+          "$171.9B"
         ],
         [
           "Mkt cap",
@@ -2319,9 +2511,9 @@
     {
       "sym": "MU",
       "name": "Micron Technology, Inc.",
-      "px": 601.29,
+      "px": 601.25,
       "pct": -4.53,
-      "chg": -28.5,
+      "chg": -28.54,
       "tags": [
         "ai"
       ],
@@ -2333,7 +2525,7 @@
       "facts": [
         [
           "Open",
-          "$574.97"
+          "$574.96"
         ],
         [
           "Day range",
@@ -2342,6 +2534,10 @@
         [
           "Prev. close",
           "$629.79"
+        ],
+        [
+          "Mkt cap",
+          "$680.3B"
         ],
         [
           "Mkt cap",
@@ -2364,9 +2560,9 @@
     {
       "sym": "SMCI",
       "name": "Super Micro Computer Inc",
-      "px": 23.33,
-      "pct": 3.14,
-      "chg": 0.71,
+      "px": 23.31,
+      "pct": 3.05,
+      "chg": 0.69,
       "tags": [
         "ai"
       ],
@@ -2378,15 +2574,19 @@
       "facts": [
         [
           "Open",
-          "$21.32"
+          "$21.31"
         ],
         [
           "Day range",
-          "$21.02 – $23.36"
+          "$21.02 – $23.35"
         ],
         [
           "Prev. close",
           "$22.62"
+        ],
+        [
+          "Mkt cap",
+          "$15.4B"
         ],
         [
           "Mkt cap",
@@ -2409,9 +2609,9 @@
     {
       "sym": "ADBE",
       "name": "Adobe Inc",
-      "px": 232.87,
-      "pct": 0.34,
-      "chg": 0.79,
+      "px": 232.83,
+      "pct": 0.32,
+      "chg": 0.75,
       "tags": [
         "ai"
       ],
@@ -2423,7 +2623,7 @@
       "facts": [
         [
           "Open",
-          "$230.51"
+          "$230.50"
         ],
         [
           "Day range",
@@ -2432,6 +2632,10 @@
         [
           "Prev. close",
           "$232.08"
+        ],
+        [
+          "Mkt cap",
+          "$90.6B"
         ],
         [
           "Mkt cap",
@@ -2454,9 +2658,9 @@
     {
       "sym": "PYPL",
       "name": "PayPal Holdings, Inc.",
-      "px": 57.83,
-      "pct": 2.96,
-      "chg": 1.66,
+      "px": 57.81,
+      "pct": 2.92,
+      "chg": 1.64,
       "tags": [],
       "src": "finnhub",
       "note": "Paypal (PYPL) Up 2.2% Since Last Earnings Report: Can It Continue?",
@@ -2466,15 +2670,19 @@
       "facts": [
         [
           "Open",
-          "$55.45"
+          "$55.44"
         ],
         [
           "Day range",
-          "$55.28 – $57.96"
+          "$55.28 – $57.95"
         ],
         [
           "Prev. close",
           "$56.17"
+        ],
+        [
+          "Mkt cap",
+          "$48.0B"
         ],
         [
           "Mkt cap",
@@ -2497,9 +2705,9 @@
     {
       "sym": "F",
       "name": "Ford Motor Co",
-      "px": 12.18,
-      "pct": 1.92,
-      "chg": 0.23,
+      "px": 12.17,
+      "pct": 1.84,
+      "chg": 0.22,
       "tags": [],
       "src": "finnhub",
       "note": "Rivian Is Down 41% This Year. Can RIVN Stock Get Back to $20 in 2027?",
@@ -2509,7 +2717,7 @@
       "facts": [
         [
           "Open",
-          "$11.92"
+          "$11.91"
         ],
         [
           "Day range",
@@ -2518,6 +2726,10 @@
         [
           "Prev. close",
           "$11.95"
+        ],
+        [
+          "Mkt cap",
+          "$48.6B"
         ],
         [
           "Mkt cap",
@@ -2540,9 +2752,9 @@
     {
       "sym": "GM",
       "name": "General Motors Co",
-      "px": 84.01,
-      "pct": 2.05,
-      "chg": 1.69,
+      "px": 83.99,
+      "pct": 2.03,
+      "chg": 1.67,
       "tags": [],
       "src": "finnhub",
       "note": "GM starts production of the Chevrolet Groove in Egypt",
@@ -2552,15 +2764,19 @@
       "facts": [
         [
           "Open",
-          "$81.79"
+          "$81.78"
         ],
         [
           "Day range",
-          "$81.30 – $85.06"
+          "$81.30 – $85.05"
         ],
         [
           "Prev. close",
           "$82.32"
+        ],
+        [
+          "Mkt cap",
+          "$70.8B"
         ],
         [
           "Mkt cap",
@@ -2583,9 +2799,9 @@
     {
       "sym": "CVX",
       "name": "Chevron Corporation",
-      "px": 210.99,
-      "pct": 1.08,
-      "chg": 2.26,
+      "px": 210.95,
+      "pct": 1.06,
+      "chg": 2.22,
       "tags": [],
       "src": "finnhub",
       "note": "Oil Markets Face Another Potential Threat to Household Fuel Costs",
@@ -2595,7 +2811,7 @@
       "facts": [
         [
           "Open",
-          "$208.01"
+          "$208.00"
         ],
         [
           "Day range",
@@ -2604,6 +2820,10 @@
         [
           "Prev. close",
           "$208.73"
+        ],
+        [
+          "Mkt cap",
+          "$414.6B"
         ],
         [
           "Mkt cap",
@@ -2626,9 +2846,9 @@
     {
       "sym": "GS",
       "name": "The Goldman Sachs Group, Inc.",
-      "px": 801.07,
-      "pct": -0.61,
-      "chg": -4.95,
+      "px": 801.03,
+      "pct": -0.62,
+      "chg": -4.99,
       "tags": [],
       "src": "finnhub",
       "note": "JPMorgan Rethinks UK Investments: Will Higher Taxes Hurt Growth?",
@@ -2638,7 +2858,7 @@
       "facts": [
         [
           "Open",
-          "$779.35"
+          "$779.34"
         ],
         [
           "Day range",
@@ -2647,6 +2867,10 @@
         [
           "Prev. close",
           "$806.02"
+        ],
+        [
+          "Mkt cap",
+          "$231.0B"
         ],
         [
           "Mkt cap",
@@ -2669,9 +2893,9 @@
     {
       "sym": "MSTR",
       "name": "Strategy Inc",
-      "px": 79.98,
-      "pct": 3.13,
-      "chg": 2.43,
+      "px": 79.96,
+      "pct": 3.11,
+      "chg": 2.41,
       "tags": [],
       "src": "finnhub",
       "note": "Why Strategy Can Rebound to $175 in 2027 Even If Bitcoin Stays Below Peak",
@@ -2681,15 +2905,19 @@
       "facts": [
         [
           "Open",
-          "$74.30"
+          "$74.29"
         ],
         [
           "Day range",
-          "$70.37 – $81.03"
+          "$70.37 – $81.02"
         ],
         [
           "Prev. close",
           "$77.55"
+        ],
+        [
+          "Mkt cap",
+          "$33.8B"
         ],
         [
           "Mkt cap",
@@ -2712,9 +2940,9 @@
     {
       "sym": "SOFI",
       "name": "SoFi Technologies, Inc.",
-      "px": 13.09,
-      "pct": 1.79,
-      "chg": 0.23,
+      "px": 13.07,
+      "pct": 1.63,
+      "chg": 0.21,
       "tags": [],
       "src": "finnhub",
       "note": "Ja Rule invests like Warren Buffett. Here's what he bought",
@@ -2724,15 +2952,19 @@
       "facts": [
         [
           "Open",
-          "$12.39"
+          "$12.38"
         ],
         [
           "Day range",
-          "$11.95 – $13.20"
+          "$11.95 – $13.19"
         ],
         [
           "Prev. close",
           "$12.86"
+        ],
+        [
+          "Mkt cap",
+          "$17.0B"
         ],
         [
           "Mkt cap",
@@ -2755,9 +2987,9 @@
     {
       "sym": "RIVN",
       "name": "Rivian Automotive, Inc.",
-      "px": 11.73,
-      "pct": 3.35,
-      "chg": 0.38,
+      "px": 11.71,
+      "pct": 3.17,
+      "chg": 0.36,
       "tags": [],
       "src": "finnhub",
       "note": "Tesla Slides 6% as EU Delays Vote on Its Self-Driving Software; Rivian and Lucid Drop 4%",
@@ -2767,15 +2999,19 @@
       "facts": [
         [
           "Open",
-          "$11.13"
+          "$11.12"
         ],
         [
           "Day range",
-          "$10.73 – $11.87"
+          "$10.73 – $11.86"
         ],
         [
           "Prev. close",
           "$11.35"
+        ],
+        [
+          "Mkt cap",
+          "$17.1B"
         ],
         [
           "Mkt cap",
@@ -2798,9 +3034,9 @@
     {
       "sym": "SPY",
       "name": "S&P 500 (SPY)",
-      "px": 716.74,
-      "pct": -0.28,
-      "chg": -2.04,
+      "px": 716.7,
+      "pct": -0.29,
+      "chg": -2.08,
       "tags": [
         "social",
         "etf"
@@ -2809,7 +3045,7 @@
       "facts": [
         [
           "Open",
-          "$703.21"
+          "$703.20"
         ],
         [
           "Day range",
@@ -2831,9 +3067,9 @@
     {
       "sym": "QQQ",
       "name": "Nasdaq-100 (QQQ)",
-      "px": 633.97,
+      "px": 633.93,
       "pct": -0.65,
-      "chg": -4.13,
+      "chg": -4.17,
       "tags": [
         "social",
         "etf"
@@ -2842,7 +3078,7 @@
       "facts": [
         [
           "Open",
-          "$617.11"
+          "$617.10"
         ],
         [
           "Day range",
@@ -2864,9 +3100,9 @@
     {
       "sym": "VOO",
       "name": "Vanguard S&amp;P 500 ETF",
-      "px": 658.91,
-      "pct": -0.27,
-      "chg": -1.8,
+      "px": 658.87,
+      "pct": -0.28,
+      "chg": -1.84,
       "tags": [
         "social",
         "etf"
@@ -2875,7 +3111,7 @@
       "facts": [
         [
           "Open",
-          "$646.36"
+          "$646.35"
         ],
         [
           "Day range",
@@ -2897,9 +3133,9 @@
     {
       "sym": "DTE",
       "name": "DTE Energy Company",
-      "px": 137.79,
-      "pct": 0.07,
-      "chg": 0.09,
+      "px": 137.76,
+      "pct": 0.04,
+      "chg": 0.06,
       "tags": [
         "social"
       ],
@@ -2907,7 +3143,7 @@
       "facts": [
         [
           "Open",
-          "$137.91"
+          "$137.90"
         ],
         [
           "Day range",
@@ -2916,6 +3152,10 @@
         [
           "Prev. close",
           "$137.70"
+        ],
+        [
+          "Mkt cap",
+          "$28.7B"
         ],
         [
           "Mkt cap",
@@ -2938,9 +3178,9 @@
     {
       "sym": "SNDK",
       "name": "SanDisk Corporation",
-      "px": 73.63,
-      "pct": -5.54,
-      "chg": -4.32,
+      "px": 73.61,
+      "pct": -5.57,
+      "chg": -4.34,
       "tags": [
         "social"
       ],
@@ -2952,15 +3192,19 @@
       "facts": [
         [
           "Open",
-          "$71.33"
+          "$71.31"
         ],
         [
           "Day range",
-          "$67.02 – $73.78"
+          "$67.02 – $73.77"
         ],
         [
           "Prev. close",
           "$77.95"
+        ],
+        [
+          "Mkt cap",
+          "$83.8B"
         ],
         [
           "Mkt cap",
@@ -2983,9 +3227,9 @@
     {
       "sym": "TQQQ",
       "name": "ProShares Trust - ProShares UltraPro QQQ",
-      "px": 45.3,
-      "pct": -1.93,
-      "chg": -0.89,
+      "px": 45.28,
+      "pct": -1.97,
+      "chg": -0.91,
       "tags": [
         "social",
         "etf"
@@ -2994,11 +3238,11 @@
       "facts": [
         [
           "Open",
-          "$41.61"
+          "$41.60"
         ],
         [
           "Day range",
-          "$39.59 – $45.49"
+          "$39.59 – $45.48"
         ],
         [
           "Prev. close",
@@ -3016,9 +3260,9 @@
     {
       "sym": "NYT",
       "name": "The New York Times Company",
-      "px": 71.72,
-      "pct": 1.82,
-      "chg": 1.28,
+      "px": 71.7,
+      "pct": 1.79,
+      "chg": 1.26,
       "tags": [
         "social"
       ],
@@ -3030,7 +3274,7 @@
       "facts": [
         [
           "Open",
-          "$70.47"
+          "$70.46"
         ],
         [
           "Day range",
@@ -3039,6 +3283,10 @@
         [
           "Prev. close",
           "$70.44"
+        ],
+        [
+          "Mkt cap",
+          "$11.5B"
         ],
         [
           "Mkt cap",
@@ -3061,9 +3309,9 @@
     {
       "sym": "VT",
       "name": "Vanguard Group, Inc. - Vanguard Total World Stock ETF",
-      "px": 147.57,
-      "pct": 0.01,
-      "chg": 0.01,
+      "px": 147.54,
+      "pct": -0.01,
+      "chg": -0.02,
       "tags": [
         "social",
         "etf"
@@ -3072,7 +3320,7 @@
       "facts": [
         [
           "Open",
-          "$144.76"
+          "$144.75"
         ],
         [
           "Day range",
@@ -3094,9 +3342,9 @@
     {
       "sym": "SCHD",
       "name": "Schwab Strategic Trust - CSIM Schwab US Dividend Equity ETF",
-      "px": 35.3,
-      "pct": 1.18,
-      "chg": 0.41,
+      "px": 35.29,
+      "pct": 1.15,
+      "chg": 0.4,
       "tags": [
         "social",
         "etf"
@@ -3105,7 +3353,7 @@
       "facts": [
         [
           "Open",
-          "$34.79"
+          "$34.78"
         ],
         [
           "Day range",
@@ -3127,9 +3375,9 @@
     {
       "sym": "VTI",
       "name": "Vanguard Total Stock Market ETF",
-      "px": 353.24,
-      "pct": -0.17,
-      "chg": -0.6,
+      "px": 353.2,
+      "pct": -0.18,
+      "chg": -0.64,
       "tags": [
         "social",
         "etf"
@@ -3138,7 +3386,7 @@
       "facts": [
         [
           "Open",
-          "$346.41"
+          "$346.40"
         ],
         [
           "Day range",
@@ -3160,9 +3408,9 @@
     {
       "sym": "VXUS",
       "name": "Vanguard Group, Inc. - Vanguard Total International Stock ETF",
-      "px": 78.04,
-      "pct": 0.13,
-      "chg": 0.1,
+      "px": 78.02,
+      "pct": 0.1,
+      "chg": 0.08,
       "tags": [
         "social",
         "etf"
@@ -3171,11 +3419,11 @@
       "facts": [
         [
           "Open",
-          "$76.62"
+          "$76.61"
         ],
         [
           "Day range",
-          "$76.03 – $78.09"
+          "$76.03 – $78.08"
         ],
         [
           "Prev. close",
@@ -3193,9 +3441,9 @@
     {
       "sym": "HUBS",
       "name": "HubSpot, Inc.",
-      "px": 210.25,
-      "pct": 2.42,
-      "chg": 4.96,
+      "px": 210.21,
+      "pct": 2.4,
+      "chg": 4.92,
       "tags": [
         "social"
       ],
@@ -3207,7 +3455,7 @@
       "facts": [
         [
           "Open",
-          "$203.18"
+          "$203.17"
         ],
         [
           "Day range",
@@ -3216,6 +3464,10 @@
         [
           "Prev. close",
           "$205.29"
+        ],
+        [
+          "Mkt cap",
+          "$10.3B"
         ],
         [
           "Mkt cap",
@@ -3238,9 +3490,9 @@
     {
       "sym": "GE",
       "name": "General Electric Company",
-      "px": 317.02,
-      "pct": -0.32,
-      "chg": -1.01,
+      "px": 316.98,
+      "pct": -0.33,
+      "chg": -1.05,
       "tags": [
         "social"
       ],
@@ -3252,7 +3504,7 @@
       "facts": [
         [
           "Open",
-          "$310.54"
+          "$310.53"
         ],
         [
           "Day range",
@@ -3261,6 +3513,10 @@
         [
           "Prev. close",
           "$318.03"
+        ],
+        [
+          "Mkt cap",
+          "$327.6B"
         ],
         [
           "Mkt cap",
@@ -3283,9 +3539,9 @@
     {
       "sym": "ACN",
       "name": "Accenture PLC",
-      "px": 240.53,
-      "pct": 3.53,
-      "chg": 8.21,
+      "px": 240.49,
+      "pct": 3.52,
+      "chg": 8.17,
       "tags": [
         "social"
       ],
@@ -3297,7 +3553,7 @@
       "facts": [
         [
           "Open",
-          "$234.67"
+          "$234.66"
         ],
         [
           "Day range",
@@ -3306,6 +3562,10 @@
         [
           "Prev. close",
           "$232.32"
+        ],
+        [
+          "Mkt cap",
+          "$142.1B"
         ],
         [
           "Mkt cap",
@@ -3328,9 +3588,9 @@
     {
       "sym": "DKS",
       "name": "DICK'S Sporting Goods, Inc.",
-      "px": 158.62,
-      "pct": 3.56,
-      "chg": 5.45,
+      "px": 158.59,
+      "pct": 3.54,
+      "chg": 5.42,
       "tags": [
         "social"
       ],
@@ -3342,7 +3602,7 @@
       "facts": [
         [
           "Open",
-          "$154.01"
+          "$154.00"
         ],
         [
           "Day range",
@@ -3351,6 +3611,10 @@
         [
           "Prev. close",
           "$153.17"
+        ],
+        [
+          "Mkt cap",
+          "$14.1B"
         ],
         [
           "Mkt cap",
@@ -3373,9 +3637,9 @@
     {
       "sym": "MAGS",
       "name": "MAGS",
-      "px": 65.08,
-      "pct": -1.02,
-      "chg": -0.67,
+      "px": 65.06,
+      "pct": -1.05,
+      "chg": -0.69,
       "tags": [
         "social"
       ],
@@ -3383,7 +3647,7 @@
       "facts": [
         [
           "Open",
-          "$63.60"
+          "$63.59"
         ],
         [
           "Day range",
@@ -3979,40 +4243,40 @@
       {
         "sym": "META",
         "name": "Meta Platforms, Inc.",
-        "pct": 3.41,
-        "chg": 20.11,
-        "valueB": 51.4,
+        "pct": 3.4,
+        "chg": 20.07,
+        "valueB": 51.3,
         "capB": 1559
-      },
-      {
-        "sym": "AAPL",
-        "name": "Apple Inc.",
-        "pct": 0.44,
-        "chg": 1.55,
-        "valueB": 22.6,
-        "capB": 5167
       },
       {
         "sym": "SPCX",
         "name": "Space Exploration Technologies Corp",
-        "pct": 1.32,
-        "chg": 1.66,
-        "valueB": 22.5,
+        "pct": 1.3,
+        "chg": 1.63,
+        "valueB": 22.2,
         "capB": 1731
+      },
+      {
+        "sym": "AAPL",
+        "name": "Apple Inc.",
+        "pct": 0.43,
+        "chg": 1.51,
+        "valueB": 22.1,
+        "capB": 5167
       },
       {
         "sym": "V",
         "name": "Visa Inc.",
-        "pct": 1.84,
-        "chg": 7.65,
-        "valueB": 13.9,
+        "pct": 1.83,
+        "chg": 7.61,
+        "valueB": 13.8,
         "capB": 769
       },
       {
         "sym": "MA",
         "name": "Mastercard Incorporated",
         "pct": 1.94,
-        "chg": 12.57,
+        "chg": 12.53,
         "valueB": 10.9,
         "capB": 575
       }
@@ -4021,52 +4285,52 @@
       {
         "sym": "TSM",
         "name": "Taiwan Semiconductor Manufacturing Co Ltd",
-        "pct": -1.95,
-        "chg": -6.82,
-        "valueB": -1150.1,
+        "pct": -1.96,
+        "chg": -6.86,
+        "valueB": -1156.1,
         "capB": 57829
       },
       {
         "sym": "NVDA",
         "name": "NVIDIA Corporation",
-        "pct": -3.89,
-        "chg": -6.05,
-        "valueB": -145.6,
+        "pct": -3.91,
+        "chg": -6.08,
+        "valueB": -146.4,
         "capB": 3598
       },
       {
         "sym": "AMZN",
         "name": "Amazon.com Inc",
-        "pct": -3.1,
-        "chg": -7.82,
-        "valueB": -84.6,
+        "pct": -3.12,
+        "chg": -7.86,
+        "valueB": -85.1,
         "capB": 2643
       },
       {
         "sym": "GOOG",
         "name": "Alphabet Inc.",
-        "pct": -2.01,
-        "chg": -5.56,
-        "valueB": -68.9,
+        "pct": -2.02,
+        "chg": -5.6,
+        "valueB": -69.2,
         "capB": 3357
       },
       {
         "sym": "MSFT",
         "name": "Microsoft Corporation",
-        "pct": -1.24,
-        "chg": -6.16,
-        "valueB": -45.7,
+        "pct": -1.25,
+        "chg": -6.2,
+        "valueB": -46.1,
         "capB": 3638
       }
     ],
-    "netB": -1440.7,
+    "netB": -1451.4,
     "tracked": 49,
     "floorB": 50,
     "src": "finnhub"
   },
   "historyRun": {
     "backfilled": 0,
-    "appended": 0,
+    "appended": 83,
     "intraday": 83
   }
 }
