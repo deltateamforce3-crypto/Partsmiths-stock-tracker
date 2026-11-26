@@ -1,5 +1,5 @@
 {
-  "snapshot": "2026-11-26T13:05:12-05:00",
+  "snapshot": "2026-11-26T14:05:12-05:00",
   "session": "Thu 26 Nov 2026",
   "picksFor": "Thu 26 Nov 2026",
   "nextRefresh": "GitHub Actions · hourly 10 AM–5 PM ET · full update 3 PM ET · stories daily",
@@ -50,7 +50,7 @@
       "d": "+$0.77 · +0.94%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "US dollar (UUP)",
@@ -58,7 +58,7 @@
       "d": "−$0.02 · −0.07%",
       "dir": -1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "Oil (USO)",
@@ -66,7 +66,7 @@
       "d": "+$4.43 · +3.27%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "Gold (GLD)",
@@ -74,7 +74,7 @@
       "d": "+$2.04 · +0.63%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     },
     {
       "k": "Bitcoin (IBIT)",
@@ -82,7 +82,7 @@
       "d": "+$0.33 · +0.98%",
       "dir": 1,
       "src": "finnhub",
-      "asof": "1:05 PM"
+      "asof": "2:05 PM"
     }
   ],
   "history": {
@@ -195,6 +195,10 @@
           "$3.44T"
         ],
         [
+          "Mkt cap",
+          "$3.44T"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -261,6 +265,10 @@
           "$1.35T"
         ],
         [
+          "Mkt cap",
+          "$1.35T"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -300,6 +308,10 @@
         [
           "Prev. close",
           "$413.27"
+        ],
+        [
+          "Mkt cap",
+          "$615.1B"
         ],
         [
           "Mkt cap",
@@ -392,6 +404,10 @@
           "$3.57T"
         ],
         [
+          "Mkt cap",
+          "$3.57T"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -457,6 +473,10 @@
           "$5.03T"
         ],
         [
+          "Mkt cap",
+          "$5.03T"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -496,6 +516,10 @@
         [
           "Prev. close",
           "$252.29"
+        ],
+        [
+          "Mkt cap",
+          "$2.56T"
         ],
         [
           "Mkt cap",
@@ -588,6 +612,10 @@
           "$3.26T"
         ],
         [
+          "Mkt cap",
+          "$3.26T"
+        ],
+        [
           "Industry",
           "Media"
         ],
@@ -628,6 +656,10 @@
         [
           "Prev. close",
           "$589.82"
+        ],
+        [
+          "Mkt cap",
+          "$1.48T"
         ],
         [
           "Mkt cap",
@@ -719,6 +751,10 @@
           "$1.50T"
         ],
         [
+          "Mkt cap",
+          "$1.50T"
+        ],
+        [
           "Industry",
           "Automobiles"
         ],
@@ -756,6 +792,10 @@
         [
           "Prev. close",
           "$122.51"
+        ],
+        [
+          "Mkt cap",
+          "$208.4B"
         ],
         [
           "Mkt cap",
@@ -847,6 +887,10 @@
           "$370.6B"
         ],
         [
+          "Mkt cap",
+          "$370.6B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -886,6 +930,10 @@
         [
           "Prev. close",
           "$54.80"
+        ],
+        [
+          "Mkt cap",
+          "$266.1B"
         ],
         [
           "Mkt cap",
@@ -977,6 +1025,10 @@
           "$826.4B"
         ],
         [
+          "Mkt cap",
+          "$826.4B"
+        ],
+        [
           "Industry",
           "Banking"
         ],
@@ -1016,6 +1068,10 @@
         [
           "Prev. close",
           "$132.31"
+        ],
+        [
+          "Mkt cap",
+          "$979.9B"
         ],
         [
           "Mkt cap",
@@ -1108,6 +1164,10 @@
           "$1.59T"
         ],
         [
+          "Mkt cap",
+          "$1.59T"
+        ],
+        [
           "Industry",
           "Telecommunication"
         ],
@@ -1147,6 +1207,10 @@
         [
           "Prev. close",
           "$577.21"
+        ],
+        [
+          "Mkt cap",
+          "$1.23T"
         ],
         [
           "Mkt cap",
@@ -1238,6 +1302,10 @@
           "$1.30T"
         ],
         [
+          "Mkt cap",
+          "$1.30T"
+        ],
+        [
           "Industry",
           "Pharmaceuticals"
         ],
@@ -1277,6 +1345,10 @@
         [
           "Prev. close",
           "$416.78"
+        ],
+        [
+          "Mkt cap",
+          "$768.7B"
         ],
         [
           "Mkt cap",
@@ -1368,6 +1440,10 @@
           "$562.8B"
         ],
         [
+          "Mkt cap",
+          "$562.8B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -1433,6 +1509,10 @@
           "$763.8B"
         ],
         [
+          "Mkt cap",
+          "$763.8B"
+        ],
+        [
           "Industry",
           "Energy"
         ],
@@ -1472,6 +1552,10 @@
         [
           "Prev. close",
           "$341.88"
+        ],
+        [
+          "Mkt cap",
+          "$365.3B"
         ],
         [
           "Mkt cap",
@@ -1564,6 +1648,10 @@
           "$303.8B"
         ],
         [
+          "Mkt cap",
+          "$303.8B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -1603,6 +1691,10 @@
         [
           "Prev. close",
           "$1,091.71"
+        ],
+        [
+          "Mkt cap",
+          "$483.0B"
         ],
         [
           "Mkt cap",
@@ -1694,6 +1786,10 @@
           "$236.0B"
         ],
         [
+          "Mkt cap",
+          "$236.0B"
+        ],
+        [
           "Industry",
           "Media"
         ],
@@ -1733,6 +1829,10 @@
         [
           "Prev. close",
           "$276.46"
+        ],
+        [
+          "Mkt cap",
+          "$663.9B"
         ],
         [
           "Mkt cap",
@@ -1824,6 +1924,10 @@
           "$401.9B"
         ],
         [
+          "Mkt cap",
+          "$401.9B"
+        ],
+        [
           "Industry",
           "Consumer products"
         ],
@@ -1863,6 +1967,10 @@
         [
           "Prev. close",
           "$353.69"
+        ],
+        [
+          "Mkt cap",
+          "$355.8B"
         ],
         [
           "Mkt cap",
@@ -1954,6 +2062,10 @@
           "$525.5B"
         ],
         [
+          "Mkt cap",
+          "$525.5B"
+        ],
+        [
           "Industry",
           "Biotechnology"
         ],
@@ -1993,6 +2105,10 @@
         [
           "Prev. close",
           "$48.56"
+        ],
+        [
+          "Mkt cap",
+          "$328.1B"
         ],
         [
           "Mkt cap",
@@ -2082,6 +2198,10 @@
           "$421.5B"
         ],
         [
+          "Mkt cap",
+          "$421.5B"
+        ],
+        [
           "Industry",
           "Beverages"
         ],
@@ -2121,6 +2241,10 @@
         [
           "Prev. close",
           "$193.26"
+        ],
+        [
+          "Mkt cap",
+          "$159.2B"
         ],
         [
           "Mkt cap",
@@ -2213,6 +2337,10 @@
           "$57.83T"
         ],
         [
+          "Mkt cap",
+          "$57.83T"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -2252,6 +2380,10 @@
         [
           "Prev. close",
           "$22.40"
+        ],
+        [
+          "Mkt cap",
+          "$9.1B"
         ],
         [
           "Mkt cap",
@@ -2343,6 +2475,10 @@
           "$2.4B"
         ],
         [
+          "Mkt cap",
+          "$2.4B"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -2382,6 +2518,10 @@
         [
           "Prev. close",
           "$6.74"
+        ],
+        [
+          "Mkt cap",
+          "$2.4B"
         ],
         [
           "Mkt cap",
@@ -2501,6 +2641,10 @@
           "$27.0B"
         ],
         [
+          "Mkt cap",
+          "$27.0B"
+        ],
+        [
           "Industry",
           "Aerospace & Defense"
         ],
@@ -2566,6 +2710,10 @@
           "$9.0B"
         ],
         [
+          "Mkt cap",
+          "$9.0B"
+        ],
+        [
           "Industry",
           "Telecommunication"
         ],
@@ -2601,6 +2749,10 @@
         [
           "Prev. close",
           "$8.93"
+        ],
+        [
+          "Mkt cap",
+          "$2.0B"
         ],
         [
           "Mkt cap",
@@ -2726,6 +2878,10 @@
           "$52.7B"
         ],
         [
+          "Mkt cap",
+          "$52.7B"
+        ],
+        [
           "Industry",
           "Textiles, Apparel & Luxury Goods"
         ],
@@ -2763,6 +2919,10 @@
         [
           "Prev. close",
           "$106.38"
+        ],
+        [
+          "Mkt cap",
+          "$121.5B"
         ],
         [
           "Mkt cap",
@@ -2852,6 +3012,10 @@
           "$199.3B"
         ],
         [
+          "Mkt cap",
+          "$199.3B"
+        ],
+        [
           "Industry",
           "Hotels, Restaurants & Leisure"
         ],
@@ -2889,6 +3053,10 @@
         [
           "Prev. close",
           "$142.68"
+        ],
+        [
+          "Mkt cap",
+          "$197.3B"
         ],
         [
           "Mkt cap",
@@ -2978,6 +3146,10 @@
           "$128.4B"
         ],
         [
+          "Mkt cap",
+          "$128.4B"
+        ],
+        [
           "Industry",
           "Aerospace & Defense"
         ],
@@ -3015,6 +3187,10 @@
         [
           "Prev. close",
           "$64.70"
+        ],
+        [
+          "Mkt cap",
+          "$136.3B"
         ],
         [
           "Mkt cap",
@@ -3104,6 +3280,10 @@
           "$25.6B"
         ],
         [
+          "Mkt cap",
+          "$25.6B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -3167,6 +3347,10 @@
           "$56.4B"
         ],
         [
+          "Mkt cap",
+          "$56.4B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -3204,6 +3388,10 @@
         [
           "Prev. close",
           "$132.31"
+        ],
+        [
+          "Mkt cap",
+          "$161.4B"
         ],
         [
           "Mkt cap",
@@ -3295,6 +3483,10 @@
           "$171.9B"
         ],
         [
+          "Mkt cap",
+          "$171.9B"
+        ],
+        [
           "Industry",
           "Semiconductors"
         ],
@@ -3334,6 +3526,10 @@
         [
           "Prev. close",
           "$629.79"
+        ],
+        [
+          "Mkt cap",
+          "$636.4B"
         ],
         [
           "Mkt cap",
@@ -3425,6 +3621,10 @@
           "$14.3B"
         ],
         [
+          "Mkt cap",
+          "$14.3B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -3464,6 +3664,10 @@
         [
           "Prev. close",
           "$232.08"
+        ],
+        [
+          "Mkt cap",
+          "$90.3B"
         ],
         [
           "Mkt cap",
@@ -3553,6 +3757,10 @@
           "$46.2B"
         ],
         [
+          "Mkt cap",
+          "$46.2B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -3590,6 +3798,10 @@
         [
           "Prev. close",
           "$11.95"
+        ],
+        [
+          "Mkt cap",
+          "$47.5B"
         ],
         [
           "Mkt cap",
@@ -3679,6 +3891,10 @@
           "$69.1B"
         ],
         [
+          "Mkt cap",
+          "$69.1B"
+        ],
+        [
           "Industry",
           "Automobiles"
         ],
@@ -3716,6 +3932,10 @@
         [
           "Prev. close",
           "$208.73"
+        ],
+        [
+          "Mkt cap",
+          "$413.2B"
         ],
         [
           "Mkt cap",
@@ -3805,6 +4025,10 @@
           "$223.9B"
         ],
         [
+          "Mkt cap",
+          "$223.9B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -3842,6 +4066,10 @@
         [
           "Prev. close",
           "$77.55"
+        ],
+        [
+          "Mkt cap",
+          "$30.0B"
         ],
         [
           "Mkt cap",
@@ -3931,6 +4159,10 @@
           "$15.9B"
         ],
         [
+          "Mkt cap",
+          "$15.9B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -3968,6 +4200,10 @@
         [
           "Prev. close",
           "$11.35"
+        ],
+        [
+          "Mkt cap",
+          "$16.2B"
         ],
         [
           "Mkt cap",
@@ -4125,6 +4361,10 @@
           "$172.9B"
         ],
         [
+          "Mkt cap",
+          "$172.9B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -4223,6 +4463,10 @@
           "$78.1B"
         ],
         [
+          "Mkt cap",
+          "$78.1B"
+        ],
+        [
           "Industry",
           "Technology"
         ],
@@ -4291,6 +4535,10 @@
         [
           "Prev. close",
           "$168.79"
+        ],
+        [
+          "Mkt cap",
+          "$254.8B"
         ],
         [
           "Mkt cap",
@@ -4444,6 +4692,10 @@
           "$3.5B"
         ],
         [
+          "Mkt cap",
+          "$3.5B"
+        ],
+        [
           "Industry",
           "Biotechnology"
         ],
@@ -4479,6 +4731,10 @@
         [
           "Prev. close",
           "$44.47"
+        ],
+        [
+          "Mkt cap",
+          "$1.6B"
         ],
         [
           "Mkt cap",
@@ -4570,6 +4826,10 @@
           "$41.0B"
         ],
         [
+          "Mkt cap",
+          "$41.0B"
+        ],
+        [
           "Industry",
           "Financial Services"
         ],
@@ -4609,6 +4869,10 @@
         [
           "Prev. close",
           "$27.94"
+        ],
+        [
+          "Mkt cap",
+          "$27.7B"
         ],
         [
           "Mkt cap",
