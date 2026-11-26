@@ -4102,39 +4102,39 @@
   },
   "stories": [
     {
-      "title": "The S&P 500 is headed to 8,200 — and downturns like this one are actually part of the reason, says JPMorgan",
-      "url": "https://www.marketwatch.com/story/the-s-p-500-is-headed-to-8-200-and-downturns-like-this-one-are-actually-part-of-the-reason-why-says-jpmorgan-b6acae4b?mod=mw_rss_topstories",
-      "summary": "While artificial intelligence is still being assessed based on capital expenditure, strategists argued it is time to look more at adoption.",
-      "outlet": "MarketWatch",
-      "time": "Wed 6:27 AM ET"
-    },
-    {
-      "title": "This strategist’s bond-trading model is outperforming by a wide margin. The Fed slowing the economy is a good thing, he argues",
-      "url": "https://www.marketwatch.com/story/this-strategists-bond-trading-model-is-outperforming-by-a-wide-margin-the-fed-slowing-the-economy-is-a-good-thing-he-argues-f39dfc5f?mod=mw_rss_topstories",
-      "summary": "Inflation and nominal growth have been way too high for too long, argues Michael Darda. Rather than criticizing the Fed for being hawkish, markets should applaud it and recommend it goes as far as necessary to slow…",
-      "outlet": "MarketWatch",
-      "time": "Wed 5:12 AM ET"
-    },
-    {
-      "title": "Kalshi daily volume of ‘perps’ trading begins to top its prediction markets",
-      "url": "https://www.cnbc.com/2026/11/24/kalshi-perps-volume-prediction-markets.html",
-      "summary": "The product, the first one beyond event contracts, was introduced in May.",
-      "outlet": "CNBC",
-      "time": "Tue 6:03 PM ET"
-    },
-    {
-      "title": "Trump Account contributions from friends and family pass $1 billion mark, Treasury says",
-      "url": "https://www.cnbc.com/2026/11/24/trump-accounts-family-contributions-billion.html",
-      "summary": "Trump Account contributions from friends and family have passed $1 billion, according to the Treasury Department. Here's what families need to know.",
-      "outlet": "CNBC",
-      "time": "Tue 5:18 PM ET"
-    },
-    {
-      "title": "Dow Brushes Off Tech Rout, Tariff Worries: Stock Market Today",
-      "url": "https://www.kiplinger.com/investing/stocks/dow-brushes-off-tech-rout-tariff-worries-stock-market-today",
-      "summary": "Markets were mixed Tuesday on AI and tariff worries, though Nike rose alongside several retail stocks ahead of Black Friday.",
+      "title": "5 Money Wins Retirees Can Be Grateful for This Thanksgiving",
+      "url": "https://www.kiplinger.com/retirement/happy-retirement/money-wins-retirees-can-be-grateful-for",
+      "summary": "Forget all the doom and gloom. Here are five reasons retirees can be thankful around the dinner table this holiday season.",
       "outlet": "Kiplinger",
-      "time": "Tue 4:13 PM ET"
+      "time": "Thu 6:30 AM ET"
+    },
+    {
+      "title": "Discover True Wealth Through Thanksgiving Life Lessons",
+      "url": "https://www.kiplinger.com/personal-finance/your-greatest-wealth-is-sitting-at-the-thanksgiving-table",
+      "summary": "True wealth goes far beyond money — it's the wisdom and memories we share. This Thanksgiving, ask your loved ones to share their priceless life lessons.",
+      "outlet": "Kiplinger",
+      "time": "Thu 6:00 AM ET"
+    },
+    {
+      "title": "Futures point to Black Friday gains for Wall Street as global markets welcome U.S. resilience.",
+      "url": "https://www.marketwatch.com/story/futures-point-to-black-friday-gains-for-wall-street-as-global-markets-welcome-u-s-resilience-ad6bcef2?mod=mw_rss_topstories",
+      "summary": "A rebound off lows for the S&P 500 on Wednesday calms bourses after AI wash out",
+      "outlet": "MarketWatch",
+      "time": "Thu 5:37 AM ET"
+    },
+    {
+      "title": "Nvidia's billion-dollar board bet: Who's protected as lawsuits mount?",
+      "url": "https://www.cnbc.com/2026/11/25/nvidias-billion-dollar-board-bet-whos-protected-as-lawsuits-mount.html",
+      "summary": "Nvidia's board is under investigation, and directors are already defendants in a shareholder lawsuit accusing them of failing to properly oversee the company.",
+      "outlet": "CNBC",
+      "time": "Wed 5:04 PM ET"
+    },
+    {
+      "title": "Inflation is still hot, fueled in part by the AI boom",
+      "url": "https://www.npr.org/2026/11/25/nx-s1-6053958/inflation-is-still-hot-fueled-in-part-by-the-ai-boom",
+      "summary": "The U.S. economy grew at a rapid clip during the summer and early fall, due in part to the artificial intelligence boom. That boom is also fueling higher inflation and rattling the stock market.",
+      "outlet": "NPR",
+      "time": "Wed 5:04 PM ET"
     },
     {
       "title": "Putting Socially Conscious Investments in 401(k) Plans Could Get Harder",
@@ -4144,8 +4144,8 @@
       "time": "Tue 2:29 PM ET"
     }
   ],
-  "storiesDate": "Wed 25 Nov 2026",
-  "lastStories": "2026-11-25",
+  "storiesDate": "Thu 26 Nov 2026",
+  "lastStories": "2026-11-26",
   "picksAt": "2026-11-25T15:05-05:00",
   "movers": {
     "up": [
