@@ -4457,25 +4457,39 @@
   },
   "stories": [
     {
-      "title": "5 Money Wins Retirees Can Be Grateful for This Thanksgiving",
-      "url": "https://www.kiplinger.com/retirement/happy-retirement/money-wins-retirees-can-be-grateful-for",
-      "summary": "Forget all the doom and gloom. Here are five reasons retirees can be thankful around the dinner table this holiday season.",
-      "outlet": "Kiplinger",
-      "time": "Thu 6:30 AM ET"
-    },
-    {
-      "title": "Discover True Wealth Through Thanksgiving Life Lessons",
-      "url": "https://www.kiplinger.com/personal-finance/your-greatest-wealth-is-sitting-at-the-thanksgiving-table",
-      "summary": "True wealth goes far beyond money — it's the wisdom and memories we share. This Thanksgiving, ask your loved ones to share their priceless life lessons.",
-      "outlet": "Kiplinger",
-      "time": "Thu 6:00 AM ET"
-    },
-    {
-      "title": "Futures point to Black Friday gains for Wall Street as global markets welcome U.S. resilience.",
-      "url": "https://www.marketwatch.com/story/futures-point-to-black-friday-gains-for-wall-street-as-global-markets-welcome-u-s-resilience-ad6bcef2?mod=mw_rss_topstories",
-      "summary": "A rebound off lows for the S&P 500 on Wednesday calms bourses after AI wash out",
+      "title": "Nvidia’s stock has tumbled 27% over one chaotic month. The next big test lies in the week ahead",
+      "url": "https://www.marketwatch.com/story/nvidias-stock-has-tumbled-27-over-one-chaotic-month-the-next-big-test-lies-in-the-week-ahead-06449777?mod=mw_rss_topstories",
+      "summary": "Jensen Huang faces tough questions from Congress this week. Good luck pinning him down, an analyst says.",
       "outlet": "MarketWatch",
-      "time": "Thu 5:37 AM ET"
+      "time": "Fri 7:01 AM ET"
+    },
+    {
+      "title": "Stocks look like a Black Friday bargain. Read the fine print.",
+      "url": "https://www.marketwatch.com/story/stocks-look-like-a-black-friday-bargain-read-the-fine-print-b6546539?mod=mw_rss_topstories",
+      "summary": "Analysts raised their profit forecasts for S&P 500 companies during the selloff. Plus, how to spot a bogus boutique and what Jensen Huang is doing in your 401(k).",
+      "outlet": "MarketWatch",
+      "time": "Fri 7:01 AM ET"
+    },
+    {
+      "title": "Cut Financial Advice Fees by Paying Only for Planning",
+      "url": "https://www.kiplinger.com/investing/wealth-management/save-money-on-financial-advice-pay-only-for-planning",
+      "summary": "If you need help with only some financial decisions rather than ongoing portfolio management, unbundling your financial advice can save thousands of dollars.",
+      "outlet": "Kiplinger",
+      "time": "Fri 6:00 AM ET"
+    },
+    {
+      "title": "How to Live Calmly, Despite Stock Market Whiplash",
+      "url": "https://www.nytimes.com/2026/11/27/business/nvidia-jensen-huang-trump-markets.html",
+      "summary": "Nvidia has been down, up, and down again, and the market has followed. But there’s no need for long-term, diversified investors to alter their course, our columnist says.",
+      "outlet": "The New York Times",
+      "time": "Fri 5:02 AM ET"
+    },
+    {
+      "title": "Record spending expected on Black Friday",
+      "url": "https://www.npr.org/2026/11/27/nx-s1-6047460/record-spending-expected-on-black-friday",
+      "summary": "Americans are expected to spend more money on Black Friday than any other day this year. How is inflation and the current economic situation affecting that?",
+      "outlet": "NPR",
+      "time": "Fri 4:45 AM ET"
     },
     {
       "title": "Nvidia's billion-dollar board bet: Who's protected as lawsuits mount?",
@@ -4483,24 +4497,10 @@
       "summary": "Nvidia's board is under investigation, and directors are already defendants in a shareholder lawsuit accusing them of failing to properly oversee the company.",
       "outlet": "CNBC",
       "time": "Wed 5:04 PM ET"
-    },
-    {
-      "title": "Inflation is still hot, fueled in part by the AI boom",
-      "url": "https://www.npr.org/2026/11/25/nx-s1-6053958/inflation-is-still-hot-fueled-in-part-by-the-ai-boom",
-      "summary": "The U.S. economy grew at a rapid clip during the summer and early fall, due in part to the artificial intelligence boom. That boom is also fueling higher inflation and rattling the stock market.",
-      "outlet": "NPR",
-      "time": "Wed 5:04 PM ET"
-    },
-    {
-      "title": "Putting Socially Conscious Investments in 401(k) Plans Could Get Harder",
-      "url": "https://www.nytimes.com/2026/11/24/your-money/401k-esg-rules.html",
-      "summary": "The Labor Department has, once again, proposed a rule that may discourage workplace retirement plans from adding investment options based on environmental and social considerations.",
-      "outlet": "The New York Times",
-      "time": "Tue 2:29 PM ET"
     }
   ],
-  "storiesDate": "Thu 26 Nov 2026",
-  "lastStories": "2026-11-26",
+  "storiesDate": "Fri 27 Nov 2026",
+  "lastStories": "2026-11-27",
   "picksAt": "2026-11-26T15:05-05:00",
   "movers": {
     "up": [
