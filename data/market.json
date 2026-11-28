@@ -4562,32 +4562,39 @@
   },
   "stories": [
     {
-      "title": "Nvidia’s stock has tumbled 27% over one chaotic month. The next big test lies in the week ahead",
-      "url": "https://www.marketwatch.com/story/nvidias-stock-has-tumbled-27-over-one-chaotic-month-the-next-big-test-lies-in-the-week-ahead-06449777?mod=mw_rss_topstories",
-      "summary": "Jensen Huang faces tough questions from Congress this week. Good luck pinning him down, an analyst says.",
-      "outlet": "MarketWatch",
-      "time": "Fri 7:01 AM ET"
-    },
-    {
-      "title": "Stocks look like a Black Friday bargain. Read the fine print.",
-      "url": "https://www.marketwatch.com/story/stocks-look-like-a-black-friday-bargain-read-the-fine-print-b6546539?mod=mw_rss_topstories",
-      "summary": "Analysts raised their profit forecasts for S&P 500 companies during the selloff. Plus, how to spot a bogus boutique and what Jensen Huang is doing in your 401(k).",
-      "outlet": "MarketWatch",
-      "time": "Fri 7:01 AM ET"
-    },
-    {
-      "title": "Cut Financial Advice Fees by Paying Only for Planning",
-      "url": "https://www.kiplinger.com/investing/wealth-management/save-money-on-financial-advice-pay-only-for-planning",
-      "summary": "If you need help with only some financial decisions rather than ongoing portfolio management, unbundling your financial advice can save thousands of dollars.",
+      "title": "In Private Markets, the IPO Is the Exit, Not the Entry",
+      "url": "https://www.kiplinger.com/investing/ipos/private-market-investing-the-ipo-is-the-exit-not-the-entry",
+      "summary": "Most of a company's growth happens long before its public debut, so buying into a hyped IPO usually means you're just helping early investors cash out.",
       "outlet": "Kiplinger",
-      "time": "Fri 6:00 AM ET"
+      "time": "Sat 6:00 AM ET"
+    },
+    {
+      "title": "I hate that Jensen Huang is back at Nvidia, but I love what it’s done for my 401(k). Am I a hypocrite?",
+      "url": "https://www.marketwatch.com/story/i-hate-that-jensen-huang-is-back-at-nvidia-but-i-love-what-its-done-for-my-401-k-am-i-a-hypocrite-f63c0303?mod=mw_rss_topstories",
+      "summary": "Doing nothing and maintaining an even temperament is often the work of gods.",
+      "outlet": "MarketWatch",
+      "time": "Fri 6:30 PM ET"
     },
     {
       "title": "How to Live Calmly, Despite Stock Market Whiplash",
       "url": "https://www.nytimes.com/2026/11/27/business/nvidia-jensen-huang-trump-markets.html",
       "summary": "Nvidia has been down, up, and down again, and the market has followed. But there’s no need for long-term, diversified investors to alter their course, our columnist says.",
       "outlet": "The New York Times",
-      "time": "Fri 5:02 AM ET"
+      "time": "Fri 5:16 PM ET"
+    },
+    {
+      "title": "Dow Adds 592 Points on Black Friday as AI Fear Fades: Stock Market Today",
+      "url": "https://www.kiplinger.com/investing/stocks/dow-adds-592-points-on-black-friday-as-ai-fear-fades-stock-market-today",
+      "summary": "A rally that started late during Wednesday's trading session followed through all the way into the Thanksgiving weekend.",
+      "outlet": "Kiplinger",
+      "time": "Fri 1:11 PM ET"
+    },
+    {
+      "title": "Nvidia's billion-dollar board bet: Who's protected as lawsuits mount?",
+      "url": "https://www.cnbc.com/2026/11/25/nvidias-billion-dollar-board-bet-whos-protected-as-lawsuits-mount.html",
+      "summary": "Nvidia's board is under investigation, and directors are already defendants in a shareholder lawsuit accusing them of failing to properly oversee the company.",
+      "outlet": "CNBC",
+      "time": "Fri 9:47 AM ET"
     },
     {
       "title": "Record spending expected on Black Friday",
@@ -4595,17 +4602,10 @@
       "summary": "Americans are expected to spend more money on Black Friday than any other day this year. How is inflation and the current economic situation affecting that?",
       "outlet": "NPR",
       "time": "Fri 4:45 AM ET"
-    },
-    {
-      "title": "Nvidia's billion-dollar board bet: Who's protected as lawsuits mount?",
-      "url": "https://www.cnbc.com/2026/11/25/nvidias-billion-dollar-board-bet-whos-protected-as-lawsuits-mount.html",
-      "summary": "Nvidia's board is under investigation, and directors are already defendants in a shareholder lawsuit accusing them of failing to properly oversee the company.",
-      "outlet": "CNBC",
-      "time": "Wed 5:04 PM ET"
     }
   ],
-  "storiesDate": "Fri 27 Nov 2026",
-  "lastStories": "2026-11-27",
+  "storiesDate": "Sat 28 Nov 2026",
+  "lastStories": "2026-11-28",
   "picksAt": "2026-11-27T15:05-05:00",
   "movers": {
     "up": [
